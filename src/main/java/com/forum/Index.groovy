@@ -11,6 +11,6 @@ class Index {
     }
     @RequestMapping('/red')
     red(){
-        return '/red-skins.html'
+        return '/index.html'
     }
 }
