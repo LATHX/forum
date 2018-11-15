@@ -9,4 +9,8 @@ class Index {
     index(){
         return '/faq.html'
     }
+    @RequestMapping('/red')
+    red(){
+        return '/red-skins.html'
+    }
 }
