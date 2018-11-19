@@ -14,7 +14,7 @@ import java.util.Map
 import java.util.Base64
 /**
  * @author LJL
- * @Description Generate RSA Key
+ * @Description 生成RSA密钥和公钥
  * @version 1.0
  */
 
@@ -37,7 +37,7 @@ class RSACryptoServiceProvider {
     }
 
     /**
-     * @Description Generate Key With Base64 And Set Key Size 1024
+     * @Description 生成公钥和密钥并用Base64加密
      */
     static void generateKeyPair() throws NoSuchAlgorithmException {
         KeyPairGenerator keyPairGen = KeyPairGenerator.getInstance("RSA")
@@ -52,7 +52,10 @@ class RSACryptoServiceProvider {
     }
 
     /**
-     * @Description RSA Public Key Encrypt
+     * @param str 需要加密的字符串
+     * @param publicKey 公钥
+     * @Description RSA公钥加密
+     * @return 加密后的字符串
      */
     private static String encryptWithPublicKey( String str, String publicKey ) throws Exception {
         byte[] decoded = Base64.getDecoder().decode(publicKey)
@@ -64,7 +67,10 @@ class RSACryptoServiceProvider {
     }
 
     /**
-     * @Description RSA Private Key Decrypt
+     * @param str 需要解密的字符串
+     * @param privateKey 密钥
+     * @Description RSA密钥解密
+     * @return 解密后的字符串
      */
     private static String decryptWithPrivateKey(String str, String privateKey) throws Exception {
         byte[] inputByte = Base64.getDecoder().decode(str.getBytes("UTF-8"))
