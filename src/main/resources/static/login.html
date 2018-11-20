@@ -28,7 +28,7 @@
 		          <div class="col-md-12">
 		          	<div class="control-wrapper">
 		            	<label for="password" class="control-label fa-label"><i class="fa fa-lock fa-medium"></i></label>
-		            	<input type="password" class="form-control" id="password" placeholder="密码" v-model="userpassword">
+		            	<input type="password" class="form-control" id="password" placeholder="密码" v-model="userPassword">
 		            </div>
 		          </div>
 		        </div>
@@ -36,7 +36,7 @@
                     <div class="col-md-12">
                         <div class="control-wrapper" id="loginCodeDiv">
                             <label for="password" class="control-label fa-label" id="loginCodeCoin"><i class="fa fa-key fa-medium"></i></label>
-                            <input type="button" class="form-control" value="点击验证" v-on:click="loginCode" id="loginCode">
+                            <input type="button" class="form-control" value="点击验证" v-model="loginCodeButton" v-on:click="loginCode" id="loginCode" :disabled="isLoginCodeActive">
                         </div>
                     </div>
                 </div>
@@ -84,8 +84,10 @@
         var vm = new Vue({
             el:'#app',
             data:{
-                userName:'123',
-                userpassword:''
+                userName:'',
+                userPassword:'',
+                isLoginCodeActive: false,
+                loginCodeButton: '点击验证'
             },
             methods:{
                 login:function(event){
@@ -93,7 +95,20 @@
                     alert(this.userName)
                 },
                 loginCode:function(event){
+                    var totalTime =5
                     alert('1')
+                    this.isLoginCodeActive = true
+
+                    var clock = window.setInterval(() => {
+                    totalTime--
+                    this.loginCodeButton=totalTime+'s后重新发送'
+                    if(totalTime == 0){
+                        window.clearInterval(clock);
+                        this.isLoginCodeActive = false
+                        this.loginCodeButton='点击验证'
+                        }
+                    },1000)
+
                 }
             }
         })
