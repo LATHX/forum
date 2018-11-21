@@ -3,6 +3,7 @@ package com.forum;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
+import com.forum.service.security.config.ApplicationStartup;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -23,6 +24,8 @@ public class DemoApplication {
         return new HttpMessageConverters(converter);
     }
     public static void main(String[] args) {
-        SpringApplication.run(DemoApplication.class, args);
+        SpringApplication springApplication = new SpringApplication(DemoApplication.class);
+        springApplication.addListeners(new ApplicationStartup());
+        springApplication.run(args);
     }
 }

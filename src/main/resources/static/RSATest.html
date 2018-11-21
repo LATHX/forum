@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script src="js/jsencrypt.min.js"></script>
+<script type="text/javascript">
+    var encrypt = new JSEncrypt();
+    encrypt.setPublicKey('MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCZYitq7OfctyOQd71UJZ+q4WM3MOW5km/XkVKjSAX3fk3SBOLGGn5hD+qdSVABRxOOeZQQYaEXPzA2HlZ/ZTSrN0o9UDBB6yRTZ6m3t+0bXrGNGIJL7nHcrFyaXao5E8K7JRlgeNItz8wjpzQpxFzuo1pHRYPgfbo9y7p3LkhmyQIDAQAB');
+    var encrypted = encrypt.encrypt('333');
+document.write(encrypted)
+</script>
+</html>
