@@ -1,3 +1,4 @@
 Redis:
 https://www.cnblogs.com/vianzhang/articles/7756231.html
 https://blog.csdn.net/liqingtx/article/details/60330555
+https://www.cnblogs.com/Amaris-Lin/p/7081422.html
