@@ -16,7 +16,7 @@ import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer
 import org.springframework.data.redis.serializer.StringRedisSerializer
 import redis.clients.jedis.JedisPoolConfig
 
-@Configuration
+//@Configuration
 @PropertySource("classpath:config/redis.properties")
 class RedisConfig {
     @Value("redis.pool.max-idle")

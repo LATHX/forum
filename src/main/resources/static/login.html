@@ -76,6 +76,8 @@
 		      </div>
 		</div>
 	</div>
+    <!--<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>-->
+
     <script src="js/vue.min.js"></script>
     <script src="js/md5.js"></script>
     <script src="js/customs.js"></script>
@@ -87,29 +89,34 @@
             data:{
                 userName:'',
                 userPassword:'',
-                isLoginCodeActive: false,
-                loginCodeButton: '点击验证'
+                isLoginCodeActive:false,
+                loginCodeButton: '点击验证',
+                totalTimes:5,
+                totalTime:0
             },
             methods:{
                 login:function(event){
-                    this.userName = strToMD5(this.userName)
-                    alert(this.userName)
+                    this.userName = strToMD5(this.userName);
+                    alert(this.userName);
                 },
-                loginCode:function(event){
-                    var totalTime =5
-                    alert('1')
-                    this.isLoginCodeActive = true
-
-                    var clock = window.setInterval(() => {
-                    totalTime--
-                    this.loginCodeButton=totalTime+'s后重新发送'
-                    if(totalTime == 0){
-                        window.clearInterval(clock);
-                        this.isLoginCodeActive = false
-                        this.loginCodeButton='点击验证'
-                        }
-                    },1000)
-
+                beforeCreate:function(){
+                    window.intervalObj="";
+                },
+                countdown:function(){
+                    this.isLoginCodeActive = true;
+                    if(this.totalTime <= 0){
+                        this.isLoginCodeActive = false;
+                        this.loginCodeButton='点击验证';
+                        window.clearInterval(intervalObj);
+                        }else{
+                        this.totalTime = this.totalTime-1;
+                        this.loginCodeButton=(this.totalTime+"s后重新发送");
+                    }
+                },
+                loginCode:function () {
+                    var that = this
+                    this.totalTime = this.totalTimes
+                    window.intervalObj=setInterval(()=>that.countdown(),1000);
                 }
             }
         })
