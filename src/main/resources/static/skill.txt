@@ -2,3 +2,6 @@ Redis:
 https://www.cnblogs.com/vianzhang/articles/7756231.html
 https://blog.csdn.net/liqingtx/article/details/60330555
 https://www.cnblogs.com/Amaris-Lin/p/7081422.html
+
+https://blog.csdn.net/plei_yue/article/details/79362372
+https://www.cnblogs.com/zeng1994/p/03303c805731afc9aa9c60dbbd32a323.html

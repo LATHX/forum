@@ -1,4 +1,4 @@
-package com.forum.util
+package com.forum.utils
 
 class ValidationUtil {
 }
