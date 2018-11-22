@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component
 class LoginInfo {
     String username
     String password
-    String loginCode
+    String token
     String publicKey
     MessageCodeInfo msg
 
@@ -26,12 +26,12 @@ class LoginInfo {
         this.password = password
     }
 
-    String getLoginCode() {
-        return loginCode
+    String getToken() {
+        return token
     }
 
-    void setLoginCode(String loginCode) {
-        this.loginCode = loginCode
+    void setToken(String token) {
+        this.token = token
     }
 
     String getPublicKey() {

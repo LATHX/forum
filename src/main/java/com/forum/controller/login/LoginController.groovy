@@ -15,9 +15,9 @@ class LoginController {
     RSACryptoServiceProvider RSACryptoServiceProvider
     @Autowired
     LoginInfo loginInfo
-    @PostMapping('/loginCode')
+    @PostMapping('/token')
     @ResponseBody
-    loginCodeSender(@RequestParam String str){
+    token(@RequestParam String str){
         loginInfo.setPublicKey(RSACryptoServiceProvider.getPublickey())
         return loginInfo
     }

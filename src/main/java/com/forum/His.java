@@ -11,8 +11,7 @@ public class His {
     private LoginInfo loginInfo;
     @GetMapping("r")
     public LoginInfo f(){
-        loginInfo.setLoginCode("!23");
-        loginInfo.setPassword("123");
+        loginInfo.setPassword("121311");
         return loginInfo;
     }
 }
