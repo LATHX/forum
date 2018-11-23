@@ -1,6 +1,7 @@
-package com.forum.service.security.config
+package com.forum.service.config
 
 import com.forum.service.security.encrypt.RSACryptoServiceProvider
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.ApplicationListener
 import org.springframework.context.event.ContextRefreshedEvent
 

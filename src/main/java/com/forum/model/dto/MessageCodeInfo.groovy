@@ -1,5 +1,8 @@
 package com.forum.model.dto
 
+import org.springframework.stereotype.Component
+
+@Component
 class MessageCodeInfo {
     String msgCode
     String msgInfo
