@@ -112,7 +112,8 @@ public class RedisConfig extends CachingConfigurerSupport {
         genericObjectPoolConfig.setMaxWaitMillis(6000);
         return genericObjectPoolConfig;
     }
-    @Bean LettuceConnectionFactory lettuceConnectionFactory(GenericObjectPoolConfig genericObjectPoolConfig) {
+    @Bean
+    LettuceConnectionFactory lettuceConnectionFactory(GenericObjectPoolConfig genericObjectPoolConfig) {
         // 单机版配置
          RedisStandaloneConfiguration redisStandaloneConfiguration = new RedisStandaloneConfiguration();
         redisStandaloneConfiguration.setDatabase(database);
