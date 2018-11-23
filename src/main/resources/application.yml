@@ -10,7 +10,7 @@ spring:
     password: A63631234
     database: 0
     timeout: 60s
-    host: 120.77.40.38
+    host: 127.0.0.1
     port: 6379
     #开启集群版至少要三主三从
     #cluster:
