@@ -6,3 +6,19 @@ spring:
       suffix: .html
   thymeleaf:
     cache: false
+  redis:
+    password: A63631234
+    database: 0
+    timeout: 60s
+    host: 120.77.40.38
+    port: 6379
+    #开启集群版至少要三主三从
+    #cluster:
+      #nodes: 127.0.0.1:6379
+      #max-redirects: 3
+    lettuce:
+          pool:
+            max-active: -1 # 连接池最大连接数（使用负值表示没有限制）
+            max-idle: 100 # 连接池中的最大空闲连接
+            min-idle: 50 # 连接池中的最小空闲连接
+            max-wait: 60s # 连接池最大阻塞等待时间（使用负值表示没有限制）
