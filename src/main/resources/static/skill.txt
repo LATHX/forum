@@ -5,3 +5,11 @@ https://www.cnblogs.com/Amaris-Lin/p/7081422.html
 
 https://blog.csdn.net/plei_yue/article/details/79362372
 https://www.cnblogs.com/zeng1994/p/03303c805731afc9aa9c60dbbd32a323.html
+https://www.cnblogs.com/zeng1994/p/03303c805731afc9aa9c60dbbd32a323.html
+https://www.cnblogs.com/gdpuzxs/p/7222309.html
+
+Spring 2.0 (Lettuce)连接
+https://blog.csdn.net/lx1309244704/article/details/80696235
+https://blog.csdn.net/z960339491/article/details/80521851
+http://www.cnblogs.com/xymBlog/p/9303032.html
+https://blog.battcn.com/2018/05/11/springboot/v2-nosql-redis/

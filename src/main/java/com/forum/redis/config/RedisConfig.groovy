@@ -1,5 +1,6 @@
 package com.forum.redis.config
 
+import org.apache.commons.pool2.impl.GenericObjectPoolConfig
 import org.springframework.boot.autoconfigure.AutoConfigureAfter
 import org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration;
 
@@ -96,6 +97,15 @@ public class RedisConfig extends CachingConfigurerSupport {
         redisTemplate.setHashValueSerializer(jackson2JsonRedisSerializer);// Hash value序列化
         redisTemplate.afterPropertiesSet();
         return redisTemplate;
+    }
+    @Bean
+    public GenericObjectPoolConfig genericObjectPoolConfig() {
+        GenericObjectPoolConfig genericObjectPoolConfig = new GenericObjectPoolConfig();
+        genericObjectPoolConfig.setMaxIdle(100);
+        genericObjectPoolConfig.setMinIdle(5);
+        genericObjectPoolConfig.setMaxTotal(5);
+        genericObjectPoolConfig.setMaxWaitMillis(6000);
+        return genericObjectPoolConfig;
     }
 
 
