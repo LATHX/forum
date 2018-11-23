@@ -102,7 +102,7 @@ public class RedisConfig extends CachingConfigurerSupport {
         redisTemplate.setHashValueSerializer(jackson2JsonRedisSerializer);// Hash value序列化
         redisTemplate.afterPropertiesSet();
         return redisTemplate;
-    }
+    }/*
     @Bean
     public GenericObjectPoolConfig genericObjectPoolConfig() {
         GenericObjectPoolConfig genericObjectPoolConfig = new GenericObjectPoolConfig();
@@ -111,15 +111,16 @@ public class RedisConfig extends CachingConfigurerSupport {
         genericObjectPoolConfig.setMaxTotal(5);
         genericObjectPoolConfig.setMaxWaitMillis(6000);
         return genericObjectPoolConfig;
-    }
+    }*/
+    /*
     @Bean
     LettuceConnectionFactory lettuceConnectionFactory(GenericObjectPoolConfig genericObjectPoolConfig) {
         // 单机版配置
          RedisStandaloneConfiguration redisStandaloneConfiguration = new RedisStandaloneConfiguration();
-        redisStandaloneConfiguration.setDatabase(database);
-        redisStandaloneConfiguration.setHostName(host);
-        redisStandaloneConfiguration.setPort(port);
-        redisStandaloneConfiguration.setPassword(RedisPassword.of(password));
+        redisStandaloneConfiguration.setDatabase(0);
+        redisStandaloneConfiguration.setHostName('127.0.0.1');
+        redisStandaloneConfiguration.setPort(6379);
+        redisStandaloneConfiguration.setPassword(RedisPassword.of('A63631234'));
         // 集群版配置
         //        RedisClusterConfiguration redisClusterConfiguration = new RedisClusterConfiguration();
         //        String[] serverArray = clusterNodes.split(",");
@@ -134,7 +135,7 @@ public class RedisConfig extends CachingConfigurerSupport {
          LettuceClientConfiguration clientConfig = LettucePoolingClientConfiguration.builder() .commandTimeout(Duration.ofMillis(timeout)) .poolConfig(genericObjectPoolConfig) .build();
          LettuceConnectionFactory factory = new LettuceConnectionFactory(redisStandaloneConfiguration,clientConfig);
          return factory;
-         }
+         }*/
 
 
 }
