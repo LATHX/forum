@@ -36,7 +36,7 @@
                     <div class="col-md-12">
                         <div class="control-wrapper" id="loginCodeDiv">
                             <label for="password" class="control-label fa-label" id="loginCodeCoin"><i class="fa fa-key fa-medium"></i></label>
-                            <input type="button" class="form-control" value="点击验证" v-model="loginCodeButton" v-on:click="loginCode" id="loginCode" :disabled="isLoginCodeActive">
+                            <input type="button" class="form-control" v-bind:class="[loginCodeClass]" value="点击验证" v-model="loginCodeButton" v-on:click="loginCode" id="loginCode" :disabled="isLoginCodeActive">
                         </div>
                     </div>
                 </div>
@@ -79,6 +79,7 @@
     <!--<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>-->
 
     <script src="js/vue.min.js"></script>
+	<script src="js/vue-resource.js"></script>
     <script src="js/md5.js"></script>
     <script src="js/customs.js"></script>
     <script src="js/jquery-1.8.3.min.js"></script>
@@ -92,6 +93,9 @@
                 isLoginCodeActive:false,
                 loginCodeButton: '点击验证',
                 totalTimes:5,
+                msgInfo:'',
+                token:'',
+                loginCodeClass:'btn-primary',
                 totalTime:0
             },
             methods:{
@@ -103,20 +107,38 @@
                     window.intervalObj="";
                 },
                 countdown:function(){
-                    this.isLoginCodeActive = true;
                     if(this.totalTime <= 0){
                         this.isLoginCodeActive = false;
                         this.loginCodeButton='点击验证';
+                        this.loginCodeClass='btn-primary'
                         window.clearInterval(intervalObj);
+                        this.msgInfo=''
                         }else{
                         this.totalTime = this.totalTime-1;
-                        this.loginCodeButton=(this.totalTime+"s后重新发送");
+                        this.loginCodeClass='btn btn-danger'
+                        this.loginCodeButton=(this.msgInfo+this.totalTime+"s后重新发送");
                     }
                 },
                 loginCode:function () {
-                    var that = this
-                    this.totalTime = this.totalTimes
-                    window.intervalObj=setInterval(()=>that.countdown(),1000);
+                    var that = this;
+                    this.isLoginCodeActive = true;
+                    this.totalTime = this.totalTimes;
+                    this.loginCodeButton='正在验证'
+                        //发送 post 请求
+                        this.$http.post('/token',{},{emulateJSON:true}).then(function(res){
+                            var ret = (new Function("return " + res.data))();
+                            if(ret.msg.msgCode == '201'){
+                                this.loginCodeButton=ret.msg.msgInfo
+                                this.loginCodeClass='btn-success'
+                            }else{
+                                this.msgInfo=ret.msg.msgInfo+","
+                                window.intervalObj=setInterval(()=>that.countdown(),1000);
+                            }
+                        },function(res){
+
+                            console.log(JSON.parse(res.status));
+                        });
+
                 }
             }
         })

@@ -6,6 +6,7 @@ import com.forum.model.dto.LoginInfo
 import com.forum.model.dto.MessageCodeInfo
 import com.forum.service.security.encrypt.RSACryptoServiceProvider
 import com.forum.service.service.LoginService
+import com.forum.utils.CommonUtil
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.GetMapping
@@ -25,11 +26,13 @@ class LoginController {
     MessageCodeInfo messageCodeInfo
     @Autowired
     LoginService loginService
+    @Autowired
+    CommonUtil util
 
-    @GetMapping('/token')
+    @PostMapping('/token')
     @ResponseBody
-    token(HttpServletRequest request){
-        String code = loginService.getToken(request.getLocalAddr())
+    token(HttpServletRequest request){String s = util.getRealIP(request)
+        String code = loginService.getToken(util.getRealIP(request))
         if(code == (GlobalCode.LOGIN_CODE_FREQUENT)){
             messageCodeInfo.setMsgCode(GlobalCode.LOGIN_CODE_FREQUENT)
             messageCodeInfo.setMsgInfo(Constant.LOGIN_CODE_FREQUENT_MSG)
