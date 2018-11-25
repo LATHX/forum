@@ -119,7 +119,7 @@
                         this.loginCodeClass='btn-primary'
                         window.clearInterval(intervalObj);
                         this.msgInfo=''
-                        }else{
+                    }else{
                         this.totalTime = this.totalTime-1;
                         this.loginCodeClass='btn btn-danger'
                         this.loginCodeButton=(this.msgInfo+this.totalTime+"s后重新发送");
@@ -195,7 +195,7 @@
                     var that = this;
                     this.totalTime = this.totalTimes;
                     this.loginCodeButton='正在验证'
-                        //发送 post 请求
+                    //发送 post 请求
                     $.ajax({
                         type:"POST",
                         url:" /token",
