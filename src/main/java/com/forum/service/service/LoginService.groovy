@@ -2,8 +2,10 @@ package com.forum.service.service
 
 import com.forum.global.Constant
 import com.forum.global.GlobalCode
+import com.forum.model.dto.LoginInfo
 import com.forum.redis.util.RedisUtil
 import com.forum.service.config.GenerateToken
+import com.forum.service.security.encrypt.RSACryptoServiceProvider
 import com.forum.utils.CommonUtil
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
@@ -11,11 +13,29 @@ import org.springframework.stereotype.Service
 @Service
 class LoginService {
     @Autowired
+    RSACryptoServiceProvider RSACryptoServiceProvider
+    @Autowired
     RedisUtil redisUtil
     @Autowired
     GenerateToken generateToken
     @Autowired
     CommonUtil util
+
+    String validationLoginInfo(String ip, LoginInfo loginInfo){
+        String a = RSACryptoServiceProvider.decrypt(loginInfo.getPassword())
+        loginInfo.setPassword(RSACryptoServiceProvider.decrypt(loginInfo.getPassword()))
+        boolean hasKey = redisUtil.hasKey(ip)
+        if(!hasKey){
+            return GlobalCode.LOGIN_CODE_FAIL
+        }else{
+            redisUtil.del(ip)
+        }
+        if(loginInfo.username == '123' && loginInfo.password=='202cb962ac59075b964b07152d234b70'){
+            return GlobalCode.LOGIN_VERIFY_OK
+        }
+        return GlobalCode.LOGIN_VERIFY_FAIL
+    }
+
     String getToken(String ip){
         if(redisUtil.hasKey(Constant.UUID_REDIS_QUEUE_NAME) == false) {
             generateToken.generateUUIDQuence()

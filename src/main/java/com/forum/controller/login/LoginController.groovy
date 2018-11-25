@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.ResponseBody
 
@@ -28,6 +29,30 @@ class LoginController {
     LoginService loginService
     @Autowired
     CommonUtil util
+
+    @RequestMapping('main')
+    main(){
+        return 'index.html'
+    }
+
+    @PostMapping('/login')
+    @ResponseBody
+    login(HttpServletRequest request, LoginInfo info){
+        String code = loginService.validationLoginInfo(util.getRealIP(request), info)
+        if(code == GlobalCode.LOGIN_CODE_FAIL){
+            messageCodeInfo.setMsgCode(GlobalCode.LOGIN_CODE_FAIL)
+            messageCodeInfo.setMsgInfo(Constant.LOGIN_CODE_TIMEOUT_MSG)
+            loginInfo.setMsg(messageCodeInfo)
+        }else if(code == GlobalCode.LOGIN_VERIFY_FAIL){
+            messageCodeInfo.setMsgCode(GlobalCode.LOGIN_VERIFY_FAIL)
+            messageCodeInfo.setMsgInfo(Constant.LOGIN_VERIFY_FAIL_MSG)
+            loginInfo.setMsg(messageCodeInfo)
+        }else if(code == GlobalCode.LOGIN_VERIFY_OK){
+            messageCodeInfo.setMsgCode(GlobalCode.LOGIN_VERIFY_OK)
+            loginInfo.setMsg(messageCodeInfo)
+        }
+        return loginInfo
+    }
 
     @PostMapping('/token')
     @ResponseBody

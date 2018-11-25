@@ -12,4 +12,6 @@ class Constant {
     final static String LOGIN_CODE_FREQUENT_MSG = '验证过于频繁'
     final static String LOGIN_CODE_FAIL_MSG = '验证失败'
     final static String LOGIN_CODE_SUCCESS_MSG = '验证通过'
+    final static String LOGIN_CODE_TIMEOUT_MSG = '验证超时，请重新认证'
+    final static String LOGIN_VERIFY_FAIL_MSG = '用户名或密码不正确'
 }
