@@ -120,24 +120,38 @@
                     }
                 },
                 loginCode:function () {
-                    var that = this;
                     this.isLoginCodeActive = true;
+                    var that = this;
                     this.totalTime = this.totalTimes;
                     this.loginCodeButton='正在验证'
                         //发送 post 请求
-                        this.$http.post('/token',{},{emulateJSON:true}).then(function(res){
-                            var ret = (new Function("return " + res.data))();
+                    $.ajax({
+                        type:"POST",
+                        url:" /token",
+                        dataType:"json",
+                        timeout : 5000,
+                        success:function(ret){
                             if(ret.msg.msgCode == '201'){
-                                this.loginCodeButton=ret.msg.msgInfo
-                                this.loginCodeClass='btn-success'
+                                that.loginCodeButton=ret.msg.msgInfo
+                                that.loginCodeClass='btn-success'
                             }else{
-                                this.msgInfo=ret.msg.msgInfo+","
+                                that.msgInfo=ret.msg.msgInfo+","
                                 window.intervalObj=setInterval(()=>that.countdown(),1000);
                             }
-                        },function(res){
-
-                            console.log(JSON.parse(res.status));
-                        });
+                        },
+                        complete: function (XMLHttpRequest, textStatus) {
+                            if(textStatus == 'timeout'){
+                                that.loginCodeClass='btn btn-danger'
+                                that.isLoginCodeActive = false;
+                                that.loginCodeButton=("连接超时，请稍后再试");
+                            }
+                        },
+                        error:function(jqXHR){
+                            that.loginCodeClass='btn btn-danger'
+                            that.isLoginCodeActive = false;
+                            that.loginCodeButton=("服务器繁忙，请稍后再试");
+                        }
+                    });
 
                 }
             }
