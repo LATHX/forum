@@ -15,3 +15,10 @@ http://www.cnblogs.com/xymBlog/p/9303032.html
 https://blog.battcn.com/2018/05/11/springboot/v2-nosql-redis/
 
 ！！https://blog.csdn.net/wangh92/article/details/81736820
+
+
+MyCat配置详解
+https://www.cnblogs.com/fxwl/p/7990906.html
+
+Mybatis
+https://blog.csdn.net/winter_chen001/article/details/77249029
