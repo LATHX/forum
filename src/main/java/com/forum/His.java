@@ -18,8 +18,7 @@ public class His {
     private Test test;
     @GetMapping("r")
     public String f(){
-
-        System.out.println( (this.test.findPsw().getUsername()));
+        System.out.println( (this.test.selectAll().get(0).getUsername()));
         redisUtil.set("k", "kkkk111");
         loginInfo.setPassword("121311");
         return redisUtil.get("k").toString();
