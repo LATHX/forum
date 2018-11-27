@@ -29,6 +29,8 @@ class LoginController {
     LoginService loginService
     @Autowired
     CommonUtil util
+    @Autowired
+    Constant constant
 
     @RequestMapping('main')
     main(){
@@ -60,7 +62,7 @@ class LoginController {
         String code = loginService.getToken(util.getRealIP(request))
         if(code == (GlobalCode.LOGIN_CODE_FREQUENT)){
             messageCodeInfo.setMsgCode(GlobalCode.LOGIN_CODE_FREQUENT)
-            messageCodeInfo.setMsgInfo(Constant.LOGIN_CODE_FREQUENT_MSG)
+            messageCodeInfo.setMsgInfo(constant.LOGIN_CODE_FREQUENT_MSG)
             loginInfo.setMsg(messageCodeInfo)
         }else if(code == (GlobalCode.LOGIN_CODE_FAIL)){
             messageCodeInfo.setMsgCode(GlobalCode.LOGIN_CODE_FREQUENT)
