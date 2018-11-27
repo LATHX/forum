@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component
 class GlobalCode {
     String LOGIN_VERIFY_OK
     String LOGIN_CODE_OK
-
     String LOGIN_VERIFY_FAIL
     String LOGIN_CODE_FAIL
     String LOGIN_CODE_FREQUENT
