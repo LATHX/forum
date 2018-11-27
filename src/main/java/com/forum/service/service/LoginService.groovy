@@ -20,6 +20,10 @@ class LoginService {
     GenerateToken generateToken
     @Autowired
     CommonUtil util
+    @Autowired
+    Constant Constant
+    @Autowired
+    GlobalCode GlobalCode
 
     String validationLoginInfo(String ip, LoginInfo loginInfo){
         String a = RSACryptoServiceProvider.decrypt(loginInfo.getPassword())

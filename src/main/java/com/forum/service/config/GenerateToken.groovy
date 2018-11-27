@@ -12,6 +12,8 @@ class GenerateToken {
     RedisUtil redisUtil
     @Autowired
     CommonUtil commonUtil
+    @Autowired
+    Constant Constant
     void generateUUIDQuence(){
         int current_size = 0
         if(redisUtil.hasKey(Constant.UUID_REDIS_QUEUE_NAME) == false){

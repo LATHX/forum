@@ -10,16 +10,44 @@ import org.springframework.stereotype.Component
 @PropertySource('classpath:config/configuration.properties')
 @ConfigurationProperties(prefix = "msg")
 class Constant {
-    final static Integer UUID_REDIS_CACHE_SIZE = 4
-    final static String UUID_REDIS_QUEUE_NAME = 'token'
-    final static Integer UUID_REDIS_KEY_TIMEOUT = 5
+    Integer UUID_REDIS_CACHE_SIZE
+    Integer UUID_REDIS_KEY_TIMEOUT
+    String UUID_REDIS_QUEUE_NAME
     String LOGIN_CODE_FREQUENT_MSG
-    final static String LOGIN_CODE_FAIL_MSG = '验证失败'
-    final static String LOGIN_CODE_SUCCESS_MSG = '验证通过'
-    final static String LOGIN_CODE_TIMEOUT_MSG = '验证超时，请重新认证'
-    final static String LOGIN_VERIFY_FAIL_MSG = '用户名或密码不正确'
+    String LOGIN_CODE_FAIL_MSG
+    String LOGIN_CODE_SUCCESS_MSG
+    String LOGIN_CODE_TIMEOUT_MSG
+    String LOGIN_VERIFY_FAIL_MSG
+
+    void setUUID_REDIS_CACHE_SIZE(Integer UUID_REDIS_CACHE_SIZE) {
+        this.UUID_REDIS_CACHE_SIZE = UUID_REDIS_CACHE_SIZE
+    }
+
+    void setUUID_REDIS_KEY_TIMEOUT(Integer UUID_REDIS_KEY_TIMEOUT) {
+        this.UUID_REDIS_KEY_TIMEOUT = UUID_REDIS_KEY_TIMEOUT
+    }
+
+    void setUUID_REDIS_QUEUE_NAME(String UUID_REDIS_QUEUE_NAME) {
+        this.UUID_REDIS_QUEUE_NAME = UUID_REDIS_QUEUE_NAME
+    }
 
     void setLOGIN_CODE_FREQUENT_MSG(String LOGIN_CODE_FREQUENT_MSG) {
         this.LOGIN_CODE_FREQUENT_MSG = LOGIN_CODE_FREQUENT_MSG
+    }
+
+    void setLOGIN_CODE_FAIL_MSG(String LOGIN_CODE_FAIL_MSG) {
+        this.LOGIN_CODE_FAIL_MSG = LOGIN_CODE_FAIL_MSG
+    }
+
+    void setLOGIN_CODE_SUCCESS_MSG(String LOGIN_CODE_SUCCESS_MSG) {
+        this.LOGIN_CODE_SUCCESS_MSG = LOGIN_CODE_SUCCESS_MSG
+    }
+
+    void setLOGIN_CODE_TIMEOUT_MSG(String LOGIN_CODE_TIMEOUT_MSG) {
+        this.LOGIN_CODE_TIMEOUT_MSG = LOGIN_CODE_TIMEOUT_MSG
+    }
+
+    void setLOGIN_VERIFY_FAIL_MSG(String LOGIN_VERIFY_FAIL_MSG) {
+        this.LOGIN_VERIFY_FAIL_MSG = LOGIN_VERIFY_FAIL_MSG
     }
 }
