@@ -1,6 +1,10 @@
+server:
+  port: 8080
 spring:
+  main:
+    allow-bean-definition-overriding: true
   resources:
-        static-locations: classpath:/testStatic/,classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
+    static-locations: classpath:/testStatic/,classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
   mvc:
     view:
       suffix: .html
@@ -9,43 +13,47 @@ spring:
   redis:
     password: A63631234
     database: 0
-    timeout: 60s
+    timeout: 60000
     host: 127.0.0.1
     port: 6379
     #开启集群版至少要三主三从
     #cluster:
-      #nodes: 127.0.0.1:6379
-      #max-redirects: 3
+      #nodes:
+      #max-redirects:
     lettuce:
-          pool:
-            max-active: -1 # 连接池最大连接数（使用负值表示没有限制）
-            max-idle: 100 # 连接池中的最大空闲连接
-            min-idle: 50 # 连接池中的最小空闲连接
-            max-wait: 60s # 连接池最大阻塞等待时间（使用负值表示没有限制）
+      pool:
+        max-active: 50 # 连接池最大连接数（使用负值表示没有限制）
+        max-idle: 100 # 连接池中的最大空闲连接
+        min-idle: 50 # 连接池中的最小空闲连接
+        max-wait: 60000 # 连接池最大阻塞等待时间（使用负值表示没有限制）
   datasource:
-    name: test
-    url: jdbc:mysql://127.0.0.1:3306/depot
+    url: jdbc:mysql://127.0.0.1:8066/forum?useSSL=false&serverTimezone=UTC
     username: root
-    password: root
-    # 使用druid数据源
-    type: com.alibaba.druid.pool.DruidDataSource
+    password: 123456
     driver-class-name: com.mysql.jdbc.Driver
-    filters: stat
-    maxActive: 20
+    type: com.alibaba.druid.pool.DruidDataSource
     initialSize: 1
+    minIdle: 3
+    maxActive: 20
     maxWait: 60000
-    minIdle: 1
     timeBetweenEvictionRunsMillis: 60000
-    minEvictableIdleTimeMillis: 300000
+    minEvictableIdleTimeMillis: 30000
     validationQuery: select 'x'
     testWhileIdle: true
     testOnBorrow: false
     testOnReturn: false
     poolPreparedStatements: true
-    maxOpenPreparedStatements: 20
+    maxPoolPreparedStatementPerConnectionSize: 20
+    filters: stat,wall,slf4j
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+    useGlobalDataSourceStat: true
 ## 该配置节点为独立的节点，有很多同学容易将这个配置放在spring的节点下，导致配置无法被识别
 mybatis:
   mapper-locations: classpath:mapping/*.xml  #注意：一定要对应mapper映射xml文件的所在路径 type-aliases-package: com.winter.model # 注意：对应实体类的路径
+pagehelper:
+  autoDialect: true
+  closeConn: false
+  reasonable: true
 
 
 
