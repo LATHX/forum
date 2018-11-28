@@ -32,6 +32,10 @@ class LoginService {
         if(!hasKey){
             return GlobalCode.LOGIN_CODE_FAIL
         }else{
+            String token = redisUtil.get(ip)
+            if(token != loginInfo.getToken()){
+                return GlobalCode.LOGIN_CODE_FAIL
+            }
             redisUtil.del(ip)
         }
         if(loginInfo.username == '123' && loginInfo.password=='202cb962ac59075b964b07152d234b70'){

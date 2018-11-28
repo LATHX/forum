@@ -1,18 +1,8 @@
 package com.forum.model.entity
-
-class UserEntity {
-    Integer id
+class User {
     String sid
     String username
-    String pws
-
-    Integer getId() {
-        return id
-    }
-
-    void setId(Integer id) {
-        this.id = id
-    }
+    String psw
 
     String getSid() {
         return sid
@@ -30,11 +20,11 @@ class UserEntity {
         this.username = username
     }
 
-    String getPws() {
-        return pws
+    String getPsw() {
+        return psw
     }
 
-    void setPws(String pws) {
-        this.pws = pws
+    void setPsw(String psw) {
+        this.psw = psw
     }
 }

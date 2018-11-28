@@ -65,10 +65,14 @@ class LoginController {
         if(code == (GlobalCode.LOGIN_CODE_FREQUENT)){
             messageCodeInfo.setMsgCode(GlobalCode.LOGIN_CODE_FREQUENT)
             messageCodeInfo.setMsgInfo(Constant.LOGIN_CODE_FREQUENT_MSG)
+            loginInfo.setPublicKey(null)
+            loginInfo.setToken(null)
             loginInfo.setMsg(messageCodeInfo)
         }else if(code == (GlobalCode.LOGIN_CODE_FAIL)){
             messageCodeInfo.setMsgCode(GlobalCode.LOGIN_CODE_FREQUENT)
             messageCodeInfo.setMsgInfo(Constant.LOGIN_CODE_FAIL_MSG)
+            loginInfo.setPublicKey(null)
+            loginInfo.setToken(null)
             loginInfo.setMsg(messageCodeInfo)
         }else{
             messageCodeInfo.setMsgCode(GlobalCode.LOGIN_CODE_OK)
