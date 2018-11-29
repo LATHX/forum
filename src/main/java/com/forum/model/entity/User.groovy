@@ -1,4 +1,10 @@
 package com.forum.model.entity
+
+import javax.persistence.Entity
+import javax.persistence.Table
+
+@Entity
+@Table(name='f_user')
 class User {
     String sid
     String username
