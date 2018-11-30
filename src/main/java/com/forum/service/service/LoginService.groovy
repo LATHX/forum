@@ -7,6 +7,9 @@ import com.forum.redis.util.RedisUtil
 import com.forum.service.config.GenerateToken
 import com.forum.service.security.encrypt.RSACryptoServiceProvider
 import com.forum.utils.CommonUtil
+import org.apache.shiro.SecurityUtils
+import org.apache.shiro.authc.UsernamePasswordToken
+import org.apache.shiro.subject.Subject
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
@@ -26,8 +29,7 @@ class LoginService {
     GlobalCode GlobalCode
 
     String validationLoginInfo(String ip, LoginInfo loginInfo){
-        String a = RSACryptoServiceProvider.decrypt(loginInfo.getPassword())
-        loginInfo.setPassword(RSACryptoServiceProvider.decrypt(loginInfo.getPassword()))
+        loginInfo.setPassword(RSACryptoServiceProvider.decrypt(loginInfo.getPassword()).replaceFirst(loginInfo.token,''))
         boolean hasKey = redisUtil.hasKey(ip)
         if(!hasKey){
             return GlobalCode.LOGIN_CODE_FAIL
@@ -38,8 +40,14 @@ class LoginService {
             }
             redisUtil.del(ip)
         }
-        if(loginInfo.username == '123' && loginInfo.password=='202cb962ac59075b964b07152d234b70'){
+        Subject subject = SecurityUtils.getSubject();
+        UsernamePasswordToken token = new UsernamePasswordToken(loginInfo.getUsername(), loginInfo.getPassword());
+        try{
+            subject.login(token);
             return GlobalCode.LOGIN_VERIFY_OK
+        }catch(Exception e){
+            e.printStackTrace()
+            return GlobalCode.LOGIN_VERIFY_FAIL
         }
         return GlobalCode.LOGIN_VERIFY_FAIL
     }

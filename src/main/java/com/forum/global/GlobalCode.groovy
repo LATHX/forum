@@ -13,6 +13,35 @@ class GlobalCode {
     String LOGIN_VERIFY_FAIL
     String LOGIN_CODE_FAIL
     String LOGIN_CODE_FREQUENT
+    String LOGIN_PERMISSION
+
+    String getLOGIN_VERIFY_OK() {
+        return LOGIN_VERIFY_OK
+    }
+
+    String getLOGIN_CODE_OK() {
+        return LOGIN_CODE_OK
+    }
+
+    String getLOGIN_VERIFY_FAIL() {
+        return LOGIN_VERIFY_FAIL
+    }
+
+    String getLOGIN_CODE_FAIL() {
+        return LOGIN_CODE_FAIL
+    }
+
+    String getLOGIN_CODE_FREQUENT() {
+        return LOGIN_CODE_FREQUENT
+    }
+
+    String getLOGIN_PERMISSION() {
+        return LOGIN_PERMISSION
+    }
+
+    void setLOGIN_PERMISSION(String LOGIN_PERMISSION) {
+        this.LOGIN_PERMISSION = LOGIN_PERMISSION
+    }
 
     void setLOGIN_VERIFY_OK(String LOGIN_VERIFY_OK) {
         this.LOGIN_VERIFY_OK = LOGIN_VERIFY_OK

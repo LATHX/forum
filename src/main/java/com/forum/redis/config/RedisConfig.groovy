@@ -3,7 +3,9 @@ package com.forum.redis.config
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.boot.autoconfigure.AutoConfigureAfter
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration
+import org.springframework.boot.autoconfigure.data.redis.RedisProperties
 import org.springframework.context.annotation.Lazy
 import org.springframework.core.PriorityOrdered
 import org.springframework.data.redis.connection.RedisClusterConfiguration
@@ -12,6 +14,8 @@ import org.springframework.data.redis.connection.RedisPassword
 import org.springframework.data.redis.connection.RedisStandaloneConfiguration
 import org.springframework.data.redis.connection.lettuce.LettuceClientConfiguration
 import org.springframework.data.redis.connection.lettuce.LettucePoolingClientConfiguration
+import redis.clients.jedis.JedisPool
+import redis.clients.jedis.JedisPoolConfig
 
 import java.lang.reflect.Method
 import java.time.Duration
@@ -67,7 +71,7 @@ public class RedisConfig extends CachingConfigurerSupport{
     @Value('${spring.redis.host}')
     private String host
     @Value('${spring.redis.port}')
-    private String port
+    private Integer port
 //    @Value('${spring.redis.cluster.nodes}')
 //    private String clusterNodes
 //    @Value('${spring.redis.cluster.max-redirects}')
@@ -106,7 +110,12 @@ public class RedisConfig extends CachingConfigurerSupport{
         return builder.build()
     }
 
-
+    @Bean
+    @ConditionalOnMissingBean(JedisPool.class)
+    public JedisPool jedisPool(RedisProperties redisProperties) {
+        JedisPoolConfig poolConfig = new JedisPoolConfig();
+        return new JedisPool(poolConfig, host, port, timeout, password);
+    }
     /**
      * RedisTemplate配置
      */
@@ -139,6 +148,7 @@ public class RedisConfig extends CachingConfigurerSupport{
         genericObjectPoolConfig.setMaxWaitMillis(maxWait)
         return genericObjectPoolConfig
     }
+
 /*
     @Bean()
     LettuceConnectionFactory lettuceConnectionFactory(GenericObjectPoolConfig genericObjectPoolConfig) {
