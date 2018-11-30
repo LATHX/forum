@@ -20,6 +20,15 @@ class Constant {
     String LOGIN_VERIFY_FAIL_MSG
     String LOGIN_PERMISSION_MSG
     String LOGIN_OUT_MSG
+    String LOGIN_PAGE
+
+    String getLOGIN_PAGE() {
+        return LOGIN_PAGE
+    }
+
+    void setLOGIN_PAGE(String LOGIN_PAGE) {
+        this.LOGIN_PAGE = LOGIN_PAGE
+    }
 
     Integer getUUID_REDIS_CACHE_SIZE() {
         return UUID_REDIS_CACHE_SIZE

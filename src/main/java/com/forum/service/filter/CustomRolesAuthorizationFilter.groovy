@@ -61,26 +61,35 @@ class CustomRolesAuthorizationFilter extends RolesAuthorizationFilter{
         }
         servletResponse.setCharacterEncoding("UTF-8");
         Subject subject = getSubject(request, response);
-        PrintWriter printWriter = servletResponse.getWriter();
         servletResponse.setContentType("application/json;charset=UTF-8");
         servletResponse.setHeader("Access-Control-Allow-Origin", servletRequest.getHeader("Origin"));
         servletResponse.setHeader("Access-Control-Allow-Credentials", "true");
         servletResponse.setHeader("Vary", "Origin");
         String respStr;
-        if (subject.getPrincipal() == null) {
-            messageCodeInfo.setMsgCode(GlobalCode.LOGIN_VERIFY_FAIL)
-            messageCodeInfo.setMsgInfo(Constant.LOGIN_OUT_MSG)
-            loginInfo.setMsg(messageCodeInfo)
-            respStr = JSONObject.toJSONString(loginInfo);
-        } else {
-            messageCodeInfo.setMsgCode(GlobalCode.LOGIN_PERMISSION)
-            messageCodeInfo.setMsgInfo(Constant.LOGIN_PERMISSION_MSG)
-            loginInfo.setMsg(messageCodeInfo)
-            respStr = JSONObject.toJSONString(loginInfo);
+        if(request.getParameter('target') == 'json'){
+            PrintWriter printWriter = servletResponse.getWriter();
+            loginInfo.setPublicKey('')
+            loginInfo.setToken('')
+            loginInfo.setPassword('')
+            if (subject.getPrincipal() == null) {
+                messageCodeInfo.setMsgCode(GlobalCode.LOGIN_VERIFY_FAIL)
+                messageCodeInfo.setMsgInfo(Constant.LOGIN_OUT_MSG)
+                loginInfo.setMsg(messageCodeInfo)
+                respStr = JSONObject.toJSONString(loginInfo);
+            } else {
+                messageCodeInfo.setMsgCode(GlobalCode.LOGIN_PERMISSION)
+                messageCodeInfo.setMsgInfo(Constant.LOGIN_PERMISSION_MSG)
+                loginInfo.setMsg(messageCodeInfo)
+                respStr = JSONObject.toJSONString(loginInfo);
+            }
+            printWriter.write(respStr);
+            printWriter.flush();
+            servletResponse.setHeader("content-Length", respStr.getBytes().length + "");
+        }else{
+            HttpServletResponse resp = (HttpServletResponse) response;
+            resp.sendRedirect(Constant.LOGIN_PAGE)
         }
-        printWriter.write(respStr);
-        printWriter.flush();
-        servletResponse.setHeader("content-Length", respStr.getBytes().length + "");
+
         return false;
     }
 }

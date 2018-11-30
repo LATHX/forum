@@ -7,7 +7,9 @@ import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.realm.Realm;
 import org.apache.shiro.session.mgt.SessionManager;
 import org.apache.shiro.spring.LifecycleBeanPostProcessor;
-import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
+import org.apache.shiro.spring.web.ShiroFilterFactoryBean
+import org.apache.shiro.web.filter.authc.FormAuthenticationFilter
+import org.apache.shiro.web.mgt.CookieRememberMeManager;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.apache.shiro.web.servlet.SimpleCookie;
 import org.apache.shiro.web.session.mgt.DefaultWebSessionManager;
@@ -29,7 +31,7 @@ import javax.servlet.Filter;
 @Configuration
 class WebSecureConfig {
     private String CACHE_KEY = 'shiro:cache:'
-    private String SESSION_KEY = 'shiro:session:'
+    private String SESSION_KEY = 'shiro:session:*'
     private String NAME = 'custom.name'
     private String VALUE = '/'
     @Bean
@@ -51,6 +53,7 @@ class WebSecureConfig {
     @Bean("securityManager")
     public SecurityManager securityManager(Realm realm, SessionManager sessionManager, RedisCacheManager redisCacheManager) {
         DefaultWebSecurityManager manager = new DefaultWebSecurityManager();
+        manager.setRememberMeManager(rememberMeManager());
         manager.setSessionManager(sessionManager);
         manager.setCacheManager(redisCacheManager);
         manager.setRealm(realm);
@@ -137,6 +140,48 @@ class WebSecureConfig {
         realm.setAuthenticationCachingEnabled(false);
         realm.setAuthorizationCachingEnabled(false);
         return realm;
+    }
+    /**
+     * cookie对象;会话Cookie模板 ,默认为: JSESSIONID 问题: 与SERVLET容器名冲突,重新定义为sid或rememberMe，自定义
+     * @return
+     */
+    @Bean
+    public SimpleCookie rememberMeCookie(){
+        //这个参数是cookie的名称，对应前端的checkbox的name = rememberMe
+        SimpleCookie simpleCookie = new SimpleCookie("rememberMe");
+        //setcookie的httponly属性如果设为true的话，会增加对xss防护的安全系数。它有以下特点：
+
+        //setcookie()的第七个参数
+        //设为true后，只能通过http访问，javascript无法访问
+        //防止xss读取cookie
+        simpleCookie.setHttpOnly(true);
+        simpleCookie.setPath("/");
+        //<!-- 记住我cookie生效时间7天 ,单位秒;-->
+        simpleCookie.setMaxAge(60*60*24*7);
+        return simpleCookie;
+    }
+    /**
+     * cookie管理对象;记住我功能,rememberMe管理器
+     * @return
+     */
+    @Bean
+    public CookieRememberMeManager rememberMeManager(){
+        CookieRememberMeManager cookieRememberMeManager = new CookieRememberMeManager();
+        cookieRememberMeManager.setCookie(rememberMeCookie());
+        //rememberMe cookie加密的密钥 建议每个项目都不一样 默认AES算法 密钥长度(128 256 512 位)
+        cookieRememberMeManager.setCipherKey(Base64?.getDecoder().decode("4AvVhmFLUs0KTA3Kprsdag=="));
+        return cookieRememberMeManager;
+    }
+    /**
+     * FormAuthenticationFilter 过滤器 过滤记住我
+     * @return
+     */
+    @Bean
+    public FormAuthenticationFilter formAuthenticationFilter(){
+        FormAuthenticationFilter formAuthenticationFilter = new FormAuthenticationFilter();
+        //对应前端的checkbox的name = rememberMe
+        formAuthenticationFilter.setRememberMeParam("rememberMe");
+        return formAuthenticationFilter;
     }
 
     String getRedis_host() {

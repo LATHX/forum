@@ -6,6 +6,7 @@ import com.forum.mapper.UserMapper
 import com.forum.model.entity.RoleEntity
 import com.forum.model.entity.UserEntity
 import org.apache.commons.beanutils.BeanUtils
+import org.apache.shiro.SecurityUtils
 import org.apache.shiro.authc.AuthenticationException
 import org.apache.shiro.authc.AuthenticationInfo
 import org.apache.shiro.authc.AuthenticationToken
@@ -14,7 +15,12 @@ import org.apache.shiro.authc.UsernamePasswordToken
 import org.apache.shiro.authz.AuthorizationInfo
 import org.apache.shiro.authz.SimpleAuthorizationInfo
 import org.apache.shiro.realm.AuthorizingRealm
+import org.apache.shiro.session.Session
 import org.apache.shiro.subject.PrincipalCollection
+import org.apache.shiro.subject.SimplePrincipalCollection
+import org.apache.shiro.subject.support.DefaultSubjectContext
+import org.apache.shiro.web.mgt.DefaultWebSecurityManager
+import org.apache.shiro.web.session.mgt.DefaultWebSessionManager
 import org.springframework.beans.factory.annotation.Autowired
 
 class PasswordRealm extends AuthorizingRealm{
@@ -64,6 +70,7 @@ class PasswordRealm extends AuthorizingRealm{
         DefaultWebSessionManager sessionManager = (DefaultWebSessionManager) securityManager.getSessionManager();
         //获取当前已登录的用户session列表
         Collection<Session> sessions = sessionManager.getSessionDAO().getActiveSessions();
+        def obj = sessionManager.getSessionDAO()
         UserEntity temp;
         for(Session session : sessions){
             //清除该用户以前登录时保存的session，强制退出
@@ -76,8 +83,8 @@ class PasswordRealm extends AuthorizingRealm{
             if(username.equals(temp.getUsername())) {
                 sessionManager.getSessionDAO().delete(session);
             }
-        }*/
-
+        }
+*/
         String password = user.getPassword();
         //最后的比对需要交给安全管理器,三个参数进行初步的简单认证信息对象的包装,由安全管理器进行包装运行
         return new SimpleAuthenticationInfo(user, password, getName());

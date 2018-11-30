@@ -114,7 +114,7 @@ public class RedisConfig extends CachingConfigurerSupport{
     @ConditionalOnMissingBean(JedisPool.class)
     public JedisPool jedisPool(RedisProperties redisProperties) {
         JedisPoolConfig poolConfig = new JedisPoolConfig();
-        return new JedisPool(poolConfig, host, port, timeout, password);
+        return new JedisPool(poolConfig, host, port?.intValue(), timeout?.intValue(), password);
     }
     /**
      * RedisTemplate配置

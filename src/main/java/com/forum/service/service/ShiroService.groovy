@@ -44,8 +44,8 @@ class ShiroService{
         NON_AUTHEMTICATE?.split(',')?.each {
             filterChainDefinitionMap.put(it, "anon")
         }
-
-        filterChainDefinitionMap.put("/**", "authc");
+        //其他资源都需要认证  authc 表示需要认证才能进行访问 ,user表示配置记住我或认证通过可以访问的地址
+        filterChainDefinitionMap.put("/**", "user");
         return filterChainDefinitionMap;
     }
 
