@@ -7,6 +7,7 @@ import com.forum.model.dto.MessageCodeInfo
 import com.forum.service.security.encrypt.RSACryptoServiceProvider
 import com.forum.service.service.LoginService
 import com.forum.utils.CommonUtil
+import com.sun.deploy.net.HttpResponse
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.GetMapping
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.ResponseBody
 
 import javax.servlet.http.HttpServletRequest
+import javax.servlet.http.HttpServletResponse
 
 @Controller
 class LoginController {
@@ -82,5 +84,9 @@ class LoginController {
             loginInfo.setToken(code)
         }
         return loginInfo
+    }
+    @RequestMapping('/loginpage')
+    loginPage(HttpServletResponse response){
+        response.sendRedirect(Constant.LOGIN_PAGE)
     }
 }

@@ -1,5 +1,6 @@
 package com.forum.service.config
 
+import com.forum.global.Constant
 import com.forum.service.filter.CustomRolesAuthorizationFilter
 import com.forum.service.security.realm.PasswordRealm
 import com.forum.service.service.ShiroService
@@ -17,6 +18,7 @@ import org.crazycake.shiro.RedisCacheManager;
 import org.crazycake.shiro.RedisManager;
 import org.crazycake.shiro.RedisSessionDAO;
 import org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
@@ -42,6 +44,7 @@ class WebSecureConfig {
         filterMap.put("roles", rolesAuthorizationFilter());
         shiroFilter.setFilters(filterMap);
         shiroFilter.setFilterChainDefinitionMap(shiroService.loadFilterChainDefinitions());
+        shiroFilter.setLoginUrl('/loginpage')
         return shiroFilter;
     }
 
@@ -59,7 +62,6 @@ class WebSecureConfig {
         manager.setRealm(realm);
         return manager;
     }
-
 
     @Bean("defaultAdvisorAutoProxyCreator")
     @DependsOn("lifecycleBeanPostProcessor")
