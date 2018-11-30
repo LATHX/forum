@@ -41,7 +41,7 @@ class LoginService {
             redisUtil.del(ip)
         }
         Subject subject = SecurityUtils.getSubject();
-        UsernamePasswordToken token = new UsernamePasswordToken(loginInfo.getUsername(), loginInfo.getPassword());
+        UsernamePasswordToken token = new UsernamePasswordToken(loginInfo.getUsername(), loginInfo.getPassword(),false);
         try{
             subject.login(token);
             return GlobalCode.LOGIN_VERIFY_OK
