@@ -1,12 +1,19 @@
 package com.forum.model.dto
 
+import com.forum.model.validationInterface.LoginGroup
 import org.springframework.stereotype.Component
+
+import javax.validation.constraints.NotBlank
 
 @Component
 class LoginInfo {
+    @NotBlank(message = '{login.username.blank}', groups = [LoginGroup.class])
     String username
+    @NotBlank(message = '{login.password.blank}', groups = [LoginGroup.class])
     String password
+    @NotBlank(message = '{login.token.blank}', groups = [LoginGroup.class])
     String token
+    @NotBlank(message = '{login.publicKey.blank}', groups = [LoginGroup.class])
     String publicKey
     MessageCodeInfo msg
 

@@ -57,5 +57,8 @@ pagehelper:
   autoDialect: true
   closeConn: false
   reasonable: true
+loggin:
+  config: classpath:config/log/logback-spring.xml
+  path: classpath:log
 
 

@@ -33,7 +33,7 @@ import javax.servlet.Filter;
 @Configuration
 class WebSecureConfig {
     private String CACHE_KEY = 'shiro:cache:'
-    private String SESSION_KEY = 'shiro:session:*'
+    private String SESSION_KEY = 'shiro:session:'
     private String NAME = 'custom.name'
     private String VALUE = '/'
     @Bean

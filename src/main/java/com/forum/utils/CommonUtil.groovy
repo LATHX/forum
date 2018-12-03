@@ -4,6 +4,7 @@ import com.forum.global.Constant
 import com.forum.global.GlobalCode
 import com.forum.redis.util.RedisUtil
 import com.forum.service.config.GenerateToken
+import org.aspectj.lang.JoinPoint
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 
@@ -65,6 +66,26 @@ class CommonUtil {
          return ip;
             }
         return request.getRemoteAddr();
+    }
+
+    static String getArgs(JoinPoint joinPoint){
+        String s = 'Arg -> '
+        joinPoint?.eachWithIndex { current_join,index ->
+            s += '('+index+')'+current_join
+        }
+        return  s
+    }
+    static String getExceptionDetail(Exception e) {
+        try {
+            StringWriter sw = new StringWriter()
+            PrintWriter pw = new PrintWriter(sw)
+            e.printStackTrace(pw)
+            sw.close();
+            pw.close();
+            return sw.toString()
+        } catch (Exception e2) {
+            return "ErrorInfoFromException";
+        }
     }
 
 }

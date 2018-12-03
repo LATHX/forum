@@ -1,6 +1,7 @@
 package com.forum.utils
 
 import com.forum.model.entity.UserEntity
+import org.apache.shiro.subject.Subject
 import org.crazycake.shiro.RedisSessionDAO
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.Authenticator;
@@ -9,7 +10,8 @@ import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.SimplePrincipalCollection;
 import org.apache.shiro.subject.support.DefaultSubjectContext;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
-import org.crazycake.shiro.RedisSessionDAO;
+import org.crazycake.shiro.RedisSessionDAO
+import org.springframework.stereotype.Component;
 
 import java.util.Collection;
 import java.util.Objects;
@@ -70,5 +72,10 @@ class ShiroUtil {
         Authenticator authc = securityManager.getAuthenticator();
         //删除cache，在访问受限接口时会重新授权
         ((LogoutAware) authc).onLogout((SimplePrincipalCollection) attribute);
+    }
+    static String getUser(){
+        UserEntity temp = (UserEntity)SecurityUtils?.getSubject()?.getPrincipal()
+        if(temp == null) return 'Guest Login'
+        return temp.getUsername()
     }
 }

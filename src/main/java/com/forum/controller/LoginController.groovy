@@ -1,19 +1,22 @@
-package com.forum.controller.login
+package com.forum.controller
 
 import com.forum.global.Constant
 import com.forum.global.GlobalCode
 import com.forum.model.dto.LoginInfo
 import com.forum.model.dto.MessageCodeInfo
+import com.forum.model.validationInterface.LoginGroup
 import com.forum.service.security.encrypt.RSACryptoServiceProvider
 import com.forum.service.service.LoginService
 import com.forum.utils.CommonUtil
-import com.sun.deploy.net.HttpResponse
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
+import org.springframework.validation.BindingResult
+import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.ResponseBody
 
 import javax.servlet.http.HttpServletRequest
@@ -35,15 +38,22 @@ class LoginController {
     Constant Constant
     @Autowired
     GlobalCode GlobalCode
-
+    private final static Logger logger = LoggerFactory.getLogger(LoginController.class)
     @RequestMapping('main')
     main(){
         return 'index.html'
     }
 
-    @PostMapping('/login')
+    @GetMapping('/login')
     @ResponseBody
-    login(HttpServletRequest request, LoginInfo info){
+    login(HttpServletRequest request, @Validated(value = [LoginGroup.class]) LoginInfo info, BindingResult bindingResult)throws Exception{
+        1/0
+        if(bindingResult?.hasErrors()){
+            messageCodeInfo.setMsgCode(GlobalCode.LOGIN_CODE_FAIL)
+            messageCodeInfo.setMsgInfo(bindingResult?.getFieldError()?.getDefaultMessage())
+            loginInfo.setMsg(messageCodeInfo)
+            return loginInfo
+        }
         String code = loginService.validationLoginInfo(util.getRealIP(request), info)
         if(code == GlobalCode.LOGIN_CODE_FAIL){
             messageCodeInfo.setMsgCode(GlobalCode.LOGIN_CODE_FAIL)
@@ -62,7 +72,7 @@ class LoginController {
 
     @PostMapping('/token')
     @ResponseBody
-    token(HttpServletRequest request){String s = util.getRealIP(request)
+    token(HttpServletRequest request){
         String code = loginService.getToken(util.getRealIP(request))
         if(code == (GlobalCode.LOGIN_CODE_FREQUENT)){
             messageCodeInfo.setMsgCode(GlobalCode.LOGIN_CODE_FREQUENT)
@@ -87,6 +97,11 @@ class LoginController {
     }
     @RequestMapping('/loginpage')
     loginPage(HttpServletResponse response){
+        response.sendRedirect(Constant.LOGIN_PAGE)
+    }
+    @RequestMapping('/logout')
+    logout(HttpServletResponse response){
+        loginService.logout()
         response.sendRedirect(Constant.LOGIN_PAGE)
     }
 }

@@ -73,4 +73,10 @@ class LoginService {
         }
         return str
     }
+
+    void logout(){
+        Subject subject = SecurityUtils.getSubject();
+        println '11'
+        subject.logout();
+    }
 }
