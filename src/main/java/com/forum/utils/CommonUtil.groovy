@@ -19,7 +19,7 @@ class CommonUtil {
     synchronized String generateUUID(){
         return UUID.randomUUID()?.toString()?.replaceAll('-','')
     }
-    boolean notEmpty(Object data) {
+    static boolean notEmpty(Object data) {
         if (data == null)
             return false;
 
@@ -30,11 +30,11 @@ class CommonUtil {
         }
     }
 
-    boolean isNotEmpty(Object data) {
+    static boolean isNotEmpty(Object data) {
         return notEmpty(data)
     }
 
-    boolean isEmpty(Object data) {
+    static boolean isEmpty(Object data) {
         return (! notEmpty(data))
     }
     /**

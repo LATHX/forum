@@ -11,12 +11,13 @@ import org.apache.shiro.subject.SimplePrincipalCollection;
 import org.apache.shiro.subject.support.DefaultSubjectContext;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.crazycake.shiro.RedisSessionDAO
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Component
 
+import javax.servlet.http.HttpServletRequest
+import javax.servlet.http.HttpServletResponse;
 import java.util.Collection;
 import java.util.Objects;
 class ShiroUtil {
-    private static RedisSessionDAO redisSessionDAO = SpringUtil.getBean(RedisSessionDAO.class)
 
     /**
      * 获取指定用户名的Session
@@ -24,6 +25,7 @@ class ShiroUtil {
      * @return
      */
     private static Session getSessionByUsername(String username){
+        RedisSessionDAO redisSessionDAO = SpringUtil.getBean(RedisSessionDAO.class)
         Collection<Session> sessions = redisSessionDAO.getActiveSessions();
         UserEntity user;
         Object attribute;
@@ -49,6 +51,7 @@ class ShiroUtil {
      * @param isRemoveSession 是否删除session，删除后用户需重新登录
      */
     public static void kickOutUser(String username, boolean isRemoveSession){
+        RedisSessionDAO redisSessionDAO = SpringUtil.getBean(RedisSessionDAO.class)
         Session session = getSessionByUsername(username);
         if (session == null) {
             return;
@@ -74,8 +77,9 @@ class ShiroUtil {
         ((LogoutAware) authc).onLogout((SimplePrincipalCollection) attribute);
     }
     static String getUser(){
-        UserEntity temp = (UserEntity)SecurityUtils?.getSubject()?.getPrincipal()
-        if(temp == null) return 'Guest Login'
-        return temp.getUsername()
+        Object attribute = SecurityUtils.getSubject()?.getSession()?.getAttribute(DefaultSubjectContext.PRINCIPALS_SESSION_KEY)
+        UserEntity user = (UserEntity)((SimplePrincipalCollection) attribute)?.getPrimaryPrincipal()
+        if(user == null) return null
+        return user
     }
 }

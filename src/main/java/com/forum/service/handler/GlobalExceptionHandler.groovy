@@ -23,7 +23,7 @@ import javax.servlet.http.HttpServletRequest;
  * @date: 2018/10/29 17:40
  * @version: 1.0
  */
-@ControllerAdvice(annotations = {RestController.class})
+@ControllerAdvice(annotations = [RestController.class])
 class GlobalExceptionHandler {
     private Logger logger = LoggerFactory.getLogger(this.getClass());
     /**
@@ -46,7 +46,7 @@ class GlobalExceptionHandler {
      * @return
      * @throws Exception
      */
-    @ExceptionHandler(value = {HttpMessageNotReadableException.class, MissingServletRequestPartException.class ,MissingServletRequestParameterException.class, MultipartException.class})
+    @ExceptionHandler(value = [HttpMessageNotReadableException.class, MissingServletRequestPartException.class ,MissingServletRequestParameterException.class, MultipartException.class])
     @ResponseBody
     public String httpMessageNotReadableExceptionErrorHandler(HttpServletRequest request, Exception e) throws Exception {
         printLog(request,e,'Args Error');
@@ -59,12 +59,11 @@ class GlobalExceptionHandler {
      * @return
      * @throws Exception
      */
-    @ExceptionHandler(value = {HttpMediaTypeNotSupportedException.class})
+    @ExceptionHandler(value = [HttpMediaTypeNotSupportedException.class])
     @ResponseBody
-    public BaseView httpMediaTypeNotSupportedExceptionHandler(HttpServletRequest request, Exception e) throws Exception {
-        BaseView baseView =  new BaseView(CodeConstants.CONTENTTYPE_ERROR,CodeConstants.CONTENTTYPE_ERROR_MSG);
-        printLog(request,e,baseView);
-        return baseView;
+    public String httpMediaTypeNotSupportedExceptionHandler(HttpServletRequest request, Exception e) throws Exception {
+        printLog(request,e,'ContentType Error');
+        return 'ContentType Error'
     }
 
     /**
@@ -81,8 +80,8 @@ class GlobalExceptionHandler {
         logEntity.setIp(request.getRemoteAddr());
         logEntity.setArgs(CommonUtil.getArgs(request));
         logEntity.setLogType(900);
-        logEntity.setReqParams(JSONObject.toJSON(request.getParameterMap()));
-        logEntity.setRespParams(JSONObject.toJSON(s));
+        logEntity.setReqParams(request.getParameterMap()?.size()==0?'':JSONObject.toJSON(request.getParameterMap()));
+        logEntity.setRespParams(CommonUtil.isNotEmpty(s)?JSONObject.toJSON(s):'');
         logger.error(">>>"+JSONObject.toJSON(logEntity));
     }
 }

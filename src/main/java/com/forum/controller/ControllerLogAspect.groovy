@@ -15,7 +15,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes
 
-import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequest
+import javax.servlet.http.HttpServletResponse;
 /**
  * @describe: 实现controller的日志切面
  * @author: zhuchunwang
@@ -56,7 +57,7 @@ class ControllerLogAspect {
         webLogThreadLocal.get().setIp(request.getRemoteAddr());
         webLogThreadLocal.get().setArgs(CommonUtil.getArgs(joinPoint));
         webLogThreadLocal.get().setLogType('');
-        webLogThreadLocal.get().setReqParams(JSONObject.toJSON(request.getParameterMap()));
+        webLogThreadLocal.get().setReqParams(request.getParameterMap()?.size()==0?'':JSONObject.toJSON(request.getParameterMap()));
         webLogThreadLocal.get().setUser(ShiroUtil.getUser());
     }
     /**
