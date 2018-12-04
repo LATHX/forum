@@ -88,4 +88,13 @@ class CommonUtil {
         }
     }
 
+    static boolean isJsonRequest(HttpServletRequest request){
+        String accept = request.getHeader('accept')
+        if(accept == null) return false
+        if(accept.indexOf('json') !=-1 || accept.indexOf('text/javascript') != -1){
+            return true
+        }
+        return false
+    }
+
 }

@@ -5,6 +5,7 @@ import com.forum.global.Constant
 import com.forum.global.GlobalCode
 import com.forum.model.dto.LoginInfo
 import com.forum.model.dto.MessageCodeInfo
+import com.forum.utils.CommonUtil
 import org.apache.shiro.subject.Subject
 import org.apache.shiro.web.filter.authz.RolesAuthorizationFilter
 import org.springframework.beans.factory.annotation.Autowired
@@ -66,7 +67,7 @@ class CustomRolesAuthorizationFilter extends RolesAuthorizationFilter{
         servletResponse.setHeader("Access-Control-Allow-Credentials", "true");
         servletResponse.setHeader("Vary", "Origin");
         String respStr;
-        if(request.getParameter('target') == 'json'){
+        if(CommonUtil.isJsonRequest(request)){
             PrintWriter printWriter = servletResponse.getWriter();
             loginInfo.setPublicKey('')
             loginInfo.setToken('')

@@ -106,8 +106,7 @@ class RequestLimitAspect extends HandlerInterceptorAdapter{
             }
             if (count > LIMIT_COUNT) {
                 logger.info("User IP[" + ip + "]URL[" + url + "]more than times[" + LIMIT_COUNT + "]");
-                msg.setMsgInfo('刷新次数过多')
-               render(response,msg);
+               render(request, response);
                 return false;
             }
         }catch (RequestLimitException e){
@@ -124,9 +123,10 @@ class RequestLimitAspect extends HandlerInterceptorAdapter{
  * @param msg
  * @throws Exception
  */
-    void render(HttpServletResponse response, MessageCodeInfo msg) throws Exception{
-        response.setContentType("application/json;charset=UTF-8");
-        response.sendRedirect(LIMIT_PATH)
+    void render(HttpServletRequest request, HttpServletResponse response) throws Exception{
+//        response.setContentType("application/json;charset=UTF-8");
+//        response.sendRedirect(LIMIT_PATH)
+        request.getRequestDispatcher(LIMIT_PATH).forward(request, response)
     }
      void redisDel(String key){
         RedisUtil.del(key)

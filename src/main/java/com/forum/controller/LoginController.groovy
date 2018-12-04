@@ -42,9 +42,10 @@ class LoginController {
         return 'index.html'
     }
 
-    @PostMapping('/login')
+    @RequestMapping('/login')
     @ResponseBody
     login(HttpServletRequest request, @Validated(value = [LoginGroup.class]) LoginInfo info, BindingResult bindingResult)throws Exception{
+        String h = request.getHeader('accept')
         if(bindingResult?.hasErrors()){
             messageCodeInfo.setMsgCode(GlobalCode.LOGIN_CODE_FAIL)
             messageCodeInfo.setMsgInfo(bindingResult?.getFieldError()?.getDefaultMessage())
