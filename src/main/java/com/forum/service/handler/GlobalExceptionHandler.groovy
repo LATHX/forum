@@ -77,10 +77,10 @@ class GlobalExceptionHandler {
         LogEntity logEntity = new LogEntity();
         logEntity.setHttpMethod(request.getMethod());
         logEntity.setUrl(request.getRequestURL().toString());
-        logEntity.setIp(request.getRemoteAddr());
+        logEntity.setIp(CommonUtil.getRealIP(request));
         logEntity.setArgs(CommonUtil.getArgs(request));
         logEntity.setLogType(900);
-        logEntity.setReqParams(request.getParameterMap()?.size()==0?'':JSONObject.toJSON(request.getParameterMap()));
+//        logEntity.setReqParams(request.getParameterMap()?.size()==0?'':JSONObject.toJSON(request.getParameterMap()));
         logEntity.setRespParams(CommonUtil.isNotEmpty(s)?JSONObject.toJSON(s):'');
         logger.error(">>>"+JSONObject.toJSON(logEntity));
     }

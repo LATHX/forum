@@ -4,30 +4,29 @@ import com.alibaba.fastjson.JSONObject
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.forum.model.entity.LogEntity
+
 import com.forum.utils.CommonUtil
 import com.forum.utils.ShiroUtil;
 import org.aspectj.lang.JoinPoint
-import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.slf4j.LoggerFactory
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes
 
 import javax.servlet.http.HttpServletRequest
-import javax.servlet.http.HttpServletResponse
 import java.text.SimpleDateFormat;
 /**
  * @describe: 实现controller的日志切面
- * @author: zhuchunwang
+ * @author: LJL
  * @date: 2018/5/29 17:40
  * @version: 1.0
  */
 @Aspect
 @Component
-@Order(1)
+@Order(0)
 class ControllerLogAspect {
     private Logger logger = LoggerFactory.getLogger(this.getClass());
     ThreadLocal<Long> startTime = new ThreadLocal<>();
@@ -56,7 +55,7 @@ class ControllerLogAspect {
         webLogThreadLocal.get().setHttpMethod(request.getMethod());
         webLogThreadLocal.get().setClassMethod(joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
         webLogThreadLocal.get().setUrl(request.getRequestURL().toString());
-        webLogThreadLocal.get().setIp(request.getRemoteAddr());
+        webLogThreadLocal.get().setIp(CommonUtil.getRealIP(request));
         webLogThreadLocal.get().setArgs(CommonUtil.getArgs(joinPoint));
         webLogThreadLocal.get().setLogType('');
         webLogThreadLocal.get().setUser(ShiroUtil.getUser());

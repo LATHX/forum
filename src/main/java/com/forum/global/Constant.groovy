@@ -21,6 +21,15 @@ class Constant {
     String LOGIN_PERMISSION_MSG
     String LOGIN_OUT_MSG
     String LOGIN_PAGE
+    String LIMIT_MSG
+
+    String getLIMIT_MSG() {
+        return LIMIT_MSG
+    }
+
+    void setLIMIT_MSG(String LIMIT_MSG) {
+        this.LIMIT_MSG = LIMIT_MSG
+    }
 
     String getLOGIN_PAGE() {
         return LOGIN_PAGE
