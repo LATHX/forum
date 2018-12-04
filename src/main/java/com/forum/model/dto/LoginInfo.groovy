@@ -13,7 +13,7 @@ class LoginInfo {
     String password
     @NotBlank(message = '{login.token.blank}', groups = [LoginGroup.class])
     String token
-    @NotBlank(message = '{login.publicKey.blank}', groups = [LoginGroup.class])
+    @NotBlank(message = '{login.publicKey.blank}')
     String publicKey
     MessageCodeInfo msg
 

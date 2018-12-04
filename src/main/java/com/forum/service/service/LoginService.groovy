@@ -22,8 +22,6 @@ class LoginService {
     @Autowired
     GenerateToken generateToken
     @Autowired
-    CommonUtil util
-    @Autowired
     Constant Constant
     @Autowired
     GlobalCode GlobalCode
@@ -63,7 +61,7 @@ class LoginService {
             return GlobalCode.LOGIN_CODE_FREQUENT
         }
         String str = redisUtil.leftPopSet(Constant.UUID_REDIS_QUEUE_NAME)
-        if(util.isEmpty(str)){
+        if(CommonUtil.isEmpty(str)){
             return GlobalCode.LOGIN_CODE_FAIL
         }
         boolean keyFlag = redisUtil.set(ip, str)
@@ -76,7 +74,6 @@ class LoginService {
 
     void logout(){
         Subject subject = SecurityUtils.getSubject();
-        println '11'
         subject.logout();
     }
 }

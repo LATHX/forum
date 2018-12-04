@@ -16,7 +16,7 @@ class CommonUtil {
     RedisUtil redisUtil
     @Autowired
     GenerateToken generateToken
-    synchronized String generateUUID(){
+    static synchronized String generateUUID(){
         return UUID.randomUUID()?.toString()?.replaceAll('-','')
     }
     static boolean notEmpty(Object data) {
@@ -51,7 +51,7 @@ class CommonUtil {
      * @return
      */
 
-    String getRealIP(HttpServletRequest request){
+    static String getRealIP(HttpServletRequest request){
         String ip = request.getHeader("X-Forwarded-For");
         if (!isEmpty(ip) && !"unKnown".equalsIgnoreCase(ip)) {
             int index = ip.indexOf(",");

@@ -33,8 +33,6 @@ class LoginController {
     @Autowired
     LoginService loginService
     @Autowired
-    CommonUtil util
-    @Autowired
     Constant Constant
     @Autowired
     GlobalCode GlobalCode
@@ -44,17 +42,16 @@ class LoginController {
         return 'index.html'
     }
 
-    @GetMapping('/login')
+    @PostMapping('/login')
     @ResponseBody
     login(HttpServletRequest request, @Validated(value = [LoginGroup.class]) LoginInfo info, BindingResult bindingResult)throws Exception{
-        1/0
         if(bindingResult?.hasErrors()){
             messageCodeInfo.setMsgCode(GlobalCode.LOGIN_CODE_FAIL)
             messageCodeInfo.setMsgInfo(bindingResult?.getFieldError()?.getDefaultMessage())
             loginInfo.setMsg(messageCodeInfo)
             return loginInfo
         }
-        String code = loginService.validationLoginInfo(util.getRealIP(request), info)
+        String code = loginService.validationLoginInfo(CommonUtil.getRealIP(request), info)
         if(code == GlobalCode.LOGIN_CODE_FAIL){
             messageCodeInfo.setMsgCode(GlobalCode.LOGIN_CODE_FAIL)
             messageCodeInfo.setMsgInfo(Constant.LOGIN_CODE_TIMEOUT_MSG)
@@ -72,8 +69,8 @@ class LoginController {
 
     @PostMapping('/token')
     @ResponseBody
-    token(HttpServletRequest request){
-        String code = loginService.getToken(util.getRealIP(request))
+    token(HttpServletRequest request)throws Exception{
+        String code = loginService.getToken(CommonUtil.getRealIP(request))
         if(code == (GlobalCode.LOGIN_CODE_FREQUENT)){
             messageCodeInfo.setMsgCode(GlobalCode.LOGIN_CODE_FREQUENT)
             messageCodeInfo.setMsgInfo(Constant.LOGIN_CODE_FREQUENT_MSG)
@@ -96,11 +93,11 @@ class LoginController {
         return loginInfo
     }
     @RequestMapping('/loginpage')
-    loginPage(HttpServletResponse response){
+    loginPage(HttpServletResponse response)throws Exception{
         response.sendRedirect(Constant.LOGIN_PAGE)
     }
     @RequestMapping('/logout')
-    logout(HttpServletResponse response){
+    logout(HttpServletResponse response)throws Exception{
         loginService.logout()
         response.sendRedirect(Constant.LOGIN_PAGE)
     }
