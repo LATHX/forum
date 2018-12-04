@@ -23,3 +23,6 @@ https://www.cnblogs.com/fxwl/p/7990906.html
 Mybatis
 https://blog.csdn.net/winter_chen001/article/details/77249029
 https://www.cnblogs.com/waterlufei/p/7056420.html
+
+MQ and Firewall
+https://github.com/songwell1024/SecKill/tree/master/Seckill/src/main/java/com/springboot/SecKill
