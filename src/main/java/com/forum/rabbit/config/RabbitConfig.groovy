@@ -7,6 +7,8 @@ import org.springframework.context.annotation.Configuration
 @Configuration
 class RabbitConfig  {
     public static final String delay_queue = 'delay_queue'
+    public static final String DEAD_LETTER_EXCHANGE = 'dead_exchange'
+    public static final String DEAD_LETTER_ROUTING = 'dead_routing'
     //声明队列
     @Bean
     public Queue queue1() {
@@ -63,5 +65,33 @@ class RabbitConfig  {
         return BindingBuilder.bind(delayQueue()).to(delayExchange()).with("delay_queue").noargs();
     }
 
+    @Bean
+    public Queue maintainQueue() {
+        Map<String,Object> args=new HashMap<>();
+        // 设置该Queue的死信的信箱
+        args.put("x-dead-letter-exchange", DEAD_LETTER_EXCHANGE);
+        // 设置死信routingKey
+        args.put("x-dead-letter-routing-key", DEAD_LETTER_ROUTING);
+        return new Queue(DEAD_LETTER_ROUTING,true,false,false,args);
+    }
 
+    @Bean
+    public Binding maintainBinding() {
+        return BindingBuilder.bind(maintainQueue()).to(DirectExchange.DEFAULT)
+                .with(DEAD_LETTER_ROUTING);
+    }
+    @Bean
+    public Queue deadLetterQueue(){
+        return new Queue(DEAD_LETTER_EXCHANGE);
+    }
+
+    @Bean
+    public DirectExchange deadLetterExchange() {
+        return new DirectExchange(DEAD_LETTER_EXCHANGE, true, false);
+    }
+
+    @Bean
+    public Binding deadLetterBindding() {
+        return BindingBuilder.bind(deadLetterQueue()).to(deadLetterExchange()).with(DEAD_LETTER_EXCHANGE);
+    }
 }
