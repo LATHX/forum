@@ -26,3 +26,9 @@ https://www.cnblogs.com/waterlufei/p/7056420.html
 
 MQ and Firewall
 https://github.com/songwell1024/SecKill/tree/master/Seckill/src/main/java/com/springboot/SecKill
+!!https://www.jianshu.com/p/e1258c004314
+https://blog.csdn.net/ztx114/article/details/78410727
+https://blog.csdn.net/linsongbin1/article/details/80178122
+https://blog.csdn.net/xj90314/article/details/80422320
+https://blog.csdn.net/u013256816/article/details/54933065
+net stop RabbitMQ && net start RabbitMQ

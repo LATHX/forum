@@ -2,13 +2,13 @@ package com.forum.model.entity
 
 import org.crazycake.shiro.AuthCachePrincipal
 
-import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.Table
 
 @Entity
 @Table(name='f_user')
 class UserEntity implements Serializable, AuthCachePrincipal {
+    private static final long serialVersionUID=1L;
     String sid
     String username
     String password

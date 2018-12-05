@@ -1,27 +1,22 @@
 package com.forum.service.aspect
 
-import com.alibaba.fastjson.JSONObject
 import com.forum.model.dto.MessageCodeInfo
-
 import com.forum.redis.util.RedisUtil
 import com.forum.service.exception.RequestLimitException
 import com.forum.utils.CommonUtil
+import org.aspectj.lang.annotation.Aspect
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.context.properties.ConfigurationProperties
 import org.springframework.context.annotation.PropertySource
 import org.springframework.core.Ordered
 import org.springframework.core.annotation.Order
+import org.springframework.stereotype.Component
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter
 
-import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
-
-import org.aspectj.lang.annotation.Aspect
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component
-import com.github.pagehelper.util.StringUtil;
-
 /**
  * @author LJL
  * @date 2018年11月2日 下午2:22:43
@@ -31,6 +26,7 @@ import com.github.pagehelper.util.StringUtil;
 @Component
 @PropertySource('classpath:config/configuration.properties')
 @ConfigurationProperties(prefix = "http")
+@Order(Ordered.HIGHEST_PRECEDENCE)
 class RequestLimitAspect extends HandlerInterceptorAdapter{
     private static final Logger logger = LoggerFactory.getLogger(RequestLimitAspect.class)
     @Autowired
@@ -86,12 +82,12 @@ class RequestLimitAspect extends HandlerInterceptorAdapter{
             if(url.substring(url.lastIndexOf('/')+1) == 'limit'){
                 return true
             }
-            if (!RedisUtil.hasKey(key) || StringUtil.isEmpty(RedisUtil.get(key))) {
+            if (!RedisUtil.hasKey(key) || CommonUtil.isEmpty(RedisUtil.get(key))) {
                 RedisUtil.set(key,String.valueOf(1));
             } else {
                 Integer getValue = Integer.parseInt(RedisUtil.get(key))+1;
                 RedisUtil.set(key, String.valueOf(getValue));
-                RedisUtil.expire(key, LIMIT_TIMEOUT?.toLong())
+                RedisUtil.expire(key, (LIMIT_TIMEOUT/1000)?.toLong())
             }
             int count =Integer.parseInt(RedisUtil.get(key));
             if (count > 0) {

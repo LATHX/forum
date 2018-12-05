@@ -14,7 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.validation.BindingResult
 import org.springframework.validation.annotation.Validated
-import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.ResponseBody
@@ -37,31 +36,33 @@ class LoginController {
     @Autowired
     GlobalCode GlobalCode
     private final static Logger logger = LoggerFactory.getLogger(LoginController.class)
+
     @RequestMapping('main')
-    main(){
+    main() {
         return 'index.html'
     }
 
     @RequestMapping('/login')
     @ResponseBody
-    login(HttpServletRequest request, @Validated(value = [LoginGroup.class]) LoginInfo info, BindingResult bindingResult)throws Exception{
+    login(HttpServletRequest request,
+          @Validated(value = [LoginGroup.class]) LoginInfo info, BindingResult bindingResult) throws Exception {
         String h = request.getHeader('accept')
-        if(bindingResult?.hasErrors()){
+        if (bindingResult?.hasErrors()) {
             messageCodeInfo.setMsgCode(GlobalCode.LOGIN_CODE_FAIL)
             messageCodeInfo.setMsgInfo(bindingResult?.getFieldError()?.getDefaultMessage())
             loginInfo.setMsg(messageCodeInfo)
             return loginInfo
         }
         String code = loginService.validationLoginInfo(CommonUtil.getRealIP(request), info)
-        if(code == GlobalCode.LOGIN_CODE_FAIL){
+        if (code == GlobalCode.LOGIN_CODE_FAIL) {
             messageCodeInfo.setMsgCode(GlobalCode.LOGIN_CODE_FAIL)
             messageCodeInfo.setMsgInfo(Constant.LOGIN_CODE_TIMEOUT_MSG)
             loginInfo.setMsg(messageCodeInfo)
-        }else if(code == GlobalCode.LOGIN_VERIFY_FAIL){
+        } else if (code == GlobalCode.LOGIN_VERIFY_FAIL) {
             messageCodeInfo.setMsgCode(GlobalCode.LOGIN_VERIFY_FAIL)
             messageCodeInfo.setMsgInfo(Constant.LOGIN_VERIFY_FAIL_MSG)
             loginInfo.setMsg(messageCodeInfo)
-        }else if(code == GlobalCode.LOGIN_VERIFY_OK){
+        } else if (code == GlobalCode.LOGIN_VERIFY_OK) {
             messageCodeInfo.setMsgCode(GlobalCode.LOGIN_VERIFY_OK)
             loginInfo.setMsg(messageCodeInfo)
         }
@@ -70,21 +71,21 @@ class LoginController {
 
     @PostMapping('/token')
     @ResponseBody
-    token(HttpServletRequest request)throws Exception{
+    token(HttpServletRequest request) throws Exception {
         String code = loginService.getToken(CommonUtil.getRealIP(request))
-        if(code == (GlobalCode.LOGIN_CODE_FREQUENT)){
+        if (code == (GlobalCode.LOGIN_CODE_FREQUENT)) {
             messageCodeInfo.setMsgCode(GlobalCode.LOGIN_CODE_FREQUENT)
             messageCodeInfo.setMsgInfo(Constant.LOGIN_CODE_FREQUENT_MSG)
             loginInfo.setPublicKey(null)
             loginInfo.setToken(null)
             loginInfo.setMsg(messageCodeInfo)
-        }else if(code == (GlobalCode.LOGIN_CODE_FAIL)){
+        } else if (code == (GlobalCode.LOGIN_CODE_FAIL)) {
             messageCodeInfo.setMsgCode(GlobalCode.LOGIN_CODE_FREQUENT)
             messageCodeInfo.setMsgInfo(Constant.LOGIN_CODE_FAIL_MSG)
             loginInfo.setPublicKey(null)
             loginInfo.setToken(null)
             loginInfo.setMsg(messageCodeInfo)
-        }else{
+        } else {
             messageCodeInfo.setMsgCode(GlobalCode.LOGIN_CODE_OK)
             messageCodeInfo.setMsgInfo(Constant.LOGIN_CODE_SUCCESS_MSG)
             loginInfo.setPublicKey(RSACryptoServiceProvider.getPublickey())
@@ -93,12 +94,14 @@ class LoginController {
         }
         return loginInfo
     }
+
     @RequestMapping('/loginpage')
-    loginPage(HttpServletResponse response)throws Exception{
+    loginPage(HttpServletResponse response) throws Exception {
         response.sendRedirect(Constant.LOGIN_PAGE)
     }
+
     @RequestMapping('/logout')
-    logout(HttpServletResponse response)throws Exception{
+    logout(HttpServletResponse response) throws Exception {
         loginService.logout()
         response.sendRedirect(Constant.LOGIN_PAGE)
     }

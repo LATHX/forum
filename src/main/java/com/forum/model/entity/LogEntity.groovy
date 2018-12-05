@@ -1,5 +1,7 @@
 package com.forum.model.entity
+
 import com.forum.model.entity.UserEntity
+
 /**
  * @describe: 日志打印实体
  * @author: LJL

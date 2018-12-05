@@ -5,7 +5,7 @@ import javax.persistence.Table
 
 @Entity
 @Table(name = 'f_authority')
-class AuthorityEntity  implements Serializable{
+class AuthorityEntity implements Serializable {
     Integer authorityId
     String authorityName
     String icon

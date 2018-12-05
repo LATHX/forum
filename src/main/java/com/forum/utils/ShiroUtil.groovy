@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse;
 import java.util.Collection;
 import java.util.Objects;
+
 class ShiroUtil {
 
     /**
@@ -24,12 +25,12 @@ class ShiroUtil {
      * @param username
      * @return
      */
-    private static Session getSessionByUsername(String username){
+    private static Session getSessionByUsername(String username) {
         RedisSessionDAO redisSessionDAO = SpringUtil.getBean(RedisSessionDAO.class)
         Collection<Session> sessions = redisSessionDAO.getActiveSessions();
         UserEntity user;
         Object attribute;
-        for(Session session : sessions){
+        for (Session session : sessions) {
             attribute = session.getAttribute(DefaultSubjectContext.PRINCIPALS_SESSION_KEY);
             if (attribute == null) {
                 continue;
@@ -50,7 +51,7 @@ class ShiroUtil {
      * @param username 用户名
      * @param isRemoveSession 是否删除session，删除后用户需重新登录
      */
-     static void kickOutUser(String username, boolean isRemoveSession){
+    static void kickOutUser(String username, boolean isRemoveSession) {
         RedisSessionDAO redisSessionDAO = SpringUtil.getBean(RedisSessionDAO.class)
         Session session = getSessionByUsername(username);
         if (session == null) {
@@ -76,10 +77,11 @@ class ShiroUtil {
         //删除cache，在访问受限接口时会重新授权
         ((LogoutAware) authc).onLogout((SimplePrincipalCollection) attribute);
     }
-    static UserEntity getUser(){
+
+    static UserEntity getUser() {
         Object attribute = SecurityUtils.getSubject()?.getSession()?.getAttribute(DefaultSubjectContext.PRINCIPALS_SESSION_KEY)
-        UserEntity user = (UserEntity)((SimplePrincipalCollection) attribute)?.getPrimaryPrincipal()
-        if(user == null) return null
+        UserEntity user = (UserEntity) ((SimplePrincipalCollection) attribute)?.getPrimaryPrincipal()
+        if (user == null) return null
         user.setPassword(null)
         return user
     }

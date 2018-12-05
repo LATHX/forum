@@ -14,7 +14,6 @@ class SpringUtil implements ApplicationContextAware {
     }
 
 
-
     public static String getAppName() {
         return context.getEnvironment().getProperty("spring.application.name");
     }
