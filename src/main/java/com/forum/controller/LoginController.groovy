@@ -42,7 +42,7 @@ class LoginController {
         return 'index.html'
     }
 
-    @RequestMapping('/login')
+    @PostMapping('/login')
     @ResponseBody
     login(HttpServletRequest request,
           @Validated(value = [LoginGroup.class]) LoginInfo info, BindingResult bindingResult) throws Exception {
