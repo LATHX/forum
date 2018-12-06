@@ -31,18 +31,22 @@ public class His {
     }
     @RequestMapping("/w")
     public void w(UserEntity user){
-        rabbitUtil.deliveryMessage("key.1","sssss1123231213asggetq");
+//        rabbitUtil.deliveryDelayMessage("delay_queue","sssss1123231213asggetq",3000);
+        rabbitUtil.deliveryMessage("key.1","aaaa1123231213asggetq");
     }
     @RabbitListener(queues = "hello.queue1")
     public String processMessage1(byte[] msg) {
-        String s = (String)CommonUtil.getObjectFromBytes(msg);
+        String s = (String)CommonUtil.getObjectFromBytes((byte[]) msg);
+        System.out.println("Rec Date:"+CommonUtil.getCurrentDate());
         System.out.println(s);
-        System.out.println(Thread.currentThread().getName() + " 接收到来自hello.queue1队列的消息：" + msg);
+        System.out.println(Thread.currentThread().getName() + " 接收到来自delay_queue队列的消息：" + msg);
         return "";
     }
 
     @RabbitListener(queues = "hello.queue2")
     public void processMessage2(byte[] msg) {
+        System.out.println("Rec Date:"+CommonUtil.getCurrentDate());
+        System.out.println(msg);
         String s = (String)CommonUtil.getObjectFromBytes(msg);
         System.out.println(s);
         System.out.println(Thread.currentThread().getName() + " 接收到来自hello.queue2队列的消息：" + msg);

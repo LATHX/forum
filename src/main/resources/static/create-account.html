@@ -37,8 +37,9 @@
 			        <div class="form-group">
 			          <div class="col-md-12 col-lg-3">
 			            <label class="control-label">城市</label> <br>
-                          <select class="form-control input-sm" id="country" v-model="countrySelect">
-                              <option :value="country.id" v-for="country in countryList">{{country.name}}</option>
+                          <select class="form-control input-sm" id="country" onmousedown="javascript:return false;" model="countrySelect"  data-target="#templatemo_modal" data-toggle="modal">
+                              <!--<option v-bind:value="country.id" v-for="country in countryList">{{country.name}}</option>-->
+                              <option>选择城市</option>
                           </select>
                           <br>
                           <select class="form-control input-sm" id="city"><option>123</option><option>123</option></select> <br>
@@ -102,25 +103,18 @@
 	</div>
 	<script type="text/javascript" src="js/login/js/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript" src="js/login/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/customs.js"></script>
     <script src="js/vue.min.js"></script>
     <script>
         var vm = new Vue({
             el:'#app',
             data:{
-                countryList: [
-                  {
-                    id: '1',
-                    name: '广东'
-                  },
-                  {
-                    id: '2',
-                    name: '广西'
-                  }
-                ],
+                countryList:[],
                 countrySelect: '',
             },
             created(){
             //如果没有这句代码，select中初始化会是空白的，默认选中就无法实现
+            this.countryList = ""+countryList()+"";
                 this.countrySelect = this.countryList[0].id;
             },
             method:{

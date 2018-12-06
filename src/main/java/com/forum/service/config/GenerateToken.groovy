@@ -14,14 +14,15 @@ class GenerateToken {
     CommonUtil commonUtil
     @Autowired
     Constant Constant
-    void generateUUIDQuence(){
+    void generateUUIDQueue(){
         int current_size = 0
-        if(redisUtil.hasKey(Constant.UUID_REDIS_QUEUE_NAME) == false){
-            redisUtil.lSet(Constant.UUID_REDIS_QUEUE_NAME, generateUUIDList(current_size))
+        String redisQueueName = Constant.UUID_REDIS_QUEUE_NAME
+        if(redisUtil.hasKey(redisQueueName) == false){
+            redisUtil.lSet(redisQueueName, generateUUIDList(current_size))
         }else{
-            current_size = redisUtil.lGetListSize(Constant.UUID_REDIS_QUEUE_NAME)
+            current_size = redisUtil.lGetListSize(redisQueueName)
             generateUUIDList(current_size).each {
-                redisUtil.lSet(Constant.UUID_REDIS_QUEUE_NAME, it)
+                redisUtil.lSet(redisQueueName, it)
             }
         }
 
@@ -35,5 +36,6 @@ class GenerateToken {
         }
         return list
     }
+
 
 }

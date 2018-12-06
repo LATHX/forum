@@ -5,8 +5,8 @@ import com.forum.global.GlobalCode
 import com.forum.model.dto.LoginInfo
 import com.forum.model.dto.MessageCodeInfo
 import com.forum.model.validationInterface.LoginGroup
+import com.forum.service.LoginService
 import com.forum.service.security.encrypt.RSACryptoServiceProvider
-import com.forum.service.service.LoginService
 import com.forum.utils.CommonUtil
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory

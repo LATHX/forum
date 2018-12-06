@@ -1,9 +1,8 @@
 package com.forum.service.config
 
-import com.forum.global.Constant
 import com.forum.service.filter.CustomRolesAuthorizationFilter
 import com.forum.service.security.realm.PasswordRealm
-import com.forum.service.service.ShiroService
+import com.forum.service.impl.ShiroServiceImpl
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.realm.Realm;
 import org.apache.shiro.session.mgt.SessionManager;
@@ -18,14 +17,10 @@ import org.crazycake.shiro.RedisCacheManager;
 import org.crazycake.shiro.RedisManager;
 import org.crazycake.shiro.RedisSessionDAO;
 import org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator
-import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.beans.factory.annotation.Value
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.DependsOn
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.web.filter.DelegatingFilterProxy;
 import redis.clients.jedis.JedisPool;
 
@@ -37,7 +32,7 @@ class WebSecureConfig {
     private String NAME = 'custom.name'
     private String VALUE = '/'
     @Bean
-    public ShiroFilterFactoryBean shiroFilter(SecurityManager securityManager, ShiroService shiroService) {
+    public ShiroFilterFactoryBean shiroFilter(SecurityManager securityManager, ShiroServiceImpl shiroService) {
         ShiroFilterFactoryBean shiroFilter = new ShiroFilterFactoryBean();
         shiroFilter.setSecurityManager(securityManager);
         Map<String, Filter> filterMap = new LinkedHashMap<>(1);

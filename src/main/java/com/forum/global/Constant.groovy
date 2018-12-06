@@ -1,8 +1,6 @@
 package com.forum.global
 
-import org.springframework.beans.factory.annotation.Value
 import org.springframework.boot.context.properties.ConfigurationProperties
-import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.PropertySource
 import org.springframework.stereotype.Component
 
@@ -22,6 +20,12 @@ class Constant {
     String LOGIN_OUT_MSG
     String LOGIN_PAGE
     String LIMIT_MSG
+
+     public static final String MQ_TOKEN_GENERATE = 'secure.token_generate'
+
+    static String getMQ_TOKEN_GENERATE() {
+        return MQ_TOKEN_GENERATE
+    }
 
     String getLIMIT_MSG() {
         return LIMIT_MSG

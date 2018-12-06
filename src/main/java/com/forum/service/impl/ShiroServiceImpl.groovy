@@ -1,7 +1,6 @@
-package com.forum.service.service
+package com.forum.service.impl
 
 import com.forum.mapper.AuthorityMapper
-import com.forum.mapper.RoleAuthorityMapper
 import com.forum.model.entity.AuthorityEntity
 import com.forum.utils.CommonUtil
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean
@@ -16,7 +15,7 @@ import org.springframework.stereotype.Service
 @Service("shiroService")
 @PropertySource('classpath:config/configuration.properties')
 @ConfigurationProperties(prefix = "secure")
-class ShiroService{
+class ShiroServiceImpl {
     @Autowired
     private AuthorityMapper authorityMapper
     @Autowired
