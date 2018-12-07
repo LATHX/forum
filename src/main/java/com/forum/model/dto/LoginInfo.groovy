@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component
 import javax.validation.constraints.NotBlank
 
 @Component
-class LoginInfo {
+class LoginInfo implements Serializable {
     @NotBlank(message = '{login.username.blank}', groups = [LoginGroup.class])
     String username
     @NotBlank(message = '{login.password.blank}', groups = [LoginGroup.class])
@@ -15,7 +15,16 @@ class LoginInfo {
     String token
     @NotBlank(message = '{login.publicKey.blank}')
     String publicKey
+    String rememberMe;
     MessageCodeInfo msg
+
+    String getRememberMe() {
+        return rememberMe
+    }
+
+    void setRememberMe(String rememberMe) {
+        this.rememberMe = rememberMe
+    }
 
     String getUsername() {
         return username

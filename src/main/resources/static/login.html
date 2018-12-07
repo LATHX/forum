@@ -45,7 +45,7 @@
 		          <div class="col-md-12">
 	             	<div class="checkbox control-wrapper">
 	                	<label>
-	                  		<input type="checkbox" v-model="rememberMe"> 记住我
+	                  		<input type="checkbox" v-model="rememberMe" name="rememberMe"> 记住我
                 		</label>
 	              	</div>
 		          </div>
@@ -160,7 +160,7 @@
                             url:" /login",
                             dataType:"json",
                             timeout : 50000,
-                            data: { token: this.token, username: this.userName, password:encrypted },
+                            data: { token: this.token, username: this.userName, password:encrypted,rememberMe:this.rememberMe },
                             success:function(ret){
                                 if(ret.msg.msgCode == '200'){
                                     location.href="main"

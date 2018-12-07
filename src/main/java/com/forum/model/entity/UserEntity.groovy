@@ -12,8 +12,53 @@ class UserEntity implements Serializable, AuthCachePrincipal {
     String sid
     String username
     String password
+    String nickname
     Integer roleId
     boolean enable
+    Integer sex
+    String province
+    String city
+    String dist
+
+    String getProvince() {
+        return province
+    }
+
+    void setProvince(String province) {
+        this.province = province
+    }
+
+    String getCity() {
+        return city
+    }
+
+    void setCity(String city) {
+        this.city = city
+    }
+
+    String getDist() {
+        return dist
+    }
+
+    void setDist(String dist) {
+        this.dist = dist
+    }
+
+    String getNickname() {
+        return nickname
+    }
+
+    void setNickname(String nickname) {
+        this.nickname = nickname
+    }
+
+    Integer getSex() {
+        return sex
+    }
+
+    void setSex(Integer sex) {
+        this.sex = sex
+    }
 
     boolean getEnable() {
         return enable

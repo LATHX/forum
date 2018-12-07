@@ -17,6 +17,7 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter
 
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
+
 /**
  * @author LJL
  * @date 2018年11月2日 下午2:22:43
@@ -27,7 +28,7 @@ import javax.servlet.http.HttpServletResponse
 @PropertySource('classpath:config/configuration.properties')
 @ConfigurationProperties(prefix = "http")
 @Order(Ordered.HIGHEST_PRECEDENCE)
-class RequestLimitAspect extends HandlerInterceptorAdapter{
+class RequestLimitAspect extends HandlerInterceptorAdapter {
     private static final Logger logger = LoggerFactory.getLogger(RequestLimitAspect.class)
     @Autowired
     private RedisUtil RedisUtil
@@ -37,6 +38,7 @@ class RequestLimitAspect extends HandlerInterceptorAdapter{
     private int LIMIT_TIMEOUT
     private int LIMIT_COUNT
     private String LIMIT_PATH
+
     String getLIMIT_PATH() {
         return LIMIT_PATH
     }
@@ -66,7 +68,7 @@ class RequestLimitAspect extends HandlerInterceptorAdapter{
      * @param response
      * @param handler
      * @return boolean
-     * @description 创建一个定时器,这个定时器设定在time规定的时间之后会执行上TimeTask的remove方法，也就是说在这个时间后它可以重新访问
+     * @description 创建一个定时器 , 这个定时器设定在time规定的时间之后会执行上TimeTask的remove方法，也就是说在这个时间后它可以重新访问
      * @throws RequestLimitException
      */
     @Override
@@ -79,17 +81,17 @@ class RequestLimitAspect extends HandlerInterceptorAdapter{
             String ip = CommonUtil.getRealIP(request);
             String url = request.getRequestURL().toString();
             String key = "req_limit_".concat(url).concat(ip);
-            if(url.substring(url.lastIndexOf('/')+1) == 'limit'){
+            if (url.substring(url.lastIndexOf('/') + 1) == 'limit') {
                 return true
             }
             if (!RedisUtil.hasKey(key) || CommonUtil.isEmpty(RedisUtil.get(key))) {
-                RedisUtil.set(key,String.valueOf(1));
+                RedisUtil.set(key, String.valueOf(1));
             } else {
-                Integer getValue = Integer.parseInt(RedisUtil.get(key))+1;
+                Integer getValue = Integer.parseInt(RedisUtil.get(key)) + 1;
                 RedisUtil.set(key, String.valueOf(getValue));
-                RedisUtil.expire(key, (LIMIT_TIMEOUT/1000)?.toLong())
+                RedisUtil.expire(key, (LIMIT_TIMEOUT / 1000)?.toLong())
             }
-            int count =Integer.parseInt(RedisUtil.get(key));
+            int count = Integer.parseInt(RedisUtil.get(key));
             if (count > 0) {
                 Timer timer = new Timer();
                 TimerTask timerTask = new TimerTask() {
@@ -102,13 +104,13 @@ class RequestLimitAspect extends HandlerInterceptorAdapter{
             }
             if (count > LIMIT_COUNT) {
                 logger.info("User IP[" + ip + "]URL[" + url + "]more than times[" + LIMIT_COUNT + "]");
-               render(request, response);
+                render(request, response);
                 return false;
             }
-        }catch (RequestLimitException e){
+        } catch (RequestLimitException e) {
             throw e;
-        }catch (Exception e){
-            logger.error("RequestLimit Error: ",e);
+        } catch (Exception e) {
+            logger.error("RequestLimit Error: ", e);
         }
         return true
     }
@@ -119,12 +121,13 @@ class RequestLimitAspect extends HandlerInterceptorAdapter{
  * @param msg
  * @throws Exception
  */
-    void render(HttpServletRequest request, HttpServletResponse response) throws Exception{
+    void render(HttpServletRequest request, HttpServletResponse response) throws Exception {
 //        response.setContentType("application/json;charset=UTF-8");
 //        response.sendRedirect(LIMIT_PATH)
         request.getRequestDispatcher(LIMIT_PATH).forward(request, response)
     }
-     void redisDel(String key){
+
+    void redisDel(String key) {
         RedisUtil.del(key)
     }
 }

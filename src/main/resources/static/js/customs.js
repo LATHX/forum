@@ -12,7 +12,3 @@ function Base64ToStr(str){
     str = window.atob(str);
     return str;
 }
-function countryList(){
-    var str = "{id: '1', name: '广东' }"
-    return str;
-}

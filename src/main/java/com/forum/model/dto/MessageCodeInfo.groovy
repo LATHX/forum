@@ -3,7 +3,7 @@ package com.forum.model.dto
 import org.springframework.stereotype.Component
 
 @Component
-class MessageCodeInfo {
+class MessageCodeInfo implements Serializable {
     String msgCode
     String msgInfo
 

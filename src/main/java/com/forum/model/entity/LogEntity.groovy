@@ -8,7 +8,7 @@ import com.forum.model.entity.UserEntity
  * @date: 2018/10/29 17:40
  * @version: 1.0
  */
-class LogEntity {
+class LogEntity implements Serializable {
     private long id;
     /**
      * 请求地址

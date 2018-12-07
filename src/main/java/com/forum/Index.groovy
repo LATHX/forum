@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 class Index {
     @RequestMapping('/index')
     index(){
-        return '/faq.html'
+        return '/index.html'
     }
     @RequestMapping('/red')
     red(){

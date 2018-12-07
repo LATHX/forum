@@ -16,7 +16,7 @@ import javax.servlet.ServletResponse
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
 
-class CustomRolesAuthorizationFilter extends RolesAuthorizationFilter{
+class CustomRolesAuthorizationFilter extends RolesAuthorizationFilter {
     @Autowired
     LoginInfo loginInfo
     @Autowired
@@ -25,6 +25,7 @@ class CustomRolesAuthorizationFilter extends RolesAuthorizationFilter{
     Constant Constant
     @Autowired
     GlobalCode GlobalCode
+
     @Override
     public boolean isAccessAllowed(ServletRequest req, ServletResponse resp, Object mappedValue) {
         Subject subject = getSubject(req, resp);
@@ -39,9 +40,9 @@ class CustomRolesAuthorizationFilter extends RolesAuthorizationFilter{
                 return true;
             }
         }
-
         return false;
     }
+
     @Override
     protected boolean onAccessDenied(ServletRequest request, ServletResponse response) throws Exception {
         println("error")
@@ -67,7 +68,7 @@ class CustomRolesAuthorizationFilter extends RolesAuthorizationFilter{
         servletResponse.setHeader("Access-Control-Allow-Credentials", "true");
         servletResponse.setHeader("Vary", "Origin");
         String respStr;
-        if(CommonUtil.isJsonRequest(request)){
+        if (CommonUtil.isJsonRequest(request)) {
             PrintWriter printWriter = servletResponse.getWriter();
             loginInfo.setPublicKey('')
             loginInfo.setToken('')
@@ -86,7 +87,7 @@ class CustomRolesAuthorizationFilter extends RolesAuthorizationFilter{
             printWriter.write(respStr);
             printWriter.flush();
             servletResponse.setHeader("content-Length", respStr.getBytes().length + "");
-        }else{
+        } else {
             HttpServletResponse resp = (HttpServletResponse) response;
             resp.sendRedirect(Constant.LOGIN_PAGE)
         }

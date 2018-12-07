@@ -32,6 +32,7 @@ class LoginServiceImpl implements LoginService {
 
     @Override
     String validationLoginInfo(String ip, LoginInfo loginInfo) {
+        boolean isRememberMe = true
         loginInfo.setPassword(RSACryptoServiceProvider.decrypt(loginInfo.getPassword()).replaceFirst(loginInfo.token, ''))
         boolean hasKey = redisUtil.hasKey(ip)
         if (!hasKey) {
@@ -43,13 +44,15 @@ class LoginServiceImpl implements LoginService {
             }
             redisUtil.del(ip)
         }
+        if (CommonUtil.isEmpty(loginInfo.rememberMe) || loginInfo.rememberMe == 'false') {
+            isRememberMe = false
+        }
         Subject subject = SecurityUtils.getSubject();
-        UsernamePasswordToken token = new UsernamePasswordToken(loginInfo.getUsername(), loginInfo.getPassword(), false);
+        UsernamePasswordToken token = new UsernamePasswordToken(loginInfo.getUsername(), loginInfo.getPassword(), isRememberMe);
         try {
             subject.login(token);
             return GlobalCode.LOGIN_VERIFY_OK
         } catch (Exception e) {
-            e.printStackTrace()
             return GlobalCode.LOGIN_VERIFY_FAIL
         }
         return GlobalCode.LOGIN_VERIFY_FAIL
