@@ -22,9 +22,8 @@ class RegisterInfo implements Serializable {
     @NotBlank(message = '{register.nickname.blank}', groups = [RegisterGroup.class])
     @Size(max = 45, message = '{register.password.blank}', groups = [RegisterGroup.class])
     String nickname
-    @NotBlank(message = '{register.sex.blank}', groups = [RegisterGroup.class])
-    @Max(value = 0L, groups = [RegisterGroup.class])
-    @Min(value = 1L, groups = [RegisterGroup.class])
+    @Max(value = 1L, message = '{register.sex.blank}', groups = [RegisterGroup.class])
+    @Min(value = 0L, message = '{register.sex.blank}', groups = [RegisterGroup.class])
     Integer sex
     @NotBlank(message = '{register.city.blank}', groups = [RegisterGroup.class])
     String city
