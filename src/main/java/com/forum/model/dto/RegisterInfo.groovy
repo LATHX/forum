@@ -14,16 +14,16 @@ class RegisterInfo implements Serializable {
     @Email(message = '{register.username.blank}', groups = [RegisterGroup.class])
     String username
     @NotBlank(message = '{register.password.blank}', groups = [RegisterGroup.class])
-    @Size(max = 255, message = '{register.password.blank}', groups = [RegisterGroup.class])
+    @Size(min = 8, max = 255, message = '{register.password.blank}', groups = [RegisterGroup.class])
     String password
     @NotBlank(message = '{register.password.blank}', groups = [RegisterGroup.class])
-    @Size(max = 255, message = '{register.password.blank}', groups = [RegisterGroup.class])
+    @Size(min = 8, max = 255, message = '{register.password.blank}', groups = [RegisterGroup.class])
     String confirmPassword
     @NotBlank(message = '{register.nickname.blank}', groups = [RegisterGroup.class])
-    @Size(max = 45, message = '{register.password.blank}', groups = [RegisterGroup.class])
+    @Size(min =1, max = 45, message = '{register.password.blank}', groups = [RegisterGroup.class])
     String nickname
-    @Max(value = 1L, message = '{register.sex.blank}', groups = [RegisterGroup.class])
-    @Min(value = 0L, message = '{register.sex.blank}', groups = [RegisterGroup.class])
+    @Max(value = 1L, message = '{register.sex.validate}', groups = [RegisterGroup.class])
+    @Min(value = 0L, message = '{register.sex.validate}', groups = [RegisterGroup.class])
     Integer sex
     @NotBlank(message = '{register.city.blank}', groups = [RegisterGroup.class])
     String city

@@ -10,6 +10,7 @@
 	<link href="css/login/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
 	<link href="css/login/css/templatemo_style.css" rel="stylesheet" type="text/css">
     <link href="css/login/css/scs.min.css" rel="stylesheet" type="text/css">
+	<link href="css/custom.css" rel="stylesheet" type="text/css">
 </head>
 <body class="templatemo-bg-gray">
 	<h1 class="margin-bottom-15">创建新账号</h1>
@@ -20,7 +21,7 @@
 					<div class="form-group">
 			          <div class="col-md-6">		          	
 			            <label for="first_name" class="control-label">昵称</label>
-			            <input type="text" class="form-control" id="first_name" placeholder="" name="nickname" data-toggle="dropdown">
+			            <input type="text" class="form-control" id="first_name" placeholder="输入昵称" name="nickname" data-toggle="dropdown">
 			          </div>
 						<!--
 			          <div class="col-md-6">		          	
@@ -32,7 +33,7 @@
 			        <div class="form-group">
 			          <div class="col-md-12">		          	
 			            <label for="email" class="control-label">邮箱</label>
-			            <input type="email" class="form-control" id="email" placeholder="" name="username">
+			            <input type="email" class="form-control" id="email" placeholder="输入邮箱" name="username">
 			          </div>              
 			        </div>			
 			        <div class="form-group">
@@ -45,31 +46,31 @@
 			          <div class="col-md-6">
                           <label class="control-label">性别</label><br>
 			          	<label class="radio-inline">
-		          			<input type="radio" name="optionsRadios" value="男" checked = 'checked'> 男
+		          			<input type="radio" name="optionsRadios" value="0" checked = 'checked'> 男
 		          		</label>
 		          		<label class="radio-inline">
-		          			<input type="radio" name="optionsRadios" value="女"> 女
+		          			<input type="radio" name="optionsRadios" value="1"> 女
 		          		</label>
 			          </div>
                     </div>
 			        <div class="form-group">
 			          <div class="col-md-6">
 			            <label for="password" class="control-label">密码</label>
-			            <input type="password" class="form-control" id="password" placeholder="">
+			            <input type="password" class="form-control" id="password" placeholder="密码">
 			          </div>
 			          <div class="col-md-6">
 			            <label for="password" class="control-label">确认 密码</label>
-			            <input type="password" class="form-control" id="password_confirm" placeholder="">
+			            <input type="password" class="form-control" id="password_confirm" placeholder="确认 密码">
 			          </div>
 			        </div>
 			        <div class="form-group">
 			          <div class="col-md-12">
-			            <label><input type="checkbox">我同意<a href="javascript:;" data-toggle="modal" data-target="#templatemo_modal">隐私政策</a> </label>
+			            <label><input type="checkbox" v-model="agree">我同意<a href="javascript:;" data-toggle="modal" data-target="#templatemo_modal">隐私政策</a> </label>
 			          </div>
 			        </div>
 			        <div class="form-group">
 			          <div class="col-md-12">
-			            <input type="submit" value="创建" class="btn btn-info">
+			            <input type="submit" value="创建" class="btn btn-info" :disabled="isSubmitActive">
 			            <a href="login-1.html" class="pull-right">登录</a>
 			          </div>
 			        </div>	
@@ -96,6 +97,8 @@
 	    </div>
 	  </div>
 	</div>
+	<script src="js/vue.min.js"></script>
+	<script src="js/md5.js"></script>
 	<script type="text/javascript" src="js/login/js/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript" src="js/login/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/customs.js"></script>
@@ -106,12 +109,11 @@
         var vm = new Vue({
             el:'#app',
             data:{
+                isSubmitActive:true
             },
             created(){
-
             },
             method:{
-
             }
             });
     </script>

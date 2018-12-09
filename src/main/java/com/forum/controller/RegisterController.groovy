@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping
 @Controller
 class RegisterController {
     @GetMapping('/register')
-    register(@Validated(value = [RegisterGroup.class])RegisterInfo registerInfo, BindingResult bindingResult){
+    register(@Validated(value = [RegisterGroup.class]) RegisterInfo registerInfo, BindingResult bindingResult) {
         println bindingResult.getErrorCount()
     }
 }
