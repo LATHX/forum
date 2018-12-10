@@ -26,13 +26,13 @@ class HI {
             message = javaMailSender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(message, true);
             helper.setFrom("llshadowsock@foxmail.com");
-            helper.setTo("761676263@qq.com");
-            helper.setSubject("标题：发送Html内容");
+            helper.setTo("1971594765@qq.com");
+            helper.setSubject("标题：傻楚楚");
 
             StringBuffer sb = new StringBuffer();
-            sb.append("<h1>大标题-h1</h1>")
-                    .append("<p style='color:#F00'>红色字</p>")
-                    .append("<p style='text-align:right'>HIHIHIHI</p>");
+            sb.append("<h1>大标题傻楚楚</h1>")
+                    .append("<p style='color:#F00'>蠢楚楚</p>")
+                    .append("<p style='text-align:right'>傻</p>");
             helper.setText(sb.toString(), true);
 //            FileSystemResource fileSystemResource=new FileSystemResource(new File("D:\76678.pdf"))
 //            helper.addAttachment("电子发票",fileSystemResource);
