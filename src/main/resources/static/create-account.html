@@ -31,15 +31,23 @@
 			          -->
 			        </div>
 			        <div class="form-group">
-			          <div class="col-md-12">		          	
+			          <div class="col-md-6 col-lg-6">
 			            <label for="email" class="control-label">邮箱</label>
-			            <input type="email" class="form-control" id="email" placeholder="输入邮箱" name="username" v-model="username">
-			          </div>              
+			            <input type="email" class="form-control" id="email"  placeholder="输入邮箱" name="username" v-model="username" v-on:keyup="validationEmail"><br>
+			          </div>
+                        <div class="col-md-4">
+                            <label for="password" class="control-label">验证码</label>
+                            <input type="text" class="form-control" id="code" placeholder="验证码" name="code" v-model="code">
+                        </div>
+                        <div class="col-md-2">
+                            <label for="password" class="control-label">&nbsp;&nbsp;</label>
+                            <input type="button" class="form-control" id="send" value="点击发送" :disabled="isCodeActive">
+                        </div>
 			        </div>			
 			        <div class="form-group">
 			          <div class="col-md-12 col-lg-6">
 			            <label class="control-label">城市</label> <br>
-                          <input type="text" class="form-control" value="" readonly placeholder="选择城市" id="myAddrs" name="city" data-key="4-84-1298" v-model="city"/>
+                          <input type="text" class="form-control" readonly placeholder="选择城市" id="myAddrs"  data-key="4-84-1298" name="city"/>
                       </div>
                     </div>
                     <div class="form-group">
@@ -116,7 +124,9 @@
                 confirmPassword:'',
                 city:'',
                 agree:false,
-                msginfo:''
+                msginfo:'',
+                isCodeActive:true,
+                code:''
             },
             created(){
             },
@@ -126,36 +136,59 @@
                 var flag = that.validation();
 
             },
+            validationEmail:function(){
+
+                var reg = new RegExp("^[a-zA-Z0-9]+([._\\-]*[a-zA-Z0-9])*@([a-zA-Z0-9]+[-a-zA-Z0-9]*[a-zA-Z0-9]+.){1,63}[a-zA-Z0-9]+$");
+                if(reg.test(this.username)){
+                    $("#email").removeClass('board_red');
+                    this.isCodeActive = false;
+                    return true;
+                }else{
+                    $("#email").addClass('board_red');
+                    this.isCodeActive = true;
+                    return false;
+                }
+
+            },
             validation:function(){
                 var flag = true;
                 $("#agreeGroup").removeClass('board_red');
                 $("#password").removeClass('board_red');
                 $("#confirmPassword").removeClass('board_red');
                 $("#myAddrs").removeClass('board_red');
-                $("#firstname").removeClass('board_red');
-                    $("#email").addClass('board_red');
+                $("#first_name").removeClass('board_red');
+                $("#email").removeClass('board_red');
+                $("#code").removeClass('board_red');
+                this.msginfo='';
+                this.city=$("#myAddrs").val().trim();
                 if(this.agree == false){
                     $("#agreeGroup").addClass('board_red');
                     this.msginfo='未同意隐私政策'
                     flag = false;
                 }
-                if(this.password==''||this.confirmPassword==''){
+                if(this.password.trim()==''||this.confirmPassword.trim()==''){
                     $("#password").addClass('board_red');
                     $("#confirmPassword").addClass('board_red');
                     this.msginfo='两次密码不能为空'
                     flag = false;
                 }
-                if(this.password!=this.confirmPassword){
+                if(this.password.trim()!=this.confirmPassword.trim()){
                     $("#password").addClass('board_red');
                     $("#confirmPassword").addClass('board_red');
                     this.msginfo='两次密码不一致'
                     flag = false;
                 }
-                if(this.city.trim()==''){
+                if($("#myAddrs").val().trim()==''){
                     $("#myAddrs").addClass('board_red');
                     this.msginfo='请选择城市'
                     flag = false;
                 }
+                if($("#code").val().trim()==''){
+                    $("#code").addClass('board_red');
+                    this.msginfo='验证码不能为空';
+                    flag=false;
+                }
+
                 if(this.nickname.trim()==''){
                     $("#first_name").addClass('board_red');
                     this.msginfo='请输入昵称'
