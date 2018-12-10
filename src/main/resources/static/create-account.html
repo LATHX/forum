@@ -127,12 +127,46 @@
 
             },
             validation:function(){
+                var flag = true;
+                $("#agreeGroup").removeClass('board_red');
+                $("#password").removeClass('board_red');
+                $("#confirmPassword").removeClass('board_red');
+                $("#myAddrs").removeClass('board_red');
+                $("#firstname").removeClass('board_red');
+                    $("#email").addClass('board_red');
                 if(this.agree == false){
                     $("#agreeGroup").addClass('board_red');
                     this.msginfo='未同意隐私政策'
-                    return false;
+                    flag = false;
                 }
-
+                if(this.password==''||this.confirmPassword==''){
+                    $("#password").addClass('board_red');
+                    $("#confirmPassword").addClass('board_red');
+                    this.msginfo='两次密码不能为空'
+                    flag = false;
+                }
+                if(this.password!=this.confirmPassword){
+                    $("#password").addClass('board_red');
+                    $("#confirmPassword").addClass('board_red');
+                    this.msginfo='两次密码不一致'
+                    flag = false;
+                }
+                if(this.city.trim()==''){
+                    $("#myAddrs").addClass('board_red');
+                    this.msginfo='请选择城市'
+                    flag = false;
+                }
+                if(this.nickname.trim()==''){
+                    $("#first_name").addClass('board_red');
+                    this.msginfo='请输入昵称'
+                    flag = false;
+                }
+                if(this.username.trim()==''){
+                    $("#email").addClass('board_red');
+                    this.msginfo='请输入邮箱'
+                    flag = false;
+                }
+                return flag;
             }
             }
             })
