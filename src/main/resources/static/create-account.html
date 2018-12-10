@@ -151,6 +151,7 @@
 
             },
             validation:function(){
+            var that=this;
                 var flag = true;
                 $("#agreeGroup").removeClass('board_red');
                 $("#password").removeClass('board_red');
@@ -192,6 +193,11 @@
                 if(this.nickname.trim()==''){
                     $("#first_name").addClass('board_red');
                     this.msginfo='请输入昵称'
+                    flag = false;
+                }
+                  if(that.validationEmail() == false){
+                    $("#email").addClass('board_red');
+                    this.msginfo='邮箱无效'
                     flag = false;
                 }
                 if(this.username.trim()==''){
