@@ -1,6 +1,18 @@
 server:
   port: 8080
 spring:
+  mail:
+    host: smtp.qq.com
+    username: 761676263
+    password: dwsjeomddulpbdjd
+    port: 465
+    protocol: smtp
+    properties:
+      mail:
+        smtp:
+          auth: true
+          ssl:
+            enable: true
   main:
     allow-bean-definition-overriding: true
   resources:

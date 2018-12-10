@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<head>
+<head xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
 	<title>创建账号</title>
 	<meta name="keywords" content="" />
 	<meta name="description" content="" />
@@ -21,7 +21,7 @@
 					<div class="form-group">
 			          <div class="col-md-6">		          	
 			            <label for="first_name" class="control-label">昵称</label>
-			            <input type="text" class="form-control" id="first_name" placeholder="输入昵称" name="nickname" data-toggle="dropdown">
+			            <input type="text" class="form-control" id="first_name" placeholder="输入昵称" name="nickname" data-toggle="dropdown" v-model="nickname">
 			          </div>
 						<!--
 			          <div class="col-md-6">		          	
@@ -33,44 +33,44 @@
 			        <div class="form-group">
 			          <div class="col-md-12">		          	
 			            <label for="email" class="control-label">邮箱</label>
-			            <input type="email" class="form-control" id="email" placeholder="输入邮箱" name="username">
+			            <input type="email" class="form-control" id="email" placeholder="输入邮箱" name="username" v-model="username">
 			          </div>              
 			        </div>			
 			        <div class="form-group">
 			          <div class="col-md-12 col-lg-6">
 			            <label class="control-label">城市</label> <br>
-                          <input type="text" class="form-control" readonly placeholder="选择城市" id="myAddrs" name="addr" data-key="4-84-1298" />
+                          <input type="text" class="form-control" value="" readonly placeholder="选择城市" id="myAddrs" name="city" data-key="4-84-1298" v-model="city"/>
                       </div>
                     </div>
                     <div class="form-group">
 			          <div class="col-md-6">
                           <label class="control-label">性别</label><br>
 			          	<label class="radio-inline">
-		          			<input type="radio" name="optionsRadios" value="0" checked = 'checked'> 男
+		          			<input type="radio" name="optionsRadios" value="0" checked = 'checked' v-model="sex" name="sex"> 男
 		          		</label>
 		          		<label class="radio-inline">
-		          			<input type="radio" name="optionsRadios" value="1"> 女
+		          			<input type="radio" name="optionsRadios" value="1" v-model="sex" name="sex"> 女
 		          		</label>
 			          </div>
                     </div>
 			        <div class="form-group">
 			          <div class="col-md-6">
 			            <label for="password" class="control-label">密码</label>
-			            <input type="password" class="form-control" id="password" placeholder="密码">
+			            <input type="password" class="form-control" id="password" placeholder="密码" name="password" v-model="password">
 			          </div>
 			          <div class="col-md-6">
 			            <label for="password" class="control-label">确认 密码</label>
-			            <input type="password" class="form-control" id="password_confirm" placeholder="确认 密码">
+			            <input type="password" class="form-control" id="confirmPassword" placeholder="确认 密码" name="confirmPassword" v-model="confirmPassword">
 			          </div>
 			        </div>
-			        <div class="form-group">
+			        <div class="form-group" id="agreeGroup">
 			          <div class="col-md-12">
 			            <label><input type="checkbox" v-model="agree">我同意<a href="javascript:;" data-toggle="modal" data-target="#templatemo_modal">隐私政策</a> </label>
 			          </div>
 			        </div>
 			        <div class="form-group">
 			          <div class="col-md-12">
-			            <input type="submit" value="创建" class="btn btn-info" :disabled="isSubmitActive">
+			            <input type="button" value="创建" class="btn btn-info" v-on:click="submit" v-model="create"><label style="color: red;">{{msginfo}}</label>
 			            <a href="login-1.html" class="pull-right">登录</a>
 			          </div>
 			        </div>	
@@ -104,18 +104,38 @@
     <script type="text/javascript" src="js/customs.js"></script>
     <script type="text/javascript" src="js/login/js/jquery.scs.min.js"></script>
     <script type="text/javascript" src="js/login/js/CNAddrArr.min.js"></script>
-    <script src="js/vue.min.js"></script>
     <script>
         var vm = new Vue({
             el:'#app',
             data:{
-                isSubmitActive:true
+                create:'创建',
+				sex:'0',
+				nickname:'',
+				username:'',
+				password:'',
+                confirmPassword:'',
+                city:'',
+                agree:false,
+                msginfo:''
             },
             created(){
             },
-            method:{
+            methods:{
+            submit:function(){
+                var that = this;
+                var flag = that.validation();
+
+            },
+            validation:function(){
+                if(this.agree == false){
+                    $("#agreeGroup").addClass('board_red');
+                    this.msginfo='未同意隐私政策'
+                    return false;
+                }
+
             }
-            });
+            }
+            })
     </script>
     <script>
     $(function() {
