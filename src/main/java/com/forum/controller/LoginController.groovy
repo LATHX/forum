@@ -31,13 +31,9 @@ class LoginController {
     MessageCodeInfo messageCodeInfo
     @Autowired
     LoginService loginService
-    @Autowired
-    Constant Constant
-    @Autowired
-    GlobalCode GlobalCode
     private final static Logger logger = LoggerFactory.getLogger(LoginController.class)
 
-    @RequestMapping('main')
+    @RequestMapping('/index')
     main() {
         return 'index.html'
     }

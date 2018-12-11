@@ -1,17 +1,14 @@
 package com.forum.model.dto
 
 import com.forum.model.validationInterface.RegisterGroup
+import com.forum.model.validationInterface.RegisterMailGroup
 
-import javax.validation.constraints.Email
-import javax.validation.constraints.Max
-import javax.validation.constraints.Min
-import javax.validation.constraints.NotBlank
-import javax.validation.constraints.Size
+import javax.validation.constraints.*
 
 class RegisterInfo implements Serializable {
     @NotBlank(message = '{register.username.blank}', groups = [RegisterGroup.class])
     @Size(max = 45, message = '{register.username.blank}', groups = [RegisterGroup.class])
-    @Email(message = '{register.username.blank}', groups = [RegisterGroup.class])
+    @Email(message = '{register.username.blank}', groups = [RegisterGroup.class,RegisterMailGroup.class])
     String username
     @NotBlank(message = '{register.password.blank}', groups = [RegisterGroup.class])
     @Size(min = 8, max = 255, message = '{register.password.blank}', groups = [RegisterGroup.class])
@@ -27,7 +24,17 @@ class RegisterInfo implements Serializable {
     Integer sex
     @NotBlank(message = '{register.city.blank}', groups = [RegisterGroup.class])
     String city
+    @NotBlank(message = '{register.code.blank}', groups = [RegisterGroup.class])
+    String code
     MessageCodeInfo msg
+
+    String getCode() {
+        return code
+    }
+
+    void setCode(String code) {
+        this.code = code
+    }
 
     MessageCodeInfo getMsg() {
         return msg

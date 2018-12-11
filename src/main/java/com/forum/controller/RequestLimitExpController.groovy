@@ -15,8 +15,6 @@ import javax.servlet.http.HttpServletResponse
 @Controller
 class RequestLimitExpController {
     @Autowired
-    Constant Constant
-    @Autowired
     MessageCodeInfo messageCodeInfo
 
     @RequestMapping(value = "/limit")

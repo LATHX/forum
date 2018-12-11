@@ -17,17 +17,15 @@ public class His {
     @Autowired
     private LoginInfo loginInfo;
     @Autowired
-    private RedisUtil redisUtil;
-    @Autowired
     private UserMapper test;
     @Autowired
     RabbitUtil rabbitUtil;
     @GetMapping("r")
     public String f(){
         System.out.println( this.test.findUserByUserName("admin").getRoleId());
-        redisUtil.set("k", "kkkk111");
+        RedisUtil.set("k", "kkkk111");
         loginInfo.setPassword("121311");
-        return redisUtil.get("k").toString();
+        return RedisUtil.get("k").toString();
     }
     @RequestMapping("/w")
     public void w(UserEntity user){

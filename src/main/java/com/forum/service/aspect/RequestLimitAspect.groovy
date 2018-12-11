@@ -31,8 +31,6 @@ import javax.servlet.http.HttpServletResponse
 class RequestLimitAspect extends HandlerInterceptorAdapter {
     private static final Logger logger = LoggerFactory.getLogger(RequestLimitAspect.class)
     @Autowired
-    private RedisUtil RedisUtil
-    @Autowired
     private MessageCodeInfo msg
 
     private int LIMIT_TIMEOUT

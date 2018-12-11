@@ -20,29 +20,21 @@ class LoginServiceImpl implements LoginService {
     @Autowired
     RSACryptoServiceProvider RSACryptoServiceProvider
     @Autowired
-    RedisUtil redisUtil
-    @Autowired
-    RabbitUtil rabbitUtil;
-    @Autowired
     GenerateToken generateToken
-    @Autowired
-    Constant Constant
-    @Autowired
-    GlobalCode GlobalCode
 
     @Override
     String validationLoginInfo(String ip, LoginInfo loginInfo) {
         boolean isRememberMe = true
         loginInfo.setPassword(RSACryptoServiceProvider.decrypt(loginInfo.getPassword()).replaceFirst(loginInfo.token, ''))
-        boolean hasKey = redisUtil.hasKey(ip)
+        boolean hasKey = RedisUtil.hasKey(ip)
         if (!hasKey) {
             return GlobalCode.LOGIN_CODE_FAIL
         } else {
-            String token = redisUtil.get(ip)
+            String token = RedisUtil.get(ip)
             if (token != loginInfo.getToken()) {
                 return GlobalCode.LOGIN_CODE_FAIL
             }
-            redisUtil.del(ip)
+            RedisUtil.del(ip)
         }
         if (CommonUtil.isEmpty(loginInfo.rememberMe) || loginInfo.rememberMe == 'false') {
             isRememberMe = false
@@ -60,22 +52,22 @@ class LoginServiceImpl implements LoginService {
 
     @Override
     String getToken(String ip) {
-        if (redisUtil.hasKey(Constant.UUID_REDIS_QUEUE_NAME) == false) {
+        if (RedisUtil.hasKey(Constant.UUID_REDIS_QUEUE_NAME) == false) {
             generateToken.generateUUIDQueue()
         }
-        boolean hasKey = redisUtil.hasKey(ip)
-        if (hasKey && redisUtil.getExpire(ip) == 0) {
-            redisUtil.del(ip)
+        boolean hasKey = RedisUtil.hasKey(ip)
+        if (hasKey && RedisUtil.getExpire(ip) == 0) {
+            RedisUtil.del(ip)
         } else if (hasKey) {
             return GlobalCode.LOGIN_CODE_FREQUENT
         }
-        String str = redisUtil.leftPopSet(Constant.UUID_REDIS_QUEUE_NAME)
+        String str = RedisUtil.leftPopSet(Constant.UUID_REDIS_QUEUE_NAME)
         if (CommonUtil.isEmpty(str)) {
             return GlobalCode.LOGIN_CODE_FAIL
         }
-        rabbitUtil.deliveryMessageNotConfirm(Constant.MQ_TOKEN_GENERATE)
-        boolean keyFlag = redisUtil.set(ip, str)
-        boolean expireFlag = redisUtil.expire(ip, Constant.UUID_REDIS_KEY_TIMEOUT?.toLong())
+        RabbitUtil.deliveryMessageNotConfirm(Constant.MQ_TOKEN_GENERATE)
+        boolean keyFlag = RedisUtil.set(ip, str)
+        boolean expireFlag = RedisUtil.expire(ip, Constant.UUID_REDIS_KEY_TIMEOUT?.toLong())
         if (keyFlag == false || expireFlag == false) {
             return GlobalCode.LOGIN_CODE_FAIL
         }

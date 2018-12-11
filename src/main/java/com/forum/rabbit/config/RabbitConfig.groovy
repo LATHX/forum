@@ -41,7 +41,10 @@ class RabbitConfig  {
     Binding tokenGenerate(){
         return BindingBuilder.bind(new Queue(Constant.MQ_TOKEN_GENERATE, true)).to(topicExchange()).with(Constant.MQ_TOKEN_GENERATE)
     }
-
+    @Bean
+     Binding registerMail(){
+        return BindingBuilder.bind(new Queue(Constant.MQ_REGISTER_MAIL, true)).to(topicExchange()).with(Constant.MQ_REGISTER_MAIL)
+    }
     @Bean
     public Queue maintainQueue() {
         Map<String,Object> args=new HashMap<>();

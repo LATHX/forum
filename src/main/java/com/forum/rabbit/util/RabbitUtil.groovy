@@ -15,8 +15,12 @@ import javax.annotation.PostConstruct
 @Component
 class RabbitUtil implements RabbitTemplate.ConfirmCallback, ReturnCallback {
     private final static Logger logger = LoggerFactory.getLogger(RabbitUtil.class)
+
+    private static RabbitTemplate rabbitTemplate
     @Autowired
-    RabbitTemplate rabbitTemplate
+    void setRabbitTemplate(RabbitTemplate rabbitTemplate) {
+        this.rabbitTemplate = rabbitTemplate
+    }
 
     @PostConstruct
     void init() {
@@ -44,21 +48,21 @@ class RabbitUtil implements RabbitTemplate.ConfirmCallback, ReturnCallback {
      * @param routingKey
      * @param msg
      */
-    void deliveryMessage(String routingKey, Object msg) {
+    static void deliveryMessage(String routingKey, Object msg) {
         logger.info('Sender Date:' + CommonUtil.getCurrentDate());
         CorrelationData correlationId = new CorrelationData(UUID.randomUUID().toString());
         String response = rabbitTemplate.convertSendAndReceive("topicExchange", routingKey, CommonUtil.getBytesFromObject(msg), correlationId).toString()
         logger.info("Consumer response : " + response + " Message Handler Success");
     }
 
-    void deliveryMessageNotConfirm(String routingKey, Object msg) {
+    static void deliveryMessageNotConfirm(String routingKey, Object msg) {
         logger.info('Sender Date:' + CommonUtil.getCurrentDate());
         CorrelationData correlationId = new CorrelationData(UUID.randomUUID().toString());
         rabbitTemplate.convertAndSend("topicExchange", routingKey, CommonUtil.getBytesFromObject(msg), correlationId)
         logger.info("Consumer response :  Message Handler Success");
     }
 
-    void deliveryMessageNotConfirm(String routingKey) {
+    static void deliveryMessageNotConfirm(String routingKey) {
         deliveryMessageNotConfirm(routingKey, '')
     }
     /**

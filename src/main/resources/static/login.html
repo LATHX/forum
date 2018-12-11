@@ -96,7 +96,7 @@
                 isLoginActive:false,
                 loginCodeButton: '点击验证',
                 loginButton: '登录',
-                totalTimes:5,
+                totalTimes:60,
                 msgInfo:'',
                 token:'',
                 loginCodeClass:'btn-primary',
@@ -163,7 +163,7 @@
                             data: { token: this.token, username: this.userName, password:encrypted,rememberMe:this.rememberMe },
                             success:function(ret){
                                 if(ret.msg.msgCode == '200'){
-                                    location.href="main"
+                                    location.href="index"
                                 }else{
                                     that.warming=ret.msg.msgInfo
                                     that.isLoginActive=false
@@ -181,7 +181,7 @@
                                 }
                             },
                             error:function(jqXHR){
-                                that.waiting="服务器繁忙，请稍后再试"
+                                that.warming="服务器繁忙，请稍后再试"
                                 that.isLoginActive=false
                                 that.loginButton="登录"
 

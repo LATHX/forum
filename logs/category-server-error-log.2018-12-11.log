@@ -1,0 +1,716 @@
+2018-12-11 11:29:52.545 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'authorityMapper' and 'com.forum.mapper.AuthorityMapper' mapperInterface. Bean already defined with the same name!
+2018-12-11 11:29:52.545 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'roleAuthorityMapper' and 'com.forum.mapper.RoleAuthorityMapper' mapperInterface. Bean already defined with the same name!
+2018-12-11 11:29:52.545 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'roleMapper' and 'com.forum.mapper.RoleMapper' mapperInterface. Bean already defined with the same name!
+2018-12-11 11:29:52.547 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'test' and 'com.forum.mapper.Test' mapperInterface. Bean already defined with the same name!
+2018-12-11 11:29:52.547 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'userMapper' and 'com.forum.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2018-12-11 11:29:52.547 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.forum]' package. Please check your configuration.
+2018-12-11 11:29:55.837 [main] ERROR com.alibaba.druid.pool.DruidDataSource - init datasource error, url: jdbc:mysql://127.0.0.1:8066/forum?useSSL=false&serverTimezone=UTC
+com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:377)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:1036)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:338)
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2232)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2265)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2064)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:790)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:44)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:377)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:395)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:325)
+	at com.alibaba.druid.filter.FilterChainImpl.connection_connect(FilterChainImpl.java:148)
+	at com.alibaba.druid.filter.FilterAdapter.connection_connect(FilterAdapter.java:785)
+	at com.alibaba.druid.filter.FilterEventAdapter.connection_connect(FilterEventAdapter.java:38)
+	at com.alibaba.druid.filter.FilterChainImpl.connection_connect(FilterChainImpl.java:142)
+	at com.alibaba.druid.filter.FilterAdapter.connection_connect(FilterAdapter.java:785)
+	at com.alibaba.druid.filter.FilterChainImpl.connection_connect(FilterChainImpl.java:142)
+	at com.alibaba.druid.filter.stat.StatFilter.connection_connect(StatFilter.java:211)
+	at com.alibaba.druid.filter.FilterChainImpl.connection_connect(FilterChainImpl.java:142)
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1410)
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1464)
+	at com.alibaba.druid.pool.DruidDataSource.init(DruidDataSource.java:683)
+	at com.alibaba.druid.pool.DruidDataSource.getConnection(DruidDataSource.java:986)
+	at com.alibaba.druid.pool.DruidDataSource.getConnection(DruidDataSource.java:982)
+	at com.alibaba.druid.pool.DruidDataSource.getConnection(DruidDataSource.java:102)
+	at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:151)
+	at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:115)
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:78)
+	at org.mybatis.spring.transaction.SpringManagedTransaction.openConnection(SpringManagedTransaction.java:82)
+	at org.mybatis.spring.transaction.SpringManagedTransaction.getConnection(SpringManagedTransaction.java:68)
+	at org.apache.ibatis.executor.BaseExecutor.getConnection(BaseExecutor.java:338)
+	at org.apache.ibatis.executor.SimpleExecutor.prepareStatement(SimpleExecutor.java:84)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:62)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:326)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:83)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:148)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:141)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433)
+	at com.sun.proxy.$Proxy61.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:230)
+	at org.apache.ibatis.binding.MapperMethod.executeForMany(MapperMethod.java:139)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:76)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:59)
+	at com.sun.proxy.$Proxy74.findAuthorities(Unknown Source)
+	at com.forum.mapper.AuthorityMapper$findAuthorities.call(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:47)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:116)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:120)
+	at com.forum.service.impl.ShiroServiceImpl.loadFilterChainDefinitions(ShiroServiceImpl.groovy:26)
+	at com.forum.service.impl.ShiroServiceImpl$loadFilterChainDefinitions.call(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:47)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:116)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:120)
+	at com.forum.service.config.WebSecureConfig.shiroFilter(WebSecureConfig.groovy:41)
+	at com.forum.service.config.WebSecureConfig$$EnhancerBySpringCGLIB$$6a934dc6.CGLIB$shiroFilter$34(<generated>)
+	at com.forum.service.config.WebSecureConfig$$EnhancerBySpringCGLIB$$6a934dc6$$FastClassBySpringCGLIB$$9418dc0d.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:244)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:363)
+	at com.forum.service.config.WebSecureConfig$$EnhancerBySpringCGLIB$$6a934dc6.shiroFilter(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:620)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:605)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1288)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1127)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.getSingletonFactoryBeanForTypeCheck(AbstractAutowireCapableBeanFactory.java:974)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.getTypeForFactoryBean(AbstractAutowireCapableBeanFactory.java:848)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.isTypeMatch(AbstractBeanFactory.java:565)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doGetBeanNamesForType(DefaultListableBeanFactory.java:514)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanNamesForType(DefaultListableBeanFactory.java:477)
+	at org.springframework.beans.factory.BeanFactoryUtils.beanNamesForTypeIncludingAncestors(BeanFactoryUtils.java:227)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:1403)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1166)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:855)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:758)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:508)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1288)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1127)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:538)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:204)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.registerBeanPostProcessors(PostProcessorRegistrationDelegate.java:228)
+	at org.springframework.context.support.AbstractApplicationContext.registerBeanPostProcessors(AbstractApplicationContext.java:707)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:531)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:140)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316)
+	at com.forum.DemoApplication.main(DemoApplication.java:20)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:213)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:297)
+	... 103 common frames omitted
+2018-12-11 11:29:55.843 [main] ERROR com.alibaba.druid.pool.DruidDataSource - {dataSource-1} init error
+com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:377)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:1036)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:338)
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2232)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2265)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2064)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:790)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:44)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:377)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:395)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:325)
+	at com.alibaba.druid.filter.FilterChainImpl.connection_connect(FilterChainImpl.java:148)
+	at com.alibaba.druid.filter.FilterAdapter.connection_connect(FilterAdapter.java:785)
+	at com.alibaba.druid.filter.FilterEventAdapter.connection_connect(FilterEventAdapter.java:38)
+	at com.alibaba.druid.filter.FilterChainImpl.connection_connect(FilterChainImpl.java:142)
+	at com.alibaba.druid.filter.FilterAdapter.connection_connect(FilterAdapter.java:785)
+	at com.alibaba.druid.filter.FilterChainImpl.connection_connect(FilterChainImpl.java:142)
+	at com.alibaba.druid.filter.stat.StatFilter.connection_connect(StatFilter.java:211)
+	at com.alibaba.druid.filter.FilterChainImpl.connection_connect(FilterChainImpl.java:142)
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1410)
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1464)
+	at com.alibaba.druid.pool.DruidDataSource.init(DruidDataSource.java:683)
+	at com.alibaba.druid.pool.DruidDataSource.getConnection(DruidDataSource.java:986)
+	at com.alibaba.druid.pool.DruidDataSource.getConnection(DruidDataSource.java:982)
+	at com.alibaba.druid.pool.DruidDataSource.getConnection(DruidDataSource.java:102)
+	at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:151)
+	at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:115)
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:78)
+	at org.mybatis.spring.transaction.SpringManagedTransaction.openConnection(SpringManagedTransaction.java:82)
+	at org.mybatis.spring.transaction.SpringManagedTransaction.getConnection(SpringManagedTransaction.java:68)
+	at org.apache.ibatis.executor.BaseExecutor.getConnection(BaseExecutor.java:338)
+	at org.apache.ibatis.executor.SimpleExecutor.prepareStatement(SimpleExecutor.java:84)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:62)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:326)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:83)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:148)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:141)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433)
+	at com.sun.proxy.$Proxy61.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:230)
+	at org.apache.ibatis.binding.MapperMethod.executeForMany(MapperMethod.java:139)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:76)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:59)
+	at com.sun.proxy.$Proxy74.findAuthorities(Unknown Source)
+	at com.forum.mapper.AuthorityMapper$findAuthorities.call(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:47)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:116)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:120)
+	at com.forum.service.impl.ShiroServiceImpl.loadFilterChainDefinitions(ShiroServiceImpl.groovy:26)
+	at com.forum.service.impl.ShiroServiceImpl$loadFilterChainDefinitions.call(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:47)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:116)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:120)
+	at com.forum.service.config.WebSecureConfig.shiroFilter(WebSecureConfig.groovy:41)
+	at com.forum.service.config.WebSecureConfig$$EnhancerBySpringCGLIB$$6a934dc6.CGLIB$shiroFilter$34(<generated>)
+	at com.forum.service.config.WebSecureConfig$$EnhancerBySpringCGLIB$$6a934dc6$$FastClassBySpringCGLIB$$9418dc0d.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:244)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:363)
+	at com.forum.service.config.WebSecureConfig$$EnhancerBySpringCGLIB$$6a934dc6.shiroFilter(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:620)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:605)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1288)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1127)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.getSingletonFactoryBeanForTypeCheck(AbstractAutowireCapableBeanFactory.java:974)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.getTypeForFactoryBean(AbstractAutowireCapableBeanFactory.java:848)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.isTypeMatch(AbstractBeanFactory.java:565)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doGetBeanNamesForType(DefaultListableBeanFactory.java:514)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanNamesForType(DefaultListableBeanFactory.java:477)
+	at org.springframework.beans.factory.BeanFactoryUtils.beanNamesForTypeIncludingAncestors(BeanFactoryUtils.java:227)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:1403)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1166)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:855)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:758)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:508)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1288)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1127)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:538)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:204)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.registerBeanPostProcessors(PostProcessorRegistrationDelegate.java:228)
+	at org.springframework.context.support.AbstractApplicationContext.registerBeanPostProcessors(AbstractApplicationContext.java:707)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:531)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:140)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316)
+	at com.forum.DemoApplication.main(DemoApplication.java:20)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:213)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:297)
+	... 103 common frames omitted
+2018-12-11 11:29:55.846 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'methodValidationPostProcessor' defined in class path resource [org/springframework/boot/autoconfigure/validation/ValidationAutoConfiguration.class]: Unsatisfied dependency expressed through method 'methodValidationPostProcessor' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'shiroFilter' defined in class path resource [com/forum/service/config/WebSecureConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.shiro.spring.web.ShiroFilterFactoryBean]: Factory method 'shiroFilter' threw exception; nested exception is org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.exceptions.PersistenceException: 
+### Error querying database.  Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+### The error may exist in com/forum/mapper/AuthorityMapper.java (best guess)
+### The error may involve com.forum.mapper.AuthorityMapper.findAuthorities
+### The error occurred while executing a query
+### Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2018-12-11 11:29:55.873 [main] ERROR org.springframework.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'methodValidationPostProcessor' defined in class path resource [org/springframework/boot/autoconfigure/validation/ValidationAutoConfiguration.class]: Unsatisfied dependency expressed through method 'methodValidationPostProcessor' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'shiroFilter' defined in class path resource [com/forum/service/config/WebSecureConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.shiro.spring.web.ShiroFilterFactoryBean]: Factory method 'shiroFilter' threw exception; nested exception is org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.exceptions.PersistenceException: 
+### Error querying database.  Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+### The error may exist in com/forum/mapper/AuthorityMapper.java (best guess)
+### The error may involve com.forum.mapper.AuthorityMapper.findAuthorities
+### The error occurred while executing a query
+### Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:767)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:508)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1288)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1127)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:538)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:204)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.registerBeanPostProcessors(PostProcessorRegistrationDelegate.java:228)
+	at org.springframework.context.support.AbstractApplicationContext.registerBeanPostProcessors(AbstractApplicationContext.java:707)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:531)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:140)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316)
+	at com.forum.DemoApplication.main(DemoApplication.java:20)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'shiroFilter' defined in class path resource [com/forum/service/config/WebSecureConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.shiro.spring.web.ShiroFilterFactoryBean]: Factory method 'shiroFilter' threw exception; nested exception is org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.exceptions.PersistenceException: 
+### Error querying database.  Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+### The error may exist in com/forum/mapper/AuthorityMapper.java (best guess)
+### The error may involve com.forum.mapper.AuthorityMapper.findAuthorities
+### The error occurred while executing a query
+### Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:625)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:605)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1288)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1127)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.getSingletonFactoryBeanForTypeCheck(AbstractAutowireCapableBeanFactory.java:974)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.getTypeForFactoryBean(AbstractAutowireCapableBeanFactory.java:848)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.isTypeMatch(AbstractBeanFactory.java:565)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doGetBeanNamesForType(DefaultListableBeanFactory.java:514)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanNamesForType(DefaultListableBeanFactory.java:477)
+	at org.springframework.beans.factory.BeanFactoryUtils.beanNamesForTypeIncludingAncestors(BeanFactoryUtils.java:227)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:1403)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1166)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:855)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:758)
+	... 17 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.shiro.spring.web.ShiroFilterFactoryBean]: Factory method 'shiroFilter' threw exception; nested exception is org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.exceptions.PersistenceException: 
+### Error querying database.  Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+### The error may exist in com/forum/mapper/AuthorityMapper.java (best guess)
+### The error may involve com.forum.mapper.AuthorityMapper.findAuthorities
+### The error occurred while executing a query
+### Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:620)
+	... 31 common frames omitted
+Caused by: org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.exceptions.PersistenceException: 
+### Error querying database.  Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+### The error may exist in com/forum/mapper/AuthorityMapper.java (best guess)
+### The error may involve com.forum.mapper.AuthorityMapper.findAuthorities
+### The error occurred while executing a query
+### Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:77)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:446)
+	at com.sun.proxy.$Proxy61.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:230)
+	at org.apache.ibatis.binding.MapperMethod.executeForMany(MapperMethod.java:139)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:76)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:59)
+	at com.sun.proxy.$Proxy74.findAuthorities(Unknown Source)
+	at com.forum.mapper.AuthorityMapper$findAuthorities.call(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:47)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:116)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:120)
+	at com.forum.service.impl.ShiroServiceImpl.loadFilterChainDefinitions(ShiroServiceImpl.groovy:26)
+	at com.forum.service.impl.ShiroServiceImpl$loadFilterChainDefinitions.call(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:47)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:116)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:120)
+	at com.forum.service.config.WebSecureConfig.shiroFilter(WebSecureConfig.groovy:41)
+	at com.forum.service.config.WebSecureConfig$$EnhancerBySpringCGLIB$$6a934dc6.CGLIB$shiroFilter$34(<generated>)
+	at com.forum.service.config.WebSecureConfig$$EnhancerBySpringCGLIB$$6a934dc6$$FastClassBySpringCGLIB$$9418dc0d.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:244)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:363)
+	at com.forum.service.config.WebSecureConfig$$EnhancerBySpringCGLIB$$6a934dc6.shiroFilter(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+	... 32 common frames omitted
+Caused by: org.apache.ibatis.exceptions.PersistenceException: 
+### Error querying database.  Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+### The error may exist in com/forum/mapper/AuthorityMapper.java (best guess)
+### The error may involve com.forum.mapper.AuthorityMapper.findAuthorities
+### The error occurred while executing a query
+### Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:30)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:150)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:141)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433)
+	... 58 common frames omitted
+Caused by: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:81)
+	at org.mybatis.spring.transaction.SpringManagedTransaction.openConnection(SpringManagedTransaction.java:82)
+	at org.mybatis.spring.transaction.SpringManagedTransaction.getConnection(SpringManagedTransaction.java:68)
+	at org.apache.ibatis.executor.BaseExecutor.getConnection(BaseExecutor.java:338)
+	at org.apache.ibatis.executor.SimpleExecutor.prepareStatement(SimpleExecutor.java:84)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:62)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:326)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:83)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:148)
+	... 64 common frames omitted
+Caused by: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:377)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:1036)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:338)
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2232)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2265)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2064)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:790)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:44)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:377)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:395)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:325)
+	at com.alibaba.druid.filter.FilterChainImpl.connection_connect(FilterChainImpl.java:148)
+	at com.alibaba.druid.filter.FilterAdapter.connection_connect(FilterAdapter.java:785)
+	at com.alibaba.druid.filter.FilterEventAdapter.connection_connect(FilterEventAdapter.java:38)
+	at com.alibaba.druid.filter.FilterChainImpl.connection_connect(FilterChainImpl.java:142)
+	at com.alibaba.druid.filter.FilterAdapter.connection_connect(FilterAdapter.java:785)
+	at com.alibaba.druid.filter.FilterChainImpl.connection_connect(FilterChainImpl.java:142)
+	at com.alibaba.druid.filter.stat.StatFilter.connection_connect(StatFilter.java:211)
+	at com.alibaba.druid.filter.FilterChainImpl.connection_connect(FilterChainImpl.java:142)
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1410)
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1464)
+	at com.alibaba.druid.pool.DruidDataSource.init(DruidDataSource.java:683)
+	at com.alibaba.druid.pool.DruidDataSource.getConnection(DruidDataSource.java:986)
+	at com.alibaba.druid.pool.DruidDataSource.getConnection(DruidDataSource.java:982)
+	at com.alibaba.druid.pool.DruidDataSource.getConnection(DruidDataSource.java:102)
+	at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:151)
+	at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:115)
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:78)
+	... 74 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:213)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:297)
+	... 103 common frames omitted
+2018-12-11 11:29:56.848 [Druid-ConnectionPool-Create-1689262323] ERROR com.alibaba.druid.pool.DruidDataSource - create connection error, url: jdbc:mysql://127.0.0.1:8066/forum?useSSL=false&serverTimezone=UTC, errorCode 0, state 08S01
+com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:377)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:1036)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:338)
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2232)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2265)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2064)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:790)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:44)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:377)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:395)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:325)
+	at com.alibaba.druid.filter.FilterChainImpl.connection_connect(FilterChainImpl.java:148)
+	at com.alibaba.druid.filter.FilterAdapter.connection_connect(FilterAdapter.java:785)
+	at com.alibaba.druid.filter.FilterEventAdapter.connection_connect(FilterEventAdapter.java:38)
+	at com.alibaba.druid.filter.FilterChainImpl.connection_connect(FilterChainImpl.java:142)
+	at com.alibaba.druid.filter.FilterAdapter.connection_connect(FilterAdapter.java:785)
+	at com.alibaba.druid.filter.FilterChainImpl.connection_connect(FilterChainImpl.java:142)
+	at com.alibaba.druid.filter.stat.StatFilter.connection_connect(StatFilter.java:211)
+	at com.alibaba.druid.filter.FilterChainImpl.connection_connect(FilterChainImpl.java:142)
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1410)
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1464)
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:1969)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:213)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:297)
+	... 23 common frames omitted
+2018-12-11 11:30:55.683 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'authorityMapper' and 'com.forum.mapper.AuthorityMapper' mapperInterface. Bean already defined with the same name!
+2018-12-11 11:30:55.684 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'roleAuthorityMapper' and 'com.forum.mapper.RoleAuthorityMapper' mapperInterface. Bean already defined with the same name!
+2018-12-11 11:30:55.684 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'roleMapper' and 'com.forum.mapper.RoleMapper' mapperInterface. Bean already defined with the same name!
+2018-12-11 11:30:55.684 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'test' and 'com.forum.mapper.Test' mapperInterface. Bean already defined with the same name!
+2018-12-11 11:30:55.684 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'userMapper' and 'com.forum.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2018-12-11 11:30:55.684 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.forum]' package. Please check your configuration.
+2018-12-11 11:40:07.685 [http-nio-8080-exec-5] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-11 11:40:07
+2018-12-11 11:40:07.697 [http-nio-8080-exec-5] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
+2018-12-11 11:40:07.698 [http-nio-8080-exec-5] ERROR com.forum.service.aspect.ControllerLogAspect - Username : admin
+2018-12-11 11:40:07.707 [http-nio-8080-exec-5] ERROR com.forum.service.aspect.ControllerLogAspect - response=index.html
+2018-12-11 11:40:07.741 [http-nio-8080-exec-5] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost:8080/main","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.LoginController.main","args":"Arg -> (0)execution(Object com.forum.controller.LoginController.main())","reqParams":null,"respParams":"\"index.html\"","spendTime":94,"logType":"","user":{"sid":"1068310406818304000","username":"admin","password":null,"nickname":null,"roleId":1,"enable":true,"sex":null,"province":null,"city":null,"dist":null,"authCacheKey":"admin"}}
+2018-12-11 14:41:37.818 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'authorityMapper' and 'com.forum.mapper.AuthorityMapper' mapperInterface. Bean already defined with the same name!
+2018-12-11 14:41:37.819 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'roleAuthorityMapper' and 'com.forum.mapper.RoleAuthorityMapper' mapperInterface. Bean already defined with the same name!
+2018-12-11 14:41:37.819 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'roleMapper' and 'com.forum.mapper.RoleMapper' mapperInterface. Bean already defined with the same name!
+2018-12-11 14:41:37.819 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'test' and 'com.forum.mapper.Test' mapperInterface. Bean already defined with the same name!
+2018-12-11 14:41:37.819 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'userMapper' and 'com.forum.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2018-12-11 14:41:37.819 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.forum]' package. Please check your configuration.
+2018-12-11 14:42:22.117 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'authorityMapper' and 'com.forum.mapper.AuthorityMapper' mapperInterface. Bean already defined with the same name!
+2018-12-11 14:42:22.117 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'roleAuthorityMapper' and 'com.forum.mapper.RoleAuthorityMapper' mapperInterface. Bean already defined with the same name!
+2018-12-11 14:42:22.117 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'roleMapper' and 'com.forum.mapper.RoleMapper' mapperInterface. Bean already defined with the same name!
+2018-12-11 14:42:22.117 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'test' and 'com.forum.mapper.Test' mapperInterface. Bean already defined with the same name!
+2018-12-11 14:42:22.117 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'userMapper' and 'com.forum.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2018-12-11 14:42:22.117 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.forum]' package. Please check your configuration.
+2018-12-11 14:51:18.470 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'authorityMapper' and 'com.forum.mapper.AuthorityMapper' mapperInterface. Bean already defined with the same name!
+2018-12-11 14:51:18.470 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'roleAuthorityMapper' and 'com.forum.mapper.RoleAuthorityMapper' mapperInterface. Bean already defined with the same name!
+2018-12-11 14:51:18.470 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'roleMapper' and 'com.forum.mapper.RoleMapper' mapperInterface. Bean already defined with the same name!
+2018-12-11 14:51:18.470 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'test' and 'com.forum.mapper.Test' mapperInterface. Bean already defined with the same name!
+2018-12-11 14:51:18.470 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'userMapper' and 'com.forum.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2018-12-11 14:51:18.470 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.forum]' package. Please check your configuration.
+2018-12-11 14:51:22.390 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'constant': Unsatisfied dependency expressed through method 'setUUID_REDIS_CACHE_SIZE' parameter 0; nested exception is org.springframework.beans.TypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Integer'; nested exception is java.lang.NumberFormatException: For input string: "msg.UUID_REDIS_CACHE_SIZE"
+2018-12-11 14:51:22.426 [main] ERROR org.springframework.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'constant': Unsatisfied dependency expressed through method 'setUUID_REDIS_CACHE_SIZE' parameter 0; nested exception is org.springframework.beans.TypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Integer'; nested exception is java.lang.NumberFormatException: For input string: "msg.UUID_REDIS_CACHE_SIZE"
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.inject(AutowiredAnnotationBeanPostProcessor.java:676)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:90)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:374)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1378)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:575)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:846)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:863)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:546)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:140)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316)
+	at com.forum.DemoApplication.main(DemoApplication.java:20)
+Caused by: org.springframework.beans.TypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Integer'; nested exception is java.lang.NumberFormatException: For input string: "msg.UUID_REDIS_CACHE_SIZE"
+	at org.springframework.beans.TypeConverterSupport.doConvert(TypeConverterSupport.java:80)
+	at org.springframework.beans.TypeConverterSupport.convertIfNecessary(TypeConverterSupport.java:52)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1194)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1166)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.inject(AutowiredAnnotationBeanPostProcessor.java:668)
+	... 17 common frames omitted
+Caused by: java.lang.NumberFormatException: For input string: "msg.UUID_REDIS_CACHE_SIZE"
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.lang.Integer.parseInt(Integer.java:580)
+	at java.lang.Integer.valueOf(Integer.java:766)
+	at org.springframework.util.NumberUtils.parseNumber(NumberUtils.java:210)
+	at org.springframework.beans.propertyeditors.CustomNumberEditor.setAsText(CustomNumberEditor.java:115)
+	at org.springframework.beans.TypeConverterDelegate.doConvertTextValue(TypeConverterDelegate.java:466)
+	at org.springframework.beans.TypeConverterDelegate.doConvertValue(TypeConverterDelegate.java:439)
+	at org.springframework.beans.TypeConverterDelegate.convertIfNecessary(TypeConverterDelegate.java:192)
+	at org.springframework.beans.TypeConverterDelegate.convertIfNecessary(TypeConverterDelegate.java:99)
+	at org.springframework.beans.TypeConverterSupport.doConvert(TypeConverterSupport.java:73)
+	... 21 common frames omitted
+2018-12-11 14:53:00.999 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [com.forum.DemoApplication]; nested exception is java.io.FileNotFoundException: class path resource [config/configuration.properties}] cannot be opened because it does not exist
+2018-12-11 14:53:01.263 [main] ERROR org.springframework.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [com.forum.DemoApplication]; nested exception is java.io.FileNotFoundException: class path resource [config/configuration.properties}] cannot be opened because it does not exist
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:181)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:315)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:232)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:275)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:95)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:691)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:528)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:140)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316)
+	at com.forum.DemoApplication.main(DemoApplication.java:20)
+Caused by: java.io.FileNotFoundException: class path resource [config/configuration.properties}] cannot be opened because it does not exist
+	at org.springframework.core.io.ClassPathResource.getInputStream(ClassPathResource.java:180)
+	at org.springframework.core.io.support.EncodedResource.getInputStream(EncodedResource.java:159)
+	at org.springframework.core.io.support.PropertiesLoaderUtils.fillProperties(PropertiesLoaderUtils.java:99)
+	at org.springframework.core.io.support.PropertiesLoaderUtils.fillProperties(PropertiesLoaderUtils.java:73)
+	at org.springframework.core.io.support.PropertiesLoaderUtils.loadProperties(PropertiesLoaderUtils.java:59)
+	at org.springframework.core.io.support.ResourcePropertySource.<init>(ResourcePropertySource.java:67)
+	at org.springframework.core.io.support.DefaultPropertySourceFactory.createPropertySource(DefaultPropertySourceFactory.java:37)
+	at org.springframework.context.annotation.ConfigurationClassParser.processPropertySource(ConfigurationClassParser.java:452)
+	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:271)
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:242)
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:191)
+	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:295)
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:242)
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:199)
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:167)
+	... 11 common frames omitted
+2018-12-11 14:53:20.571 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'authorityMapper' and 'com.forum.mapper.AuthorityMapper' mapperInterface. Bean already defined with the same name!
+2018-12-11 14:53:20.571 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'roleAuthorityMapper' and 'com.forum.mapper.RoleAuthorityMapper' mapperInterface. Bean already defined with the same name!
+2018-12-11 14:53:20.571 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'roleMapper' and 'com.forum.mapper.RoleMapper' mapperInterface. Bean already defined with the same name!
+2018-12-11 14:53:20.571 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'test' and 'com.forum.mapper.Test' mapperInterface. Bean already defined with the same name!
+2018-12-11 14:53:20.571 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'userMapper' and 'com.forum.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2018-12-11 14:53:20.571 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.forum]' package. Please check your configuration.
+2018-12-11 14:53:39.498 [http-nio-8080-exec-5] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-11 02:53:39
+2018-12-11 14:53:39.507 [http-nio-8080-exec-5] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
+2018-12-11 14:53:39.509 [http-nio-8080-exec-5] ERROR com.forum.service.aspect.ControllerLogAspect - Username : admin
+2018-12-11 14:53:39.625 [http-nio-8080-exec-5] ERROR com.forum.service.aspect.ControllerLogAspect - response=com.forum.model.dto.LoginInfo@52955da2
+2018-12-11 14:53:39.687 [http-nio-8080-exec-5] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost:8080/token","ip":"0:0:0:0:0:0:0:1","httpMethod":"POST","classMethod":"com.forum.controller.LoginController.token","args":"Arg -> (0)execution(Object com.forum.controller.LoginController.token(HttpServletRequest))","reqParams":null,"respParams":"{\"username\":null,\"password\":null,\"token\":\"3acc20371c9a4582800dc9bedf21e62c\",\"publicKey\":\"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDdS/Fjz/PsUU7HpguKVo5t37mCJ/ikF9dxXTKI8S0bp78f52sl2SIZvUVI9ok9lw6Xa5YdTmy1spu7d8TdgxkvSoq1vDNodULnW5sRrFOAex6qnGd3SqAIcsxNEs97ylYjyDmTbob4O3B74gmAJL1OoaoqVb4mL6iq3ye/Mc0/AwIDAQAB\",\"rememberMe\":null,\"msg\":{\"msgCode\":\"201\",\"msgInfo\":\"验证通过\"}}","spendTime":268,"logType":"","user":{"sid":"1068310406818304000","username":"admin","password":null,"nickname":null,"roleId":1,"enable":true,"sex":null,"province":null,"city":null,"dist":null,"authCacheKey":"admin"}}
+2018-12-11 14:53:46.089 [http-nio-8080-exec-4] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-11 02:53:46
+2018-12-11 14:53:46.089 [http-nio-8080-exec-4] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
+2018-12-11 14:53:46.089 [http-nio-8080-exec-4] ERROR com.forum.service.aspect.ControllerLogAspect - Username : admin
+2018-12-11 14:53:46.093 [http-nio-8080-exec-4] ERROR com.forum.service.aspect.ControllerLogAspect - response=com.forum.model.dto.LoginInfo@52955da2
+2018-12-11 14:53:46.099 [http-nio-8080-exec-4] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost:8080/token","ip":"0:0:0:0:0:0:0:1","httpMethod":"POST","classMethod":"com.forum.controller.LoginController.token","args":"Arg -> (0)execution(Object com.forum.controller.LoginController.token(HttpServletRequest))","reqParams":null,"respParams":"{\"username\":null,\"password\":null,\"token\":null,\"publicKey\":null,\"rememberMe\":null,\"msg\":{\"msgCode\":\"302\",\"msgInfo\":\"验证过于频繁\"}}","spendTime":6,"logType":"","user":{"sid":"1068310406818304000","username":"admin","password":null,"nickname":null,"roleId":1,"enable":true,"sex":null,"province":null,"city":null,"dist":null,"authCacheKey":"admin"}}
+2018-12-11 14:58:15.579 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'authorityMapper' and 'com.forum.mapper.AuthorityMapper' mapperInterface. Bean already defined with the same name!
+2018-12-11 14:58:15.579 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'roleAuthorityMapper' and 'com.forum.mapper.RoleAuthorityMapper' mapperInterface. Bean already defined with the same name!
+2018-12-11 14:58:15.579 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'roleMapper' and 'com.forum.mapper.RoleMapper' mapperInterface. Bean already defined with the same name!
+2018-12-11 14:58:15.579 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'test' and 'com.forum.mapper.Test' mapperInterface. Bean already defined with the same name!
+2018-12-11 14:58:15.579 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'userMapper' and 'com.forum.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2018-12-11 14:58:15.579 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.forum]' package. Please check your configuration.
+2018-12-11 14:58:26.685 [http-nio-8080-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-11 02:58:26
+2018-12-11 14:58:26.695 [http-nio-8080-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
+2018-12-11 14:58:26.696 [http-nio-8080-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - Username : admin
+2018-12-11 14:58:26.772 [http-nio-8080-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - response=com.forum.model.dto.LoginInfo@4d3a5933
+2018-12-11 14:58:26.810 [http-nio-8080-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost:8080/token","ip":"0:0:0:0:0:0:0:1","httpMethod":"POST","classMethod":"com.forum.controller.LoginController.token","args":"Arg -> (0)execution(Object com.forum.controller.LoginController.token(HttpServletRequest))","reqParams":null,"respParams":"{\"username\":null,\"password\":null,\"token\":\"c085e5342ef743e3b315feaa5d88d0e4\",\"publicKey\":\"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCGyHFkPRbscgbSvX824b2QJXBNPmhB+/vFFCeGjpnw/UGPPz2aaE/uRpJqT0We7E/4FdSdTpr1hCjEjIsjh06B/2Klm2faJBpkqa3flKnR6cqs9Rdv4HqGSI8CG0OIp7tOr5sUHIrHNm6jeaCxdm0gc7v2rlDqehWS10M4NfuesQIDAQAB\",\"rememberMe\":null,\"msg\":{\"msgCode\":\"201\",\"msgInfo\":\"验证通过\"}}","spendTime":226,"logType":"","user":{"sid":"1068310406818304000","username":"admin","password":null,"nickname":null,"roleId":1,"enable":true,"sex":null,"province":null,"city":null,"dist":null,"authCacheKey":"admin"}}
+2018-12-11 15:02:07.626 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'authorityMapper' and 'com.forum.mapper.AuthorityMapper' mapperInterface. Bean already defined with the same name!
+2018-12-11 15:02:07.627 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'roleAuthorityMapper' and 'com.forum.mapper.RoleAuthorityMapper' mapperInterface. Bean already defined with the same name!
+2018-12-11 15:02:07.627 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'roleMapper' and 'com.forum.mapper.RoleMapper' mapperInterface. Bean already defined with the same name!
+2018-12-11 15:02:07.627 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'test' and 'com.forum.mapper.Test' mapperInterface. Bean already defined with the same name!
+2018-12-11 15:02:07.627 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'userMapper' and 'com.forum.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2018-12-11 15:02:07.627 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.forum]' package. Please check your configuration.
+2018-12-11 15:02:21.500 [http-nio-8080-exec-8] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-11 03:02:21
+2018-12-11 15:02:21.512 [http-nio-8080-exec-8] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
+2018-12-11 15:02:21.514 [http-nio-8080-exec-8] ERROR com.forum.service.aspect.ControllerLogAspect - Username : admin
+2018-12-11 15:02:21.586 [http-nio-8080-exec-8] ERROR com.forum.service.aspect.ControllerLogAspect - response=com.forum.model.dto.LoginInfo@3af45a4b
+2018-12-11 15:02:21.638 [http-nio-8080-exec-8] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost:8080/token","ip":"0:0:0:0:0:0:0:1","httpMethod":"POST","classMethod":"com.forum.controller.LoginController.token","args":"Arg -> (0)execution(Object com.forum.controller.LoginController.token(HttpServletRequest))","reqParams":null,"respParams":"{\"username\":null,\"password\":null,\"token\":\"02813a873bd04732abd257a209d83811\",\"publicKey\":\"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC6cV4ceZJEwapZj09eEwACZMaJHiGvakuB0L3FuB4T3DxHV9sN41ERl5sHE5hCfSbDQWaME5A9zYPGJfP7Ia0geBjSlPHb/ei+7vulXmvwDMwU8tP7duzOnwQ+totV63v3VwQajqxE/6kywLzXu5VdP2Qn8+43urvNTdWN6eTCIwIDAQAB\",\"rememberMe\":null,\"msg\":{\"msgCode\":\"201\",\"msgInfo\":\"验证通过\"}}","spendTime":223,"logType":"","user":{"sid":"1068310406818304000","username":"admin","password":null,"nickname":null,"roleId":1,"enable":true,"sex":null,"province":null,"city":null,"dist":null,"authCacheKey":"admin"}}
+2018-12-11 15:05:29.428 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'authorityMapper' and 'com.forum.mapper.AuthorityMapper' mapperInterface. Bean already defined with the same name!
+2018-12-11 15:05:29.428 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'roleAuthorityMapper' and 'com.forum.mapper.RoleAuthorityMapper' mapperInterface. Bean already defined with the same name!
+2018-12-11 15:05:29.428 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'roleMapper' and 'com.forum.mapper.RoleMapper' mapperInterface. Bean already defined with the same name!
+2018-12-11 15:05:29.428 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'test' and 'com.forum.mapper.Test' mapperInterface. Bean already defined with the same name!
+2018-12-11 15:05:29.428 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'userMapper' and 'com.forum.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2018-12-11 15:05:29.428 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.forum]' package. Please check your configuration.
+2018-12-11 15:05:41.478 [http-nio-8080-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-11 03:05:41
+2018-12-11 15:05:41.490 [http-nio-8080-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
+2018-12-11 15:05:41.491 [http-nio-8080-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - Username : admin
+2018-12-11 15:05:41.564 [http-nio-8080-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - response=com.forum.model.dto.LoginInfo@3d50dce5
+2018-12-11 15:05:41.632 [http-nio-8080-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost:8080/token","ip":"0:0:0:0:0:0:0:1","httpMethod":"POST","classMethod":"com.forum.controller.LoginController.token","args":"Arg -> (0)execution(Object com.forum.controller.LoginController.token(HttpServletRequest))","reqParams":null,"respParams":"{\"username\":null,\"password\":null,\"token\":\"16cd56d6acf94e5fa87dc18e7e0cc803\",\"publicKey\":\"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDDrYnOelxlqkv2vumMKtm42xA2C+gb9bcx9ScvYh61RkXthK0NkomVwfLBfR6Aki+Msj3I/b1spYot8dZPZBpFhqpMBaJvGQURiBZ6uHdj26GYKC63oXfuQDGh/QOhe2k8WEJdeRxEPwf83wmn8pdnSLFZf+lQXdPyjY9tCOSegQIDAQAB\",\"rememberMe\":null,\"msg\":{\"msgCode\":\"201\",\"msgInfo\":\"验证通过\"}}","spendTime":213,"logType":"","user":{"sid":"1068310406818304000","username":"admin","password":null,"nickname":null,"roleId":1,"enable":true,"sex":null,"province":null,"city":null,"dist":null,"authCacheKey":"admin"}}
+2018-12-11 15:05:43.687 [http-nio-8080-exec-6] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-11 03:05:43
+2018-12-11 15:05:43.687 [http-nio-8080-exec-6] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
+2018-12-11 15:05:43.687 [http-nio-8080-exec-6] ERROR com.forum.service.aspect.ControllerLogAspect - Username : admin
+2018-12-11 15:05:43.691 [http-nio-8080-exec-6] ERROR com.forum.service.aspect.ControllerLogAspect - response=com.forum.model.dto.LoginInfo@3d50dce5
+2018-12-11 15:05:43.695 [http-nio-8080-exec-6] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost:8080/token","ip":"0:0:0:0:0:0:0:1","httpMethod":"POST","classMethod":"com.forum.controller.LoginController.token","args":"Arg -> (0)execution(Object com.forum.controller.LoginController.token(HttpServletRequest))","reqParams":null,"respParams":"{\"username\":null,\"password\":null,\"token\":null,\"publicKey\":null,\"rememberMe\":null,\"msg\":{\"msgCode\":\"302\",\"msgInfo\":\"验证过于频繁\"}}","spendTime":5,"logType":"","user":{"sid":"1068310406818304000","username":"admin","password":null,"nickname":null,"roleId":1,"enable":true,"sex":null,"province":null,"city":null,"dist":null,"authCacheKey":"admin"}}
+2018-12-11 15:08:30.687 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'authorityMapper' and 'com.forum.mapper.AuthorityMapper' mapperInterface. Bean already defined with the same name!
+2018-12-11 15:08:30.687 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'roleAuthorityMapper' and 'com.forum.mapper.RoleAuthorityMapper' mapperInterface. Bean already defined with the same name!
+2018-12-11 15:08:30.687 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'roleMapper' and 'com.forum.mapper.RoleMapper' mapperInterface. Bean already defined with the same name!
+2018-12-11 15:08:30.687 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'test' and 'com.forum.mapper.Test' mapperInterface. Bean already defined with the same name!
+2018-12-11 15:08:30.687 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'userMapper' and 'com.forum.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2018-12-11 15:08:30.687 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.forum]' package. Please check your configuration.
+2018-12-11 15:22:18.207 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'authorityMapper' and 'com.forum.mapper.AuthorityMapper' mapperInterface. Bean already defined with the same name!
+2018-12-11 15:22:18.208 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'roleAuthorityMapper' and 'com.forum.mapper.RoleAuthorityMapper' mapperInterface. Bean already defined with the same name!
+2018-12-11 15:22:18.208 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'roleMapper' and 'com.forum.mapper.RoleMapper' mapperInterface. Bean already defined with the same name!
+2018-12-11 15:22:18.208 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'test' and 'com.forum.mapper.Test' mapperInterface. Bean already defined with the same name!
+2018-12-11 15:22:18.208 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'userMapper' and 'com.forum.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2018-12-11 15:22:18.208 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.forum]' package. Please check your configuration.
+2018-12-11 15:22:27.922 [http-nio-8080-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-11 03:22:27
+2018-12-11 15:22:27.937 [http-nio-8080-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
+2018-12-11 15:22:27.937 [http-nio-8080-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - Username : admin
+2018-12-11 15:22:28.016 [http-nio-8080-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - response=com.forum.model.dto.LoginInfo@25ff414a
+2018-12-11 15:22:28.065 [http-nio-8080-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost:8080/token","ip":"0:0:0:0:0:0:0:1","httpMethod":"POST","classMethod":"com.forum.controller.LoginController.token","args":"Arg -> (0)execution(Object com.forum.controller.LoginController.token(HttpServletRequest))","reqParams":null,"respParams":"{\"username\":null,\"password\":null,\"token\":\"cfbb58a02be64f16a9b04ed8382b1b36\",\"publicKey\":\"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCX4o8RS6qGmAzSrALMnddzZ+MNJPZ9cNSZMeQFOUheUMY2xLDeX9O0LcSwWyO22t4nrhP+FXBPI+ukLgAtmDazgMBbDkoYHu3Rz9oucxh22BzfYHJyfHTkfJVzTnUA7ZEN1S4g2MP4+b+kft2+z/3Il3d5w5/VerlUiEkWH6SQ4QIDAQAB\",\"rememberMe\":null,\"msg\":{\"msgCode\":\"201\",\"msgInfo\":\"验证通过\"}}","spendTime":197,"logType":"","user":{"sid":"1068310406818304000","username":"admin","password":null,"nickname":null,"roleId":1,"enable":true,"sex":null,"province":null,"city":null,"dist":null,"authCacheKey":"admin"}}
+2018-12-11 15:22:29.050 [http-nio-8080-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-11 03:22:29
+2018-12-11 15:22:29.051 [http-nio-8080-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [password:[eDyjLH/wHDrjMUV9TYrT8QIHWDV8wPaPGSoLnjy8/rPhx5ni17Pie95AFp9PXTmh50oxUje6Y1K7qvHI3yx0acVK8tFSNcIg4Spng6EmkJVmFEARyab8ZitwWRF799qoHiwwT7e/xWYE203ViHI7YA8TGPG7JhUCZAWeCWLFURg=], rememberMe:[false], token:[cfbb58a02be64f16a9b04ed8382b1b36], username:[admin]]
+2018-12-11 15:22:29.051 [http-nio-8080-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - Username : admin
+2018-12-11 15:22:29.185 [http-nio-8080-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - response=com.forum.model.dto.LoginInfo@25ff414a
+2018-12-11 15:22:29.188 [http-nio-8080-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost:8080/login","ip":"0:0:0:0:0:0:0:1","httpMethod":"POST","classMethod":"com.forum.controller.LoginController.login","args":"Arg -> (0)execution(Object com.forum.controller.LoginController.login(HttpServletRequest,LoginInfo,BindingResult))","reqParams":null,"respParams":"{\"username\":null,\"password\":null,\"token\":\"cfbb58a02be64f16a9b04ed8382b1b36\",\"publicKey\":\"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCX4o8RS6qGmAzSrALMnddzZ+MNJPZ9cNSZMeQFOUheUMY2xLDeX9O0LcSwWyO22t4nrhP+FXBPI+ukLgAtmDazgMBbDkoYHu3Rz9oucxh22BzfYHJyfHTkfJVzTnUA7ZEN1S4g2MP4+b+kft2+z/3Il3d5w5/VerlUiEkWH6SQ4QIDAQAB\",\"rememberMe\":null,\"msg\":{\"msgCode\":\"200\",\"msgInfo\":\"验证通过\"}}","spendTime":136,"logType":"","user":{"sid":"1068310406818304000","username":"admin","password":null,"nickname":null,"roleId":1,"enable":true,"sex":null,"province":null,"city":null,"dist":null,"authCacheKey":"admin"}}
+2018-12-11 15:22:29.201 [http-nio-8080-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-11 03:22:29
+2018-12-11 15:22:29.201 [http-nio-8080-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
+2018-12-11 15:22:29.201 [http-nio-8080-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - Username : admin
+2018-12-11 15:22:29.201 [http-nio-8080-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - response=index.html
+2018-12-11 15:22:29.204 [http-nio-8080-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost:8080/main","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.LoginController.main","args":"Arg -> (0)execution(Object com.forum.controller.LoginController.main())","reqParams":null,"respParams":"\"index.html\"","spendTime":1,"logType":"","user":{"sid":"1068310406818304000","username":"admin","password":null,"nickname":"admin","roleId":1,"enable":true,"sex":0,"province":"海外","city":"","dist":"","authCacheKey":"admin"}}
+2018-12-11 15:26:46.863 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'authorityMapper' and 'com.forum.mapper.AuthorityMapper' mapperInterface. Bean already defined with the same name!
+2018-12-11 15:26:46.863 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'roleAuthorityMapper' and 'com.forum.mapper.RoleAuthorityMapper' mapperInterface. Bean already defined with the same name!
+2018-12-11 15:26:46.863 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'roleMapper' and 'com.forum.mapper.RoleMapper' mapperInterface. Bean already defined with the same name!
+2018-12-11 15:26:46.863 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'test' and 'com.forum.mapper.Test' mapperInterface. Bean already defined with the same name!
+2018-12-11 15:26:46.863 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'userMapper' and 'com.forum.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2018-12-11 15:26:46.863 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.forum]' package. Please check your configuration.
+2018-12-11 15:27:22.111 [http-nio-8080-exec-4] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-11 03:27:22
+2018-12-11 15:27:22.121 [http-nio-8080-exec-4] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
+2018-12-11 15:27:22.122 [http-nio-8080-exec-4] ERROR com.forum.service.aspect.ControllerLogAspect - Username : admin
+2018-12-11 15:27:22.216 [http-nio-8080-exec-4] ERROR com.forum.service.aspect.ControllerLogAspect - response=com.forum.model.dto.LoginInfo@3a4d7e9b
+2018-12-11 15:27:22.257 [http-nio-8080-exec-4] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost:8080/token","ip":"0:0:0:0:0:0:0:1","httpMethod":"POST","classMethod":"com.forum.controller.LoginController.token","args":"Arg -> (0)execution(Object com.forum.controller.LoginController.token(HttpServletRequest))","reqParams":null,"respParams":"{\"username\":null,\"password\":null,\"token\":\"87fb5f4ab1d04d17b0349c757a7bbb15\",\"publicKey\":\"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCRiOMMlAsv7OOR1DjnSrbHm5+qv+sKOAcLccOrVjgZNWzuCTrnh655F3MGm01o9Gsh4ULKk8KXrW6TR2Ue92CpV400C07DFCVR4VmyEcgrv1NDQNK8Xn0ps+YHDzFImIv6KUetL0ZTdII6njpqmwaWqaUxIwrMIhUW180VgM+irwIDAQAB\",\"rememberMe\":null,\"msg\":{\"msgCode\":\"201\",\"msgInfo\":\"验证通过\"}}","spendTime":217,"logType":"","user":{"sid":"1068310406818304000","username":"admin","password":null,"nickname":"admin","roleId":1,"enable":true,"sex":0,"province":"海外","city":"","dist":"","authCacheKey":"admin"}}
+2018-12-11 15:27:23.364 [http-nio-8080-exec-5] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-11 03:27:23
+2018-12-11 15:27:23.365 [http-nio-8080-exec-5] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [password:[ie+sqi194c0rSn0Q/HD7uJR1MGq2dj3CZARxNDAih7PNbvMAFnVyka2Ycwd16lhnTgPNWe9iYiKRoayC75iXPj1tqpEh9GsY4ooePNwSMLL6sN0zFtEVWrFCQQDwmj3+Kw2hWy+pHYnf4cPkToGV/pOKaUcBF9j9oYAaHPlyq+0=], rememberMe:[true], token:[87fb5f4ab1d04d17b0349c757a7bbb15], username:[admin]]
+2018-12-11 15:27:23.365 [http-nio-8080-exec-5] ERROR com.forum.service.aspect.ControllerLogAspect - Username : admin
+2018-12-11 15:27:23.463 [http-nio-8080-exec-5] ERROR com.forum.service.aspect.ControllerLogAspect - response=com.forum.model.dto.LoginInfo@3a4d7e9b
+2018-12-11 15:27:23.467 [http-nio-8080-exec-5] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost:8080/login","ip":"0:0:0:0:0:0:0:1","httpMethod":"POST","classMethod":"com.forum.controller.LoginController.login","args":"Arg -> (0)execution(Object com.forum.controller.LoginController.login(HttpServletRequest,LoginInfo,BindingResult))","reqParams":null,"respParams":"{\"username\":null,\"password\":null,\"token\":\"87fb5f4ab1d04d17b0349c757a7bbb15\",\"publicKey\":\"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCRiOMMlAsv7OOR1DjnSrbHm5+qv+sKOAcLccOrVjgZNWzuCTrnh655F3MGm01o9Gsh4ULKk8KXrW6TR2Ue92CpV400C07DFCVR4VmyEcgrv1NDQNK8Xn0ps+YHDzFImIv6KUetL0ZTdII6njpqmwaWqaUxIwrMIhUW180VgM+irwIDAQAB\",\"rememberMe\":null,\"msg\":{\"msgCode\":\"200\",\"msgInfo\":\"验证通过\"}}","spendTime":100,"logType":"","user":{"sid":"1068310406818304000","username":"admin","password":null,"nickname":"admin","roleId":1,"enable":true,"sex":0,"province":"海外","city":"","dist":"","authCacheKey":"admin"}}
+2018-12-11 15:27:23.484 [http-nio-8080-exec-6] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-11 03:27:23
+2018-12-11 15:27:23.484 [http-nio-8080-exec-6] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
+2018-12-11 15:27:23.484 [http-nio-8080-exec-6] ERROR com.forum.service.aspect.ControllerLogAspect - Username : admin
+2018-12-11 15:27:23.484 [http-nio-8080-exec-6] ERROR com.forum.service.aspect.ControllerLogAspect - response=index.html
+2018-12-11 15:27:23.486 [http-nio-8080-exec-6] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost:8080/index","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.LoginController.main","args":"Arg -> (0)execution(Object com.forum.controller.LoginController.main())","reqParams":null,"respParams":"\"index.html\"","spendTime":1,"logType":"","user":{"sid":"1068310406818304000","username":"admin","password":null,"nickname":"admin","roleId":1,"enable":true,"sex":0,"province":"海外","city":"","dist":"","authCacheKey":"admin"}}
+2018-12-11 15:30:30.279 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'authorityMapper' and 'com.forum.mapper.AuthorityMapper' mapperInterface. Bean already defined with the same name!
+2018-12-11 15:30:30.279 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'roleAuthorityMapper' and 'com.forum.mapper.RoleAuthorityMapper' mapperInterface. Bean already defined with the same name!
+2018-12-11 15:30:30.279 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'roleMapper' and 'com.forum.mapper.RoleMapper' mapperInterface. Bean already defined with the same name!
+2018-12-11 15:30:30.279 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'test' and 'com.forum.mapper.Test' mapperInterface. Bean already defined with the same name!
+2018-12-11 15:30:30.279 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'userMapper' and 'com.forum.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2018-12-11 15:30:30.279 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.forum]' package. Please check your configuration.

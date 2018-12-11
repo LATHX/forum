@@ -12,8 +12,6 @@ import java.text.SimpleDateFormat
 @Component
 class CommonUtil {
     @Autowired
-    RedisUtil redisUtil
-    @Autowired
     GenerateToken generateToken
 
     static synchronized String generateUUID() {
@@ -120,5 +118,38 @@ class CommonUtil {
         ByteArrayInputStream bi = new ByteArrayInputStream(objBytes);
         ObjectInputStream oi = new ObjectInputStream(bi);
         return oi.readObject();
+    }
+
+    static boolean hasRedisKey(String key){
+        boolean hasKey = RedisUtil.hasKey(key)
+        if (hasKey && RedisUtil.getExpire(key) == 0) {
+            RedisUtil.del(key)
+            return false
+        } else if (hasKey) {
+            return true
+        }
+    }
+
+    static boolean setRedisKeyAndTime(String key,String value, long time){
+        boolean keyFlag = RedisUtil.set(key, value)
+        boolean expireFlag = RedisUtil.expire(key, time)
+        if (keyFlag == false || expireFlag == false) {
+            return false
+        }
+        return true
+    }
+
+    static String randomCode(int size){
+        Random rd = new Random()
+        StringBuilder sb = new StringBuilder()
+        char[] c = allCharacter()
+        for(int index = 0; index < size; index++){
+            sb.append(c[rd.nextInt(c.length)])
+        }
+        return sb.toString()
+    }
+
+    static char[] allCharacter(){
+        "1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM".toCharArray()
     }
 }

@@ -18,8 +18,6 @@ import org.springframework.stereotype.Service
 class ShiroServiceImpl {
     @Autowired
     private AuthorityMapper authorityMapper
-    @Autowired
-    CommonUtil util
     private String NON_AUTHEMTICATE
 
     public Map<String, String> loadFilterChainDefinitions() {
@@ -30,7 +28,7 @@ class ShiroServiceImpl {
             String uris;
             String[] uriArr;
             for (AuthorityEntity authority : authorities) {
-                if (util.isEmpty(authority.getPermission())) {
+                if (CommonUtil.isEmpty(authority.getPermission())) {
                     continue;
                 }
                 uris = authority.getUri();

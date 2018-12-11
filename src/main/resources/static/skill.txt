@@ -36,3 +36,5 @@ net stop RabbitMQ && net start RabbitMQ
 
 Vue
 https://www.cnblogs.com/kelly2017/p/7136868.html
+
+https://github.com/hankcs/HanLP

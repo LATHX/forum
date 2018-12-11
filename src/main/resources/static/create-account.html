@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<head xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head xmlns:v-on="http://www.w3.org/1999/xhtml">
 	<title>创建账号</title>
 	<meta name="keywords" content="" />
 	<meta name="description" content="" />
@@ -35,13 +35,13 @@
 			            <label for="email" class="control-label">邮箱</label>
 			            <input type="email" class="form-control" id="email"  placeholder="输入邮箱" name="username" v-model="username" v-on:keyup="validationEmail"><br>
 			          </div>
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <label for="password" class="control-label">验证码</label>
                             <input type="text" class="form-control" id="code" placeholder="验证码" name="code" v-model="code">
                         </div>
-                        <div class="col-md-2">
+                        <div class="col-md-3">
                             <label for="password" class="control-label">&nbsp;&nbsp;</label>
-                            <input type="button" class="form-control" id="send" value="点击发送" :disabled="isCodeActive">
+                            <input type="button" class="form-control btn-primary" readonly id="send" value="点击发送" :disabled="isCodeActive" v-on:click="sendCodeMail" v-model="sendMail">
                         </div>
 			        </div>			
 			        <div class="form-group">
@@ -64,7 +64,7 @@
 			        <div class="form-group">
 			          <div class="col-md-6">
 			            <label for="password" class="control-label">密码</label>
-			            <input type="password" class="form-control" id="password" placeholder="密码" name="password" v-model="password">
+			            <input type="password" class="form-control" id="password" placeholder="输入8位以上密码" name="password" v-model="password">
 			          </div>
 			          <div class="col-md-6">
 			            <label for="password" class="control-label">确认 密码</label>
@@ -79,7 +79,7 @@
 			        <div class="form-group">
 			          <div class="col-md-12">
 			            <input type="button" value="创建" class="btn btn-info" v-on:click="submit" v-model="create"><label style="color: red;">{{msginfo}}</label>
-			            <a href="login-1.html" class="pull-right">登录</a>
+			            <a href="login.html" class="pull-right">登录</a>
 			          </div>
 			        </div>	
 				</div>				    	
@@ -126,14 +126,45 @@
                 agree:false,
                 msginfo:'',
                 isCodeActive:true,
-                code:''
+                code:'',
+                sendMail:'点击发送',
+                totalTime:60
             },
             created(){
             },
             methods:{
+            sendCodeMail:function(){
+                var that = this;
+                this.isCodeActive=true;
+                this.sendMail = "再次获取(60)";
+            },
             submit:function(){
                 var that = this;
                 var flag = that.validation();
+                if(flag){
+                    $.ajax({
+                            type:"POST",
+                            url:" /register",
+                            dataType:"json",
+                            timeout : 50000,
+                            data: { token: this.token, username: this.userName, password:encrypted,rememberMe:this.rememberMe },
+                            success:function(ret){
+                                if(ret.msg.msgCode == '200'){
+                                }else{
+
+                                }
+                            },
+                            complete: function (XMLHttpRequest, textStatus) {
+                                if(textStatus == 'timeout') {
+                                    that.msginfo = "连接超时，请稍后再试";
+                                }
+                            },
+                            error:function(jqXHR){
+                                that.msginfo="服务器繁忙，请稍后再试"
+
+                            }
+                        });
+                }
 
             },
             validationEmail:function(){
@@ -167,16 +198,23 @@
                     this.msginfo='未同意隐私政策'
                     flag = false;
                 }
-                if(this.password.trim()==''||this.confirmPassword.trim()==''){
-                    $("#password").addClass('board_red');
-                    $("#confirmPassword").addClass('board_red');
-                    this.msginfo='两次密码不能为空'
-                    flag = false;
-                }
+
                 if(this.password.trim()!=this.confirmPassword.trim()){
                     $("#password").addClass('board_red');
                     $("#confirmPassword").addClass('board_red');
                     this.msginfo='两次密码不一致'
+                    flag = false;
+                }
+                 if(this.password.length<8){
+                    $("#password").addClass('board_red');
+                    $("#confirmPassword").addClass('board_red');
+                    this.msginfo='密码长度不能少于8位'
+                    flag = false;
+                }
+                if(this.password.trim()==''||this.confirmPassword.trim()==''){
+                    $("#password").addClass('board_red');
+                    $("#confirmPassword").addClass('board_red');
+                    this.msginfo='两次密码不能为空'
                     flag = false;
                 }
                 if($("#myAddrs").val().trim()==''){
