@@ -2,9 +2,10 @@ package com.forum.model.dto
 
 import com.forum.model.validationInterface.RegisterGroup
 import com.forum.model.validationInterface.RegisterMailGroup
+import org.springframework.stereotype.Component
 
 import javax.validation.constraints.*
-
+@Component
 class RegisterInfo implements Serializable {
     @NotBlank(message = '{register.username.blank}', groups = [RegisterGroup.class])
     @Size(max = 45, message = '{register.username.blank}', groups = [RegisterGroup.class])

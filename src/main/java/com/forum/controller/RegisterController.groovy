@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller
 import org.springframework.validation.BindingResult
 import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.ResponseBody
 
 import javax.servlet.http.HttpServletRequest
 
@@ -19,6 +20,8 @@ import javax.servlet.http.HttpServletRequest
 class RegisterController {
     @Autowired
     MessageCodeInfo messageCodeInfo
+    @Autowired
+    RegisterInfo registerInfo
     @Autowired
     RegisterService registerService
     @RequestMapping('/register')
@@ -28,13 +31,15 @@ class RegisterController {
         }
     }
     @RequestMapping('/send-register-mail')
+    @ResponseBody
     registerMail(HttpServletRequest request, @Validated(value = [RegisterMailGroup.class]) RegisterInfo registerInfo, BindingResult bindingResult) throws Exception {
         if(bindingResult?.hasErrors()){
             messageCodeInfo.setMsgCode(GlobalCode.REGISTER_MAIL_FAIL)
             messageCodeInfo.setMsgInfo(bindingResult?.getFieldError()?.getDefaultMessage())
-            return messageCodeInfo
+            registerInfo.setMsg(messageCodeInfo)
+            return registerInfo
         }else{
-            if(registerService.registerMail(request)){
+            if(registerService.registerMail(request, registerInfo)){
                 messageCodeInfo.setMsgCode(GlobalCode.REGISTER_MAIL_OK)
                 messageCodeInfo.setMsgInfo('')
             }else{
@@ -42,6 +47,7 @@ class RegisterController {
                 messageCodeInfo.setMsgInfo(Constant.REGISTER_MAIL_FAIL)
             }
         }
-        return messageCodeInfo
+        registerInfo.setMsg(messageCodeInfo)
+        return registerInfo
     }
 }

@@ -111,6 +111,16 @@ class CommonUtil {
         return bo.toByteArray();
     }
 
+    static Object toObject(byte[] bytes) {
+        Object obj = null;
+        ByteArrayInputStream bis = new ByteArrayInputStream(bytes);
+        ObjectInputStream ois = new ObjectInputStream(bis);
+        obj = ois.readObject();
+        ois.close();
+        bis.close();
+        return obj;
+    }
+
     static Object getObjectFromBytes(byte[] objBytes) {
         if (objBytes == null || objBytes.length == 0) {
             return null;
@@ -120,7 +130,7 @@ class CommonUtil {
         return oi.readObject();
     }
 
-    static boolean hasRedisKey(String key){
+    static boolean hasRedisKey(String key) {
         boolean hasKey = RedisUtil.hasKey(key)
         if (hasKey && RedisUtil.getExpire(key) == 0) {
             RedisUtil.del(key)
@@ -130,7 +140,7 @@ class CommonUtil {
         }
     }
 
-    static boolean setRedisKeyAndTime(String key,String value, long time){
+    static boolean setRedisKeyAndTime(String key, String value, long time) {
         boolean keyFlag = RedisUtil.set(key, value)
         boolean expireFlag = RedisUtil.expire(key, time)
         if (keyFlag == false || expireFlag == false) {
@@ -139,17 +149,17 @@ class CommonUtil {
         return true
     }
 
-    static String randomCode(int size){
+    static String randomCode(int size) {
         Random rd = new Random()
         StringBuilder sb = new StringBuilder()
         char[] c = allCharacter()
-        for(int index = 0; index < size; index++){
+        for (int index = 0; index < size; index++) {
             sb.append(c[rd.nextInt(c.length)])
         }
         return sb.toString()
     }
 
-    static char[] allCharacter(){
+    static char[] allCharacter() {
         "1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM".toCharArray()
     }
 }

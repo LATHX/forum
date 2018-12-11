@@ -38,6 +38,7 @@
                         <div class="col-md-3">
                             <label for="password" class="control-label">验证码</label>
                             <input type="text" class="form-control" id="code" placeholder="验证码" name="code" v-model="code">
+                            <label style="color: red;">{{msgcode}}</label>
                         </div>
                         <div class="col-md-3">
                             <label for="password" class="control-label">&nbsp;&nbsp;</label>
@@ -128,15 +129,53 @@
                 isCodeActive:true,
                 code:'',
                 sendMail:'点击发送',
-                totalTime:60
+                totalTime:60,
+                totalTimes:60,
+                msgcode:''
             },
             created(){
             },
             methods:{
+              countdown:function(){
+                    if(this.totalTime <= 0){
+                        this.isCodeActive = false;
+                        this.sendMail='点击验证';
+                        window.clearInterval(intervalObj);
+                    }else{
+                        this.totalTime = this.totalTime-1;
+                        this.sendMail=("再次获取("+ this.totalTime+")");
+                    }
+                },
             sendCodeMail:function(){
                 var that = this;
+                this.totalTime = this.totalTimes;
                 this.isCodeActive=true;
                 this.sendMail = "再次获取(60)";
+                this.msgcode=''
+                $.ajax({
+                    type:"POST",
+                    url:"/send-register-mail",
+                    dataType:"json",
+                    timeout : 50000,
+                    data: {username: this.username},
+                    success:function(ret){
+                        if(ret.msg.msgCode == '202'){
+                        }else{
+                            that.msgcode='获取频繁，请稍后再试'
+                        }
+                    },
+                    complete: function (XMLHttpRequest, textStatus) {
+                        window.intervalObj=setInterval(()=>that.countdown(),1000);
+                        if(textStatus == 'timeout') {
+                            that.msgcode = "连接超时，请稍后再试";
+                        }
+                    },
+                    error:function(jqXHR){
+                        that.msgcode="服务器繁忙，请稍后再试"
+
+                    }
+                });
+
             },
             submit:function(){
                 var that = this;

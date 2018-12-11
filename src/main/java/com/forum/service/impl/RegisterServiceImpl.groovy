@@ -6,9 +6,10 @@ import com.forum.model.dto.RegisterInfo
 import com.forum.rabbit.util.RabbitUtil
 import com.forum.service.RegisterService
 import com.forum.utils.CommonUtil
+import org.springframework.stereotype.Service
 
 import javax.servlet.http.HttpServletRequest
-
+@Service
 class RegisterServiceImpl implements RegisterService{
     @Override
     boolean register(HttpServletRequest request, RegisterInfo registerInfo) {
@@ -22,13 +23,15 @@ class RegisterServiceImpl implements RegisterService{
         if(CommonUtil.hasRedisKey(key)){
             return false
         }else{
-            if(CommonUtil.setRedisKeyAndTime(key, CommonUtil.randomCode(6), Constant.REGISTER_REDIS_TIMEOUT?.toLong())){
+            String code = CommonUtil.randomCode(6)
+            if(CommonUtil.setRedisKeyAndTime(key, code?.toLowerCase(), Constant.REGISTER_REDIS_TIMEOUT?.toLong())){
                 MailInfo mailInfo = new MailInfo()
-                mailInfo.setSender(Constant.MQ_REIGSTER_MAIL)
+                mailInfo.setSender(Constant.MAIL_ADDRESS)
                 mailInfo.setReceiver(registerInfo.getUsername())
-                mailInfo.setSubject()
+                mailInfo.setSubject(Constant.REGISTER_TITLE)
+                mailInfo.setText(Constant.REGISTER_TEXT+code)
                 mailInfo.setUseHTTP(false)
-                RabbitUtil.deliveryMessageNotConfirm()
+                RabbitUtil.deliveryMessageNotConfirm(Constant.MQ_REGISTER_MAIL, mailInfo)
                 return true
             }else{
                 return false

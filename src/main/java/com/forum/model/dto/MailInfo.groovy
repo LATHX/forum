@@ -1,6 +1,9 @@
 package com.forum.model.dto
 
-class MailInfo {
+import org.springframework.stereotype.Component
+
+@Component
+class MailInfo implements Serializable {
     private String subject
     private String text
     private String sender

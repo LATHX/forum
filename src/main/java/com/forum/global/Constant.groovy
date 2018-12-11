@@ -43,9 +43,6 @@ class Constant {
         MQ_REGISTER_MAIL = mqRegisterMail
     }
 
-    @Value('${msg.MQ_REIGSTER_MAIL}')
-
-
     @Value('${msg.REGISTER_REDIS_TIMEOUT}')
     void setREGISTER_REDIS_TIMEOUT(String REGISTER_REDIS_TIMEOUT) {
         this.REGISTER_REDIS_TIMEOUT = REGISTER_REDIS_TIMEOUT
