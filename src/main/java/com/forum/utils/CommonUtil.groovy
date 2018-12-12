@@ -51,20 +51,20 @@ class CommonUtil {
      */
 
     static String getRealIP(HttpServletRequest request) {
-        String ip = request.getHeader("X-Forwarded-For");
+        String ip = request.getHeader("X-Forwarded-For")
         if (!isEmpty(ip) && !"unKnown".equalsIgnoreCase(ip)) {
-            int index = ip.indexOf(",");
+            int index = ip.indexOf(",")
             if (index != -1) {
-                return ip.substring(0, index);
+                return ip.substring(0, index)
             } else {
-                return ip;
+                return ip
             }
         }
-        ip = request.getHeader("X-Real-IP");
+        ip = request.getHeader("X-Real-IP")
         if (!isEmpty(ip) && !"unKnown".equalsIgnoreCase(ip)) {
-            return ip;
+            return ip
         }
-        return request.getRemoteAddr();
+        return request.getRemoteAddr()
     }
 
     static String getArgs(JoinPoint joinPoint) {
@@ -80,11 +80,11 @@ class CommonUtil {
             StringWriter sw = new StringWriter()
             PrintWriter pw = new PrintWriter(sw)
             e.printStackTrace(pw)
-            sw.close();
-            pw.close();
+            sw.close()
+            pw.close()
             return sw.toString()
         } catch (Exception e2) {
-            return "ErrorInfoFromException";
+            return "ErrorInfoFromException"
         }
     }
 
@@ -103,31 +103,22 @@ class CommonUtil {
 
     static byte[] getBytesFromObject(Serializable obj) {
         if (obj == null) {
-            return null;
+            return null
         }
-        ByteArrayOutputStream bo = new ByteArrayOutputStream();
-        ObjectOutputStream oo = new ObjectOutputStream(bo);
-        oo.writeObject(obj);
-        return bo.toByteArray();
+        ByteArrayOutputStream bo = new ByteArrayOutputStream()
+        ObjectOutputStream oo = new ObjectOutputStream(bo)
+        oo.writeObject(obj)
+        return bo.toByteArray()
     }
 
-    static Object toObject(byte[] bytes) {
-        Object obj = null;
-        ByteArrayInputStream bis = new ByteArrayInputStream(bytes);
-        ObjectInputStream ois = new ObjectInputStream(bis);
-        obj = ois.readObject();
-        ois.close();
-        bis.close();
-        return obj;
-    }
 
     static Object getObjectFromBytes(byte[] objBytes) {
         if (objBytes == null || objBytes.length == 0) {
-            return null;
+            return null
         }
-        ByteArrayInputStream bi = new ByteArrayInputStream(objBytes);
-        ObjectInputStream oi = new ObjectInputStream(bi);
-        return oi.readObject();
+        ByteArrayInputStream bi = new ByteArrayInputStream(objBytes)
+        ObjectInputStream oi = new ObjectInputStream(bi)
+        return oi.readObject()
     }
 
     static boolean hasRedisKey(String key) {
@@ -138,6 +129,7 @@ class CommonUtil {
         } else if (hasKey) {
             return true
         }
+        return false
     }
 
     static boolean setRedisKeyAndTime(String key, String value, long time) {
@@ -161,5 +153,9 @@ class CommonUtil {
 
     static char[] allCharacter() {
         "1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM".toCharArray()
+    }
+
+    static String replaceIllegalCharacter(String s){
+        return s.replaceAll("[^qwertyuioplkjhgfdsazxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM1234567890\"!#\$%&\'()*+,-./:\\\\;<=>?@^_{|}\\[\\]~\t]","")
     }
 }

@@ -2,23 +2,31 @@ package com.forum.model.entity
 
 import org.crazycake.shiro.AuthCachePrincipal
 
-import javax.persistence.Entity
-import javax.persistence.Table
+import javax.persistence.*
 
 @Entity
 @Table(name='f_user')
 class UserEntity implements Serializable, AuthCachePrincipal {
     private static final long serialVersionUID=1L;
+    @Id
     String sid
     String username
     String password
     String nickname
     Integer roleId
     boolean enable
-    Integer sex
+    char sex
     String province
     String city
     String dist
+
+    char getSex() {
+        return sex
+    }
+
+    void setSex(char sex) {
+        this.sex = sex
+    }
 
     String getProvince() {
         return province
@@ -52,13 +60,7 @@ class UserEntity implements Serializable, AuthCachePrincipal {
         this.nickname = nickname
     }
 
-    Integer getSex() {
-        return sex
-    }
 
-    void setSex(Integer sex) {
-        this.sex = sex
-    }
 
     boolean getEnable() {
         return enable

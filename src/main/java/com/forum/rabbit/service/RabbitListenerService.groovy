@@ -23,6 +23,7 @@ class RabbitListenerService {
     void sendRegisterMail(byte[] msg){
         println('Register Mail')
         MailInfo mailInfo= (MailInfo)CommonUtil.getObjectFromBytes(msg)
-        mailService.sendText(mailInfo)
+        println('Your code is:'+mailInfo.getText())
+        mailService.sendMail(mailInfo)
     }
 }

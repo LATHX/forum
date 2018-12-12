@@ -17,7 +17,11 @@ class GlobalCode {
     static String LOGIN_PERMISSION
     static String REGISTER_MAIL_FAIL
     static String REGISTER_MAIL_OK
-
+    static String ACCOUNT_BLOCK
+    @Value('${code.ACCOUNT_BLOCK}')
+    void setACCOUNT_BLOCK(String ACCOUNT_BLOCK) {
+        this.ACCOUNT_BLOCK = ACCOUNT_BLOCK
+    }
 
     @Value('${code.REGISTER_MAIL_OK}')
     void setREGISTER_MAIL_OK(String REGISTER_MAIL_OK) {

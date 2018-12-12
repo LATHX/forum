@@ -2,6 +2,7 @@ package com.forum.controller
 
 import com.alibaba.fastjson.JSONObject
 import com.forum.global.Constant
+import com.forum.model.dto.LoginInfo
 import com.forum.model.dto.MessageCodeInfo
 import com.forum.utils.CommonUtil
 import org.springframework.beans.factory.annotation.Autowired
@@ -16,6 +17,8 @@ import javax.servlet.http.HttpServletResponse
 class RequestLimitExpController {
     @Autowired
     MessageCodeInfo messageCodeInfo
+    @Autowired
+    LoginInfo loginInfo
 
     @RequestMapping(value = "/limit")
     safeLimitRes(HttpServletRequest request, HttpServletResponse response, Model model) {
@@ -24,7 +27,9 @@ class RequestLimitExpController {
             response.setContentType("application/json;charset=UTF-8")
             PrintWriter printWriter = response.getWriter()
             messageCodeInfo.setMsgInfo(Constant.LIMIT_MSG)
-            printWriter.write(JSONObject.toJSONString(messageCodeInfo))
+            loginInfo.setPassword('')
+            loginInfo.setMsg(messageCodeInfo)
+            printWriter.write(JSONObject.toJSONString(loginInfo))
             printWriter.flush()
         } else {
             model.addAttribute('errorMsg', Constant.LIMIT_MSG)

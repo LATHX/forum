@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component
 class Constant {
     static Integer UUID_REDIS_CACHE_SIZE
     static Integer UUID_REDIS_KEY_TIMEOUT
+    static Integer REGISTER_REDIS_TIMEOUT
     static String UUID_REDIS_QUEUE_NAME
     static String LOGIN_CODE_FREQUENT_MSG
     static String LOGIN_CODE_FAIL_MSG
@@ -25,10 +26,32 @@ class Constant {
     static String REGISTER_MAIL_FAIL
     static String MQ_TOKEN_GENERATE
     static String REGISTER_REDIS_MAIL_NAME
-    static String REGISTER_REDIS_TIMEOUT
     static String MQ_REGISTER_MAIL
     static String REGISTER_TITLE
     static String REGISTER_TEXT
+    static String REGISTER_CODE
+    static String REGISTER_PASSWORD
+    static String REGISTER_SAME
+    static String LOGIN_BLOCK_MSG
+    @Value('${msg.LOGIN_BLOCK_MSG}')
+    void setLOGIN_BLOCK_MSG(String loginBlockMsg) {
+        LOGIN_BLOCK_MSG = loginBlockMsg
+    }
+
+    @Value('${msg.REGISTER_SAME}')
+    void setREGISTER_SAME(String registerSame) {
+        REGISTER_SAME = registerSame
+    }
+
+    @Value('${msg.REGISTER_CODE}')
+    void setREGISTER_CODE(String REGISTER_CODE) {
+        this.REGISTER_CODE = REGISTER_CODE
+    }
+    @Value('${msg.REGISTER_PASSWORD}')
+    void setREGISTER_PASSWORD(String REGISTER_PASSWORD) {
+        this.REGISTER_PASSWORD = REGISTER_PASSWORD
+    }
+
     @Value('${msg.REGISTER_TITLE}')
     void setREGISTER_TITLE(String REGISTER_TITLE) {
         this.REGISTER_TITLE = REGISTER_TITLE
@@ -42,10 +65,9 @@ class Constant {
     void setMQ_REGISTER_MAIL(String mqRegisterMail) {
         MQ_REGISTER_MAIL = mqRegisterMail
     }
-
     @Value('${msg.REGISTER_REDIS_TIMEOUT}')
-    void setREGISTER_REDIS_TIMEOUT(String REGISTER_REDIS_TIMEOUT) {
-        this.REGISTER_REDIS_TIMEOUT = REGISTER_REDIS_TIMEOUT
+    void setREGISTER_REDIS_TIMEOUT(Integer registerRedisTimeout) {
+        REGISTER_REDIS_TIMEOUT = registerRedisTimeout
     }
 
     @Value('${msg.REGISTER_REDIS_MAIL_NAME}')

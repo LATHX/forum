@@ -33,7 +33,8 @@
 			        <div class="form-group">
 			          <div class="col-md-6 col-lg-6">
 			            <label for="email" class="control-label">邮箱</label>
-			            <input type="email" class="form-control" id="email"  placeholder="输入邮箱" name="username" v-model="username" v-on:keyup="validationEmail"><br>
+			            <input type="email" class="form-control" id="email"  placeholder="输入邮箱" name="username" v-model="username" v-on:keyup="validationEmail" v-on:change="validationEmail">
+                        <label style="color: red;">{{msgemail}}</label>
 			          </div>
                         <div class="col-md-3">
                             <label for="password" class="control-label">验证码</label>
@@ -79,7 +80,7 @@
 			        </div>
 			        <div class="form-group">
 			          <div class="col-md-12">
-			            <input type="button" value="创建" class="btn btn-info" v-on:click="submit" v-model="create"><label style="color: red;">{{msginfo}}</label>
+			            <input type="button" value="创建" class="btn btn-info" v-on:click="submit" v-model="create">&nbsp;<label style="color: red;">{{msginfo}}</label>
 			            <a href="login.html" class="pull-right">登录</a>
 			          </div>
 			        </div>	
@@ -131,7 +132,8 @@
                 sendMail:'点击发送',
                 totalTime:60,
                 totalTimes:60,
-                msgcode:''
+                msgcode:'',
+                msgemail:''
             },
             created(){
             },
@@ -186,11 +188,12 @@
                             url:" /register",
                             dataType:"json",
                             timeout : 50000,
-                            data: { token: this.token, username: this.userName, password:encrypted,rememberMe:this.rememberMe },
+                            data: { nickname: this.nickname, username: this.username, password:strToMD5(strToMD5(this.password)),password:strToMD5(strToMD5(this.password)),confirmPassword:strToMD5(strToMD5(this.confirmPassword)),code:this.code,city:this.city,sex:this.sex },
                             success:function(ret){
-                                if(ret.msg.msgCode == '200'){
+                                if(ret.msg.msgCode == '202'){
+                                	location.href="login.html"
                                 }else{
-
+									that.msginfo = ret.msg.msgInfo
                                 }
                             },
                             complete: function (XMLHttpRequest, textStatus) {
@@ -212,10 +215,12 @@
                 if(reg.test(this.username)){
                     $("#email").removeClass('board_red');
                     this.isCodeActive = false;
+                    this.msgemail="";
                     return true;
                 }else{
                     $("#email").addClass('board_red');
                     this.isCodeActive = true;
+                    this.msgemail="非法邮箱";
                     return false;
                 }
 

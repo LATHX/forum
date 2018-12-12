@@ -25,10 +25,18 @@ class RegisterController {
     @Autowired
     RegisterService registerService
     @RequestMapping('/register')
-     register(@Validated(value = [RegisterGroup.class]) RegisterInfo registerInfo, BindingResult bindingResult) throws Exception {
+    @ResponseBody
+     register(HttpServletRequest request, @Validated(value = [RegisterGroup.class]) RegisterInfo registerInfo, BindingResult bindingResult) throws Exception {
         if(bindingResult?.hasErrors()){
-
+            messageCodeInfo.setMsgCode(GlobalCode.REGISTER_MAIL_FAIL)
+            messageCodeInfo.setMsgInfo(bindingResult?.getFieldError()?.getDefaultMessage())
+        }else{
+            messageCodeInfo = registerService.register(request, registerInfo)
         }
+        registerInfo.setPassword('')
+        registerInfo.setConfirmPassword('')
+        registerInfo.setMsg(messageCodeInfo)
+        return  registerInfo
     }
     @RequestMapping('/send-register-mail')
     @ResponseBody
@@ -36,8 +44,6 @@ class RegisterController {
         if(bindingResult?.hasErrors()){
             messageCodeInfo.setMsgCode(GlobalCode.REGISTER_MAIL_FAIL)
             messageCodeInfo.setMsgInfo(bindingResult?.getFieldError()?.getDefaultMessage())
-            registerInfo.setMsg(messageCodeInfo)
-            return registerInfo
         }else{
             if(registerService.registerMail(request, registerInfo)){
                 messageCodeInfo.setMsgCode(GlobalCode.REGISTER_MAIL_OK)
@@ -47,6 +53,8 @@ class RegisterController {
                 messageCodeInfo.setMsgInfo(Constant.REGISTER_MAIL_FAIL)
             }
         }
+        registerInfo.setPassword('')
+        registerInfo.setConfirmPassword('')
         registerInfo.setMsg(messageCodeInfo)
         return registerInfo
     }

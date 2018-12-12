@@ -7,6 +7,7 @@ spring:
     password: dwsjeomddulpbdjd
     port: 465
     protocol: smtp
+    enableEmail: false
     properties:
       mail:
         smtp:
@@ -59,7 +60,6 @@ spring:
     filters: stat,wall,slf4j
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
     useGlobalDataSourceStat: true
-## 该配置节点为独立的节点，有很多同学容易将这个配置放在spring的节点下，导致配置无法被识别
   rabbitmq:
     host: 127.0.0.1
     port: 5672
@@ -75,9 +75,12 @@ spring:
       simple:
         retry:
           enabled: true
-          max-attempts: 5
-          initial-interval: 2000
+          max-attempts: 5 #最大重试次数
+          initial-interval: 2000 #重试间隔时间（单位毫秒）
+          max-interval: 1200000 #重试最大时间间隔（单位毫秒）
+          multiplier: 5 #应用于前一重试间隔的乘法器。
         default-requeue-rejected: false
+## 该配置节点为独立的节点，有很多同学容易将这个配置放在spring的节点下，导致配置无法被识别
 mybatis:
   mapper-locations: classpath:mapping/*.xml  #注意：一定要对应mapper映射xml文件的所在路径 type-aliases-package: com.winter.model # 注意：对应实体类的路径
   configuration:

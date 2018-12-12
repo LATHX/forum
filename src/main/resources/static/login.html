@@ -135,7 +135,7 @@
                     var that = this;
                     var encrypt = new JSEncrypt();
                     encrypt.setPublicKey(this.publicKey)
-                    var encrypted = encrypt.encrypt(this.token+strToMD5(this.userPassword));
+                    var encrypted = encrypt.encrypt(this.token+strToMD5(strToMD5(this.userPassword)));
                     if(this.token.trim() == ''||this.publicKey.trim()==''){
                         this.warming="请点击进行验证"
                         isCommit = false

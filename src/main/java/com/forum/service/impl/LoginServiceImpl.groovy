@@ -2,6 +2,7 @@ package com.forum.service.impl
 
 import com.forum.global.Constant
 import com.forum.global.GlobalCode
+import com.forum.mapper.UserMapper
 import com.forum.model.dto.LoginInfo
 import com.forum.rabbit.util.RabbitUtil
 import com.forum.redis.util.RedisUtil
@@ -9,6 +10,7 @@ import com.forum.service.LoginService
 import com.forum.service.config.GenerateToken
 import com.forum.service.security.encrypt.RSACryptoServiceProvider
 import com.forum.utils.CommonUtil
+import org.apache.commons.codec.digest.DigestUtils
 import org.apache.shiro.SecurityUtils
 import org.apache.shiro.authc.UsernamePasswordToken
 import org.apache.shiro.subject.Subject
@@ -21,12 +23,17 @@ class LoginServiceImpl implements LoginService {
     RSACryptoServiceProvider RSACryptoServiceProvider
     @Autowired
     GenerateToken generateToken
+    @Autowired
+    UserMapper userMapper
 
     @Override
     String validationLoginInfo(String ip, LoginInfo loginInfo) {
         boolean isRememberMe = true
         loginInfo.setPassword(RSACryptoServiceProvider.decrypt(loginInfo.getPassword()).replaceFirst(loginInfo.token, ''))
         boolean hasKey = RedisUtil.hasKey(ip)
+        if (CommonUtil.isEmpty(loginInfo.rememberMe) || loginInfo.rememberMe == 'false') {
+            isRememberMe = false
+        }
         if (!hasKey) {
             return GlobalCode.LOGIN_CODE_FAIL
         } else {
@@ -36,11 +43,13 @@ class LoginServiceImpl implements LoginService {
             }
             RedisUtil.del(ip)
         }
-        if (CommonUtil.isEmpty(loginInfo.rememberMe) || loginInfo.rememberMe == 'false') {
-            isRememberMe = false
+        boolean isEnable = userMapper.isAccountBlock(loginInfo.getUsername())
+        if(!isEnable){
+            return GlobalCode.ACCOUNT_BLOCK
         }
+
         Subject subject = SecurityUtils.getSubject();
-        UsernamePasswordToken token = new UsernamePasswordToken(loginInfo.getUsername(), loginInfo.getPassword(), isRememberMe);
+        UsernamePasswordToken token = new UsernamePasswordToken(loginInfo.getUsername(), DigestUtils.md5Hex(loginInfo.getPassword()), isRememberMe);
         try {
             subject.login(token);
             return GlobalCode.LOGIN_VERIFY_OK

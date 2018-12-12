@@ -8,8 +8,6 @@ import com.forum.model.validationInterface.LoginGroup
 import com.forum.service.LoginService
 import com.forum.service.security.encrypt.RSACryptoServiceProvider
 import com.forum.utils.CommonUtil
-import org.slf4j.Logger
-import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.validation.BindingResult
@@ -31,7 +29,6 @@ class LoginController {
     MessageCodeInfo messageCodeInfo
     @Autowired
     LoginService loginService
-    private final static Logger logger = LoggerFactory.getLogger(LoginController.class)
 
     @RequestMapping('/index')
     main() {
@@ -58,7 +55,11 @@ class LoginController {
             messageCodeInfo.setMsgCode(GlobalCode.LOGIN_VERIFY_FAIL)
             messageCodeInfo.setMsgInfo(Constant.LOGIN_VERIFY_FAIL_MSG)
             loginInfo.setMsg(messageCodeInfo)
-        } else if (code == GlobalCode.LOGIN_VERIFY_OK) {
+        } else if(code == GlobalCode.ACCOUNT_BLOCK){
+            messageCodeInfo.setMsgCode(GlobalCode.ACCOUNT_BLOCK)
+            messageCodeInfo?.setMsgInfo(Constant.LOGIN_BLOCK_MSG)
+            loginInfo.setMsg(messageCodeInfo)
+        }else if (code == GlobalCode.LOGIN_VERIFY_OK) {
             messageCodeInfo.setMsgCode(GlobalCode.LOGIN_VERIFY_OK)
             loginInfo.setMsg(messageCodeInfo)
         }
