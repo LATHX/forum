@@ -5600,3 +5600,330 @@ Error starting ApplicationContext. To display the conditions report re-run your 
 2018-12-13 17:00:18.516 [http-nio-8080-exec-1] INFO  com.forum.rabbit.util.RabbitUtil - Consumer response :  Message Handler Success
 2018-12-13 17:00:18.549 [SimpleAsyncTaskExecutor-1] INFO  com.forum.service.impl.MailServiceImpl - Email disabled
 2018-12-13 17:00:18.561 [AMQP Connection 127.0.0.1:5672] INFO  com.forum.rabbit.util.RabbitUtil - Rabbit Message delivery Success CorrelationData [id=1648f261-e994-45f4-938e-c49ccaf58e87]
+2018-12-13 22:57:52.424 [main] INFO  com.forum.DemoApplication - Starting DemoApplication on lujialedeMacBook-Pro.local with PID 3609 (/Users/ljl/Documents/forum/target/classes started by ljl in /Users/ljl/Documents/forum)
+2018-12-13 22:57:52.428 [main] INFO  com.forum.DemoApplication - No active profile set, falling back to default profiles: default
+2018-12-13 22:57:53.271 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-12-13 22:57:53.274 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-12-13 22:57:53.323 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 23ms. Found 0 repository interfaces.
+2018-12-13 22:57:53.676 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'webSecureConfig' of type [com.forum.service.config.WebSecureConfig$$EnhancerBySpringCGLIB$$2a952eb5] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:57:53.789 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'spring.redis-org.springframework.boot.autoconfigure.data.redis.RedisProperties' of type [org.springframework.boot.autoconfigure.data.redis.RedisProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:57:53.792 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.boot.autoconfigure.data.redis.LettuceConnectionConfiguration' of type [org.springframework.boot.autoconfigure.data.redis.LettuceConnectionConfiguration$$EnhancerBySpringCGLIB$$a770ccc6] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:57:53.992 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'lettuceClientResources' of type [io.lettuce.core.resource.DefaultClientResources] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:57:54.095 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisConnectionFactory' of type [org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:57:54.099 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisConfig' of type [com.forum.redis.config.RedisConfig$$EnhancerBySpringCGLIB$$2213f4ff] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:57:54.136 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'jedisPool' of type [redis.clients.jedis.JedisPool] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:57:54.140 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisManager' of type [org.crazycake.shiro.RedisManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:57:54.146 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisCacheManager' of type [org.crazycake.shiro.RedisCacheManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:57:54.249 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'mybatis-tk.mybatis.mapper.autoconfigure.MybatisProperties' of type [tk.mybatis.mapper.autoconfigure.MybatisProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:57:54.254 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'tk.mybatis.mapper.autoconfigure.MapperAutoConfiguration' of type [tk.mybatis.mapper.autoconfigure.MapperAutoConfiguration$$EnhancerBySpringCGLIB$$4847b615] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:57:54.268 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'druidConfiguration' of type [com.forum.service.config.DruidConfiguration$$EnhancerBySpringCGLIB$$c0fad8ee] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:57:54.330 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'dataSource' of type [com.alibaba.druid.pool.DruidDataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:57:54.337 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'sqlSessionFactory' of type [org.apache.ibatis.session.defaults.DefaultSqlSessionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:57:54.341 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'sqlSessionTemplate' of type [org.mybatis.spring.SqlSessionTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:57:54.521 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'roleMapper' of type [tk.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:57:54.522 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'roleMapper' of type [com.sun.proxy.$Proxy72] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:57:54.565 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'userMapper' of type [tk.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:57:54.567 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'userMapper' of type [com.sun.proxy.$Proxy75] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:57:54.598 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'roleAuthorityMapper' of type [tk.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:57:54.599 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'roleAuthorityMapper' of type [com.sun.proxy.$Proxy76] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:57:54.600 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'realm' of type [com.forum.service.security.realm.PasswordRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:57:54.609 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisSessionDAO' of type [org.crazycake.shiro.RedisSessionDAO] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:57:54.619 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'simpleCookie' of type [org.apache.shiro.web.servlet.SimpleCookie] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:57:54.628 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'sessionManager' of type [org.apache.shiro.web.session.mgt.DefaultWebSessionManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:57:54.744 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'rememberMeCookie' of type [org.apache.shiro.web.servlet.SimpleCookie] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:57:54.750 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'rememberMeManager' of type [org.apache.shiro.web.mgt.CookieRememberMeManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:57:54.752 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'securityManager' of type [org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:57:54.805 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'authorityMapper' of type [tk.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:57:54.806 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'authorityMapper' of type [com.sun.proxy.$Proxy77] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:57:54.859 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'nonAuthemticateMapper' of type [tk.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:57:54.860 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'nonAuthemticateMapper' of type [com.sun.proxy.$Proxy78] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:57:54.860 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'shiroService' of type [com.forum.service.impl.ShiroServiceImpl] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:57:54.891 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'loginInfo' of type [com.forum.model.dto.LoginInfo] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:57:54.893 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'messageCodeInfo' of type [com.forum.model.dto.MessageCodeInfo] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:57:54.896 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'commonInfo' of type [com.forum.model.dto.CommonInfo] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:57:54.896 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'rolesAuthorizationFilter' of type [com.forum.service.filter.CustomRolesAuthorizationFilter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:57:55.197 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2018-12-13 22:57:55.200 [main] DEBUG com.forum.mapper.AuthorityMapper.findAuthorities - ==>  Preparing: select * from f_authority 
+2018-12-13 22:57:55.287 [main] DEBUG com.forum.mapper.AuthorityMapper.findAuthorities - ==> Parameters: 
+2018-12-13 22:57:55.418 [main] DEBUG com.forum.mapper.AuthorityMapper.findAuthorities - <==      Total: 2
+2018-12-13 22:57:55.424 [main] DEBUG c.f.m.NonAuthemticateMapper.selectAllFromTable - ==>  Preparing: select * from f_non_authemticate 
+2018-12-13 22:57:55.424 [main] DEBUG c.f.m.NonAuthemticateMapper.selectAllFromTable - ==> Parameters: 
+2018-12-13 22:57:55.434 [main] DEBUG c.f.m.NonAuthemticateMapper.selectAllFromTable - <==      Total: 19
+2018-12-13 22:57:55.480 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration' of type [org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration$$EnhancerBySpringCGLIB$$58c2ccaa] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:57:55.538 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$92570e7c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:57:56.089 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2018-12-13 22:57:56.104 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2018-12-13 22:57:56.112 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2018-12-13 22:57:56.112 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/9.0.12
+2018-12-13 22:57:56.125 [main] INFO  org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/ljl/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2018-12-13 22:57:56.226 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2018-12-13 22:57:56.226 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 3739 ms
+2018-12-13 22:57:56.237 [main] INFO  com.forum.service.config.DruidConfiguration - init Druid Servlet Configuration 
+2018-12-13 22:57:56.350 [main] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Servlet statViewServlet mapped to [/druid/*]
+2018-12-13 22:57:56.352 [main] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Servlet dispatcherServlet mapped to [/]
+2018-12-13 22:57:56.352 [main] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Servlet statViewServlet mapped to [/druid/*]
+2018-12-13 22:57:56.352 [main] INFO  o.s.boot.web.servlet.RegistrationBean - Servlet statViewServlet was not registered (possibly already registered?)
+2018-12-13 22:57:56.355 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-12-13 22:57:56.355 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-12-13 22:57:56.355 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'formContentFilter' to: [/*]
+2018-12-13 22:57:56.355 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2018-12-13 22:57:56.355 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'webStatFilter' to urls: [/*]
+2018-12-13 22:57:56.356 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'delegatingFilterProxy' to: [/*]
+2018-12-13 22:57:56.356 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'shiroFilter' to: [/*]
+2018-12-13 22:57:56.356 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'rolesAuthorizationFilter' to: [/*]
+2018-12-13 22:57:56.356 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'formAuthenticationFilter' to: [/*]
+2018-12-13 22:57:56.687 [main] INFO  java.lang.Class - Initializing Constant
+2018-12-13 22:57:56.689 [main] DEBUG c.f.m.D.selectAllInTableWithoutParamType - ==>  Preparing: select param_name,value from f_dictionary where param_type <> ? 
+2018-12-13 22:57:56.708 [main] DEBUG c.f.m.D.selectAllInTableWithoutParamType - ==> Parameters: 参数代码(String)
+2018-12-13 22:57:56.737 [main] DEBUG c.f.m.D.selectAllInTableWithoutParamType - <==      Total: 35
+2018-12-13 22:57:56.749 [main] INFO  java.lang.Class - Initializing GlobalCode
+2018-12-13 22:57:56.749 [main] DEBUG c.f.m.D.selectAllInTableWithParamType - ==>  Preparing: select param_name,value from f_dictionary where param_type = ? 
+2018-12-13 22:57:56.750 [main] DEBUG c.f.m.D.selectAllInTableWithParamType - ==> Parameters: 参数代码(String)
+2018-12-13 22:57:56.754 [main] DEBUG c.f.m.D.selectAllInTableWithParamType - <==      Total: 9
+2018-12-13 22:57:57.223 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-13 22:57:57.471 [main] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2018-12-13 22:57:58.363 [main] INFO  o.s.a.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [127.0.0.1:5672]
+2018-12-13 22:57:58.409 [main] INFO  o.s.a.rabbit.connection.CachingConnectionFactory - Created new connection: rabbitConnectionFactory#37d28938:0/SimpleConnection@45fb2354 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 49497]
+2018-12-13 22:59:53.276 [main] INFO  com.forum.DemoApplication - Starting DemoApplication on lujialedeMacBook-Pro.local with PID 4072 (/Users/ljl/Documents/forum/target/classes started by ljl in /Users/ljl/Documents/forum)
+2018-12-13 22:59:53.280 [main] INFO  com.forum.DemoApplication - No active profile set, falling back to default profiles: default
+2018-12-13 22:59:53.953 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-12-13 22:59:53.954 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-12-13 22:59:53.986 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 23ms. Found 0 repository interfaces.
+2018-12-13 22:59:54.278 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'webSecureConfig' of type [com.forum.service.config.WebSecureConfig$$EnhancerBySpringCGLIB$$abd9fbac] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:59:54.382 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'spring.redis-org.springframework.boot.autoconfigure.data.redis.RedisProperties' of type [org.springframework.boot.autoconfigure.data.redis.RedisProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:59:54.385 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.boot.autoconfigure.data.redis.LettuceConnectionConfiguration' of type [org.springframework.boot.autoconfigure.data.redis.LettuceConnectionConfiguration$$EnhancerBySpringCGLIB$$28b599bd] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:59:54.506 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'lettuceClientResources' of type [io.lettuce.core.resource.DefaultClientResources] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:59:54.556 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisConnectionFactory' of type [org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:59:54.559 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisConfig' of type [com.forum.redis.config.RedisConfig$$EnhancerBySpringCGLIB$$a358c1f6] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:59:54.587 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'jedisPool' of type [redis.clients.jedis.JedisPool] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:59:54.591 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisManager' of type [org.crazycake.shiro.RedisManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:59:54.596 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisCacheManager' of type [org.crazycake.shiro.RedisCacheManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:59:54.660 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'mybatis-tk.mybatis.mapper.autoconfigure.MybatisProperties' of type [tk.mybatis.mapper.autoconfigure.MybatisProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:59:54.665 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'tk.mybatis.mapper.autoconfigure.MapperAutoConfiguration' of type [tk.mybatis.mapper.autoconfigure.MapperAutoConfiguration$$EnhancerBySpringCGLIB$$c98c830c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:59:54.673 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'druidConfiguration' of type [com.forum.service.config.DruidConfiguration$$EnhancerBySpringCGLIB$$423fa5e5] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:59:54.722 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'dataSource' of type [com.alibaba.druid.pool.DruidDataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:59:54.729 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'sqlSessionFactory' of type [org.apache.ibatis.session.defaults.DefaultSqlSessionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:59:54.734 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'sqlSessionTemplate' of type [org.mybatis.spring.SqlSessionTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:59:54.880 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'roleMapper' of type [tk.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:59:54.882 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'roleMapper' of type [com.sun.proxy.$Proxy72] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:59:54.915 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'userMapper' of type [tk.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:59:54.917 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'userMapper' of type [com.sun.proxy.$Proxy75] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:59:54.945 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'roleAuthorityMapper' of type [tk.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:59:54.947 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'roleAuthorityMapper' of type [com.sun.proxy.$Proxy76] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:59:54.949 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'realm' of type [com.forum.service.security.realm.PasswordRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:59:54.955 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisSessionDAO' of type [org.crazycake.shiro.RedisSessionDAO] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:59:54.961 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'simpleCookie' of type [org.apache.shiro.web.servlet.SimpleCookie] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:59:54.973 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'sessionManager' of type [org.apache.shiro.web.session.mgt.DefaultWebSessionManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:59:55.087 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'rememberMeCookie' of type [org.apache.shiro.web.servlet.SimpleCookie] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:59:55.092 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'rememberMeManager' of type [org.apache.shiro.web.mgt.CookieRememberMeManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:59:55.094 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'securityManager' of type [org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:59:55.133 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'authorityMapper' of type [tk.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:59:55.135 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'authorityMapper' of type [com.sun.proxy.$Proxy77] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:59:55.174 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'nonAuthemticateMapper' of type [tk.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:59:55.176 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'nonAuthemticateMapper' of type [com.sun.proxy.$Proxy78] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:59:55.177 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'shiroService' of type [com.forum.service.impl.ShiroServiceImpl] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:59:55.223 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'loginInfo' of type [com.forum.model.dto.LoginInfo] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:59:55.226 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'messageCodeInfo' of type [com.forum.model.dto.MessageCodeInfo] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:59:55.229 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'commonInfo' of type [com.forum.model.dto.CommonInfo] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:59:55.230 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'rolesAuthorizationFilter' of type [com.forum.service.filter.CustomRolesAuthorizationFilter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:59:55.459 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2018-12-13 22:59:55.464 [main] DEBUG com.forum.mapper.AuthorityMapper.findAuthorities - ==>  Preparing: select * from f_authority 
+2018-12-13 22:59:55.530 [main] DEBUG com.forum.mapper.AuthorityMapper.findAuthorities - ==> Parameters: 
+2018-12-13 22:59:55.545 [main] DEBUG com.forum.mapper.AuthorityMapper.findAuthorities - <==      Total: 2
+2018-12-13 22:59:55.550 [main] DEBUG c.f.m.NonAuthemticateMapper.selectAllFromTable - ==>  Preparing: select * from f_non_authemticate 
+2018-12-13 22:59:55.551 [main] DEBUG c.f.m.NonAuthemticateMapper.selectAllFromTable - ==> Parameters: 
+2018-12-13 22:59:55.557 [main] DEBUG c.f.m.NonAuthemticateMapper.selectAllFromTable - <==      Total: 19
+2018-12-13 22:59:55.584 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration' of type [org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration$$EnhancerBySpringCGLIB$$da0799a1] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:59:55.630 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$139bdb73] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 22:59:56.015 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2018-12-13 22:59:56.024 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2018-12-13 22:59:56.028 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2018-12-13 22:59:56.028 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/9.0.12
+2018-12-13 22:59:56.033 [main] INFO  org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/ljl/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2018-12-13 22:59:56.111 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2018-12-13 22:59:56.111 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2777 ms
+2018-12-13 22:59:56.120 [main] INFO  com.forum.service.config.DruidConfiguration - init Druid Servlet Configuration 
+2018-12-13 22:59:56.216 [main] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Servlet statViewServlet mapped to [/druid/*]
+2018-12-13 22:59:56.217 [main] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Servlet dispatcherServlet mapped to [/]
+2018-12-13 22:59:56.217 [main] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Servlet statViewServlet mapped to [/druid/*]
+2018-12-13 22:59:56.217 [main] INFO  o.s.boot.web.servlet.RegistrationBean - Servlet statViewServlet was not registered (possibly already registered?)
+2018-12-13 22:59:56.219 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-12-13 22:59:56.220 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-12-13 22:59:56.220 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'formContentFilter' to: [/*]
+2018-12-13 22:59:56.220 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2018-12-13 22:59:56.220 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'webStatFilter' to urls: [/*]
+2018-12-13 22:59:56.220 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'delegatingFilterProxy' to: [/*]
+2018-12-13 22:59:56.221 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'shiroFilter' to: [/*]
+2018-12-13 22:59:56.221 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'rolesAuthorizationFilter' to: [/*]
+2018-12-13 22:59:56.221 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'formAuthenticationFilter' to: [/*]
+2018-12-13 22:59:56.580 [main] INFO  java.lang.Class - Initializing Constant
+2018-12-13 22:59:56.582 [main] DEBUG c.f.m.D.selectAllInTableWithoutParamType - ==>  Preparing: select param_name,value from f_dictionary where param_type <> ? 
+2018-12-13 22:59:56.595 [main] DEBUG c.f.m.D.selectAllInTableWithoutParamType - ==> Parameters: 参数代码(String)
+2018-12-13 22:59:56.601 [main] DEBUG c.f.m.D.selectAllInTableWithoutParamType - <==      Total: 35
+2018-12-13 22:59:56.613 [main] INFO  java.lang.Class - Initializing GlobalCode
+2018-12-13 22:59:56.614 [main] DEBUG c.f.m.D.selectAllInTableWithParamType - ==>  Preparing: select param_name,value from f_dictionary where param_type = ? 
+2018-12-13 22:59:56.615 [main] DEBUG c.f.m.D.selectAllInTableWithParamType - ==> Parameters: 参数代码(String)
+2018-12-13 22:59:56.617 [main] DEBUG c.f.m.D.selectAllInTableWithParamType - <==      Total: 9
+2018-12-13 22:59:57.004 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-13 22:59:57.187 [main] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2018-12-13 22:59:57.984 [main] INFO  o.s.a.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [127.0.0.1:5672]
+2018-12-13 22:59:58.011 [main] INFO  o.s.a.rabbit.connection.CachingConnectionFactory - Created new connection: rabbitConnectionFactory#7a0ab480:0/SimpleConnection@39514976 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 49687]
+2018-12-13 22:59:58.201 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2018-12-13 22:59:58.225 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2018-12-13 22:59:58.237 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2018-12-13 22:59:58.240 [main] INFO  com.forum.DemoApplication - Started DemoApplication in 5.362 seconds (JVM running for 6.359)
+2018-12-13 23:00:10.370 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2018-12-13 23:00:10.371 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2018-12-13 23:00:10.385 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 14 ms
+2018-12-13 23:00:10.399 [http-nio-8080-exec-1] INFO  o.a.s.session.mgt.AbstractValidatingSessionManager - Enabling session validation scheduler...
+2018-12-13 23:00:10.551 [http-nio-8080-exec-1] INFO  io.lettuce.core.EpollProvider - Starting without optional epoll library
+2018-12-13 23:00:10.552 [http-nio-8080-exec-1] INFO  io.lettuce.core.KqueueProvider - Starting without optional kqueue library
+2018-12-13 23:02:31.388 [http-nio-8080-exec-8] DEBUG com.forum.mapper.UserMapper.countNumberByUsername - ==>  Preparing: select count(username) from f_user where username = ? 
+2018-12-13 23:02:31.390 [http-nio-8080-exec-8] DEBUG com.forum.mapper.UserMapper.countNumberByUsername - ==> Parameters: 761676263@qq.com(String)
+2018-12-13 23:02:31.397 [http-nio-8080-exec-8] DEBUG com.forum.mapper.UserMapper.countNumberByUsername - <==      Total: 1
+2018-12-13 23:02:31.408 [http-nio-8080-exec-8] INFO  com.forum.rabbit.util.RabbitUtil - Sender Date:2018-12-13 23:02:31
+2018-12-13 23:02:31.424 [http-nio-8080-exec-8] INFO  com.forum.rabbit.util.RabbitUtil - Consumer response :  Message Handler Success
+2018-12-13 23:02:31.435 [AMQP Connection 127.0.0.1:5672] INFO  com.forum.rabbit.util.RabbitUtil - Rabbit Message delivery Success CorrelationData [id=9f186ce9-f31c-40a6-9c08-48108029b149]
+2018-12-13 23:04:48.255 [Thread-14] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
+2018-12-13 23:04:49.046 [Thread-14] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2018-12-13 23:04:49.047 [Thread-14] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
+2018-12-13 23:04:50.046 [Thread-14] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2018-12-13 23:04:50.048 [Thread-14] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
+2018-12-13 23:04:51.050 [Thread-14] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2018-12-13 23:04:51.051 [Thread-14] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
+2018-12-13 23:04:52.052 [Thread-14] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2018-12-13 23:04:52.053 [Thread-14] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
+2018-12-13 23:04:52.461 [Thread-14] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2018-12-13 23:04:52.465 [Thread-14] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Shutdown ignored - container is not active already
+2018-12-13 23:04:52.465 [Thread-14] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Shutdown ignored - container is not active already
+2018-12-13 23:04:52.465 [Thread-14] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Shutdown ignored - container is not active already
+2018-12-13 23:04:52.466 [Thread-14] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Shutdown ignored - container is not active already
+2018-12-13 23:04:52.466 [Thread-14] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Shutdown ignored - container is not active already
+2018-12-13 23:04:52.467 [Thread-14] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2018-12-13 23:04:52.479 [Thread-14] INFO  o.a.s.session.mgt.AbstractValidatingSessionManager - Disabled session validation scheduler.
+2018-12-13 23:04:52.482 [Thread-14] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2018-12-13 23:05:00.120 [main] INFO  com.forum.DemoApplication - Starting DemoApplication on lujialedeMacBook-Pro.local with PID 5219 (/Users/ljl/Documents/forum/target/classes started by ljl in /Users/ljl/Documents/forum)
+2018-12-13 23:05:00.123 [main] INFO  com.forum.DemoApplication - No active profile set, falling back to default profiles: default
+2018-12-13 23:05:00.826 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-12-13 23:05:00.828 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-12-13 23:05:00.858 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 21ms. Found 0 repository interfaces.
+2018-12-13 23:05:01.134 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'webSecureConfig' of type [com.forum.service.config.WebSecureConfig$$EnhancerBySpringCGLIB$$30c43669] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 23:05:01.236 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'spring.redis-org.springframework.boot.autoconfigure.data.redis.RedisProperties' of type [org.springframework.boot.autoconfigure.data.redis.RedisProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 23:05:01.239 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.boot.autoconfigure.data.redis.LettuceConnectionConfiguration' of type [org.springframework.boot.autoconfigure.data.redis.LettuceConnectionConfiguration$$EnhancerBySpringCGLIB$$ad9fd47a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 23:05:01.384 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'lettuceClientResources' of type [io.lettuce.core.resource.DefaultClientResources] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 23:05:01.431 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisConnectionFactory' of type [org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 23:05:01.435 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisConfig' of type [com.forum.redis.config.RedisConfig$$EnhancerBySpringCGLIB$$2842fcb3] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 23:05:01.465 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'jedisPool' of type [redis.clients.jedis.JedisPool] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 23:05:01.468 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisManager' of type [org.crazycake.shiro.RedisManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 23:05:01.473 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisCacheManager' of type [org.crazycake.shiro.RedisCacheManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 23:05:01.541 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'mybatis-tk.mybatis.mapper.autoconfigure.MybatisProperties' of type [tk.mybatis.mapper.autoconfigure.MybatisProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 23:05:01.547 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'tk.mybatis.mapper.autoconfigure.MapperAutoConfiguration' of type [tk.mybatis.mapper.autoconfigure.MapperAutoConfiguration$$EnhancerBySpringCGLIB$$4e76bdc9] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 23:05:01.559 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'druidConfiguration' of type [com.forum.service.config.DruidConfiguration$$EnhancerBySpringCGLIB$$c729e0a2] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 23:05:01.618 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'dataSource' of type [com.alibaba.druid.pool.DruidDataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 23:05:01.623 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'sqlSessionFactory' of type [org.apache.ibatis.session.defaults.DefaultSqlSessionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 23:05:01.627 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'sqlSessionTemplate' of type [org.mybatis.spring.SqlSessionTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 23:05:01.741 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'roleMapper' of type [tk.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 23:05:01.742 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'roleMapper' of type [com.sun.proxy.$Proxy72] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 23:05:01.779 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'userMapper' of type [tk.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 23:05:01.780 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'userMapper' of type [com.sun.proxy.$Proxy75] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 23:05:01.809 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'roleAuthorityMapper' of type [tk.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 23:05:01.810 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'roleAuthorityMapper' of type [com.sun.proxy.$Proxy76] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 23:05:01.810 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'realm' of type [com.forum.service.security.realm.PasswordRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 23:05:01.816 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisSessionDAO' of type [org.crazycake.shiro.RedisSessionDAO] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 23:05:01.825 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'simpleCookie' of type [org.apache.shiro.web.servlet.SimpleCookie] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 23:05:01.834 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'sessionManager' of type [org.apache.shiro.web.session.mgt.DefaultWebSessionManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 23:05:01.961 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'rememberMeCookie' of type [org.apache.shiro.web.servlet.SimpleCookie] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 23:05:01.969 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'rememberMeManager' of type [org.apache.shiro.web.mgt.CookieRememberMeManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 23:05:01.972 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'securityManager' of type [org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 23:05:02.033 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'authorityMapper' of type [tk.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 23:05:02.035 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'authorityMapper' of type [com.sun.proxy.$Proxy77] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 23:05:02.094 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'nonAuthemticateMapper' of type [tk.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 23:05:02.095 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'nonAuthemticateMapper' of type [com.sun.proxy.$Proxy78] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 23:05:02.096 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'shiroService' of type [com.forum.service.impl.ShiroServiceImpl] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 23:05:02.118 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'loginInfo' of type [com.forum.model.dto.LoginInfo] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 23:05:02.120 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'messageCodeInfo' of type [com.forum.model.dto.MessageCodeInfo] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 23:05:02.122 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'commonInfo' of type [com.forum.model.dto.CommonInfo] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 23:05:02.122 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'rolesAuthorizationFilter' of type [com.forum.service.filter.CustomRolesAuthorizationFilter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 23:05:02.325 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2018-12-13 23:05:02.329 [main] DEBUG com.forum.mapper.AuthorityMapper.findAuthorities - ==>  Preparing: select * from f_authority 
+2018-12-13 23:05:02.382 [main] DEBUG com.forum.mapper.AuthorityMapper.findAuthorities - ==> Parameters: 
+2018-12-13 23:05:02.397 [main] DEBUG com.forum.mapper.AuthorityMapper.findAuthorities - <==      Total: 2
+2018-12-13 23:05:02.402 [main] DEBUG c.f.m.NonAuthemticateMapper.selectAllFromTable - ==>  Preparing: select * from f_non_authemticate 
+2018-12-13 23:05:02.403 [main] DEBUG c.f.m.NonAuthemticateMapper.selectAllFromTable - ==> Parameters: 
+2018-12-13 23:05:02.409 [main] DEBUG c.f.m.NonAuthemticateMapper.selectAllFromTable - <==      Total: 19
+2018-12-13 23:05:02.436 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration' of type [org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration$$EnhancerBySpringCGLIB$$5ef1d45e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 23:05:02.479 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$98861630] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-13 23:05:02.824 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2018-12-13 23:05:02.834 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2018-12-13 23:05:02.839 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2018-12-13 23:05:02.839 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/9.0.12
+2018-12-13 23:05:02.844 [main] INFO  org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/ljl/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2018-12-13 23:05:02.949 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2018-12-13 23:05:02.949 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2764 ms
+2018-12-13 23:05:02.958 [main] INFO  com.forum.service.config.DruidConfiguration - init Druid Servlet Configuration 
+2018-12-13 23:05:03.064 [main] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Servlet statViewServlet mapped to [/druid/*]
+2018-12-13 23:05:03.065 [main] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Servlet dispatcherServlet mapped to [/]
+2018-12-13 23:05:03.065 [main] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Servlet statViewServlet mapped to [/druid/*]
+2018-12-13 23:05:03.066 [main] INFO  o.s.boot.web.servlet.RegistrationBean - Servlet statViewServlet was not registered (possibly already registered?)
+2018-12-13 23:05:03.068 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-12-13 23:05:03.069 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-12-13 23:05:03.069 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'formContentFilter' to: [/*]
+2018-12-13 23:05:03.069 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2018-12-13 23:05:03.069 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'webStatFilter' to urls: [/*]
+2018-12-13 23:05:03.070 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'delegatingFilterProxy' to: [/*]
+2018-12-13 23:05:03.070 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'shiroFilter' to: [/*]
+2018-12-13 23:05:03.071 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'rolesAuthorizationFilter' to: [/*]
+2018-12-13 23:05:03.071 [main] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'formAuthenticationFilter' to: [/*]
+2018-12-13 23:05:03.436 [main] INFO  java.lang.Class - Initializing Constant
+2018-12-13 23:05:03.439 [main] DEBUG c.f.m.D.selectAllInTableWithoutParamType - ==>  Preparing: select param_name,value from f_dictionary where param_type <> ? 
+2018-12-13 23:05:03.453 [main] DEBUG c.f.m.D.selectAllInTableWithoutParamType - ==> Parameters: 参数代码(String)
+2018-12-13 23:05:03.458 [main] DEBUG c.f.m.D.selectAllInTableWithoutParamType - <==      Total: 35
+2018-12-13 23:05:03.470 [main] INFO  java.lang.Class - Initializing GlobalCode
+2018-12-13 23:05:03.470 [main] DEBUG c.f.m.D.selectAllInTableWithParamType - ==>  Preparing: select param_name,value from f_dictionary where param_type = ? 
+2018-12-13 23:05:03.471 [main] DEBUG c.f.m.D.selectAllInTableWithParamType - ==> Parameters: 参数代码(String)
+2018-12-13 23:05:03.473 [main] DEBUG c.f.m.D.selectAllInTableWithParamType - <==      Total: 9
+2018-12-13 23:05:03.892 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-13 23:05:04.069 [main] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page template: index
+2018-12-13 23:05:04.836 [main] INFO  o.s.a.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [127.0.0.1:5672]
+2018-12-13 23:05:04.860 [main] INFO  o.s.a.rabbit.connection.CachingConnectionFactory - Created new connection: rabbitConnectionFactory#70881123:0/SimpleConnection@5fb44964 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 49854]
+2018-12-13 23:05:05.014 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2018-12-13 23:05:05.031 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2018-12-13 23:05:05.042 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2018-12-13 23:05:05.044 [main] INFO  com.forum.DemoApplication - Started DemoApplication in 5.381 seconds (JVM running for 6.339)
+2018-12-13 23:05:17.761 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2018-12-13 23:05:17.761 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2018-12-13 23:05:17.772 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 11 ms
+2018-12-13 23:05:17.782 [http-nio-8080-exec-1] INFO  o.a.s.session.mgt.AbstractValidatingSessionManager - Enabling session validation scheduler...
+2018-12-13 23:05:17.894 [http-nio-8080-exec-1] INFO  io.lettuce.core.EpollProvider - Starting without optional epoll library
+2018-12-13 23:05:17.895 [http-nio-8080-exec-1] INFO  io.lettuce.core.KqueueProvider - Starting without optional kqueue library
+2018-12-13 23:05:18.128 [http-nio-8080-exec-1] DEBUG com.forum.mapper.UserMapper.countNumberByUsername - ==>  Preparing: select count(username) from f_user where username = ? 
+2018-12-13 23:05:18.129 [http-nio-8080-exec-1] DEBUG com.forum.mapper.UserMapper.countNumberByUsername - ==> Parameters: 761676263@qq.com(String)
+2018-12-13 23:05:18.131 [http-nio-8080-exec-1] DEBUG com.forum.mapper.UserMapper.countNumberByUsername - <==      Total: 1
+2018-12-13 23:05:18.145 [http-nio-8080-exec-1] INFO  com.forum.rabbit.util.RabbitUtil - Sender Date:2018-12-13 23:05:18
+2018-12-13 23:05:18.159 [http-nio-8080-exec-1] INFO  com.forum.rabbit.util.RabbitUtil - Consumer response :  Message Handler Success
+2018-12-13 23:05:18.176 [AMQP Connection 127.0.0.1:5672] INFO  com.forum.rabbit.util.RabbitUtil - Rabbit Message delivery Success CorrelationData [id=43df598e-6d88-492e-a585-72a496943ae8]
+2018-12-13 23:07:31.992 [http-nio-8080-exec-6] DEBUG com.forum.mapper.UserMapper.countNumberByUsername - ==>  Preparing: select count(username) from f_user where username = ? 
+2018-12-13 23:07:31.992 [http-nio-8080-exec-6] DEBUG com.forum.mapper.UserMapper.countNumberByUsername - ==> Parameters: 920217202@qq.com(String)
+2018-12-13 23:07:31.994 [http-nio-8080-exec-6] DEBUG com.forum.mapper.UserMapper.countNumberByUsername - <==      Total: 1
+2018-12-13 23:07:31.998 [http-nio-8080-exec-6] INFO  com.forum.rabbit.util.RabbitUtil - Sender Date:2018-12-13 23:07:31
+2018-12-13 23:07:31.999 [http-nio-8080-exec-6] INFO  com.forum.rabbit.util.RabbitUtil - Consumer response :  Message Handler Success
+2018-12-13 23:07:32.010 [AMQP Connection 127.0.0.1:5672] INFO  com.forum.rabbit.util.RabbitUtil - Rabbit Message delivery Success CorrelationData [id=9c556e03-af16-4c30-921a-e3aa780ac9cb]
+2018-12-13 23:16:40.381 [http-nio-8080-exec-1] INFO  org.apache.tomcat.util.http.parser.Cookie - A cookie header was received [1535861272; CNZZDATA1260732280=1280659047-1535852488-%7C1535863730; UM_distinctid=16597f4aff7c1d-05ab067375a7708-49183707-1aeaa0-16597f4aff8a01] that contained an invalid cookie. That cookie will be ignored.Note: further occurrences of this error will be logged at DEBUG level.
+2018-12-13 23:24:10.939 [Thread-14] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
+2018-12-13 23:24:11.556 [Thread-14] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2018-12-13 23:24:11.557 [Thread-14] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
+2018-12-13 23:24:12.556 [Thread-14] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2018-12-13 23:24:12.558 [Thread-14] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
+2018-12-13 23:24:13.561 [Thread-14] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2018-12-13 23:24:13.562 [Thread-14] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
+2018-12-13 23:24:14.566 [Thread-14] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2018-12-13 23:24:14.568 [Thread-14] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
+2018-12-13 23:24:15.343 [Thread-14] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2018-12-13 23:24:15.348 [Thread-14] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Shutdown ignored - container is not active already
+2018-12-13 23:24:15.348 [Thread-14] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Shutdown ignored - container is not active already
+2018-12-13 23:24:15.348 [Thread-14] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Shutdown ignored - container is not active already
+2018-12-13 23:24:15.348 [Thread-14] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Shutdown ignored - container is not active already
+2018-12-13 23:24:15.348 [Thread-14] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Shutdown ignored - container is not active already
+2018-12-13 23:24:15.349 [Thread-14] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2018-12-13 23:24:15.356 [Thread-14] INFO  o.a.s.session.mgt.AbstractValidatingSessionManager - Disabled session validation scheduler.
+2018-12-13 23:24:15.359 [Thread-14] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed

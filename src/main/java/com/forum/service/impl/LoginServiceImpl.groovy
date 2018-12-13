@@ -41,17 +41,17 @@ class LoginServiceImpl implements LoginService {
             if (token != loginInfo.getToken()) {
                 return GlobalCode.LOGIN_CODE_FAIL
             }
-            RabbitUtil.deliveryMessageNotConfirm(Constant.MQ_REDIS_DEL,ip)
+            RabbitUtil.deliveryMessageNotConfirm(Constant.MQ_REDIS_DEL, ip)
         }
         boolean isEnable = userMapper.isAccountBlock(loginInfo.getUsername())
-        if(!isEnable){
+        if (!isEnable) {
             return GlobalCode.ACCOUNT_BLOCK
         }
 
-        Subject subject = SecurityUtils.getSubject();
-        UsernamePasswordToken token = new UsernamePasswordToken(loginInfo.getUsername(), DigestUtils.md5Hex(loginInfo.getPassword()), isRememberMe);
+        Subject subject = SecurityUtils.getSubject()
+        UsernamePasswordToken token = new UsernamePasswordToken(loginInfo.getUsername(), DigestUtils.md5Hex(loginInfo.getPassword()), isRememberMe)
         try {
-            subject.login(token);
+            subject.login(token)
             return GlobalCode.LOGIN_VERIFY_OK
         } catch (Exception e) {
             return GlobalCode.LOGIN_VERIFY_FAIL
@@ -61,7 +61,7 @@ class LoginServiceImpl implements LoginService {
 
     @Override
     String getToken(String ip) {
-        if (RedisUtil.hasKey(Constant.UUID_REDIS_QUEUE_NAME) == false) {
+        if (!RedisUtil.hasKey(Constant.UUID_REDIS_QUEUE_NAME)) {
             generateToken.generateUUIDQueue()
         }
         boolean hasKey = RedisUtil.hasKey(ip)
@@ -77,7 +77,7 @@ class LoginServiceImpl implements LoginService {
         RabbitUtil.deliveryMessageNotConfirm(Constant.MQ_TOKEN_GENERATE)
         boolean keyFlag = RedisUtil.set(ip, str)
         boolean expireFlag = RedisUtil.expire(ip, Constant.UUID_REDIS_KEY_TIMEOUT?.toLong())
-        if (keyFlag == false || expireFlag == false) {
+        if (!keyFlag || !expireFlag) {
             return GlobalCode.LOGIN_CODE_FAIL
         }
         return str
@@ -85,7 +85,7 @@ class LoginServiceImpl implements LoginService {
 
     @Override
     void logout() {
-        Subject subject = SecurityUtils.getSubject();
-        subject.logout();
+        Subject subject = SecurityUtils.getSubject()
+        subject.logout()
     }
 }
