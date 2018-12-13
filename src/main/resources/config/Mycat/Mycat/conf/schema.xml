@@ -10,6 +10,8 @@
 		<table name="f_authority" dataNode="dn1"/>
 		<table name="f_role_authority" dataNode="dn1"/>
 		<table name="f_areas" dataNode="dn1"  primaryKey="id"/>
+		<table name="f_dictionary" dataNode="dn1"/>
+		<table name="f_non_authemticate" dataNode="dn1"/>
 
 </schema>
 	<dataNode name="dn1" dataHost="localhost1" database="forum" />

@@ -1,5 +1,6 @@
 package com.forum.service.aspect
 
+import com.forum.global.Constant
 import com.forum.model.dto.MessageCodeInfo
 import com.forum.redis.util.RedisUtil
 import com.forum.service.exception.RequestLimitException
@@ -8,8 +9,6 @@ import org.aspectj.lang.annotation.Aspect
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.context.properties.ConfigurationProperties
-import org.springframework.context.annotation.PropertySource
 import org.springframework.core.Ordered
 import org.springframework.core.annotation.Order
 import org.springframework.stereotype.Component
@@ -25,41 +24,16 @@ import javax.servlet.http.HttpServletResponse
  */
 @Aspect
 @Component
-@PropertySource('classpath:config/configuration.properties')
-@ConfigurationProperties(prefix = "http")
 @Order(Ordered.HIGHEST_PRECEDENCE)
 class RequestLimitAspect extends HandlerInterceptorAdapter {
     private static final Logger logger = LoggerFactory.getLogger(RequestLimitAspect.class)
     @Autowired
     private MessageCodeInfo msg
 
-    private int LIMIT_TIMEOUT
-    private int LIMIT_COUNT
-    private String LIMIT_PATH
+    private int LIMIT_TIMEOUT = Constant.LIMIT_TIMEOUT?.toInteger()
+    private int LIMIT_COUNT = Constant.LIMIT_COUNT?.toInteger()
+    private String LIMIT_PATH = Constant.LIMIT_PATH
 
-    String getLIMIT_PATH() {
-        return LIMIT_PATH
-    }
-
-    void setLIMIT_PATH(String LIMIT_PATH) {
-        this.LIMIT_PATH = LIMIT_PATH
-    }
-
-    int getLIMIT_TIMEOUT() {
-        return LIMIT_TIMEOUT
-    }
-
-    void setLIMIT_TIMEOUT(int LIMIT_TIMEOUT) {
-        this.LIMIT_TIMEOUT = LIMIT_TIMEOUT
-    }
-
-    int getLIMIT_COUNT() {
-        return LIMIT_COUNT
-    }
-
-    void setLIMIT_COUNT(int LIMIT_COUNT) {
-        this.LIMIT_COUNT = LIMIT_COUNT
-    }
     /**
      *
      * @param request
@@ -79,7 +53,7 @@ class RequestLimitAspect extends HandlerInterceptorAdapter {
             String ip = CommonUtil.getRealIP(request);
             String url = request.getRequestURL().toString();
             String key = "req_limit_".concat(url).concat(ip);
-            if (url.substring(url.lastIndexOf('/') + 1) == 'limit') {
+            if (url.substring(url.lastIndexOf('/')) == LIMIT_PATH) {
                 return true
             }
             if (!RedisUtil.hasKey(key) || CommonUtil.isEmpty(RedisUtil.get(key))) {

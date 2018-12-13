@@ -1,14 +1,25 @@
 package com.forum.global
 
-import org.springframework.beans.factory.annotation.Value
-import org.springframework.boot.context.properties.ConfigurationProperties
-import org.springframework.context.annotation.PropertySource
+import com.forum.mapper.DictionaryMapper
+import com.forum.model.entity.DictionaryEntity
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
+import org.springframework.beans.factory.InitializingBean
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 
+import java.lang.reflect.Field
+
 @Component
-@PropertySource('classpath:config/configuration.properties')
-@ConfigurationProperties(prefix = "code")
-class GlobalCode {
+class GlobalCode implements InitializingBean {
+    private static final Logger logger = LoggerFactory.getLogger(this.getClass())
+    @Autowired
+    DictionaryMapper dictionaryMapper
+
+    @Override
+    void afterPropertiesSet() throws Exception {
+        load()
+    }
     static String LOGIN_VERIFY_OK
     static String LOGIN_CODE_OK
     static String LOGIN_VERIFY_FAIL
@@ -18,43 +29,17 @@ class GlobalCode {
     static String REGISTER_MAIL_FAIL
     static String REGISTER_MAIL_OK
     static String ACCOUNT_BLOCK
-    @Value('${code.ACCOUNT_BLOCK}')
-    void setACCOUNT_BLOCK(String ACCOUNT_BLOCK) {
-        this.ACCOUNT_BLOCK = ACCOUNT_BLOCK
+    void load() {
+        logger.info('Initializing GlobalCode')
+        List<DictionaryEntity> list = dictionaryMapper.selectAllInTableWithParamType('参数代码')
+        list.each { current_dictionary ->
+            dynamicSet(current_dictionary.getParamName(), current_dictionary.getValue())
+        }
     }
 
-    @Value('${code.REGISTER_MAIL_OK}')
-    void setREGISTER_MAIL_OK(String REGISTER_MAIL_OK) {
-        this.REGISTER_MAIL_OK = REGISTER_MAIL_OK
-    }
-
-    @Value('${code.REGISTER_MAIL_FAIL}')
-    void setREGISTER_MAIL_FAIL(String REGISTER_MAIL_FAIL) {
-        this.REGISTER_MAIL_FAIL = REGISTER_MAIL_FAIL
-    }
-
-    @Value('${code.LOGIN_VERIFY_OK}')
-    void setLOGIN_VERIFY_OK(String LOGIN_VERIFY_OK) {
-        this.LOGIN_VERIFY_OK = LOGIN_VERIFY_OK
-    }
-    @Value('${code.LOGIN_CODE_OK}')
-    void setLOGIN_CODE_OK(String LOGIN_CODE_OK) {
-        this.LOGIN_CODE_OK = LOGIN_CODE_OK
-    }
-    @Value('${code.LOGIN_VERIFY_FAIL}')
-    void setLOGIN_VERIFY_FAIL(String LOGIN_VERIFY_FAIL) {
-        this.LOGIN_VERIFY_FAIL = LOGIN_VERIFY_FAIL
-    }
-    @Value('${code.LOGIN_CODE_FAIL}')
-    void setLOGIN_CODE_FAIL(String LOGIN_CODE_FAIL) {
-        this.LOGIN_CODE_FAIL = LOGIN_CODE_FAIL
-    }
-    @Value('${code.LOGIN_CODE_FREQUENT}')
-    void setLOGIN_CODE_FREQUENT(String LOGIN_CODE_FREQUENT) {
-        this.LOGIN_CODE_FREQUENT = LOGIN_CODE_FREQUENT
-    }
-    @Value('${code.LOGIN_PERMISSION}')
-    void setLOGIN_PERMISSION(String LOGIN_PERMISSION) {
-        this.LOGIN_PERMISSION = LOGIN_PERMISSION
+    private void dynamicSet(String propertyName, Object obj) {
+        Field field = this.getClass().getDeclaredField(propertyName)
+        field.setAccessible(true);
+        field.set(this, obj);
     }
 }

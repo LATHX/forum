@@ -23,7 +23,7 @@ class GenerateToken {
 
     List<String> generateUUIDList(int current_size){
         List<String> list = new ArrayList<String>()
-        while(current_size <= Constant.UUID_REDIS_CACHE_SIZE){
+        while(current_size <= Constant.UUID_REDIS_CACHE_SIZE?.toInteger()){
             list.add(CommonUtil.generateUUID())
             current_size ++;
         }

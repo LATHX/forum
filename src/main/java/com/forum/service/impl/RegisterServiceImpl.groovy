@@ -84,7 +84,7 @@ class RegisterServiceImpl implements RegisterService {
     boolean registerMail(HttpServletRequest request, RegisterInfo registerInfo) {
         String IP = CommonUtil.getRealIP(request)
         String key = Constant.REGISTER_REDIS_MAIL_NAME + IP
-        int alive = Constant.REGISTER_REDIS_TIMEOUT - (Constant.UUID_REDIS_KEY_TIMEOUT)
+        int alive = Constant.REGISTER_REDIS_TIMEOUT?.toInteger() - (Constant.UUID_REDIS_KEY_TIMEOUT?.toInteger())
         if (CommonUtil.hasRedisKey(key) && RedisUtil.getExpire(key) > alive) {
             return false
         } else {
