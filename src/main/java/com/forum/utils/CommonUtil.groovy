@@ -14,7 +14,7 @@ class CommonUtil {
     @Autowired
     GenerateToken generateToken
 
-    static synchronized String generateUUID() {
+    static String generateUUID() {
         return UUID.randomUUID()?.toString()?.replaceAll('-', '')
     }
 
@@ -151,10 +151,16 @@ class CommonUtil {
         return sb.toString()
     }
 
+
     static char[] allCharacter() {
         "1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM".toCharArray()
     }
+    static String getURLWithoutContext(HttpServletRequest request){
+        StringBuffer url = request.getRequestURL()
+        String tempContextUrl = url.delete(url.length() - request.getRequestURI().length(), url.length()).append("/").toString()
+        return tempContextUrl
 
+    }
     static String replaceIllegalCharacter(String s){
         return s.replaceAll("[^qwertyuioplkjhgfdsazxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM1234567890\"!#\$%&\'()*+,-./:\\\\;<=>?@^_{|}\\[\\]~\t]","")
     }

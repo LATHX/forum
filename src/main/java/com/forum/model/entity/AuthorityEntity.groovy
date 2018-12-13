@@ -6,11 +6,11 @@ import javax.persistence.Table
 @Entity
 @Table(name = 'f_authority')
 class AuthorityEntity implements Serializable {
-    Integer authorityId
-    String authorityName
-    String icon
-    String uri
-    String permission
+    private Integer authorityId
+    private String authorityName
+    private String icon
+    private String uri
+    private String permission
 
     Integer getAuthorityId() {
         return authorityId

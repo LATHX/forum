@@ -8,15 +8,15 @@ import javax.validation.constraints.NotBlank
 @Component
 class LoginInfo implements Serializable {
     @NotBlank(message = '{login.username.blank}', groups = [LoginGroup.class])
-    String username
+    private String username
     @NotBlank(message = '{login.password.blank}', groups = [LoginGroup.class])
-    String password
+    private String password
     @NotBlank(message = '{login.token.blank}', groups = [LoginGroup.class])
-    String token
+    private String token
     @NotBlank(message = '{login.publicKey.blank}')
-    String publicKey
-    String rememberMe;
-    MessageCodeInfo msg
+    private String publicKey
+    private String rememberMe;
+    private MessageCodeInfo msg
 
     String getRememberMe() {
         return rememberMe

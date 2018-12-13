@@ -96,7 +96,7 @@ class RegisterServiceImpl implements RegisterService {
                 mailInfo.setSubject(Constant.REGISTER_TITLE)
                 mailInfo.setText(String.format(Constant.REGISTER_TEXT, code))
                 mailInfo.setUseHTTP(false)
-                RabbitUtil.deliveryMessageNotConfirm(Constant.MQ_REGISTER_MAIL, mailInfo)
+                RabbitUtil.deliveryMessageNotConfirm(Constant.MQ_SEND_MAIL, mailInfo)
                 return true
             } else {
                 return false

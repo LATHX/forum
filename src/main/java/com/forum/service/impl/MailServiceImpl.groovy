@@ -1,12 +1,12 @@
 package com.forum.service.impl
 
+import com.forum.global.Constant
 import com.forum.model.dto.MailInfo
 import com.forum.service.MailService
 import com.forum.utils.CommonUtil
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.beans.factory.annotation.Value
 import org.springframework.core.io.FileSystemResource
 import org.springframework.mail.javamail.JavaMailSender
 import org.springframework.mail.javamail.MimeMessageHelper
@@ -18,8 +18,6 @@ import javax.mail.internet.MimeMessage
 class MailServiceImpl implements MailService{
     @Autowired
     private JavaMailSender javaMailSender
-    @Value('${spring.mail.enableEmail}')
-    private boolean isEnableEmail
     private Logger logger = LoggerFactory.getLogger(this.getClass());
     private void sendText(MailInfo mailInfo) {
         MimeMessage message = null;
@@ -47,7 +45,7 @@ class MailServiceImpl implements MailService{
 
     @Override
     void sendMail(MailInfo mailInfo) {
-        if(isEnableEmail){
+        if(Constant.ENABLE_SEND_MAIL == 'true'){
             if(CommonUtil.isEmpty(mailInfo.getFile())){
                 sendText(mailInfo)
             }else{

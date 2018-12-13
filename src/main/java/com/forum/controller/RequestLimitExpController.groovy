@@ -2,6 +2,7 @@ package com.forum.controller
 
 import com.alibaba.fastjson.JSONObject
 import com.forum.global.Constant
+import com.forum.model.dto.CommonInfo
 import com.forum.model.dto.LoginInfo
 import com.forum.model.dto.MessageCodeInfo
 import com.forum.utils.CommonUtil
@@ -19,6 +20,8 @@ class RequestLimitExpController {
     MessageCodeInfo messageCodeInfo
     @Autowired
     LoginInfo loginInfo
+    @Autowired
+    CommonInfo commonInfo
 
     @RequestMapping(value = "/limit")
     safeLimitRes(HttpServletRequest request, HttpServletResponse response, Model model) {
@@ -28,8 +31,8 @@ class RequestLimitExpController {
             PrintWriter printWriter = response.getWriter()
             messageCodeInfo.setMsgInfo(Constant.LIMIT_MSG)
             loginInfo.setPassword('')
-            loginInfo.setMsg(messageCodeInfo)
-            printWriter.write(JSONObject.toJSONString(loginInfo))
+            commonInfo.setMsg(messageCodeInfo)
+            printWriter.write(JSONObject.toJSONString(commonInfo))
             printWriter.flush()
         } else {
             model.addAttribute('errorMsg', Constant.LIMIT_MSG)

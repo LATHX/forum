@@ -6,8 +6,8 @@ import javax.persistence.Table
 @Entity
 @Table(name = 'f_role_authority')
 class RoleAuthorityEntity implements Serializable {
-    Integer roleId
-    String authorityId
+    private Integer roleId
+    private String authorityId
 
     Integer getRoleId() {
         return roleId

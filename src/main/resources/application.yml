@@ -7,7 +7,6 @@ spring:
     password: dwsjeomddulpbdjd
     port: 465
     protocol: smtp
-    enableEmail: false
     properties:
       mail:
         smtp:
@@ -60,6 +59,10 @@ spring:
     filters: stat,wall,slf4j
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
     useGlobalDataSourceStat: true
+    web-username: admin
+    web-password: 9527
+    allow-ip:
+    deny-ip:
   rabbitmq:
     host: 127.0.0.1
     port: 5672

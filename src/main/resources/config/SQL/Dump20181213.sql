@@ -93,10 +93,10 @@ CREATE TABLE `f_dictionary` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `param_name` varchar(45) DEFAULT NULL,
   `description` varchar(50) DEFAULT NULL,
-  `value` varchar(255) DEFAULT NULL,
+  `value` varchar(100) DEFAULT NULL,
   `param_type` varchar(25) DEFAULT '配置参数',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -105,8 +105,35 @@ CREATE TABLE `f_dictionary` (
 
 LOCK TABLES `f_dictionary` WRITE;
 /*!40000 ALTER TABLE `f_dictionary` DISABLE KEYS */;
-INSERT INTO `f_dictionary` VALUES (1,'LOGIN_PAGE','跳转登录页面地址','/login.html','配置参数'),(2,'UUID_REDIS_CACHE_SIZE','Redis缓存大小','4','配置参数'),(3,'UUID_REDIS_QUEUE_NAME','Redis登录Token储存名','token','配置参数'),(4,'UUID_REDIS_KEY_TIMEOUT','Redis参数过期时间(s)','57','配置参数'),(5,'LOGIN_CODE_FREQUENT_MSG','登录验证提示','验证过于频繁','配置参数'),(6,'LOGIN_CODE_FAIL_MSG','登录验证提示','验证失败','配置参数'),(7,'LOGIN_CODE_SUCCESS_MSG','登录验证提示','验证通过','配置参数'),(8,'LOGIN_CODE_TIMEOUT_MSG','登录验证提示','验证超时，请重新认证','配置参数'),(9,'LOGIN_VERIFY_FAIL_MSG','登录提示','用户名或密码不正确','配置参数'),(10,'LOGIN_OUT_MSG','登录提示','您还未登录，请先登录','配置参数'),(11,'LOGIN_PERMISSION_MSG','权限提示','您没有此权限','配置参数'),(12,'LOGIN_BLOCK_MSG','登录提示','账号已停用','配置参数'),(13,'LIMIT_MSG','限流提示','刷新次数过多','配置参数'),(14,'MAIL_ADDRESS','邮件发送地址','llshadowsock@foxmail.com','配置参数'),(15,'REGISTER_REDIS_MAIL_NAME','注册邮件发送队列名','regitser_mail:','配置参数'),(16,'REGISTER_MAIL_FAIL','注册提示','发送过于频繁','配置参数'),(17,'REGISTER_REDIS_TIMEOUT','Redis注册验证码有效时间(s)','900','配置参数'),(18,'REGISTER_TITLE','注册邮件标题','验证邮件','配置参数'),(19,'REGISTER_TEXT','注册邮件内容','您的注册验证码为:%s,15分钟内有效','配置参数'),(20,'REGISTER_CODE','注册验证码提示','验证码错误','配置参数'),(21,'REGISTER_PASSWORD','注册提示','两次密码不一致','配置参数'),(22,'REGISTER_SAME','注册提示','账户已存在','配置参数'),(23,'MQ_TOKEN_GENERATE','消息队列','secure.token_generate','消息队列参数'),(24,'MQ_REGISTER_MAIL','消息队列','secure.register_mail','配置参数'),(25,'LOGIN_VERIFY_OK','登录成功识别码','200','参数代码'),(26,'LOGIN_CODE_OK','登录验证成功识别码','201','参数代码'),(27,'REGISTER_MAIL_OK','注册成功识别码','202','参数代码'),(28,'LOGIN_VERIFY_FAIL','登录验证失败识别码','300','参数代码'),(29,'LOGIN_CODE_FAIL','登录验证失败识别码','301','参数代码'),(30,'LOGIN_CODE_FREQUENT','登录频繁识别码','302','参数代码'),(31,'LOGIN_PERMISSION','登录权限识别码','303','参数代码'),(32,'REGISTER_MAIL_FAIL','注册失败识别码','304','参数代码'),(33,'ACCOUNT_BLOCK','账户锁定识别码','305','参数代码'),(34,'LIMIT_COUNT','限流访问次数最大值','30','配置参数'),(35,'LIMIT_TIMEOUT','限流时间(ms)','60000','配置参数'),(36,'LIMIT_PATH','超出限流跳转网址 (/跳转目标)','/limit','配置参数');
+INSERT INTO `f_dictionary` VALUES (1,'LOGIN_PAGE','跳转登录页面地址','/login.html','配置参数'),(2,'UUID_REDIS_CACHE_SIZE','Redis缓存大小','4','配置参数'),(3,'UUID_REDIS_QUEUE_NAME','Redis登录Token储存名','token','配置参数'),(4,'UUID_REDIS_KEY_TIMEOUT','Redis参数过期时间(s)','57','配置参数'),(5,'LOGIN_CODE_FREQUENT_MSG','登录验证提示','验证过于频繁','配置参数'),(6,'LOGIN_CODE_FAIL_MSG','登录验证提示','验证失败','配置参数'),(7,'LOGIN_CODE_SUCCESS_MSG','登录验证提示','验证通过','配置参数'),(8,'LOGIN_CODE_TIMEOUT_MSG','登录验证提示','验证超时，请重新认证','配置参数'),(9,'LOGIN_VERIFY_FAIL_MSG','登录提示','用户名或密码不正确','配置参数'),(10,'LOGIN_OUT_MSG','登录提示','您还未登录，请先登录','配置参数'),(11,'LOGIN_PERMISSION_MSG','权限提示','您没有此权限','配置参数'),(12,'LOGIN_BLOCK_MSG','登录提示','账号已停用','配置参数'),(13,'LIMIT_MSG','限流提示','刷新次数过多','配置参数'),(14,'MAIL_ADDRESS','邮件发送地址','llshadowsock@foxmail.com','配置参数'),(15,'REGISTER_REDIS_MAIL_NAME','Redis注册邮件发送名','regitser_mail:','配置参数'),(16,'REGISTER_MAIL_FAIL','注册提示','发送过于频繁','配置参数'),(17,'REGISTER_REDIS_TIMEOUT','Redis注册验证码有效时间(s)','900','配置参数'),(18,'REGISTER_TITLE','注册邮件标题','验证邮件','配置参数'),(19,'REGISTER_TEXT','注册邮件内容','您的注册验证码为:%s,15分钟内有效','配置参数'),(20,'REGISTER_CODE','注册验证码提示','验证码错误','配置参数'),(21,'REGISTER_PASSWORD','注册提示','两次密码不一致','配置参数'),(22,'REGISTER_SAME','注册提示','账户已存在','配置参数'),(23,'MQ_TOKEN_GENERATE','消息队列Token','secure.token_generate','消息队列参数'),(24,'MQ_SEND_MAIL','消息队列注册邮件','secure.send_mail','消息队列参数'),(25,'LOGIN_VERIFY_OK','登录成功识别码','200','参数代码'),(26,'LOGIN_CODE_OK','登录验证成功识别码','201','参数代码'),(27,'REGISTER_MAIL_OK','注册，忘记密码成功识别码','202','参数代码'),(28,'LOGIN_VERIFY_FAIL','登录验证失败识别码','300','参数代码'),(29,'LOGIN_CODE_FAIL','登录验证失败识别码','301','参数代码'),(30,'LOGIN_CODE_FREQUENT','登录频繁识别码','302','参数代码'),(31,'LOGIN_PERMISSION','登录权限识别码','303','参数代码'),(32,'REGISTER_MAIL_FAIL','注册，忘记密码失败识别码','304','参数代码'),(33,'ACCOUNT_BLOCK','账户锁定识别码','305','参数代码'),(34,'LIMIT_COUNT','限流访问次数最大值','30','配置参数'),(35,'LIMIT_TIMEOUT','限流时间(ms)','60000','配置参数'),(36,'LIMIT_PATH','超出限流跳转网址 (/跳转目标)','/limit','配置参数'),(37,'ENABLE_SEND_MAIL','启用邮件发送(true为启用，其余为停用)','false','配置参数'),(38,'FORGOT_PASSWORD_TIMEOUT','Redis忘记密码超时(s)','1800','配置参数'),(39,'REDIS_FORGOT_PASSWORD_NAME','Redis忘记密码名','forgot_mail:','配置参数'),(40,'MQ_REDIS_DEL','消息队列删除Redis','del.redis_key','消息队列参数'),(41,'USERNAME_NOT_EXITS','提示消息','账号不存在','配置参数'),(42,'FORGOT_MAIL_SUBJECT','忘记密码邮件标题','找回密码','配置参数'),(43,'FORGOT_MAIL_TEXT','忘记密码邮件内容','请使用此链接重置您的密码: %s','配置参数'),(44,'REST_PASSWORD_PAGE','重置密码页面','rest-password','配置参数');
 /*!40000 ALTER TABLE `f_dictionary` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `f_non_authemticate`
+--
+
+DROP TABLE IF EXISTS `f_non_authemticate`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `f_non_authemticate` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `url` varchar(45) DEFAULT NULL,
+  `enable` tinyint(1) NOT NULL DEFAULT '1',
+  `description` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `url_UNIQUE` (`url`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `f_non_authemticate`
+--
+
+LOCK TABLES `f_non_authemticate` WRITE;
+/*!40000 ALTER TABLE `f_non_authemticate` DISABLE KEYS */;
+INSERT INTO `f_non_authemticate` VALUES (1,'/index',1,'主页'),(2,'/login.html',1,'登录页面'),(3,'/login',1,'登录'),(4,'/token',1,'登录验证'),(5,'/css/**',1,'CSS资源'),(6,'/js/**',1,'JS资源'),(7,'/fonts/**',1,'Font资源'),(8,'/images/**',1,'图片资源'),(9,'/create-account.html',1,'创建账号'),(10,'/logout',1,'登出'),(11,'/limit',1,'限流页面'),(12,'/register',1,'注册页面'),(13,'/send-register-mail',1,'注册发送邮件页面'),(14,'/forgot-password.html',1,'忘记密码页面'),(15,'smtp.qq.com',1,'邮件服务器'),(16,'/send',1,'测试'),(17,'/w',1,'测试'),(18,'/druid/**',1,'Druid监控'),(19,'/forgot-mail',1,'忘记密码');
+/*!40000 ALTER TABLE `f_non_authemticate` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -226,4 +253,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-12-13 11:28:45
+-- Dump completed on 2018-12-13 17:02:12

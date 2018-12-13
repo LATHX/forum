@@ -5,12 +5,12 @@ import javax.persistence.Table
 
 @Entity
 @Table(name = 'f_dictionary')
-class DictionaryEntity {
-    Integer id
-    String paramName
-    String description
-    String value
-    String paramType
+class DictionaryEntity implements Serializable {
+    private Integer id
+    private String paramName
+    private String description
+    private String value
+    private String paramType
 
     Integer getId() {
         return id

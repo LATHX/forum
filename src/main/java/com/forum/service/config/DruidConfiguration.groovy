@@ -3,18 +3,15 @@ package com.forum.service.config
 import com.alibaba.druid.pool.DruidDataSource
 import com.alibaba.druid.support.http.StatViewServlet
 import com.alibaba.druid.support.http.WebStatFilter
+import com.forum.utils.CommonUtil
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import org.springframework.beans.factory.annotation.Value
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration
 import org.springframework.boot.context.properties.ConfigurationProperties
 import org.springframework.boot.web.servlet.FilterRegistrationBean
 import org.springframework.boot.web.servlet.ServletRegistrationBean
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.Primary
-import org.springframework.context.annotation.PropertySource
-import org.springframework.core.PriorityOrdered
 
 import javax.sql.DataSource
 import java.sql.SQLException
@@ -40,6 +37,10 @@ public class DruidConfiguration {
     private int maxPoolPreparedStatementPerConnectionSize
     private String filters
     private String connectionProperties
+    private String webUsername
+    private String webPassword
+    private String allowIp
+    private String denyIp
     private static final Logger logger = LoggerFactory.getLogger(DruidConfiguration.class)
 
     @Bean
@@ -47,12 +48,14 @@ public class DruidConfiguration {
         logger.info("init Druid Servlet Configuration ")
         ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean(new StatViewServlet(), "/druid/*")
         // IP白名单
-        //servletRegistrationBean.addInitParameter("allow", "192.168.2.25,127.0.0.1")
+        if (CommonUtil.isNotEmpty(allowIp))
+            servletRegistrationBean.addInitParameter("allow", allowIp)
         // IP黑名单(共同存在时，deny优先于allow)
-        // servletRegistrationBean.addInitParameter("deny", "192.168.1.100")
+        if (CommonUtil.isNotEmpty(denyIp))
+            servletRegistrationBean.addInitParameter("allow", denyIp)
         //控制台管理用户
-        servletRegistrationBean.addInitParameter("loginUsername", "admin")
-        servletRegistrationBean.addInitParameter("loginPassword", "9527")
+        servletRegistrationBean.addInitParameter("loginUsername", webUsername)
+        servletRegistrationBean.addInitParameter("loginPassword", webPassword)
         //是否能够重置数据 禁用HTML页面上的“Reset All”功能
         servletRegistrationBean.addInitParameter("resetEnable", "false")
         return servletRegistrationBean
@@ -98,6 +101,38 @@ public class DruidConfiguration {
         }
         datasource.setConnectionProperties(connectionProperties)
         return datasource
+    }
+
+    String getAllowIp() {
+        return allowIp
+    }
+
+    void setAllowIp(String allowIp) {
+        this.allowIp = allowIp
+    }
+
+    String getDenyIp() {
+        return denyIp
+    }
+
+    void setDenyIp(String denyIp) {
+        this.denyIp = denyIp
+    }
+
+    String getWebUsername() {
+        return webUsername
+    }
+
+    void setWebUsername(String webUsername) {
+        this.webUsername = webUsername
+    }
+
+    String getWebPassword() {
+        return webPassword
+    }
+
+    void setWebPassword(String webPassword) {
+        this.webPassword = webPassword
     }
 
     String getUrl() {

@@ -19,11 +19,18 @@ class RabbitListenerService {
         String redisQueueName = Constant.UUID_REDIS_QUEUE_NAME
         RedisUtil.lSet(redisQueueName, CommonUtil.generateUUID())
     }
-    @RabbitListener(queues = 'secure.register_mail')
+    @RabbitListener(queues = 'secure.send_mail')
     void sendRegisterMail(byte[] msg){
         println('Register Mail')
         MailInfo mailInfo= (MailInfo)CommonUtil.getObjectFromBytes(msg)
         println('Your code is:'+mailInfo.getText())
         mailService.sendMail(mailInfo)
+    }
+
+    @RabbitListener(queues = 'del.redis_key')
+    void delRedisKey(byte[] msg){
+        println('Del Redis Key')
+        String key= (String)CommonUtil.getObjectFromBytes(msg)
+        RedisUtil.del(key)
     }
 }

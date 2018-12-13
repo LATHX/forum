@@ -2,6 +2,7 @@ package com.forum.controller
 
 import com.forum.global.Constant
 import com.forum.global.GlobalCode
+import com.forum.model.dto.CommonInfo
 import com.forum.model.dto.LoginInfo
 import com.forum.model.dto.MessageCodeInfo
 import com.forum.model.validationInterface.LoginGroup
@@ -29,6 +30,8 @@ class LoginController {
     MessageCodeInfo messageCodeInfo
     @Autowired
     LoginService loginService
+    @Autowired
+    CommonInfo commonInfo
 
     @RequestMapping('/index')
     main() {
@@ -43,27 +46,27 @@ class LoginController {
         if (bindingResult?.hasErrors()) {
             messageCodeInfo.setMsgCode(GlobalCode.LOGIN_CODE_FAIL)
             messageCodeInfo.setMsgInfo(bindingResult?.getFieldError()?.getDefaultMessage())
-            loginInfo.setMsg(messageCodeInfo)
-            return loginInfo
+            commonInfo.setMsg(messageCodeInfo)
+            return commonInfo
         }
         String code = loginService.validationLoginInfo(CommonUtil.getRealIP(request), info)
         if (code == GlobalCode.LOGIN_CODE_FAIL) {
             messageCodeInfo.setMsgCode(GlobalCode.LOGIN_CODE_FAIL)
             messageCodeInfo.setMsgInfo(Constant.LOGIN_CODE_TIMEOUT_MSG)
-            loginInfo.setMsg(messageCodeInfo)
+            commonInfo.setMsg(messageCodeInfo)
         } else if (code == GlobalCode.LOGIN_VERIFY_FAIL) {
             messageCodeInfo.setMsgCode(GlobalCode.LOGIN_VERIFY_FAIL)
             messageCodeInfo.setMsgInfo(Constant.LOGIN_VERIFY_FAIL_MSG)
-            loginInfo.setMsg(messageCodeInfo)
+            commonInfo.setMsg(messageCodeInfo)
         } else if(code == GlobalCode.ACCOUNT_BLOCK){
             messageCodeInfo.setMsgCode(GlobalCode.ACCOUNT_BLOCK)
             messageCodeInfo?.setMsgInfo(Constant.LOGIN_BLOCK_MSG)
-            loginInfo.setMsg(messageCodeInfo)
+            commonInfo.setMsg(messageCodeInfo)
         }else if (code == GlobalCode.LOGIN_VERIFY_OK) {
             messageCodeInfo.setMsgCode(GlobalCode.LOGIN_VERIFY_OK)
-            loginInfo.setMsg(messageCodeInfo)
+            commonInfo.setMsg(messageCodeInfo)
         }
-        return loginInfo
+        return commonInfo
     }
 
     @PostMapping('/token')
@@ -75,13 +78,15 @@ class LoginController {
             messageCodeInfo.setMsgInfo(Constant.LOGIN_CODE_FREQUENT_MSG)
             loginInfo.setPublicKey(null)
             loginInfo.setToken(null)
-            loginInfo.setMsg(messageCodeInfo)
+            commonInfo.setMsg(messageCodeInfo)
+            return commonInfo
         } else if (code == (GlobalCode.LOGIN_CODE_FAIL)) {
             messageCodeInfo.setMsgCode(GlobalCode.LOGIN_CODE_FREQUENT)
             messageCodeInfo.setMsgInfo(Constant.LOGIN_CODE_FAIL_MSG)
             loginInfo.setPublicKey(null)
             loginInfo.setToken(null)
-            loginInfo.setMsg(messageCodeInfo)
+            commonInfo.setMsg(messageCodeInfo)
+            return commonInfo
         } else {
             messageCodeInfo.setMsgCode(GlobalCode.LOGIN_CODE_OK)
             messageCodeInfo.setMsgInfo(Constant.LOGIN_CODE_SUCCESS_MSG)

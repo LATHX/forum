@@ -3,6 +3,7 @@ package com.forum.service.filter
 import com.alibaba.fastjson.JSONObject
 import com.forum.global.Constant
 import com.forum.global.GlobalCode
+import com.forum.model.dto.CommonInfo
 import com.forum.model.dto.LoginInfo
 import com.forum.model.dto.MessageCodeInfo
 import com.forum.utils.CommonUtil
@@ -21,6 +22,8 @@ class CustomRolesAuthorizationFilter extends RolesAuthorizationFilter {
     LoginInfo loginInfo
     @Autowired
     MessageCodeInfo messageCodeInfo
+    @Autowired
+    CommonInfo commonInfo
 
     @Override
      boolean isAccessAllowed(ServletRequest req, ServletResponse resp, Object mappedValue) {
@@ -72,13 +75,13 @@ class CustomRolesAuthorizationFilter extends RolesAuthorizationFilter {
             if (subject.getPrincipal() == null) {
                 messageCodeInfo.setMsgCode(GlobalCode.LOGIN_VERIFY_FAIL)
                 messageCodeInfo.setMsgInfo(Constant.LOGIN_OUT_MSG)
-                loginInfo.setMsg(messageCodeInfo)
-                respStr = JSONObject.toJSONString(loginInfo)
+                commonInfo.setMsg(messageCodeInfo)
+                respStr = JSONObject.toJSONString(commonInfo)
             } else {
                 messageCodeInfo.setMsgCode(GlobalCode.LOGIN_PERMISSION)
                 messageCodeInfo.setMsgInfo(Constant.LOGIN_PERMISSION_MSG)
-                loginInfo.setMsg(messageCodeInfo)
-                respStr = JSONObject.toJSONString(loginInfo)
+                commonInfo.setMsg(messageCodeInfo)
+                respStr = JSONObject.toJSONString(commonInfo)
             }
             printWriter.write(respStr)
             printWriter.flush()

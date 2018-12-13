@@ -42,8 +42,12 @@ class RabbitConfig  {
         return BindingBuilder.bind(new Queue(Constant.MQ_TOKEN_GENERATE, true)).to(topicExchange()).with(Constant.MQ_TOKEN_GENERATE)
     }
     @Bean
-     Binding registerMail(){
-        return BindingBuilder.bind(new Queue(Constant.MQ_REGISTER_MAIL, true)).to(topicExchange()).with(Constant.MQ_REGISTER_MAIL)
+    Binding registerMail(){
+        return BindingBuilder.bind(new Queue(Constant.MQ_SEND_MAIL, true)).to(topicExchange()).with(Constant.MQ_SEND_MAIL)
+    }
+    @Bean
+    Binding delRedisKey(){
+        return BindingBuilder.bind(new Queue(Constant.MQ_REDIS_DEL, true)).to(topicExchange()).with(Constant.MQ_REDIS_DEL)
     }
     @Bean
     public Queue maintainQueue() {

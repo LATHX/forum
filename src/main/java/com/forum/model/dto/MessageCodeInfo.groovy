@@ -4,8 +4,8 @@ import org.springframework.stereotype.Component
 
 @Component
 class MessageCodeInfo implements Serializable {
-    String msgCode
-    String msgInfo
+    private String msgCode
+    private String msgInfo
 
     String getMsgCode() {
         return msgCode

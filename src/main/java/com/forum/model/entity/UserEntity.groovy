@@ -5,20 +5,20 @@ import org.crazycake.shiro.AuthCachePrincipal
 import javax.persistence.*
 
 @Entity
-@Table(name='f_user')
+@Table(name = 'f_user')
 class UserEntity implements Serializable, AuthCachePrincipal {
-    private static final long serialVersionUID=1L;
+    private static final long serialVersionUID = 1L;
     @Id
-    String sid
-    String username
-    String password
-    String nickname
-    Integer roleId
-    boolean enable
-    char sex
-    String province
-    String city
-    String dist
+    private String sid
+    private String username
+    private String password
+    private String nickname
+    private Integer roleId
+    private boolean enable
+    private char sex
+    private String province
+    private String city
+    private String dist
 
     char getSex() {
         return sex
@@ -61,7 +61,6 @@ class UserEntity implements Serializable, AuthCachePrincipal {
     }
 
 
-
     boolean getEnable() {
         return enable
     }
@@ -101,6 +100,7 @@ class UserEntity implements Serializable, AuthCachePrincipal {
     void setRoleId(Integer roleId) {
         this.roleId = roleId
     }
+
     @Override
     public String getAuthCacheKey() {
         return username;

@@ -5,9 +5,9 @@ import javax.persistence.Table
 
 @Entity
 @Table(name = 'f_role')
-class RoleEntity  implements Serializable{
-    Integer roleId
-    String roleName
+class RoleEntity implements Serializable {
+    private Integer roleId
+    private String roleName
 
     Integer getRoleId() {
         return roleId

@@ -5,10 +5,19 @@ import javax.persistence.Table
 
 @Entity
 @Table(name = 'f_non_authemticate')
-class NonAuthemticateEntity {
-    Integer id
-    String url
-    boolean enable
+class NonAuthemticateEntity implements Serializable {
+    private Integer id
+    private String url
+    private String description
+    private boolean enable
+
+    String getDescription() {
+        return description
+    }
+
+    void setDescription(String description) {
+        this.description = description
+    }
 
     Integer getId() {
         return id

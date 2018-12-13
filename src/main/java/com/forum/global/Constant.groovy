@@ -38,7 +38,7 @@ class Constant implements InitializingBean {
     static String REGISTER_MAIL_FAIL
     static String MQ_TOKEN_GENERATE
     static String REGISTER_REDIS_MAIL_NAME
-    static String MQ_REGISTER_MAIL
+    static String MQ_SEND_MAIL
     static String REGISTER_TITLE
     static String REGISTER_TEXT
     static String REGISTER_CODE
@@ -48,6 +48,14 @@ class Constant implements InitializingBean {
     static String LIMIT_COUNT
     static String LIMIT_TIMEOUT
     static String LIMIT_PATH
+    static String ENABLE_SEND_MAIL
+    static String REDIS_FORGOT_PASSWORD_NAME
+    static String FORGOT_PASSWORD_TIMEOUT
+    static String MQ_REDIS_DEL
+    static String USERNAME_NOT_EXITS
+    static String FORGOT_MAIL_SUBJECT
+    static String FORGOT_MAIL_TEXT
+    static String REST_PASSWORD_PAGE
 
     void load() {
         logger.info('Initializing Constant')

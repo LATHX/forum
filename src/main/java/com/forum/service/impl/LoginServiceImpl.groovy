@@ -41,7 +41,7 @@ class LoginServiceImpl implements LoginService {
             if (token != loginInfo.getToken()) {
                 return GlobalCode.LOGIN_CODE_FAIL
             }
-            RedisUtil.del(ip)
+            RabbitUtil.deliveryMessageNotConfirm(Constant.MQ_REDIS_DEL,ip)
         }
         boolean isEnable = userMapper.isAccountBlock(loginInfo.getUsername())
         if(!isEnable){

@@ -1,27 +1,29 @@
 package com.forum.service.impl
 
 import com.forum.mapper.AuthorityMapper
+import com.forum.mapper.NonAuthemticateMapper
 import com.forum.model.entity.AuthorityEntity
+import com.forum.model.entity.NonAuthemticateEntity
 import com.forum.utils.CommonUtil
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean
 import org.apache.shiro.web.filter.mgt.DefaultFilterChainManager
 import org.apache.shiro.web.filter.mgt.PathMatchingFilterChainResolver
 import org.apache.shiro.web.servlet.AbstractShiroFilter
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.context.properties.ConfigurationProperties
-import org.springframework.context.annotation.PropertySource
 import org.springframework.stereotype.Service
 
 @Service("shiroService")
-@PropertySource('classpath:config/configuration.properties')
-@ConfigurationProperties(prefix = "secure")
 class ShiroServiceImpl {
     @Autowired
     private AuthorityMapper authorityMapper
+    @Autowired
+    private NonAuthemticateMapper authemticateMapper
     private String NON_AUTHEMTICATE
 
     public Map<String, String> loadFilterChainDefinitions() {
         List<AuthorityEntity> authorities = authorityMapper.findAuthorities();
+        //从数据库读取不需要权限map
+        List<NonAuthemticateEntity> nonAuthemticateEntityList = authemticateMapper.selectAllFromTable()
         // 权限控制map.从数据库获取
         Map<String, String> filterChainDefinitionMap = new LinkedHashMap<>();
         if (authorities.size() > 0) {
@@ -38,8 +40,12 @@ class ShiroServiceImpl {
                 }
             }
         }
-        NON_AUTHEMTICATE?.split(',')?.each {
-            filterChainDefinitionMap.put(it, "anon")
+//        NON_AUTHEMTICATE?.split(',')?.each {
+//            filterChainDefinitionMap.put(it, "anon")
+//        }
+        nonAuthemticateEntityList?.each {
+            if (it?.getEnable())
+                filterChainDefinitionMap.put(it?.getUrl(), "anon")
         }
         //其他资源都需要认证  authc 表示需要认证才能进行访问 ,user表示配置记住我或认证通过可以访问的地址
         filterChainDefinitionMap.put("/**", "user");
