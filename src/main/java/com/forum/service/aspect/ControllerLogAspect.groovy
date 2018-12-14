@@ -28,9 +28,9 @@ import java.text.SimpleDateFormat;
 @Component
 @Order(0)
 class ControllerLogAspect {
-    private Logger logger = LoggerFactory.getLogger(this.getClass());
-    ThreadLocal<Long> startTime = new ThreadLocal<>();
-    ThreadLocal<LogEntity> webLogThreadLocal = new ThreadLocal<>();
+    private Logger logger = LoggerFactory.getLogger(this.getClass())
+    ThreadLocal<Long> startTime = new ThreadLocal<>()
+    ThreadLocal<LogEntity> webLogThreadLocal = new ThreadLocal<>()
     /**
      * 定义一个切入点.
      * 解释下：
