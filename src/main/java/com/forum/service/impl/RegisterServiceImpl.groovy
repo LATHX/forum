@@ -42,7 +42,7 @@ class RegisterServiceImpl implements RegisterService {
         } else {
             UserEntity user = new UserEntity()
             user.setUsername(registerInfo.getUsername())
-            user.setPassword(DigestUtils.md5Hex(registerInfo.getPassword()))
+            user.setPassword(DigestUtils.sha1Hex(registerInfo.getPassword()))
             user.setNickname(registerInfo.getNickname())
             user.setSex(registerInfo.getSex()?.toString()?.charAt(0))
             String[] cityArr = registerInfo?.getCity()?.trim()?.split(' ')

@@ -56,7 +56,8 @@ class Constant implements InitializingBean {
     static String FORGOT_MAIL_SUBJECT
     static String FORGOT_MAIL_TEXT
     static String REST_PASSWORD_PAGE
-
+    static String REST_PASSWORD_TIMEOUT_MSG
+    static String REST_PASSWORD_FAIL_MSG
     void load() {
         logger.info('Initializing Constant')
         List<DictionaryEntity> list = dictionaryMapper.selectAllInTableWithoutParamType('参数代码')

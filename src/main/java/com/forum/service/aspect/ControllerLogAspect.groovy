@@ -18,6 +18,7 @@ import org.springframework.web.context.request.ServletRequestAttributes
 
 import javax.servlet.http.HttpServletRequest
 import java.text.SimpleDateFormat;
+
 /**
  * @describe: 实现controller的日志切面
  * @author: LJL
@@ -45,6 +46,7 @@ class ControllerLogAspect {
     @Pointcut("execution(* com.forum.controller.*.*(..))")
     public void serviceAspect() {
     }
+
     @Before("serviceAspect()")
     public void doBefore(JoinPoint joinPoint) {
         // 接收到请求，记录请求内容
@@ -59,14 +61,14 @@ class ControllerLogAspect {
         webLogThreadLocal.get().setArgs(CommonUtil.getArgs(joinPoint));
         webLogThreadLocal.get().setLogType('');
         webLogThreadLocal.get().setUser(ShiroUtil.getUser());
-        logger.error('Date : '+(new SimpleDateFormat ("yyyy-MM-dd hh:mm:ss").format(new Date())))
+        logger.error('Date : ' + (new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new Date())))
 //        logger.error('Request Method : '+request.getMethod())
 //        logger.error('Class Method : '+joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
 //        logger.error('Request URL : '+request.getRequestURL().toString());
 //        logger.error('Real IP : '+CommonUtil.getRealIP(request));
 //        logger.error('Args : '+CommonUtil.getArgs(joinPoint));
-        logger.error('Request Parameter : '+(request.getParameterMap()==null?'Unknow Parameter':JSONObject.toJSON(request.getParameterMap())));
-        logger.error('Username : '+ShiroUtil.getUser()?.getUsername());
+        logger.error('Request Parameter : ' + (request.getParameterMap() == null ? 'Unknow Parameter' : JSONObject.toJSON(request.getParameterMap())));
+        logger.error('Username : ' + ShiroUtil.getUser()?.getUsername());
     }
 
 //    @Around("serviceAspect()")
@@ -92,14 +94,14 @@ class ControllerLogAspect {
         // 处理完请求，返回内容
         ObjectMapper mapper = new ObjectMapper();
         try {
-            logger.error("response={}",result.toString());
+            logger.error("response={}", result.toString());
             webLogThreadLocal.get().setRespParams(mapper.writeValueAsString(result));
         } catch (JsonProcessingException e) {
             logger.error(CommonUtil.getExceptionDetail(e));
         }
         webLogThreadLocal.get().setSpendTime(System.currentTimeMillis() - startTime.get());
         try {
-            logger.error(">>>"+mapper.writeValueAsString(webLogThreadLocal.get()));
+            logger.error(">>>" + mapper.writeValueAsString(webLogThreadLocal.get()));
         } catch (JsonProcessingException e) {
             logger.error(CommonUtil.getExceptionDetail(e));
         }

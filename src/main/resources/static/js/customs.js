@@ -12,3 +12,18 @@ function Base64ToStr(str){
     str = window.atob(str);
     return str;
 }
+function getUrlParms(name){
+   var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+   var r = window.location.search.substr(1).match(reg);
+   if(r!=null)
+   return unescape(r[2]);
+   return null;
+}
+function validationEmail(username){
+var reg = new RegExp("^[a-zA-Z0-9]+([._\\-]*[a-zA-Z0-9])*@([a-zA-Z0-9]+[-a-zA-Z0-9]*[a-zA-Z0-9]+.){1,63}[a-zA-Z0-9]+$");
+if(reg.test(username)){
+  return true;
+}else{
+  return false;
+ }
+}

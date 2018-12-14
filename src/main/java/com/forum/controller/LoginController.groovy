@@ -8,7 +8,6 @@ import com.forum.model.dto.MessageCodeInfo
 import com.forum.model.validationInterface.LoginGroup
 import com.forum.service.LoginService
 import com.forum.service.security.encrypt.RSACryptoServiceProvider
-import com.forum.utils.CommonUtil
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.validation.BindingResult
@@ -49,7 +48,7 @@ class LoginController {
             commonInfo.setMsg(messageCodeInfo)
             return commonInfo
         }
-        String code = loginService.validationLoginInfo(CommonUtil.getRealIP(request), info)
+        String code = loginService.validationLoginInfo(request, info)
         if (code == GlobalCode.LOGIN_CODE_FAIL) {
             messageCodeInfo.setMsgCode(GlobalCode.LOGIN_CODE_FAIL)
             messageCodeInfo.setMsgInfo(Constant.LOGIN_CODE_TIMEOUT_MSG)
@@ -72,7 +71,7 @@ class LoginController {
     @PostMapping('/token')
     @ResponseBody
     token(HttpServletRequest request) throws Exception {
-        String code = loginService.getToken(CommonUtil.getRealIP(request))
+        String code = loginService.getToken(request)
         if (code == (GlobalCode.LOGIN_CODE_FREQUENT)) {
             messageCodeInfo.setMsgCode(GlobalCode.LOGIN_CODE_FREQUENT)
             messageCodeInfo.setMsgInfo(Constant.LOGIN_CODE_FREQUENT_MSG)

@@ -17,6 +17,8 @@ import org.apache.shiro.subject.Subject
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
+import javax.servlet.http.HttpServletRequest
+
 @Service
 class LoginServiceImpl implements LoginService {
     @Autowired
@@ -27,7 +29,8 @@ class LoginServiceImpl implements LoginService {
     UserMapper userMapper
 
     @Override
-    String validationLoginInfo(String ip, LoginInfo loginInfo) {
+    String validationLoginInfo(HttpServletRequest request, LoginInfo loginInfo) {
+        String ip = CommonUtil.getRealIP(request)
         boolean isRememberMe = true
         loginInfo.setPassword(RSACryptoServiceProvider.decrypt(loginInfo.getPassword()).replaceFirst(loginInfo.token, ''))
         boolean hasKey = RedisUtil.hasKey(ip)
@@ -49,18 +52,18 @@ class LoginServiceImpl implements LoginService {
         }
 
         Subject subject = SecurityUtils.getSubject()
-        UsernamePasswordToken token = new UsernamePasswordToken(loginInfo.getUsername(), DigestUtils.md5Hex(loginInfo.getPassword()), isRememberMe)
+        UsernamePasswordToken token = new UsernamePasswordToken(loginInfo.getUsername(), DigestUtils?.sha1Hex(loginInfo.getPassword()), isRememberMe)
         try {
             subject.login(token)
             return GlobalCode.LOGIN_VERIFY_OK
         } catch (Exception e) {
             return GlobalCode.LOGIN_VERIFY_FAIL
         }
-        return GlobalCode.LOGIN_VERIFY_FAIL
     }
 
     @Override
-    String getToken(String ip) {
+    String getToken(HttpServletRequest request) {
+        String ip = CommonUtil.getRealIP(request)
         if (!RedisUtil.hasKey(Constant.UUID_REDIS_QUEUE_NAME)) {
             generateToken.generateUUIDQueue()
         }

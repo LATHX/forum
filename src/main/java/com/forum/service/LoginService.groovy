@@ -2,8 +2,10 @@ package com.forum.service
 
 import com.forum.model.dto.LoginInfo
 
+import javax.servlet.http.HttpServletRequest
+
 interface LoginService {
-    String validationLoginInfo(String ip, LoginInfo loginInfo)
-    String getToken(String ip)
+    String validationLoginInfo(HttpServletRequest request, LoginInfo loginInfo)
+    String getToken(HttpServletRequest request)
     void logout()
 }

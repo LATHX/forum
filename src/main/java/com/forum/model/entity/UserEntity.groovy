@@ -1,8 +1,11 @@
 package com.forum.model.entity
 
+import org.apache.ibatis.annotations.Param
 import org.crazycake.shiro.AuthCachePrincipal
 
-import javax.persistence.*
+import javax.persistence.Entity
+import javax.persistence.Id
+import javax.persistence.Table
 
 @Entity
 @Table(name = 'f_user')
@@ -24,7 +27,7 @@ class UserEntity implements Serializable, AuthCachePrincipal {
         return sex
     }
 
-    void setSex(char sex) {
+    void setSex(@Param(value="sex") char sex) {
         this.sex = sex
     }
 
@@ -32,7 +35,7 @@ class UserEntity implements Serializable, AuthCachePrincipal {
         return province
     }
 
-    void setProvince(String province) {
+    void setProvince(@Param(value="province")String province) {
         this.province = province
     }
 
@@ -40,7 +43,7 @@ class UserEntity implements Serializable, AuthCachePrincipal {
         return city
     }
 
-    void setCity(String city) {
+    void setCity(@Param(value="city")String city) {
         this.city = city
     }
 
@@ -48,7 +51,7 @@ class UserEntity implements Serializable, AuthCachePrincipal {
         return dist
     }
 
-    void setDist(String dist) {
+    void setDist(@Param(value="dist")String dist) {
         this.dist = dist
     }
 
@@ -56,7 +59,7 @@ class UserEntity implements Serializable, AuthCachePrincipal {
         return nickname
     }
 
-    void setNickname(String nickname) {
+    void setNickname(@Param(value="nickname")String nickname) {
         this.nickname = nickname
     }
 
@@ -65,7 +68,7 @@ class UserEntity implements Serializable, AuthCachePrincipal {
         return enable
     }
 
-    void setEnable(boolean enable) {
+    void setEnable(@Param(value="enable")boolean enable) {
         this.enable = enable
     }
 
@@ -73,7 +76,7 @@ class UserEntity implements Serializable, AuthCachePrincipal {
         return sid
     }
 
-    void setSid(String sid) {
+    void setSid(@Param(value="sid")String sid) {
         this.sid = sid
     }
 
@@ -81,7 +84,7 @@ class UserEntity implements Serializable, AuthCachePrincipal {
         return username
     }
 
-    void setUsername(String username) {
+    void setUsername(@Param(value="username")String username) {
         this.username = username
     }
 
@@ -89,7 +92,7 @@ class UserEntity implements Serializable, AuthCachePrincipal {
         return password
     }
 
-    void setPassword(String password) {
+    void setPassword(@Param(value="password")String password) {
         this.password = password
     }
 

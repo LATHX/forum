@@ -1,31 +1,34 @@
 package com.forum.model.dto
 
+import com.forum.model.validationInterface.ForgotPasswordGroup
 import com.forum.model.validationInterface.RegisterGroup
 import com.forum.model.validationInterface.RegisterMailGroup
+import com.forum.model.validationInterface.RestPasswordGroup
 import org.springframework.stereotype.Component
 
 import javax.validation.constraints.*
+
 @Component
 class RegisterInfo implements Serializable {
-    @NotBlank(message = '{register.username.blank}', groups = [RegisterGroup.class])
-    @Size(max = 45, message = '{register.username.blank}', groups = [RegisterGroup.class])
-    @Email(message = '{register.username.blank}', groups = [RegisterGroup.class,RegisterMailGroup.class])
+    @NotBlank(message = '{register.username.blank}', groups = [RegisterGroup.class, RegisterMailGroup.class, ForgotPasswordGroup.class])
+    @Size(max = 70, message = '{register.username.blank}', groups = [RegisterGroup.class, RegisterMailGroup.class, ForgotPasswordGroup.class])
+    @Email(message = '{register.username.blank}', groups = [RegisterGroup.class, RegisterMailGroup.class, ForgotPasswordGroup.class])
     private String username
-    @NotBlank(message = '{register.password.blank}', groups = [RegisterGroup.class])
-    @Size(min = 8, max = 255, message = '{register.password.blank}', groups = [RegisterGroup.class])
+    @NotBlank(message = '{register.password.blank}', groups = [RegisterGroup.class, RestPasswordGroup.class])
+    @Size(min = 8, max = 255, message = '{register.password.blank}', groups = [RegisterGroup.class, RestPasswordGroup.class])
     private String password
-    @NotBlank(message = '{register.password.blank}', groups = [RegisterGroup.class])
-    @Size(min = 8, max = 255, message = '{register.password.blank}', groups = [RegisterGroup.class])
+    @NotBlank(message = '{register.password.blank}', groups = [RegisterGroup.class, RestPasswordGroup.class])
+    @Size(min = 8, max = 255, message = '{register.password.blank}', groups = [RegisterGroup.class, RestPasswordGroup.class])
     private String confirmPassword
     @NotBlank(message = '{register.nickname.blank}', groups = [RegisterGroup.class])
-    @Size(min =1, max = 45, message = '{register.password.blank}', groups = [RegisterGroup.class])
+    @Size(min = 1, max = 45, message = '{register.password.blank}', groups = [RegisterGroup.class])
     private String nickname
     @Max(value = 1L, message = '{register.sex.validate}', groups = [RegisterGroup.class])
     @Min(value = 0L, message = '{register.sex.validate}', groups = [RegisterGroup.class])
     Integer sex
     @NotBlank(message = '{register.city.blank}', groups = [RegisterGroup.class])
     private String city
-    @NotBlank(message = '{register.code.blank}', groups = [RegisterGroup.class])
+    @NotBlank(message = '{register.code.blank}', groups = [RegisterGroup.class, RestPasswordGroup.class])
     private String code
     private MessageCodeInfo msg
 
