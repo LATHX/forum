@@ -1,0 +1,13 @@
+2018-12-18 00:08:04.349 [http-nio-80-exec-1] INFO  com.forum.rabbit.util.RabbitUtil - Sender Date:2018-12-18 00:08:04
+2018-12-18 00:08:04.349 [http-nio-80-exec-1] INFO  com.forum.rabbit.util.RabbitUtil - Consumer response :  Message Handler Success
+2018-12-18 00:08:04.368 [AMQP Connection 127.0.0.1:5672] INFO  com.forum.rabbit.util.RabbitUtil - Rabbit Message delivery Success CorrelationData [id=bed3c0a6-6b28-4e9d-857f-048fe52ae7be]
+2018-12-18 00:08:05.553 [http-nio-80-exec-4] INFO  com.forum.rabbit.util.RabbitUtil - Sender Date:2018-12-18 00:08:05
+2018-12-18 00:08:05.553 [http-nio-80-exec-4] INFO  com.forum.rabbit.util.RabbitUtil - Consumer response :  Message Handler Success
+2018-12-18 00:08:05.562 [AMQP Connection 127.0.0.1:5672] INFO  com.forum.rabbit.util.RabbitUtil - Rabbit Message delivery Success CorrelationData [id=155ea5c1-4cc5-43cb-bc08-10c7add8096d]
+2018-12-18 00:08:05.574 [http-nio-80-exec-4] DEBUG com.forum.mapper.UserMapper.isAccountBlock - ==>  Preparing: select enable from f_user where username = ? 
+2018-12-18 00:08:05.575 [http-nio-80-exec-4] DEBUG com.forum.mapper.UserMapper.isAccountBlock - ==> Parameters: admin(String)
+2018-12-18 00:08:05.578 [http-nio-80-exec-4] DEBUG com.forum.mapper.UserMapper.isAccountBlock - <==      Total: 1
+2018-12-18 00:08:05.591 [http-nio-80-exec-4] DEBUG com.forum.mapper.UserMapper.findUserByUserName - ==>  Preparing: select * from f_user where username=? 
+2018-12-18 00:08:05.591 [http-nio-80-exec-4] DEBUG com.forum.mapper.UserMapper.findUserByUserName - ==> Parameters: admin(String)
+2018-12-18 00:08:05.594 [http-nio-80-exec-4] DEBUG com.forum.mapper.UserMapper.findUserByUserName - <==      Total: 1
+2018-12-18 00:08:32.800 [Thread-14] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Waiting for workers to finish.

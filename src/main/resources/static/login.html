@@ -5,17 +5,22 @@
 	<meta name="description" content="" />
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
+
+	<link href="css/login/css/dy_layout.css" rel="stylesheet" type="text/css">
 	<link href="css/login/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	<link href="css/login/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 	<link href="css/login/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
 	<link href="css/login/css/templatemo_style.css" rel="stylesheet" type="text/css">
     <link href="css/custom.css" rel="stylesheet" type="text/css">
+
 </head>
-<body class="templatemo-bg-gray">
-	<div class="container" id="app">
-		<div class="col-md-12">
-			<h1 class="margin-bottom-15">论&nbsp;坛&nbsp;登&nbsp;录</h1>
+<body class="templatemo-bg-gray" style="overflow-x: hidden;overflow-y: hidden;">
+	<div class="htmleaf-container">
+<div class="wrapper">
+	<div class="containerer" id="app">
+
+		<div class="col-md-12 ">
+			<h1 class="margin-bottom-15 color_white">论&nbsp;坛&nbsp;登&nbsp;录</h1>
 			<form class="form-horizontal templatemo-container templatemo-login-form-1 margin-bottom-30" role="form" action="#" method="post">				
 		        <div class="form-group">
 		          <div class="col-xs-12">		            
@@ -55,7 +60,7 @@
 		          	<div class="control-wrapper">
 		          		<input type="button" value="登录" class="btn btn-info" v-on:click="login" :disabled="isLoginActive" v-model="loginButton" :disabled="isLoginActive">
                         <label class="font_color_red">{{warming}}</label>
-		          		<a href="forgot-password.html" class="text-right pull-right">忘记密码</a>
+		          		<a href="forgot-password.html" class="text-right pull-right color_white"><strong>忘记密码</strong></a>
 		          	</div>
 		          </div>
 		        </div><!--
@@ -74,10 +79,25 @@
 		        </div>-->
 		      </form>
 		      <div class="text-center">
-		      	<a href="create-account.html" class="templatemo-create-new">创建新账号 <i class="fa fa-arrow-circle-o-right"></i></a>
+		      	<a href="create-account.html" class="templatemo-create-new color_white">创建新账号 <i class="fa fa-arrow-circle-o-right"></i></a>
 		      </div>
 		</div>
+		<ul class="bg-bubbles">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
 	</div>
+
+</div>
+
     <!--<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>-->
 
     <script src="js/vue.min.js"></script>
@@ -88,4 +108,5 @@
     <script src="js/jsencrypt.min.js"></script>
 	<script type="text/javascript" src="js/login/js/login-vue.js"></script>
 </body>
+
 </html>

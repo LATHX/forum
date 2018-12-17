@@ -1,0 +1,185 @@
+2018-12-18 00:00:24.071 [http-nio-80-exec-7] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:00:24
+2018-12-18 00:00:24.074 [http-nio-80-exec-7] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
+2018-12-18 00:00:24.074 [http-nio-80-exec-7] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
+2018-12-18 00:00:24.074 [http-nio-80-exec-7] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
+2018-12-18 00:00:24.075 [http-nio-80-exec-7] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":4,"logType":"","user":null}
+2018-12-18 00:00:32.778 [http-nio-80-exec-8] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:00:32
+2018-12-18 00:00:32.779 [http-nio-80-exec-8] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
+2018-12-18 00:00:32.779 [http-nio-80-exec-8] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
+2018-12-18 00:00:32.779 [http-nio-80-exec-8] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
+2018-12-18 00:00:32.779 [http-nio-80-exec-8] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":1,"logType":"","user":null}
+2018-12-18 00:00:49.691 [http-nio-80-exec-10] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:00:49
+2018-12-18 00:00:49.691 [http-nio-80-exec-10] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
+2018-12-18 00:00:49.691 [http-nio-80-exec-10] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
+2018-12-18 00:00:49.691 [http-nio-80-exec-10] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
+2018-12-18 00:00:49.691 [http-nio-80-exec-10] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://lsjxly.xin/loginpage;JSESSIONID=f783aea4-9feb-430b-ae18-2a5864b258ea","ip":"198.13.35.161","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":1,"logType":"","user":null}
+2018-12-18 00:01:33.575 [http-nio-80-exec-4] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:01:33
+2018-12-18 00:01:33.575 [http-nio-80-exec-4] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
+2018-12-18 00:01:33.575 [http-nio-80-exec-4] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
+2018-12-18 00:01:33.576 [http-nio-80-exec-4] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
+2018-12-18 00:01:33.576 [http-nio-80-exec-4] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":1,"logType":"","user":null}
+2018-12-18 00:01:50.783 [http-nio-80-exec-7] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:01:50
+2018-12-18 00:01:50.783 [http-nio-80-exec-7] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
+2018-12-18 00:01:50.783 [http-nio-80-exec-7] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
+2018-12-18 00:01:50.783 [http-nio-80-exec-7] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
+2018-12-18 00:01:50.784 [http-nio-80-exec-7] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":1,"logType":"","user":null}
+2018-12-18 00:02:03.653 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:02:03
+2018-12-18 00:02:03.653 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
+2018-12-18 00:02:03.653 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
+2018-12-18 00:02:03.653 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
+2018-12-18 00:02:03.654 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://lsjxly.xin/loginpage;JSESSIONID=ce9595bd-6835-4e2f-b315-5e2cb5c3565a","ip":"198.13.35.161","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":0,"logType":"","user":null}
+2018-12-18 00:02:26.069 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:02:26
+2018-12-18 00:02:26.069 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
+2018-12-18 00:02:26.069 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
+2018-12-18 00:02:26.069 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
+2018-12-18 00:02:26.070 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage;JSESSIONID=7f1f1460-7fbb-429d-a0d9-778513b14d58","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":0,"logType":"","user":null}
+2018-12-18 00:02:45.377 [http-nio-80-exec-10] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:02:45
+2018-12-18 00:02:45.378 [http-nio-80-exec-10] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
+2018-12-18 00:02:45.378 [http-nio-80-exec-10] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
+2018-12-18 00:02:45.378 [http-nio-80-exec-10] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
+2018-12-18 00:02:45.378 [http-nio-80-exec-10] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":1,"logType":"","user":null}
+2018-12-18 00:02:46.690 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:02:46
+2018-12-18 00:02:46.691 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
+2018-12-18 00:02:46.691 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
+2018-12-18 00:02:46.691 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
+2018-12-18 00:02:46.691 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":1,"logType":"","user":null}
+2018-12-18 00:03:04.547 [http-nio-80-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:03:04
+2018-12-18 00:03:04.547 [http-nio-80-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
+2018-12-18 00:03:04.547 [http-nio-80-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
+2018-12-18 00:03:04.548 [http-nio-80-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
+2018-12-18 00:03:04.549 [http-nio-80-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage;JSESSIONID=c4bb5d6d-3153-4a53-b4a7-833eb0a4a393","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":1,"logType":"","user":null}
+2018-12-18 00:03:21.534 [http-nio-80-exec-4] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:03:21
+2018-12-18 00:03:21.534 [http-nio-80-exec-4] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
+2018-12-18 00:03:21.534 [http-nio-80-exec-4] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
+2018-12-18 00:03:21.535 [http-nio-80-exec-4] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
+2018-12-18 00:03:21.535 [http-nio-80-exec-4] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":1,"logType":"","user":null}
+2018-12-18 00:03:32.857 [http-nio-80-exec-10] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:03:32
+2018-12-18 00:03:32.857 [http-nio-80-exec-10] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
+2018-12-18 00:03:32.857 [http-nio-80-exec-10] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
+2018-12-18 00:03:32.857 [http-nio-80-exec-10] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
+2018-12-18 00:03:32.858 [http-nio-80-exec-10] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":0,"logType":"","user":null}
+2018-12-18 00:03:35.558 [http-nio-80-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:03:35
+2018-12-18 00:03:35.558 [http-nio-80-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
+2018-12-18 00:03:35.558 [http-nio-80-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
+2018-12-18 00:03:35.558 [http-nio-80-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
+2018-12-18 00:03:35.558 [http-nio-80-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":1,"logType":"","user":null}
+2018-12-18 00:03:38.468 [http-nio-80-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:03:38
+2018-12-18 00:03:38.468 [http-nio-80-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
+2018-12-18 00:03:38.468 [http-nio-80-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
+2018-12-18 00:03:38.468 [http-nio-80-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
+2018-12-18 00:03:38.468 [http-nio-80-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":1,"logType":"","user":null}
+2018-12-18 00:04:20.166 [http-nio-80-exec-10] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:04:20
+2018-12-18 00:04:20.167 [http-nio-80-exec-10] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
+2018-12-18 00:04:20.167 [http-nio-80-exec-10] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
+2018-12-18 00:04:20.167 [http-nio-80-exec-10] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
+2018-12-18 00:04:20.168 [http-nio-80-exec-10] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":1,"logType":"","user":null}
+2018-12-18 00:04:31.056 [http-nio-80-exec-8] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:04:31
+2018-12-18 00:04:31.056 [http-nio-80-exec-8] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
+2018-12-18 00:04:31.056 [http-nio-80-exec-8] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
+2018-12-18 00:04:31.057 [http-nio-80-exec-8] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
+2018-12-18 00:04:31.057 [http-nio-80-exec-8] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":1,"logType":"","user":null}
+2018-12-18 00:04:37.728 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:04:37
+2018-12-18 00:04:37.728 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
+2018-12-18 00:04:37.728 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
+2018-12-18 00:04:37.729 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
+2018-12-18 00:04:37.729 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":1,"logType":"","user":null}
+2018-12-18 00:04:38.442 [http-nio-80-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:04:38
+2018-12-18 00:04:38.442 [http-nio-80-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
+2018-12-18 00:04:38.442 [http-nio-80-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
+2018-12-18 00:04:38.442 [http-nio-80-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
+2018-12-18 00:04:38.443 [http-nio-80-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":0,"logType":"","user":null}
+2018-12-18 00:04:50.135 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:04:50
+2018-12-18 00:04:50.135 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
+2018-12-18 00:04:50.135 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
+2018-12-18 00:04:50.135 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
+2018-12-18 00:04:50.136 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":0,"logType":"","user":null}
+2018-12-18 00:05:19.309 [http-nio-80-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:05:19
+2018-12-18 00:05:19.310 [http-nio-80-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
+2018-12-18 00:05:19.310 [http-nio-80-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
+2018-12-18 00:05:19.310 [http-nio-80-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
+2018-12-18 00:05:19.311 [http-nio-80-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":1,"logType":"","user":null}
+2018-12-18 00:06:26.917 [http-nio-80-exec-6] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:06:26
+2018-12-18 00:06:26.917 [http-nio-80-exec-6] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
+2018-12-18 00:06:26.917 [http-nio-80-exec-6] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
+2018-12-18 00:06:26.917 [http-nio-80-exec-6] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
+2018-12-18 00:06:26.918 [http-nio-80-exec-6] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":0,"logType":"","user":null}
+2018-12-18 00:06:27.589 [http-nio-80-exec-4] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:06:27
+2018-12-18 00:06:27.589 [http-nio-80-exec-4] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
+2018-12-18 00:06:27.589 [http-nio-80-exec-4] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
+2018-12-18 00:06:27.589 [http-nio-80-exec-4] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
+2018-12-18 00:06:27.590 [http-nio-80-exec-4] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":0,"logType":"","user":null}
+2018-12-18 00:06:37.666 [http-nio-80-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:06:37
+2018-12-18 00:06:37.666 [http-nio-80-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
+2018-12-18 00:06:37.666 [http-nio-80-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
+2018-12-18 00:06:37.666 [http-nio-80-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
+2018-12-18 00:06:37.667 [http-nio-80-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage;JSESSIONID=6232f65e-d87e-4df0-a8b2-a75c94529e3f","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":0,"logType":"","user":null}
+2018-12-18 00:06:50.508 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:06:50
+2018-12-18 00:06:50.509 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
+2018-12-18 00:06:50.509 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
+2018-12-18 00:06:50.509 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
+2018-12-18 00:06:50.509 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":1,"logType":"","user":null}
+2018-12-18 00:06:51.589 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:06:51
+2018-12-18 00:06:51.589 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
+2018-12-18 00:06:51.589 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
+2018-12-18 00:06:51.589 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
+2018-12-18 00:06:51.590 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":0,"logType":"","user":null}
+2018-12-18 00:07:01.007 [http-nio-80-exec-5] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:07:01
+2018-12-18 00:07:01.007 [http-nio-80-exec-5] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
+2018-12-18 00:07:01.007 [http-nio-80-exec-5] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
+2018-12-18 00:07:01.007 [http-nio-80-exec-5] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
+2018-12-18 00:07:01.007 [http-nio-80-exec-5] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":0,"logType":"","user":null}
+2018-12-18 00:07:07.688 [http-nio-80-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:07:07
+2018-12-18 00:07:07.689 [http-nio-80-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
+2018-12-18 00:07:07.689 [http-nio-80-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
+2018-12-18 00:07:07.689 [http-nio-80-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
+2018-12-18 00:07:07.689 [http-nio-80-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":1,"logType":"","user":null}
+2018-12-18 00:07:09.326 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:07:09
+2018-12-18 00:07:09.326 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
+2018-12-18 00:07:09.326 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
+2018-12-18 00:07:09.326 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
+2018-12-18 00:07:09.327 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":0,"logType":"","user":null}
+2018-12-18 00:07:23.989 [http-nio-80-exec-7] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:07:23
+2018-12-18 00:07:23.989 [http-nio-80-exec-7] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
+2018-12-18 00:07:23.989 [http-nio-80-exec-7] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
+2018-12-18 00:07:23.990 [http-nio-80-exec-7] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
+2018-12-18 00:07:23.990 [http-nio-80-exec-7] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":1,"logType":"","user":null}
+2018-12-18 00:07:39.304 [http-nio-80-exec-6] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:07:39
+2018-12-18 00:07:39.305 [http-nio-80-exec-6] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
+2018-12-18 00:07:39.305 [http-nio-80-exec-6] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
+2018-12-18 00:07:39.305 [http-nio-80-exec-6] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
+2018-12-18 00:07:39.305 [http-nio-80-exec-6] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":1,"logType":"","user":null}
+2018-12-18 00:07:43.212 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:07:43
+2018-12-18 00:07:43.212 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
+2018-12-18 00:07:43.212 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
+2018-12-18 00:07:43.212 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
+2018-12-18 00:07:43.212 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":1,"logType":"","user":null}
+2018-12-18 00:07:48.633 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:07:48
+2018-12-18 00:07:48.633 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
+2018-12-18 00:07:48.633 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
+2018-12-18 00:07:48.633 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
+2018-12-18 00:07:48.633 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":0,"logType":"","user":null}
+2018-12-18 00:08:04.348 [http-nio-80-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:08:04
+2018-12-18 00:08:04.348 [http-nio-80-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
+2018-12-18 00:08:04.348 [http-nio-80-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
+2018-12-18 00:08:04.351 [http-nio-80-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - response=com.forum.model.dto.LoginInfo@51eead8
+2018-12-18 00:08:04.352 [http-nio-80-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/token","ip":"0:0:0:0:0:0:0:1","httpMethod":"POST","classMethod":"com.forum.controller.LoginController.token","args":"Arg -> (0)execution(Object com.forum.controller.LoginController.token(HttpServletRequest))","reqParams":null,"respParams":"{\"username\":null,\"password\":null,\"token\":\"a0e7b16a642f4521ae288b80f40de850\",\"publicKey\":\"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCBZTKA7WWdzuRLkXbQjAMCm5cH9yVh4Ai3bMCWfFJsOtwgmUxnKzdCerlF8TYZdSTisvwMEdQUj2zYFumzdAJl5FjIVeuoDtB+iP0JCibq9M3RrnGiYgWcVQIxJ3VGNZuttgN6RjuP7xqjJpLBzpZbe26N3ZorT9I1DzKGobAByQIDAQAB\",\"rememberMe\":null,\"msg\":{\"msgCode\":\"201\",\"msgInfo\":\"验证通过\"}}","spendTime":3,"logType":"","user":null}
+2018-12-18 00:08:05.399 [http-nio-80-exec-4] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:08:05
+2018-12-18 00:08:05.403 [http-nio-80-exec-4] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [password:[QiUcvGuwEYLig7NgSsRBK2RL8wu3J1v3/C4p2kllKgNiP6647Ps1cX0VVt/lra5iX15gzvr0WqZwwTLO0zJjObVcFyrEqZW//cKKVyT7O0cL+lH3sJUVitO+COMohXEX4hXAWVIyQq3c83eVCxjyRN6h7ORVCVec3E1xbxn0WKY=], rememberMe:[false], token:[a0e7b16a642f4521ae288b80f40de850], username:[admin]]
+2018-12-18 00:08:05.403 [http-nio-80-exec-4] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
+2018-12-18 00:08:05.601 [http-nio-80-exec-4] ERROR com.forum.service.aspect.ControllerLogAspect - response=com.forum.model.dto.CommonInfo@1b5b5820
+2018-12-18 00:08:05.602 [http-nio-80-exec-4] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/login","ip":"0:0:0:0:0:0:0:1","httpMethod":"POST","classMethod":"com.forum.controller.LoginController.login","args":"Arg -> (0)execution(Object com.forum.controller.LoginController.login(HttpServletRequest,LoginInfo,BindingResult))","reqParams":null,"respParams":"{\"msg\":{\"msgCode\":\"200\",\"msgInfo\":\"验证通过\"}}","spendTime":203,"logType":"","user":null}
+2018-12-18 00:08:05.614 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:08:05
+2018-12-18 00:08:05.614 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
+2018-12-18 00:08:05.615 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - Username : admin
+2018-12-18 00:08:05.615 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - response=index.html
+2018-12-18 00:08:05.616 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/index","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.main","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.main())","reqParams":null,"respParams":"\"index.html\"","spendTime":1,"logType":"","user":{"sid":"1068310406818304000","username":"admin","password":null,"nickname":"admin","roleId":1,"enable":true,"sex":"0","province":"海外","city":"","dist":"","userImg":null,"authCacheKey":"admin"}}
+2018-12-18 00:08:09.336 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:08:09
+2018-12-18 00:08:09.336 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
+2018-12-18 00:08:09.336 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - Username : admin
+2018-12-18 00:08:09.338 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
+2018-12-18 00:08:09.339 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/logout","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.LoginController.logout","args":"Arg -> (0)execution(Object com.forum.controller.LoginController.logout(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":2,"logType":"","user":{"sid":"1068310406818304000","username":"admin","password":null,"nickname":"admin","roleId":1,"enable":true,"sex":"0","province":"海外","city":"","dist":"","userImg":null,"authCacheKey":"admin"}}
+2018-12-18 00:08:13.098 [http-nio-80-exec-10] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:08:13
+2018-12-18 00:08:13.098 [http-nio-80-exec-10] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
+2018-12-18 00:08:13.098 [http-nio-80-exec-10] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
+2018-12-18 00:08:13.098 [http-nio-80-exec-10] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
+2018-12-18 00:08:13.099 [http-nio-80-exec-10] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage;JSESSIONID=33397053-1c3f-4e6b-aeac-75fe240adfda","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":1,"logType":"","user":null}

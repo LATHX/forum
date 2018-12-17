@@ -78,7 +78,7 @@ h2 {
 	padding: 30px;
 }
 .templatemo-bg-gray { background-color: #eee; }
-.templatemo-bg-gray h1 { color: rgb(74, 164, 180); }
+.templatemo-bg-gray h1 { color: white; }
 .templatemo-bg-image-1 {
 	background-color: rgb(60,60,60);
 	background-image: url(../images/templatemo-bg-1.jpg);	
@@ -111,19 +111,19 @@ h2 {
 2. login-form-1
 ---------------------------------------*/
 .templatemo-login-form-1 { max-width: 500px; }
-.templatemo-login-form-1 a { color: gray; }
+.templatemo-login-form-1 a { color: black; }
 .templatemo-login-form-1 a:hover {
 	color: black;
 	text-decoration: none;
 	cursor: pointer;
 }
 .templatemo-create-new {
-	color: #58B4BB;
+	/*color: #58B4BB;*/
 	font-size: 18px;
 	font-weight: 300;
 }
 .templatemo-create-new:hover {
-	color: #138892;
+	/*color: #138892;*/
 	text-decoration: none;
 }
 
