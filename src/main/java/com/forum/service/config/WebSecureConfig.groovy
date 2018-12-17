@@ -1,85 +1,95 @@
 package com.forum.service.config
 
+import at.pollux.thymeleaf.shiro.dialect.ShiroDialect
 import com.forum.service.filter.CustomRolesAuthorizationFilter
-import com.forum.service.security.realm.PasswordRealm
 import com.forum.service.impl.ShiroServiceImpl
-import org.apache.shiro.mgt.SecurityManager;
-import org.apache.shiro.realm.Realm;
-import org.apache.shiro.session.mgt.SessionManager;
-import org.apache.shiro.spring.LifecycleBeanPostProcessor;
+import com.forum.service.security.realm.PasswordRealm
+import org.apache.shiro.mgt.SecurityManager
+import org.apache.shiro.realm.Realm
+import org.apache.shiro.session.mgt.SessionManager
+import org.apache.shiro.spring.LifecycleBeanPostProcessor
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean
 import org.apache.shiro.web.filter.authc.FormAuthenticationFilter
-import org.apache.shiro.web.mgt.CookieRememberMeManager;
-import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
-import org.apache.shiro.web.servlet.SimpleCookie;
-import org.apache.shiro.web.session.mgt.DefaultWebSessionManager;
-import org.crazycake.shiro.RedisCacheManager;
-import org.crazycake.shiro.RedisManager;
-import org.crazycake.shiro.RedisSessionDAO;
+import org.apache.shiro.web.mgt.CookieRememberMeManager
+import org.apache.shiro.web.mgt.DefaultWebSecurityManager
+import org.apache.shiro.web.servlet.SimpleCookie
+import org.apache.shiro.web.session.mgt.DefaultWebSessionManager
+import org.crazycake.shiro.RedisCacheManager
+import org.crazycake.shiro.RedisManager
+import org.crazycake.shiro.RedisSessionDAO
 import org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator
-import org.springframework.boot.web.servlet.FilterRegistrationBean;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.boot.web.servlet.FilterRegistrationBean
+import org.springframework.context.annotation.Bean
+import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.DependsOn
-import org.springframework.web.filter.DelegatingFilterProxy;
-import redis.clients.jedis.JedisPool;
+import org.springframework.web.filter.DelegatingFilterProxy
+import redis.clients.jedis.JedisPool
 
-import javax.servlet.Filter;
+import javax.servlet.Filter
+
 @Configuration
 class WebSecureConfig {
     private String CACHE_KEY = 'shiro:cache:'
     private String SESSION_KEY = 'shiro:session:'
     private String NAME = 'custom.name'
     private String VALUE = '/'
+
     @Bean
-    public ShiroFilterFactoryBean shiroFilter(SecurityManager securityManager, ShiroServiceImpl shiroService) {
-        ShiroFilterFactoryBean shiroFilter = new ShiroFilterFactoryBean();
-        shiroFilter.setSecurityManager(securityManager);
-        Map<String, Filter> filterMap = new LinkedHashMap<>(1);
-        filterMap.put("roles", rolesAuthorizationFilter());
-        shiroFilter.setFilters(filterMap);
-        shiroFilter.setFilterChainDefinitionMap(shiroService.loadFilterChainDefinitions());
-        shiroFilter.setLoginUrl('/loginpage')
-        return shiroFilter;
+    ShiroDialect shiroDialect() {
+        return new ShiroDialect()
     }
 
     @Bean
-    public CustomRolesAuthorizationFilter rolesAuthorizationFilter() {
-        return new CustomRolesAuthorizationFilter();
+    ShiroFilterFactoryBean shiroFilter(SecurityManager securityManager, ShiroServiceImpl shiroService) {
+        ShiroFilterFactoryBean shiroFilter = new ShiroFilterFactoryBean()
+        shiroFilter.setSecurityManager(securityManager)
+        Map<String, Filter> filterMap = new LinkedHashMap<>(1)
+        filterMap.put("roles", rolesAuthorizationFilter())
+        shiroFilter.setFilters(filterMap)
+        shiroFilter.setFilterChainDefinitionMap(shiroService.loadFilterChainDefinitions())
+        shiroFilter.setLoginUrl('/loginpage')
+        return shiroFilter
+    }
+
+    @Bean
+    CustomRolesAuthorizationFilter rolesAuthorizationFilter() {
+        return new CustomRolesAuthorizationFilter()
     }
 
     @Bean("securityManager")
-    public SecurityManager securityManager(Realm realm, SessionManager sessionManager, RedisCacheManager redisCacheManager) {
-        DefaultWebSecurityManager manager = new DefaultWebSecurityManager();
-        manager.setRememberMeManager(rememberMeManager());
-        manager.setSessionManager(sessionManager);
-        manager.setCacheManager(redisCacheManager);
-        manager.setRealm(realm);
-        return manager;
+    SecurityManager securityManager(Realm realm, SessionManager sessionManager, RedisCacheManager redisCacheManager) {
+        DefaultWebSecurityManager manager = new DefaultWebSecurityManager()
+        manager.setRememberMeManager(rememberMeManager())
+        manager.setSessionManager(sessionManager)
+        manager.setCacheManager(redisCacheManager)
+        manager.setRealm(realm)
+        return manager
     }
-
+    /**
+     * 指定强制使用cglib为action创建代理对象
+     * @return
+     */
     @Bean("defaultAdvisorAutoProxyCreator")
     @DependsOn("lifecycleBeanPostProcessor")
-    public DefaultAdvisorAutoProxyCreator defaultAdvisorAutoProxyCreator() {
-        DefaultAdvisorAutoProxyCreator defaultAdvisorAutoProxyCreator = new DefaultAdvisorAutoProxyCreator();
-        //指定强制使用cglib为action创建代理对象
-        defaultAdvisorAutoProxyCreator.setProxyTargetClass(true);
+    DefaultAdvisorAutoProxyCreator defaultAdvisorAutoProxyCreator() {
+        DefaultAdvisorAutoProxyCreator defaultAdvisorAutoProxyCreator = new DefaultAdvisorAutoProxyCreator()
+        defaultAdvisorAutoProxyCreator.setProxyTargetClass(true)
         return defaultAdvisorAutoProxyCreator;
     }
 
     @Bean("lifecycleBeanPostProcessor")
-    public LifecycleBeanPostProcessor lifecycleBeanPostProcessor() {
-        return new LifecycleBeanPostProcessor();
+    LifecycleBeanPostProcessor lifecycleBeanPostProcessor() {
+        return new LifecycleBeanPostProcessor()
     }
 
     @Bean("delegatingFilterProxy")
-    public FilterRegistrationBean delegatingFilterProxy(){
-        FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean();
-        DelegatingFilterProxy proxy = new DelegatingFilterProxy();
-        proxy.setTargetFilterLifecycle(true);
-        proxy.setTargetBeanName("shiroFilter");
-        filterRegistrationBean.setFilter(proxy);
-        return filterRegistrationBean;
+    FilterRegistrationBean delegatingFilterProxy() {
+        FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean()
+        DelegatingFilterProxy proxy = new DelegatingFilterProxy()
+        proxy.setTargetFilterLifecycle(true)
+        proxy.setTargetBeanName("shiroFilter")
+        filterRegistrationBean.setFilter(proxy)
+        return filterRegistrationBean
     }/*
     @Bean
     public RedisManager redisManager() {
@@ -88,54 +98,55 @@ class WebSecureConfig {
         redisManager.setPassword(redis_password);
         return redisManager;
     }*/
+
     @Bean
-    public RedisManager redisManager(JedisPool jedisPool) {
-        RedisManager redisManager = new RedisManager();
-        redisManager.setJedisPool(jedisPool);
-        return redisManager;
+    RedisManager redisManager(JedisPool jedisPool) {
+        RedisManager redisManager = new RedisManager()
+        redisManager.setJedisPool(jedisPool)
+        return redisManager
     }
 
     @Bean
-    public RedisCacheManager redisCacheManager(RedisManager redisManager) {
-        RedisCacheManager redisCacheManager = new RedisCacheManager();
-        redisCacheManager.setRedisManager(redisManager);
-        redisCacheManager.setExpire(86400);
-        redisCacheManager.setKeyPrefix(CACHE_KEY);
-        return redisCacheManager;
+    RedisCacheManager redisCacheManager(RedisManager redisManager) {
+        RedisCacheManager redisCacheManager = new RedisCacheManager()
+        redisCacheManager.setRedisManager(redisManager)
+        redisCacheManager.setExpire(86400)
+        redisCacheManager.setKeyPrefix(CACHE_KEY)
+        return redisCacheManager
     }
 
     @Bean
-    public RedisSessionDAO redisSessionDAO(RedisManager redisManager) {
-        RedisSessionDAO redisSessionDAO = new RedisSessionDAO();
-        redisSessionDAO.setExpire(86400);
-        redisSessionDAO.setKeyPrefix(SESSION_KEY);
-        redisSessionDAO.setRedisManager(redisManager);
-        return redisSessionDAO;
+    RedisSessionDAO redisSessionDAO(RedisManager redisManager) {
+        RedisSessionDAO redisSessionDAO = new RedisSessionDAO()
+        redisSessionDAO.setExpire(86400)
+        redisSessionDAO.setKeyPrefix(SESSION_KEY)
+        redisSessionDAO.setRedisManager(redisManager)
+        return redisSessionDAO
     }
 
     @Bean
-    public DefaultWebSessionManager sessionManager(RedisSessionDAO sessionDAO, SimpleCookie simpleCookie) {
-        DefaultWebSessionManager sessionManager = new DefaultWebSessionManager();
-        sessionManager.setSessionDAO(sessionDAO);
-        sessionManager.setSessionIdCookieEnabled(true);
-        sessionManager.setSessionIdCookie(simpleCookie);
-        return sessionManager;
+    DefaultWebSessionManager sessionManager(RedisSessionDAO sessionDAO, SimpleCookie simpleCookie) {
+        DefaultWebSessionManager sessionManager = new DefaultWebSessionManager()
+        sessionManager.setSessionDAO(sessionDAO)
+        sessionManager.setSessionIdCookieEnabled(true)
+        sessionManager.setSessionIdCookie(simpleCookie)
+        return sessionManager
     }
 
     @Bean
-    public SimpleCookie simpleCookie() {
-        SimpleCookie simpleCookie = new SimpleCookie();
-        simpleCookie.setName(NAME);
-        simpleCookie.setValue(VALUE);
-        return simpleCookie;
+    SimpleCookie simpleCookie() {
+        SimpleCookie simpleCookie = new SimpleCookie()
+        simpleCookie.setName(NAME)
+        simpleCookie.setValue(VALUE)
+        return simpleCookie
     }
 
     @Bean
-    public Realm realm(RedisCacheManager redisCacheManager) {
-        PasswordRealm realm = new PasswordRealm();
-        realm.setCacheManager(redisCacheManager);
-        realm.setAuthenticationCachingEnabled(false);
-        realm.setAuthorizationCachingEnabled(false);
+    Realm realm(RedisCacheManager redisCacheManager) {
+        PasswordRealm realm = new PasswordRealm()
+        realm.setCacheManager(redisCacheManager)
+        realm.setAuthenticationCachingEnabled(false)
+        realm.setAuthorizationCachingEnabled(false)
         return realm;
     }
     /**
@@ -143,30 +154,30 @@ class WebSecureConfig {
      * @return
      */
     @Bean
-    public SimpleCookie rememberMeCookie(){
+    SimpleCookie rememberMeCookie() {
         //这个参数是cookie的名称，对应前端的checkbox的name = rememberMe
-        SimpleCookie simpleCookie = new SimpleCookie("rememberMe");
+        SimpleCookie simpleCookie = new SimpleCookie("rememberMe")
         //setcookie的httponly属性如果设为true的话，会增加对xss防护的安全系数。它有以下特点：
 
         //setcookie()的第七个参数
         //设为true后，只能通过http访问，javascript无法访问
         //防止xss读取cookie
-        simpleCookie.setHttpOnly(true);
-        simpleCookie.setPath("/");
+        simpleCookie.setHttpOnly(true)
+        simpleCookie.setPath("/")
         //<!-- 记住我cookie生效时间7天 ,单位秒;-->
-        simpleCookie.setMaxAge(60*60*24*7);
-        return simpleCookie;
+        simpleCookie.setMaxAge(60 * 60 * 24 * 7)
+        return simpleCookie
     }
     /**
      * cookie管理对象;记住我功能,rememberMe管理器
      * @return
      */
     @Bean
-    public CookieRememberMeManager rememberMeManager(){
-        CookieRememberMeManager cookieRememberMeManager = new CookieRememberMeManager();
-        cookieRememberMeManager.setCookie(rememberMeCookie());
+    CookieRememberMeManager rememberMeManager() {
+        CookieRememberMeManager cookieRememberMeManager = new CookieRememberMeManager()
+        cookieRememberMeManager.setCookie(rememberMeCookie())
         //rememberMe cookie加密的密钥 建议每个项目都不一样 默认AES算法 密钥长度(128 256 512 位)
-        cookieRememberMeManager.setCipherKey(Base64?.getDecoder().decode("4AvVhmFLUs0KTA3Kprsdag=="));
+        cookieRememberMeManager.setCipherKey(Base64?.getDecoder().decode("4AvVhmFLUs0KTA3Kprsdag=="))
         return cookieRememberMeManager;
     }
     /**
@@ -174,11 +185,11 @@ class WebSecureConfig {
      * @return
      */
     @Bean
-    public FormAuthenticationFilter formAuthenticationFilter(){
-        FormAuthenticationFilter formAuthenticationFilter = new FormAuthenticationFilter();
+    FormAuthenticationFilter formAuthenticationFilter() {
+        FormAuthenticationFilter formAuthenticationFilter = new FormAuthenticationFilter()
         //对应前端的checkbox的name = rememberMe
-        formAuthenticationFilter.setRememberMeParam("rememberMe");
-        return formAuthenticationFilter;
+        formAuthenticationFilter.setRememberMeParam("rememberMe")
+        return formAuthenticationFilter
     }
 
     String getRedis_host() {

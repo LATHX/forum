@@ -20,7 +20,7 @@
 		        <div class="form-group">
 		          <div class="col-xs-12">		            
 		            <div class="control-wrapper">
-		            	<label for="username" class="control-label fa-label"><i class="fa fa-user fa-medium"></i></label>
+		            	<label for="username" class="control-label fa-label"><i class="fa fa-user pull-right"></i></label>
 		            	<input type="text" class="form-control" v-bind:class="[username_board_red]" id="username" placeholder="用户名" v-model="userName">
 		            </div>		            	            
 		          </div>              
@@ -28,7 +28,7 @@
 		        <div class="form-group">
 		          <div class="col-md-12">
 		          	<div class="control-wrapper">
-		            	<label for="password" class="control-label fa-label"><i class="fa fa-lock fa-medium"></i></label>
+		            	<label for="password" class="control-label fa-label"><i class="fa fa-lock pull-right"></i></label>
 		            	<input type="password" class="form-control" v-bind:class="[password_board_red]" id="password" placeholder="密码" v-model="userPassword">
 		            </div>
 		          </div>
@@ -36,7 +36,7 @@
                 <div class="form-group">
                     <div class="col-md-12">
                         <div class="control-wrapper" id="loginCodeDiv">
-                            <label for="password" class="control-label fa-label" id="loginCodeCoin"><i class="fa fa-key fa-medium"></i></label>
+                            <label for="password" class="control-label fa-label" id="loginCodeCoin"><i class="fa fa-key pull-right"></i></label>
                             <input type="button" class="form-control" v-bind:class="[loginCodeClass]" value="点击验证" v-model="loginCodeButton" v-on:click="loginCode" id="loginCode" :disabled="isLoginCodeActive">
                         </div>
                     </div>

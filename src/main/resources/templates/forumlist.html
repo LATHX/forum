@@ -9,11 +9,11 @@
     <meta name="keywords" content="">
     <meta name="author" content="">
 
-    <title>主页</title>
+    <title>论坛</title>
 
     <div th:replace="common/index/css_common.html"></div>
-
     <div th:replace="common/index/js_common.html"></div>
+
     <style>
       /* note: this is a hack for ios iframe for bootstrap themes shopify page */
       /* this chunk of css is not part of the toolkit :) */
@@ -22,14 +22,12 @@
         min-width: 100%;
         *width: 100%;
       }
-
     </style>
 
 </head>
 
 
 <body class="bob">
-
 <div th:replace="common/index/constant.html"></div>
 <div class="bon" id="app-growl"></div>
 
@@ -42,14 +40,14 @@
         <div class="fj">
             <div th:replace="common/index/person_info.html"></div>
             <!--<div th:replace="common/index/person_info_edit.html"></div>-->
-            <div id="slideTrend">
+
             <div th:replace="common/index/trend_list.html"></div>
-            </div>
+
 
         </div>
 
         <div class="fm">
-            <div th:replace="common/index/index_main.html"></div>
+            <div th:replace="common/index/forumlist_main.html"></div>
 
         </div>
         <div class="fj">
@@ -68,9 +66,8 @@
 <script>
       // execute/clear BS loaders for docs
       $(function(){while(window.BS&&window.BS.loader&&window.BS.loader.length){(window.BS.loader.pop())()}})
- if(isPC()){
-    $("#slideTrend").remove();
-   }
+
+
 </script>
 </body>
 </html>

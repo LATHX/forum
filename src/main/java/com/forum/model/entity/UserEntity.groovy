@@ -22,6 +22,15 @@ class UserEntity implements Serializable, AuthCachePrincipal {
     private String province
     private String city
     private String dist
+    private String userImg
+
+    String getUserImg() {
+        return userImg
+    }
+
+    void setUserImg(String userImg) {
+        this.userImg = userImg
+    }
 
     char getSex() {
         return sex

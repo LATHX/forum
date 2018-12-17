@@ -32,11 +32,6 @@ class LoginController {
     @Autowired
     CommonInfo commonInfo
 
-    @RequestMapping('/index')
-    main() {
-        return 'index.html'
-    }
-
     @PostMapping('/login')
     @ResponseBody
     login(HttpServletRequest request,
@@ -96,10 +91,7 @@ class LoginController {
         return loginInfo
     }
 
-    @RequestMapping('/loginpage')
-    loginPage(HttpServletResponse response) throws Exception {
-        response.sendRedirect(Constant.LOGIN_PAGE)
-    }
+
 
     @RequestMapping('/logout')
     logout(HttpServletResponse response) throws Exception {
