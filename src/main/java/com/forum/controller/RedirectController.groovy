@@ -13,13 +13,18 @@ class RedirectController {
         return 'index.html'
     }
 
+    @RequestMapping('/index.html')
+    index() {
+        return 'index.html'
+    }
+
     @RequestMapping('/loginpage')
     loginPage(HttpServletResponse response) throws Exception {
         response.sendRedirect(Constant.LOGIN_PAGE)
     }
 
     @RequestMapping('/forumlist')
-    forumList(){
+    forumList() {
         return '/forumlist.html'
     }
 }
