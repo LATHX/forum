@@ -63,7 +63,7 @@ class RegisterServiceImpl implements RegisterService {
                 }
             }
             if(mergerName?.trim() != '海外'){
-                int areaCount = areaMapper.selectCountByMergeName('中国'+mergerName)
+                int areaCount = areaMapper.selectCountByMergeName('中国'+mergerName?.trim())
                 if(areaCount!=1){
                     messageCodeInfo.setMsgCode(GlobalCode.REGISTER_MAIL_FAIL)
                     messageCodeInfo.setMsgInfo(Constant.REGISTER_VERIFY_AREA_FAIL)
