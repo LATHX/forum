@@ -1,121 +1,147 @@
 <!DOCTYPE html>
 <head xmlns:v-on="http://www.w3.org/1999/xhtml">
-	<title>创建账号</title>
-	<meta name="keywords" content="" />
-	<meta name="description" content="" />
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>创建账号</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<link href="css/login/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-	<link href="css/login/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
-	<link href="css/login/css/templatemo_style.css" rel="stylesheet" type="text/css">
+    <link href="css/login/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/login/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
+    <link href="css/login/css/templatemo_style.css" rel="stylesheet" type="text/css">
     <link href="css/login/css/scs.min.css" rel="stylesheet" type="text/css">
-	<link href="css/custom.css" rel="stylesheet" type="text/css">
+    <link href="css/custom.css" rel="stylesheet" type="text/css">
 </head>
 <body class="templatemo-bg-gray">
-	<h1 class="margin-bottom-15" style="color: gray;">创建新账号</h1>
-	<div class="container" id="app">
-		<div class="col-md-12">			
-			<form class="form-horizontal templatemo-create-account templatemo-container" role="form" action="#" method="post">
-				<div class="form-inner">
-					<div class="form-group">
-			          <div class="col-md-6">		          	
-			            <label for="first_name" class="control-label">昵称</label>
-			            <input type="text" class="form-control" id="first_name" placeholder="输入昵称" name="nickname" data-toggle="dropdown" v-model="nickname">
-			          </div>
-						<!--
-			          <div class="col-md-6">		          	
-			            <label for="last_name" class="control-label">Last Name</label>
-			            <input type="text" class="form-control" id="last_name" placeholder="">		            		            		            
-			          </div>
-			          -->
-			        </div>
-			        <div class="form-group">
-			          <div class="col-md-6 col-lg-6">
-			            <label for="email" class="control-label">邮箱</label>
-			            <input type="email" class="form-control" id="email"  placeholder="输入邮箱" name="username" v-model="username" v-on:keyup="validationEmail" v-on:change="validationEmail">
+
+<h1 class="margin-bottom-15" style="color:gray;">创建新账号</h1>
+<div class="container fade-in-animation" id="app">
+    <div class="col-md-12">
+        <form class="form-horizontal templatemo-create-account templatemo-container" role="form" action="#"
+              method="post">
+            <div class="form-inner">
+                <div class="form-group">
+                    <div class="col-md-6">
+                        <label for="first_name" class="control-label">昵称</label>
+                        <input type="text" class="form-control" id="first_name" placeholder="输入昵称"
+                               name="nickname" data-toggle="dropdown" v-model="nickname">
+                    </div>
+                    <!--
+                  <div class="col-md-6">
+                    <label for="last_name" class="control-label">Last Name</label>
+                    <input type="text" class="form-control" id="last_name" placeholder="">
+                  </div>
+                  -->
+                </div>
+                <div class="form-group">
+                    <div class="col-md-6 col-lg-6">
+                        <label for="email" class="control-label">邮箱</label>
+                        <input type="email" class="form-control" id="email" placeholder="输入邮箱" name="username"
+                               v-model="username" v-on:keyup="validationEmail" v-on:change="validationEmail">
                         <label class="font_color_red">{{msgemail}}</label>
-			          </div>
-                        <div class="col-md-3">
-                            <label for="password" class="control-label">验证码</label>
-                            <input type="text" class="form-control" id="code" placeholder="验证码" name="code" v-model="code">
-                            <label style="color: red;">{{msgcode}}</label>
-                        </div>
-                        <div class="col-md-3">
-                            <label for="password" class="control-label">&nbsp;&nbsp;</label>
-                            <input type="button" class="form-control btn-primary" readonly id="send" value="点击发送" :disabled="isCodeActive" v-on:click="sendCodeMail" v-model="sendMail">
-                        </div>
-			        </div>			
-			        <div class="form-group">
-			          <div class="col-md-12 col-lg-6">
-			            <label class="control-label">城市</label> <br>
-                          <input type="text" class="form-control" readonly placeholder="选择城市" id="myAddrs"  data-key="4-84-1298" name="city"/>
-                      </div>
                     </div>
-                    <div class="form-group">
-			          <div class="col-md-6">
-                          <label class="control-label">性别</label><br>
-			          	<label class="radio-inline">
-		          			<input type="radio" name="optionsRadios" value="0" checked = 'checked' v-model="sex" name="sex"> 男
-		          		</label>
-		          		<label class="radio-inline">
-		          			<input type="radio" name="optionsRadios" value="1" v-model="sex" name="sex"> 女
-		          		</label>
-			          </div>
+                    <div class="col-md-3">
+                        <label for="password" class="control-label">验证码</label>
+                        <input type="text" class="form-control" id="code" placeholder="验证码" name="code"
+                               v-model="code">
+                        <label style="color: red;">{{msgcode}}</label>
                     </div>
-			        <div class="form-group">
-			          <div class="col-md-6">
-			            <label for="password" class="control-label">密码</label>
-			            <input type="password" class="form-control" id="password" placeholder="输入8位以上密码" name="password" v-model="password">
-			          </div>
-			          <div class="col-md-6">
-			            <label for="password" class="control-label">确认 密码</label>
-			            <input type="password" class="form-control" id="confirmPassword" placeholder="确认 密码" name="confirmPassword" v-model="confirmPassword">
-			          </div>
-			        </div>
-			        <div class="form-group" id="agreeGroup">
-			          <div class="col-md-12">
-			            <label><input type="checkbox" v-model="agree">我同意<a href="javascript:;" data-toggle="modal" data-target="#templatemo_modal">隐私政策</a> </label>
-			          </div>
-			        </div>
-			        <div class="form-group">
-			          <div class="col-md-12">
-			            <input type="button" value="创建" class="btn btn-info" v-on:click="submit" v-model="create">&nbsp;<label class="font_color_red">{{msginfo}}</label>
-			            <a href="login.html" class="pull-right">登录</a>
-			          </div>
-			        </div>	
-				</div>				    	
-		      </form>		      
-		</div>
-	</div>
-	<!-- Modal -->
-	<div class="modal fade" id="templatemo_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	  <div class="modal-dialog">
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-	        <h4 class="modal-title" id="myModalLabel">Terms of Service</h4>
-	      </div>
-	      <div class="modal-body">
-	      	<p>This form is provided by <a rel="nofollow" href="http://www.cssmoban.com/page/1">Free HTML5 Templates</a> that can be used for your websites. Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-	        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla. Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
-	        <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-	      </div>
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-	      </div>
-	    </div>
-	  </div>
-	</div>
-	<script src="js/vue.min.js"></script>
-	<script src="js/md5.js"></script>
-	<script type="text/javascript" src="js/login/js/jquery-1.11.1.min.js"></script>
-	<script type="text/javascript" src="js/login/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/customs.js"></script>
-    <script type="text/javascript" src="js/login/js/address.js"></script>
-    <script type="text/javascript" src="js/login/js/create-account-vue.js"></script>
-    <script type="text/javascript" src="js/login/js/jquery.scs.min.js"></script>
-    <script type="text/javascript" src="js/login/js/CNAddrArr.min.js"></script>
+                    <div class="col-md-3">
+                        <label for="password" class="control-label">&nbsp;&nbsp;</label>
+                        <input type="button" class="form-control btn-primary" readonly id="send" value="点击发送"
+                               :disabled="isCodeActive" v-on:click="sendCodeMail" v-model="sendMail">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12 col-lg-6">
+                        <label class="control-label">城市</label> <br>
+                        <input type="text" class="form-control" readonly placeholder="选择城市" id="myAddrs"
+                               data-key="4-84-1298" name="city"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-6">
+                        <label class="control-label">性别</label><br>
+                        <label class="radio-inline">
+                            <input type="radio" name="optionsRadios" value="0" checked='checked' v-model="sex"
+                                   name="sex"> 男
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="optionsRadios" value="1" v-model="sex" name="sex"> 女
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-6">
+                        <label for="password" class="control-label">密码</label>
+                        <input type="password" class="form-control" id="password" placeholder="输入8位以上密码"
+                               name="password" v-model="password">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="password" class="control-label">确认 密码</label>
+                        <input type="password" class="form-control" id="confirmPassword" placeholder="确认 密码"
+                               name="confirmPassword" v-model="confirmPassword">
+                    </div>
+                </div>
+                <div class="form-group" id="agreeGroup">
+                    <div class="col-md-12">
+                        <label><input type="checkbox" v-model="agree">我同意<a href="javascript:;"
+                                                                            data-toggle="modal"
+                                                                            data-target="#templatemo_modal">隐私政策</a>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <input type="button" value="创建" class="btn btn-info" v-on:click="submit"
+                               v-model="create">&nbsp;<label class="font_color_red">{{msginfo}}</label>
+                        <a href="login.html" class="pull-right">登录</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="templatemo_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                        class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Terms of Service</h4>
+            </div>
+            <div class="modal-body">
+                <p>This form is provided by <a rel="nofollow" href="http://www.cssmoban.com/page/1">Free HTML5
+                    Templates</a> that can be used for your websites. Cras mattis consectetur purus sit amet fermentum.
+                    Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur
+                    ac, vestibulum at eros.</p>
+                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue
+                    laoreet rutrum faucibus dolor auctor. Aenean lacinia bibendum nulla sed consectetur. Praesent
+                    commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper
+                    nulla non metus auctor fringilla. Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
+                    dapibus ac facilisis in, egestas eget quam.</p>
+                <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel
+                    scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor
+                    auctor.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/vue.min.js"></script>
+<script src="js/md5.js"></script>
+<script type="text/javascript" src="js/login/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/login/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/customs.js"></script>
+<script type="text/javascript" src="js/login/js/address.js"></script>
+<script type="text/javascript" src="js/login/js/create-account-vue.js"></script>
+<script type="text/javascript" src="js/login/js/jquery.scs.min.js"></script>
+<script type="text/javascript" src="js/login/js/CNAddrArr.min.js"></script>
 
 </body>
 </html>

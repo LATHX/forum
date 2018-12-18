@@ -60,8 +60,7 @@ body :-ms-input-placeholder {
     max-width: 100%;
     margin: 0 auto;
     padding: 80px 0;
-    height: 100%;;
-    text-align: center;
+    height: 100%;
 }
 .container h1 {
     font-size: 40px;

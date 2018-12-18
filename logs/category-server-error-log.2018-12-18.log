@@ -1,185 +1,475 @@
-2018-12-18 00:00:24.071 [http-nio-80-exec-7] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:00:24
-2018-12-18 00:00:24.074 [http-nio-80-exec-7] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
-2018-12-18 00:00:24.074 [http-nio-80-exec-7] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
-2018-12-18 00:00:24.074 [http-nio-80-exec-7] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
-2018-12-18 00:00:24.075 [http-nio-80-exec-7] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":4,"logType":"","user":null}
-2018-12-18 00:00:32.778 [http-nio-80-exec-8] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:00:32
-2018-12-18 00:00:32.779 [http-nio-80-exec-8] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
-2018-12-18 00:00:32.779 [http-nio-80-exec-8] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
-2018-12-18 00:00:32.779 [http-nio-80-exec-8] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
-2018-12-18 00:00:32.779 [http-nio-80-exec-8] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":1,"logType":"","user":null}
-2018-12-18 00:00:49.691 [http-nio-80-exec-10] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:00:49
-2018-12-18 00:00:49.691 [http-nio-80-exec-10] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
-2018-12-18 00:00:49.691 [http-nio-80-exec-10] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
-2018-12-18 00:00:49.691 [http-nio-80-exec-10] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
-2018-12-18 00:00:49.691 [http-nio-80-exec-10] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://lsjxly.xin/loginpage;JSESSIONID=f783aea4-9feb-430b-ae18-2a5864b258ea","ip":"198.13.35.161","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":1,"logType":"","user":null}
-2018-12-18 00:01:33.575 [http-nio-80-exec-4] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:01:33
-2018-12-18 00:01:33.575 [http-nio-80-exec-4] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
-2018-12-18 00:01:33.575 [http-nio-80-exec-4] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
-2018-12-18 00:01:33.576 [http-nio-80-exec-4] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
-2018-12-18 00:01:33.576 [http-nio-80-exec-4] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":1,"logType":"","user":null}
-2018-12-18 00:01:50.783 [http-nio-80-exec-7] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:01:50
-2018-12-18 00:01:50.783 [http-nio-80-exec-7] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
-2018-12-18 00:01:50.783 [http-nio-80-exec-7] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
-2018-12-18 00:01:50.783 [http-nio-80-exec-7] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
-2018-12-18 00:01:50.784 [http-nio-80-exec-7] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":1,"logType":"","user":null}
-2018-12-18 00:02:03.653 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:02:03
-2018-12-18 00:02:03.653 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
-2018-12-18 00:02:03.653 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
-2018-12-18 00:02:03.653 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
-2018-12-18 00:02:03.654 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://lsjxly.xin/loginpage;JSESSIONID=ce9595bd-6835-4e2f-b315-5e2cb5c3565a","ip":"198.13.35.161","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":0,"logType":"","user":null}
-2018-12-18 00:02:26.069 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:02:26
-2018-12-18 00:02:26.069 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
-2018-12-18 00:02:26.069 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
-2018-12-18 00:02:26.069 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
-2018-12-18 00:02:26.070 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage;JSESSIONID=7f1f1460-7fbb-429d-a0d9-778513b14d58","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":0,"logType":"","user":null}
-2018-12-18 00:02:45.377 [http-nio-80-exec-10] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:02:45
-2018-12-18 00:02:45.378 [http-nio-80-exec-10] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
-2018-12-18 00:02:45.378 [http-nio-80-exec-10] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
-2018-12-18 00:02:45.378 [http-nio-80-exec-10] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
-2018-12-18 00:02:45.378 [http-nio-80-exec-10] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":1,"logType":"","user":null}
-2018-12-18 00:02:46.690 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:02:46
-2018-12-18 00:02:46.691 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
-2018-12-18 00:02:46.691 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
-2018-12-18 00:02:46.691 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
-2018-12-18 00:02:46.691 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":1,"logType":"","user":null}
-2018-12-18 00:03:04.547 [http-nio-80-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:03:04
-2018-12-18 00:03:04.547 [http-nio-80-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
-2018-12-18 00:03:04.547 [http-nio-80-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
-2018-12-18 00:03:04.548 [http-nio-80-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
-2018-12-18 00:03:04.549 [http-nio-80-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage;JSESSIONID=c4bb5d6d-3153-4a53-b4a7-833eb0a4a393","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":1,"logType":"","user":null}
-2018-12-18 00:03:21.534 [http-nio-80-exec-4] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:03:21
-2018-12-18 00:03:21.534 [http-nio-80-exec-4] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
-2018-12-18 00:03:21.534 [http-nio-80-exec-4] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
-2018-12-18 00:03:21.535 [http-nio-80-exec-4] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
-2018-12-18 00:03:21.535 [http-nio-80-exec-4] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":1,"logType":"","user":null}
-2018-12-18 00:03:32.857 [http-nio-80-exec-10] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:03:32
-2018-12-18 00:03:32.857 [http-nio-80-exec-10] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
-2018-12-18 00:03:32.857 [http-nio-80-exec-10] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
-2018-12-18 00:03:32.857 [http-nio-80-exec-10] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
-2018-12-18 00:03:32.858 [http-nio-80-exec-10] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":0,"logType":"","user":null}
-2018-12-18 00:03:35.558 [http-nio-80-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:03:35
-2018-12-18 00:03:35.558 [http-nio-80-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
-2018-12-18 00:03:35.558 [http-nio-80-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
-2018-12-18 00:03:35.558 [http-nio-80-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
-2018-12-18 00:03:35.558 [http-nio-80-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":1,"logType":"","user":null}
-2018-12-18 00:03:38.468 [http-nio-80-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:03:38
-2018-12-18 00:03:38.468 [http-nio-80-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
-2018-12-18 00:03:38.468 [http-nio-80-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
-2018-12-18 00:03:38.468 [http-nio-80-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
-2018-12-18 00:03:38.468 [http-nio-80-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":1,"logType":"","user":null}
-2018-12-18 00:04:20.166 [http-nio-80-exec-10] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:04:20
-2018-12-18 00:04:20.167 [http-nio-80-exec-10] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
-2018-12-18 00:04:20.167 [http-nio-80-exec-10] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
-2018-12-18 00:04:20.167 [http-nio-80-exec-10] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
-2018-12-18 00:04:20.168 [http-nio-80-exec-10] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":1,"logType":"","user":null}
-2018-12-18 00:04:31.056 [http-nio-80-exec-8] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:04:31
-2018-12-18 00:04:31.056 [http-nio-80-exec-8] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
-2018-12-18 00:04:31.056 [http-nio-80-exec-8] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
-2018-12-18 00:04:31.057 [http-nio-80-exec-8] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
-2018-12-18 00:04:31.057 [http-nio-80-exec-8] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":1,"logType":"","user":null}
-2018-12-18 00:04:37.728 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:04:37
-2018-12-18 00:04:37.728 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
-2018-12-18 00:04:37.728 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
-2018-12-18 00:04:37.729 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
-2018-12-18 00:04:37.729 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":1,"logType":"","user":null}
-2018-12-18 00:04:38.442 [http-nio-80-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:04:38
-2018-12-18 00:04:38.442 [http-nio-80-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
-2018-12-18 00:04:38.442 [http-nio-80-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
-2018-12-18 00:04:38.442 [http-nio-80-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
-2018-12-18 00:04:38.443 [http-nio-80-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":0,"logType":"","user":null}
-2018-12-18 00:04:50.135 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:04:50
-2018-12-18 00:04:50.135 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
-2018-12-18 00:04:50.135 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
-2018-12-18 00:04:50.135 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
-2018-12-18 00:04:50.136 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":0,"logType":"","user":null}
-2018-12-18 00:05:19.309 [http-nio-80-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:05:19
-2018-12-18 00:05:19.310 [http-nio-80-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
-2018-12-18 00:05:19.310 [http-nio-80-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
-2018-12-18 00:05:19.310 [http-nio-80-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
-2018-12-18 00:05:19.311 [http-nio-80-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":1,"logType":"","user":null}
-2018-12-18 00:06:26.917 [http-nio-80-exec-6] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:06:26
-2018-12-18 00:06:26.917 [http-nio-80-exec-6] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
-2018-12-18 00:06:26.917 [http-nio-80-exec-6] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
-2018-12-18 00:06:26.917 [http-nio-80-exec-6] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
-2018-12-18 00:06:26.918 [http-nio-80-exec-6] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":0,"logType":"","user":null}
-2018-12-18 00:06:27.589 [http-nio-80-exec-4] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:06:27
-2018-12-18 00:06:27.589 [http-nio-80-exec-4] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
-2018-12-18 00:06:27.589 [http-nio-80-exec-4] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
-2018-12-18 00:06:27.589 [http-nio-80-exec-4] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
-2018-12-18 00:06:27.590 [http-nio-80-exec-4] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":0,"logType":"","user":null}
-2018-12-18 00:06:37.666 [http-nio-80-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:06:37
-2018-12-18 00:06:37.666 [http-nio-80-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
-2018-12-18 00:06:37.666 [http-nio-80-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
-2018-12-18 00:06:37.666 [http-nio-80-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
-2018-12-18 00:06:37.667 [http-nio-80-exec-3] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage;JSESSIONID=6232f65e-d87e-4df0-a8b2-a75c94529e3f","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":0,"logType":"","user":null}
-2018-12-18 00:06:50.508 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:06:50
-2018-12-18 00:06:50.509 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
-2018-12-18 00:06:50.509 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
-2018-12-18 00:06:50.509 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
-2018-12-18 00:06:50.509 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":1,"logType":"","user":null}
-2018-12-18 00:06:51.589 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:06:51
-2018-12-18 00:06:51.589 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
-2018-12-18 00:06:51.589 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
-2018-12-18 00:06:51.589 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
-2018-12-18 00:06:51.590 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":0,"logType":"","user":null}
-2018-12-18 00:07:01.007 [http-nio-80-exec-5] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:07:01
-2018-12-18 00:07:01.007 [http-nio-80-exec-5] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
-2018-12-18 00:07:01.007 [http-nio-80-exec-5] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
-2018-12-18 00:07:01.007 [http-nio-80-exec-5] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
-2018-12-18 00:07:01.007 [http-nio-80-exec-5] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":0,"logType":"","user":null}
-2018-12-18 00:07:07.688 [http-nio-80-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:07:07
-2018-12-18 00:07:07.689 [http-nio-80-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
-2018-12-18 00:07:07.689 [http-nio-80-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
-2018-12-18 00:07:07.689 [http-nio-80-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
-2018-12-18 00:07:07.689 [http-nio-80-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":1,"logType":"","user":null}
-2018-12-18 00:07:09.326 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:07:09
-2018-12-18 00:07:09.326 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
-2018-12-18 00:07:09.326 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
-2018-12-18 00:07:09.326 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
-2018-12-18 00:07:09.327 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":0,"logType":"","user":null}
-2018-12-18 00:07:23.989 [http-nio-80-exec-7] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:07:23
-2018-12-18 00:07:23.989 [http-nio-80-exec-7] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
-2018-12-18 00:07:23.989 [http-nio-80-exec-7] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
-2018-12-18 00:07:23.990 [http-nio-80-exec-7] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
-2018-12-18 00:07:23.990 [http-nio-80-exec-7] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":1,"logType":"","user":null}
-2018-12-18 00:07:39.304 [http-nio-80-exec-6] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:07:39
-2018-12-18 00:07:39.305 [http-nio-80-exec-6] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
-2018-12-18 00:07:39.305 [http-nio-80-exec-6] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
-2018-12-18 00:07:39.305 [http-nio-80-exec-6] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
-2018-12-18 00:07:39.305 [http-nio-80-exec-6] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":1,"logType":"","user":null}
-2018-12-18 00:07:43.212 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:07:43
-2018-12-18 00:07:43.212 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
-2018-12-18 00:07:43.212 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
-2018-12-18 00:07:43.212 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
-2018-12-18 00:07:43.212 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":1,"logType":"","user":null}
-2018-12-18 00:07:48.633 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:07:48
-2018-12-18 00:07:48.633 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
-2018-12-18 00:07:48.633 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
-2018-12-18 00:07:48.633 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
-2018-12-18 00:07:48.633 [http-nio-80-exec-2] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":0,"logType":"","user":null}
-2018-12-18 00:08:04.348 [http-nio-80-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:08:04
-2018-12-18 00:08:04.348 [http-nio-80-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
-2018-12-18 00:08:04.348 [http-nio-80-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
-2018-12-18 00:08:04.351 [http-nio-80-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - response=com.forum.model.dto.LoginInfo@51eead8
-2018-12-18 00:08:04.352 [http-nio-80-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/token","ip":"0:0:0:0:0:0:0:1","httpMethod":"POST","classMethod":"com.forum.controller.LoginController.token","args":"Arg -> (0)execution(Object com.forum.controller.LoginController.token(HttpServletRequest))","reqParams":null,"respParams":"{\"username\":null,\"password\":null,\"token\":\"a0e7b16a642f4521ae288b80f40de850\",\"publicKey\":\"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCBZTKA7WWdzuRLkXbQjAMCm5cH9yVh4Ai3bMCWfFJsOtwgmUxnKzdCerlF8TYZdSTisvwMEdQUj2zYFumzdAJl5FjIVeuoDtB+iP0JCibq9M3RrnGiYgWcVQIxJ3VGNZuttgN6RjuP7xqjJpLBzpZbe26N3ZorT9I1DzKGobAByQIDAQAB\",\"rememberMe\":null,\"msg\":{\"msgCode\":\"201\",\"msgInfo\":\"验证通过\"}}","spendTime":3,"logType":"","user":null}
-2018-12-18 00:08:05.399 [http-nio-80-exec-4] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:08:05
-2018-12-18 00:08:05.403 [http-nio-80-exec-4] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [password:[QiUcvGuwEYLig7NgSsRBK2RL8wu3J1v3/C4p2kllKgNiP6647Ps1cX0VVt/lra5iX15gzvr0WqZwwTLO0zJjObVcFyrEqZW//cKKVyT7O0cL+lH3sJUVitO+COMohXEX4hXAWVIyQq3c83eVCxjyRN6h7ORVCVec3E1xbxn0WKY=], rememberMe:[false], token:[a0e7b16a642f4521ae288b80f40de850], username:[admin]]
-2018-12-18 00:08:05.403 [http-nio-80-exec-4] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
-2018-12-18 00:08:05.601 [http-nio-80-exec-4] ERROR com.forum.service.aspect.ControllerLogAspect - response=com.forum.model.dto.CommonInfo@1b5b5820
-2018-12-18 00:08:05.602 [http-nio-80-exec-4] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/login","ip":"0:0:0:0:0:0:0:1","httpMethod":"POST","classMethod":"com.forum.controller.LoginController.login","args":"Arg -> (0)execution(Object com.forum.controller.LoginController.login(HttpServletRequest,LoginInfo,BindingResult))","reqParams":null,"respParams":"{\"msg\":{\"msgCode\":\"200\",\"msgInfo\":\"验证通过\"}}","spendTime":203,"logType":"","user":null}
-2018-12-18 00:08:05.614 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:08:05
-2018-12-18 00:08:05.614 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
-2018-12-18 00:08:05.615 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - Username : admin
-2018-12-18 00:08:05.615 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - response=index.html
-2018-12-18 00:08:05.616 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/index","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.main","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.main())","reqParams":null,"respParams":"\"index.html\"","spendTime":1,"logType":"","user":{"sid":"1068310406818304000","username":"admin","password":null,"nickname":"admin","roleId":1,"enable":true,"sex":"0","province":"海外","city":"","dist":"","userImg":null,"authCacheKey":"admin"}}
-2018-12-18 00:08:09.336 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:08:09
-2018-12-18 00:08:09.336 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
-2018-12-18 00:08:09.336 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - Username : admin
-2018-12-18 00:08:09.338 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
-2018-12-18 00:08:09.339 [http-nio-80-exec-9] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/logout","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.LoginController.logout","args":"Arg -> (0)execution(Object com.forum.controller.LoginController.logout(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":2,"logType":"","user":{"sid":"1068310406818304000","username":"admin","password":null,"nickname":"admin","roleId":1,"enable":true,"sex":"0","province":"海外","city":"","dist":"","userImg":null,"authCacheKey":"admin"}}
-2018-12-18 00:08:13.098 [http-nio-80-exec-10] ERROR com.forum.service.aspect.ControllerLogAspect - Date : 2018-12-18 12:08:13
-2018-12-18 00:08:13.098 [http-nio-80-exec-10] ERROR com.forum.service.aspect.ControllerLogAspect - Request Parameter : [:]
-2018-12-18 00:08:13.098 [http-nio-80-exec-10] ERROR com.forum.service.aspect.ControllerLogAspect - Username : null
-2018-12-18 00:08:13.098 [http-nio-80-exec-10] ERROR com.forum.service.aspect.ControllerLogAspect - response=null
-2018-12-18 00:08:13.099 [http-nio-80-exec-10] ERROR com.forum.service.aspect.ControllerLogAspect - >>>{"id":0,"url":"http://localhost/loginpage;JSESSIONID=33397053-1c3f-4e6b-aeac-75fe240adfda","ip":"0:0:0:0:0:0:0:1","httpMethod":"GET","classMethod":"com.forum.controller.RedirectController.loginPage","args":"Arg -> (0)execution(Object com.forum.controller.RedirectController.loginPage(HttpServletResponse))","reqParams":null,"respParams":"null","spendTime":1,"logType":"","user":null}
+2018-12-18 16:15:37.266 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'authorityMapper' and 'com.forum.mapper.AuthorityMapper' mapperInterface. Bean already defined with the same name!
+2018-12-18 16:15:37.267 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'dictionaryMapper' and 'com.forum.mapper.DictionaryMapper' mapperInterface. Bean already defined with the same name!
+2018-12-18 16:15:37.268 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'nonAuthemticateMapper' and 'com.forum.mapper.NonAuthemticateMapper' mapperInterface. Bean already defined with the same name!
+2018-12-18 16:15:37.269 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'roleAuthorityMapper' and 'com.forum.mapper.RoleAuthorityMapper' mapperInterface. Bean already defined with the same name!
+2018-12-18 16:15:37.269 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'roleMapper' and 'com.forum.mapper.RoleMapper' mapperInterface. Bean already defined with the same name!
+2018-12-18 16:15:37.269 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'test' and 'com.forum.mapper.Test' mapperInterface. Bean already defined with the same name!
+2018-12-18 16:15:37.269 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'userMapper' and 'com.forum.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2018-12-18 16:15:37.269 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.forum]' package. Please check your configuration.
+2018-12-18 16:15:47.545 [http-nio-8080-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>开始异常捕捉<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+2018-12-18 16:15:47.545 [http-nio-8080-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - 异常时间 : 2018-12-18 16:15:47
+2018-12-18 16:15:47.545 [http-nio-8080-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - 请求方法 : GET
+2018-12-18 16:15:47.545 [http-nio-8080-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - 类方法 : com.forum.controller.RedirectController.main
+2018-12-18 16:15:47.546 [http-nio-8080-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - 请求URL: http://localhost:8080/index
+2018-12-18 16:15:47.546 [http-nio-8080-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - 获得IP: 0:0:0:0:0:0:0:1
+2018-12-18 16:15:47.546 [http-nio-8080-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - 参数: Arg -> (0)execution(Object com.forum.controller.RedirectController.main())
+2018-12-18 16:15:47.546 [http-nio-8080-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - 请求参数: [:]
+2018-12-18 16:15:47.547 [http-nio-8080-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - 用户名: admin
+2018-12-18 16:15:47.547 [http-nio-8080-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - 异常:java.lang.ArithmeticException: Division by zero
+2018-12-18 16:15:47.547 [http-nio-8080-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - 异常所在类：com.forum.controller.RedirectController
+2018-12-18 16:15:47.547 [http-nio-8080-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - 异常所在方法：main
+2018-12-18 16:15:47.548 [http-nio-8080-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - 访问类型:Page
+2018-12-18 16:15:47.548 [http-nio-8080-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>结束异常捕捉<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+2018-12-18 16:15:47.556 [http-nio-8080-exec-1] ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.ArithmeticException: Division by zero] with root cause
+java.lang.ArithmeticException: Division by zero
+	at java.math.BigDecimal.divide(BigDecimal.java:1742)
+	at org.codehaus.groovy.runtime.typehandling.BigDecimalMath.divideImpl(BigDecimalMath.java:68)
+	at org.codehaus.groovy.runtime.typehandling.IntegerMath.divideImpl(IntegerMath.java:49)
+	at org.codehaus.groovy.runtime.dgmimpl.NumberNumberDiv$NumberNumber.invoke(NumberNumberDiv.java:323)
+	at org.codehaus.groovy.runtime.callsite.PojoMetaMethodSite.call(PojoMetaMethodSite.java:56)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:47)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:116)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:128)
+	at com.forum.controller.RedirectController.main(RedirectController.groovy:12)
+	at com.forum.controller.RedirectController$$FastClassBySpringCGLIB$$961eea50.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:56)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:88)
+	at org.aspectj.lang.ProceedingJoinPoint$proceed.call(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:47)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:116)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:120)
+	at com.forum.service.aspect.ControllerLogAspect.doAround(ControllerLogAspect.groovy:80)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:644)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:633)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:55)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.aspectj.AspectJAfterThrowingAdvice.invoke(AspectJAfterThrowingAdvice.java:62)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:93)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at com.forum.controller.RedirectController$$EnhancerBySpringCGLIB$$5265a7b3.main(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:215)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:142)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:800)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:998)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:890)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:875)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.shiro.web.servlet.AdviceFilter.executeChain(AdviceFilter.java:108)
+	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:137)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.shiro.web.servlet.AdviceFilter.executeChain(AdviceFilter.java:108)
+	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:137)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:112)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:61)
+	at org.apache.shiro.web.servlet.AdviceFilter.executeChain(AdviceFilter.java:108)
+	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:137)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.executeChain(AbstractShiroFilter.java:449)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter$1.call(AbstractShiroFilter.java:365)
+	at org.apache.shiro.subject.support.SubjectCallable.doCall(SubjectCallable.java:90)
+	at org.apache.shiro.subject.support.SubjectCallable.call(SubjectCallable.java:83)
+	at org.apache.shiro.subject.support.DelegatingSubject.execute(DelegatingSubject.java:387)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.doFilterInternal(AbstractShiroFilter.java:362)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:357)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:270)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:123)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:770)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2018-12-18 16:21:42.447 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'authorityMapper' and 'com.forum.mapper.AuthorityMapper' mapperInterface. Bean already defined with the same name!
+2018-12-18 16:21:42.448 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'dictionaryMapper' and 'com.forum.mapper.DictionaryMapper' mapperInterface. Bean already defined with the same name!
+2018-12-18 16:21:42.448 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'nonAuthemticateMapper' and 'com.forum.mapper.NonAuthemticateMapper' mapperInterface. Bean already defined with the same name!
+2018-12-18 16:21:42.448 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'roleAuthorityMapper' and 'com.forum.mapper.RoleAuthorityMapper' mapperInterface. Bean already defined with the same name!
+2018-12-18 16:21:42.448 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'roleMapper' and 'com.forum.mapper.RoleMapper' mapperInterface. Bean already defined with the same name!
+2018-12-18 16:21:42.448 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'test' and 'com.forum.mapper.Test' mapperInterface. Bean already defined with the same name!
+2018-12-18 16:21:42.451 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'userMapper' and 'com.forum.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2018-12-18 16:21:42.451 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.forum]' package. Please check your configuration.
+2018-12-18 16:23:44.717 [http-nio-8080-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>开始异常捕捉<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+2018-12-18 16:23:44.717 [http-nio-8080-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - 异常时间 : 2018-12-18 16:23:44
+2018-12-18 16:23:44.717 [http-nio-8080-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - 请求方法 : GET
+2018-12-18 16:23:44.717 [http-nio-8080-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - 类方法 : com.forum.controller.RedirectController.main
+2018-12-18 16:23:44.718 [http-nio-8080-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - 请求URL: http://localhost:8080/index
+2018-12-18 16:23:44.718 [http-nio-8080-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - 获得IP: 0:0:0:0:0:0:0:1
+2018-12-18 16:23:44.718 [http-nio-8080-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - 参数: Arg -> (0)execution(Object com.forum.controller.RedirectController.main())
+2018-12-18 16:23:44.718 [http-nio-8080-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - 请求参数: [:]
+2018-12-18 16:23:44.719 [http-nio-8080-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - 用户名: admin
+2018-12-18 16:23:44.719 [http-nio-8080-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - 异常:java.lang.ArithmeticException: Division by zero
+2018-12-18 16:23:44.719 [http-nio-8080-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - 异常所在类：com.forum.controller.RedirectController
+2018-12-18 16:23:44.719 [http-nio-8080-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - 异常所在方法：main
+2018-12-18 16:23:44.719 [http-nio-8080-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - 访问类型:Page
+2018-12-18 16:23:44.719 [http-nio-8080-exec-1] ERROR com.forum.service.aspect.ControllerLogAspect - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>异常捕捉完成<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+2018-12-18 16:23:44.727 [http-nio-8080-exec-1] ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.ArithmeticException: Division by zero] with root cause
+java.lang.ArithmeticException: Division by zero
+	at java.math.BigDecimal.divide(BigDecimal.java:1742)
+	at org.codehaus.groovy.runtime.typehandling.BigDecimalMath.divideImpl(BigDecimalMath.java:68)
+	at org.codehaus.groovy.runtime.typehandling.IntegerMath.divideImpl(IntegerMath.java:49)
+	at org.codehaus.groovy.runtime.dgmimpl.NumberNumberDiv$NumberNumber.invoke(NumberNumberDiv.java:323)
+	at org.codehaus.groovy.runtime.callsite.PojoMetaMethodSite.call(PojoMetaMethodSite.java:56)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:47)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:116)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:128)
+	at com.forum.controller.RedirectController.main(RedirectController.groovy:12)
+	at com.forum.controller.RedirectController$$FastClassBySpringCGLIB$$961eea50.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:56)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:88)
+	at org.aspectj.lang.ProceedingJoinPoint$proceed.call(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:47)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:116)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:120)
+	at com.forum.service.aspect.ControllerLogAspect.doAround(ControllerLogAspect.groovy:80)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:644)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:633)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:55)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.aspectj.AspectJAfterThrowingAdvice.invoke(AspectJAfterThrowingAdvice.java:62)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:93)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at com.forum.controller.RedirectController$$EnhancerBySpringCGLIB$$4637bc12.main(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:215)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:142)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:800)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:998)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:890)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:875)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.shiro.web.servlet.AdviceFilter.executeChain(AdviceFilter.java:108)
+	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:137)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.shiro.web.servlet.AdviceFilter.executeChain(AdviceFilter.java:108)
+	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:137)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:112)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:61)
+	at org.apache.shiro.web.servlet.AdviceFilter.executeChain(AdviceFilter.java:108)
+	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:137)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.executeChain(AbstractShiroFilter.java:449)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter$1.call(AbstractShiroFilter.java:365)
+	at org.apache.shiro.subject.support.SubjectCallable.doCall(SubjectCallable.java:90)
+	at org.apache.shiro.subject.support.SubjectCallable.call(SubjectCallable.java:83)
+	at org.apache.shiro.subject.support.DelegatingSubject.execute(DelegatingSubject.java:387)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.doFilterInternal(AbstractShiroFilter.java:362)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:357)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:270)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:123)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:770)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2018-12-18 16:24:12.577 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'authorityMapper' and 'com.forum.mapper.AuthorityMapper' mapperInterface. Bean already defined with the same name!
+2018-12-18 16:24:12.578 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'dictionaryMapper' and 'com.forum.mapper.DictionaryMapper' mapperInterface. Bean already defined with the same name!
+2018-12-18 16:24:12.578 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'nonAuthemticateMapper' and 'com.forum.mapper.NonAuthemticateMapper' mapperInterface. Bean already defined with the same name!
+2018-12-18 16:24:12.578 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'roleAuthorityMapper' and 'com.forum.mapper.RoleAuthorityMapper' mapperInterface. Bean already defined with the same name!
+2018-12-18 16:24:12.590 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'roleMapper' and 'com.forum.mapper.RoleMapper' mapperInterface. Bean already defined with the same name!
+2018-12-18 16:24:12.590 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'test' and 'com.forum.mapper.Test' mapperInterface. Bean already defined with the same name!
+2018-12-18 16:24:12.590 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'userMapper' and 'com.forum.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2018-12-18 16:24:12.590 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.forum]' package. Please check your configuration.
+2018-12-18 16:59:18.725 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'areaMapper' and 'com.forum.mapper.AreaMapper' mapperInterface. Bean already defined with the same name!
+2018-12-18 16:59:18.726 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'authorityMapper' and 'com.forum.mapper.AuthorityMapper' mapperInterface. Bean already defined with the same name!
+2018-12-18 16:59:18.726 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'dictionaryMapper' and 'com.forum.mapper.DictionaryMapper' mapperInterface. Bean already defined with the same name!
+2018-12-18 16:59:18.726 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'nonAuthemticateMapper' and 'com.forum.mapper.NonAuthemticateMapper' mapperInterface. Bean already defined with the same name!
+2018-12-18 16:59:18.726 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'roleAuthorityMapper' and 'com.forum.mapper.RoleAuthorityMapper' mapperInterface. Bean already defined with the same name!
+2018-12-18 16:59:18.726 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'roleMapper' and 'com.forum.mapper.RoleMapper' mapperInterface. Bean already defined with the same name!
+2018-12-18 16:59:18.726 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'test' and 'com.forum.mapper.Test' mapperInterface. Bean already defined with the same name!
+2018-12-18 16:59:18.726 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'userMapper' and 'com.forum.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2018-12-18 16:59:18.726 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.forum]' package. Please check your configuration.
+2018-12-18 17:01:46.442 [http-nio-8080-exec-6] ERROR com.forum.service.aspect.ControllerLogAspect - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>开始异常捕捉<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+2018-12-18 17:01:46.443 [http-nio-8080-exec-6] ERROR com.forum.service.aspect.ControllerLogAspect - 异常时间 : 2018-12-18 17:01:46
+2018-12-18 17:01:46.443 [http-nio-8080-exec-6] ERROR com.forum.service.aspect.ControllerLogAspect - 请求方法 : POST
+2018-12-18 17:01:46.443 [http-nio-8080-exec-6] ERROR com.forum.service.aspect.ControllerLogAspect - 类方法 : com.forum.controller.RegisterController.register
+2018-12-18 17:01:46.443 [http-nio-8080-exec-6] ERROR com.forum.service.aspect.ControllerLogAspect - 请求URL: http://localhost:8080/register
+2018-12-18 17:01:46.443 [http-nio-8080-exec-6] ERROR com.forum.service.aspect.ControllerLogAspect - 获得IP: 0:0:0:0:0:0:0:1
+2018-12-18 17:01:46.443 [http-nio-8080-exec-6] ERROR com.forum.service.aspect.ControllerLogAspect - 参数: Arg -> (0)execution(Object com.forum.controller.RegisterController.register(HttpServletRequest,RegisterInfo,BindingResult))
+2018-12-18 17:01:46.443 [http-nio-8080-exec-6] ERROR com.forum.service.aspect.ControllerLogAspect - 请求参数: [password:[550e1bafe077ff0b0b67f4e32f29d751], code:[pgefpk], city:[山西省 阳泉市 市辖区], sex:[0], nickname:[Hello], confirmPassword:[550e1bafe077ff0b0b67f4e32f29d751], username:[777@qq.com]]
+2018-12-18 17:01:46.445 [http-nio-8080-exec-6] ERROR com.forum.service.aspect.ControllerLogAspect - 用户名: 未登录
+2018-12-18 17:01:46.445 [http-nio-8080-exec-6] ERROR com.forum.service.aspect.ControllerLogAspect - 异常:org.apache.ibatis.binding.BindingException: Mapper method 'com.forum.mapper.AreaMapper.selectCountByMergeName attempted to return null from a method with a primitive return type (int).
+2018-12-18 17:01:46.445 [http-nio-8080-exec-6] ERROR com.forum.service.aspect.ControllerLogAspect - 异常所在类：com.forum.controller.RegisterController
+2018-12-18 17:01:46.445 [http-nio-8080-exec-6] ERROR com.forum.service.aspect.ControllerLogAspect - 异常所在方法：register
+2018-12-18 17:01:46.445 [http-nio-8080-exec-6] ERROR com.forum.service.aspect.ControllerLogAspect - 访问类型:Json
+2018-12-18 17:01:46.445 [http-nio-8080-exec-6] ERROR com.forum.service.aspect.ControllerLogAspect - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>异常捕捉完成<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+2018-12-18 17:01:46.450 [http-nio-8080-exec-6] ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.apache.ibatis.binding.BindingException: Mapper method 'com.forum.mapper.AreaMapper.selectCountByMergeName attempted to return null from a method with a primitive return type (int).] with root cause
+org.apache.ibatis.binding.BindingException: Mapper method 'com.forum.mapper.AreaMapper.selectCountByMergeName attempted to return null from a method with a primitive return type (int).
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:94)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:59)
+	at com.sun.proxy.$Proxy109.selectCountByMergeName(Unknown Source)
+	at com.forum.mapper.AreaMapper$selectCountByMergeName.call(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:47)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:116)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:128)
+	at com.forum.service.impl.RegisterServiceImpl.register(RegisterServiceImpl.groovy:66)
+	at com.forum.service.RegisterService$register$0.call(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:47)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:116)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:136)
+	at com.forum.controller.RegisterController.register(RegisterController.groovy:35)
+	at com.forum.controller.RegisterController$$FastClassBySpringCGLIB$$fbf99457.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:56)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:88)
+	at org.aspectj.lang.ProceedingJoinPoint$proceed.call(Unknown Source)
+	at com.forum.service.aspect.ControllerLogAspect.doAround(ControllerLogAspect.groovy:80)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:644)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:633)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:55)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.aspectj.AspectJAfterThrowingAdvice.invoke(AspectJAfterThrowingAdvice.java:62)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:93)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at com.forum.controller.RegisterController$$EnhancerBySpringCGLIB$$98f1a47e.register(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:215)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:142)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:800)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:998)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:901)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:875)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.shiro.web.servlet.AdviceFilter.executeChain(AdviceFilter.java:108)
+	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:137)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.shiro.web.servlet.AdviceFilter.executeChain(AdviceFilter.java:108)
+	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:137)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:112)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:61)
+	at org.apache.shiro.web.servlet.AdviceFilter.executeChain(AdviceFilter.java:108)
+	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:137)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.executeChain(AbstractShiroFilter.java:449)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter$1.call(AbstractShiroFilter.java:365)
+	at org.apache.shiro.subject.support.SubjectCallable.doCall(SubjectCallable.java:90)
+	at org.apache.shiro.subject.support.SubjectCallable.call(SubjectCallable.java:83)
+	at org.apache.shiro.subject.support.DelegatingSubject.execute(DelegatingSubject.java:387)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.doFilterInternal(AbstractShiroFilter.java:362)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:357)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:270)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:123)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:770)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2018-12-18 17:02:23.376 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'areaMapper' and 'com.forum.mapper.AreaMapper' mapperInterface. Bean already defined with the same name!
+2018-12-18 17:02:23.376 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'authorityMapper' and 'com.forum.mapper.AuthorityMapper' mapperInterface. Bean already defined with the same name!
+2018-12-18 17:02:23.376 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'dictionaryMapper' and 'com.forum.mapper.DictionaryMapper' mapperInterface. Bean already defined with the same name!
+2018-12-18 17:02:23.376 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'nonAuthemticateMapper' and 'com.forum.mapper.NonAuthemticateMapper' mapperInterface. Bean already defined with the same name!
+2018-12-18 17:02:23.376 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'roleAuthorityMapper' and 'com.forum.mapper.RoleAuthorityMapper' mapperInterface. Bean already defined with the same name!
+2018-12-18 17:02:23.376 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'roleMapper' and 'com.forum.mapper.RoleMapper' mapperInterface. Bean already defined with the same name!
+2018-12-18 17:02:23.377 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'test' and 'com.forum.mapper.Test' mapperInterface. Bean already defined with the same name!
+2018-12-18 17:02:23.377 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'userMapper' and 'com.forum.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2018-12-18 17:02:23.377 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.forum]' package. Please check your configuration.
+2018-12-18 17:03:17.123 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'areaMapper' and 'com.forum.mapper.AreaMapper' mapperInterface. Bean already defined with the same name!
+2018-12-18 17:03:17.123 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'authorityMapper' and 'com.forum.mapper.AuthorityMapper' mapperInterface. Bean already defined with the same name!
+2018-12-18 17:03:17.123 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'dictionaryMapper' and 'com.forum.mapper.DictionaryMapper' mapperInterface. Bean already defined with the same name!
+2018-12-18 17:03:17.124 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'nonAuthemticateMapper' and 'com.forum.mapper.NonAuthemticateMapper' mapperInterface. Bean already defined with the same name!
+2018-12-18 17:03:17.124 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'roleAuthorityMapper' and 'com.forum.mapper.RoleAuthorityMapper' mapperInterface. Bean already defined with the same name!
+2018-12-18 17:03:17.124 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'roleMapper' and 'com.forum.mapper.RoleMapper' mapperInterface. Bean already defined with the same name!
+2018-12-18 17:03:17.124 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'test' and 'com.forum.mapper.Test' mapperInterface. Bean already defined with the same name!
+2018-12-18 17:03:17.124 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'userMapper' and 'com.forum.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2018-12-18 17:03:17.124 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.forum]' package. Please check your configuration.

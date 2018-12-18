@@ -2,6 +2,7 @@ package com.forum.service.impl
 
 import com.forum.global.Constant
 import com.forum.global.GlobalCode
+import com.forum.mapper.AreaMapper
 import com.forum.mapper.UserMapper
 import com.forum.model.dto.MailInfo
 import com.forum.model.dto.MessageCodeInfo
@@ -23,6 +24,8 @@ class RegisterServiceImpl implements RegisterService {
     MessageCodeInfo messageCodeInfo
     @Autowired
     UserMapper userMapper
+    @Autowired
+    AreaMapper areaMapper
 
     @Override
     MessageCodeInfo register(HttpServletRequest request, RegisterInfo registerInfo) {
@@ -46,13 +49,25 @@ class RegisterServiceImpl implements RegisterService {
             user.setNickname(registerInfo.getNickname())
             user.setSex(registerInfo.getSex()?.toString()?.charAt(0))
             String[] cityArr = registerInfo?.getCity()?.trim()?.split(' ')
+            String mergerName = ''
             cityArr?.eachWithIndex { String entry, int i ->
                 if (i == 0) {
                     user.setProvince(cityArr[0])
+                    mergerName += cityArr[0]
                 } else if (i == 1) {
                     user.setCity(cityArr[1])
+                    mergerName += cityArr[1]
                 } else if (i == 2) {
                     user.setDist(cityArr[2])
+                    mergerName += cityArr[2]
+                }
+            }
+            if(mergerName?.trim() != '海外'){
+                int areaCount = areaMapper.selectCountByMergeName('中国'+mergerName)
+                if(areaCount!=1){
+                    messageCodeInfo.setMsgCode(GlobalCode.REGISTER_MAIL_FAIL)
+                    messageCodeInfo.setMsgInfo(Constant.REGISTER_VERIFY_AREA_FAIL)
+                    return messageCodeInfo
                 }
             }
 //        if(cityArr?.size() == 3){

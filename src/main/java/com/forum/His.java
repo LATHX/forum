@@ -28,7 +28,8 @@ public class His {
         return RedisUtil.get("k").toString();
     }
     @RequestMapping("/w")
-    public void w(UserEntity user){
+    public void w(UserEntity user)throws Exception{
+        int i = 1/0;
 //        rabbitUtil.deliveryDelayMessage("delay_queue","sssss1123231213asggetq",3000);
         rabbitUtil.deliveryMessage("key.1","aaaa1123231213asggetq");
     }

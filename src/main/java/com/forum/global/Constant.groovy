@@ -58,6 +58,7 @@ class Constant implements InitializingBean {
     static String REST_PASSWORD_PAGE
     static String REST_PASSWORD_TIMEOUT_MSG
     static String REST_PASSWORD_FAIL_MSG
+    static String REGISTER_VERIFY_AREA_FAIL
     void load() {
         logger.info('Initializing Constant')
         List<DictionaryEntity> list = dictionaryMapper.selectAllInTableWithoutParamType('参数代码')

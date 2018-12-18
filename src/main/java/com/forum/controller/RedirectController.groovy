@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse
 @Controller
 class RedirectController {
     @RequestMapping('/index')
-    main() {
+    main(){
         return 'index.html'
     }
 
