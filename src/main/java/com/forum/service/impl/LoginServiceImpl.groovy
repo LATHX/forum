@@ -47,6 +47,10 @@ class LoginServiceImpl implements LoginService {
             }
             RabbitUtil.deliveryMessageNotConfirm(Constant.MQ_REDIS_DEL, ip)
         }
+        Integer hasAccount = userMapper.countNumberByUsername(loginInfo.getUsername())
+        if(hasAccount != 1){
+            return GlobalCode.REGISTER_MAIL_FAIL
+        }
         boolean isEnable = userMapper.isAccountBlock(loginInfo.getUsername())
         if (!isEnable) {
             return GlobalCode.ACCOUNT_BLOCK

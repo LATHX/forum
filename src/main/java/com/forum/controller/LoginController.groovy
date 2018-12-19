@@ -59,6 +59,10 @@ class LoginController {
         }else if (code == GlobalCode.LOGIN_VERIFY_OK) {
             messageCodeInfo.setMsgCode(GlobalCode.LOGIN_VERIFY_OK)
             commonInfo.setMsg(messageCodeInfo)
+        }else if(code == GlobalCode.REGISTER_MAIL_FAIL){
+            messageCodeInfo.setMsgCode(Constant.REGISTER_MAIL_FAIL)
+            messageCodeInfo?.setMsgInfo(Constant.USERNAME_NOT_EXITS)
+            commonInfo.setMsg(messageCodeInfo)
         }
         return commonInfo
     }

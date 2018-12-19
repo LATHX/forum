@@ -170,8 +170,8 @@ class CommonUtil {
     }
 
     static String getCookies(HttpServletRequest request, String name) {
-        Cookie[] cookies = request.getCookies();
-        for (int i = 0; i < cookies.length; i++) {
+        Cookie[] cookies = request?.getCookies();
+        for (int i = 0; i < cookies?.length; i++) {
             if (cookies[i].getName() == name) {
                 return cookies[i].getValue()
             }
