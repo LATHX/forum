@@ -24,19 +24,40 @@ class RequestLimitExpController {
     CommonInfo commonInfo
 
     @RequestMapping(value = "/limit")
-    safeLimitRes(HttpServletRequest request, HttpServletResponse response, Model model) {
+    safeLimitRes(HttpServletRequest request, HttpServletResponse response,  Model model) {
+        CommonUtil.addCookie(response, 'uuid',CommonUtil.generateUUID())
+        String msg = request.getAttribute('msg')
+        String messageInfo = Constant.LIMIT_MSG
+        if(CommonUtil.isNotEmpty(msg)){
+            messageInfo = msg
+        }
         if (CommonUtil.isJsonRequest(request)) {
             response.setCharacterEncoding("UTF-8")
             response.setContentType("application/json;charset=UTF-8")
             PrintWriter printWriter = response.getWriter()
-            messageCodeInfo.setMsgInfo(Constant.LIMIT_MSG)
+            messageCodeInfo.setMsgInfo(messageInfo)
             loginInfo.setPassword('')
             commonInfo.setMsg(messageCodeInfo)
             printWriter.write(JSONObject.toJSONString(commonInfo))
             printWriter.flush()
         } else {
-            model.addAttribute('errorMsg', Constant.LIMIT_MSG)
+            model.addAttribute('errorMsg', messageInfo)
             return 'error.html'
+        }
+    }
+    @RequestMapping(value = "/cookie")
+    cookieLimitRes(HttpServletRequest request, HttpServletResponse response,  Model model) {
+        if (CommonUtil.isJsonRequest(request)) {
+            response.setCharacterEncoding("UTF-8")
+            response.setContentType("application/json;charset=UTF-8")
+            PrintWriter printWriter = response.getWriter()
+            messageCodeInfo.setMsgInfo('Cookie must be set')
+            loginInfo.setPassword('')
+            commonInfo.setMsg(messageCodeInfo)
+            printWriter.write(JSONObject.toJSONString(commonInfo))
+            printWriter.flush()
+        } else {
+            return 'setcookie.html'
         }
     }
 

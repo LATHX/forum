@@ -30,7 +30,8 @@ class LoginServiceImpl implements LoginService {
 
     @Override
     String validationLoginInfo(HttpServletRequest request, LoginInfo loginInfo) {
-        String ip = CommonUtil.getRealIP(request)
+        String uuidCookie = CommonUtil.getCookies(request, 'uuid')
+        String ip = CommonUtil.getRealIP(request).concat(uuidCookie)
         boolean isRememberMe = true
         loginInfo.setPassword(RSACryptoServiceProvider.decrypt(loginInfo.getPassword()).replaceFirst(loginInfo.token, ''))
         boolean hasKey = RedisUtil.hasKey(ip)
@@ -63,7 +64,8 @@ class LoginServiceImpl implements LoginService {
 
     @Override
     String getToken(HttpServletRequest request) {
-        String ip = CommonUtil.getRealIP(request)
+        String uuidCookie = CommonUtil.getCookies(request, 'uuid')
+        String ip = CommonUtil.getRealIP(request).concat(uuidCookie)
         if (!RedisUtil.hasKey(Constant.UUID_REDIS_QUEUE_NAME)) {
             generateToken.generateUUIDQueue()
         }

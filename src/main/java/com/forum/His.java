@@ -1,7 +1,9 @@
 package com.forum;
 
+import com.forum.mapper.ForumListMapper;
 import com.forum.mapper.UserMapper;
 import com.forum.model.dto.LoginInfo;
+import com.forum.model.entity.ForumListEntity;
 import com.forum.model.entity.UserEntity;
 import com.forum.rabbit.util.RabbitUtil;
 import com.forum.redis.util.RedisUtil;
@@ -12,6 +14,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 public class His {
     @Autowired
@@ -20,6 +24,8 @@ public class His {
     private UserMapper test;
     @Autowired
     RabbitUtil rabbitUtil;
+    @Autowired
+    ForumListMapper forumListMapper;
     @GetMapping("r")
     public String f(){
         System.out.println( this.test.findUserByUserName("admin").getRoleId());
@@ -29,9 +35,9 @@ public class His {
     }
     @RequestMapping("/w")
     public void w(UserEntity user)throws Exception{
-        int i = 1/0;
+        List<ForumListEntity> list = forumListMapper.selectAll();
 //        rabbitUtil.deliveryDelayMessage("delay_queue","sssss1123231213asggetq",3000);
-        rabbitUtil.deliveryMessage("key.1","aaaa1123231213asggetq");
+//        rabbitUtil.deliveryMessage("key.1","aaaa1123231213asggetq");
     }
     @RabbitListener(queues = "hello.queue1")
     public String processMessage1(byte[] msg) {

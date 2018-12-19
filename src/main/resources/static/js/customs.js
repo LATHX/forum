@@ -54,3 +54,37 @@ function isPC() {
    }
    return flag;
 }
+function S4() {
+        return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
+}
+function guid() {
+        return (S4()+S4()+"-"+S4()+"-"+S4()+"-"+S4()+"-"+S4()+S4()+S4());
+}
+function setCookie(name,value){
+var Days = 30;
+var exp = new Date();
+exp.setTime(exp.getTime() + Days*24*60*60*1000);
+document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString();
+}
+function getCookie(name){
+var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+if(arr=document.cookie.match(reg))
+return unescape(arr[2]);
+else
+return null;
+}
+function S4() {
+     return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
+}
+function guid() {
+      return (S4()+S4()+"-"+S4()+"-"+S4()+"-"+S4()+"-"+S4()+S4()+S4());
+}
+function isEmpty(str){
+    if(str == null || str.trim().length() == 0){
+        return true;
+    }
+    return false;
+}
+function userPageAlert(strogerText, Text){
+$('nav').after("<div id='myAlert2' class='alert alert-danger fade-in-animation opacity95' style='position: fixed;left:0;right:0;top:auto;z-index:1031;'><a href='#' class='close' data-dismiss='alert'>&times;</a><strong>"+strogerText+"</strong>"+Text+"</div>");
+}

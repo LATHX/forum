@@ -21,11 +21,15 @@ class ShiroServiceImpl {
     private String NON_AUTHEMTICATE
 
     public Map<String, String> loadFilterChainDefinitions() {
-        List<AuthorityEntity> authorities = authorityMapper.findAuthorities();
+        List<AuthorityEntity> authorities = authorityMapper.selectAllFromTable();
         //从数据库读取不需要权限map
         List<NonAuthemticateEntity> nonAuthemticateEntityList = authemticateMapper.selectAllFromTable()
         // 权限控制map.从数据库获取
         Map<String, String> filterChainDefinitionMap = new LinkedHashMap<>();
+        nonAuthemticateEntityList?.each {
+            if (it?.getEnable())
+                filterChainDefinitionMap.put(it?.getUrl(), "anon")
+        }
         if (authorities.size() > 0) {
             String uris;
             String[] uriArr;
@@ -43,10 +47,7 @@ class ShiroServiceImpl {
 //        NON_AUTHEMTICATE?.split(',')?.each {
 //            filterChainDefinitionMap.put(it, "anon")
 //        }
-        nonAuthemticateEntityList?.each {
-            if (it?.getEnable())
-                filterChainDefinitionMap.put(it?.getUrl(), "anon")
-        }
+
         //其他资源都需要认证  authc 表示需要认证才能进行访问 ,user表示配置记住我或认证通过可以访问的地址
         filterChainDefinitionMap.put("/**", "user");
         return filterChainDefinitionMap;

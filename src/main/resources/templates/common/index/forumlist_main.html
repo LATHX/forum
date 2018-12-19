@@ -4,59 +4,33 @@
     </li>
 
 
-
     <li class="b rv agz">
-        <span class="h bnb axc aey yb"></span>
+        <span class="h  axc aey yb"></span>
 
         <div class="rw">
-            <small class="acx axc">30 min</small>
-            <div class="bpb">
-                You followed <a href="#"><strong>Jacob Thornton</strong></a> and <a href="#"><strong>1 other</strong></a>
+            <small class="acx axc"></small>
+            <div class="bpb"><span class="fa fa-refresh" id="refreshing">&nbsp;<strong>正在加载...</strong></span>
             </div>
 
             <div class="aew">
-                <div class="dp">
+                <div class="dp" id="newlyforum">
 
-                    <div class="fm ">
-                        <div class="pz bpi afa">
-                            <div class="qf" style="background-image: url(images/instagram_4.jpg);"></div>
-                            <div class="qa avz">
-                                <!--<img class="bpj" src="../assets/img/avatar-fat.jpg">-->
-                                <h5 class="qb">论坛1</h5>
-                                <p class="afo">论坛1的简介</p>
-                                <button class="cg nz ok">
-                                    <span class="h ayi"></span> 进入
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="fm">
-                        <div class="pz bpi afa">
-                            <div class="qf" style="background-image: url(images/instagram_4.jpg);"></div>
-                            <div class="qa avz">
-                                <!--<img class="bpj" src="../assets/img/avatar-fat.jpg">-->
-                                <h5 class="qb">论坛2</h5>
-                                <p class="afo">论坛2的简介</p>
-                                <button class="cg nz ok">
-                                    <span class="h ayi"></span> 进入
-                                </button>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="fm">
-                        <div class="pz bpi afa">
-                            <div class="qf" style="background-image: url(images/instagram_4.jpg);"></div>
-                            <div class="qa avz">
-                                <!--<img class="bpj" src="../assets/img/avatar-fat.jpg">-->
-                                <h5 class="qb">论坛3</h5>
-                                <p class="afo">论坛3的简介</p>
-                                <button class="cg nz ok">
-                                    <span class="h ayi"></span> 进入
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+
+                    <!--<div class="fm">-->
+                        <!--<div class="pz bpi afa">-->
+                            <!--<div class="qf" style="background-image: url(images/instagram_4.jpg);"></div>-->
+                            <!--<div class="qa avz">-->
+                                <!--&lt;!&ndash;<img class="bpj" src="../assets/img/avatar-fat.jpg">&ndash;&gt;-->
+                                <!--<h5 class="qb">论坛3</h5>-->
+                                <!--<p class="afo">论坛3的简介</p>-->
+                                <!--<button class="cg nz ok">-->
+                                    <!--<span class="h ayi"></span> 进入-->
+                                <!--</button>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+
 
                 </div>
             </div>
@@ -65,3 +39,40 @@
 
 
 </ul>
+
+<script>
+    var page = 0;
+    refresh();
+function refresh(){
+$("#refreshing").removeClass("hidden");
+     $.ajax({
+        type:"POST",
+        url:"/user-forum/forumlist",
+        dataType:"json",
+        timeout : 50000,
+        data: { page:page },
+        success:function(data){
+        for(var o in data){
+        var s ="<div class='fm'><div class='pz bpi afa'>";
+s += "<div class='qf' style='background-image: url(images/instagram_4.jpg);'></div><div class='qa avz'><!--<img class='bpj' src='../assets/img/avatar-fat.jpg'>-->";
+s += "<h5 class='qb'>"+data[o].fname+"</h5>";
+s += "<p class='afo'>"+data[o].description+"</p>";
+s += "<button class='cg nz ok'><span class='h ayi'></span> 进入</button></div></div></div>";
+$("#newlyforum").append(s);
+}
+page = page+1;
+
+$("#refreshing").addClass("hidden");
+        },
+        complete: function (XMLHttpRequest, textStatus) {
+            if(textStatus == 'timeout') {
+                userPageAlert('',  '连接超时，请稍后再试')
+            }
+        },
+        error:function(jqXHR){
+            userPageAlert('',  '服务器繁忙，请稍后再试')
+
+        }
+    });
+}
+</script>

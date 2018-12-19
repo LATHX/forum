@@ -6,7 +6,9 @@ import org.aspectj.lang.JoinPoint
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 
+import javax.servlet.http.Cookie
 import javax.servlet.http.HttpServletRequest
+import javax.servlet.http.HttpServletResponse
 import java.text.SimpleDateFormat
 
 @Component
@@ -155,13 +157,33 @@ class CommonUtil {
     static char[] allCharacter() {
         "1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM".toCharArray()
     }
-    static String getURLWithoutContext(HttpServletRequest request){
+
+    static String getURLWithoutContext(HttpServletRequest request) {
         StringBuffer url = request.getRequestURL()
         String tempContextUrl = url.delete(url.length() - request.getRequestURI().length(), url.length()).append("/").toString()
         return tempContextUrl
 
     }
-    static String replaceIllegalCharacter(String s){
-        return s.replaceAll("[^qwertyuioplkjhgfdsazxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM1234567890\"!#\$%&\'()*+,-./:\\\\;<=>?@^_{|}\\[\\]~\t]","")
+
+    static String replaceIllegalCharacter(String s) {
+        return s.replaceAll("[^qwertyuioplkjhgfdsazxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM1234567890\"!#\$%&\'()*+,-./:\\\\;<=>?@^_{|}\\[\\]~\t]", "")
     }
+
+    static String getCookies(HttpServletRequest request, String name) {
+        Cookie[] cookies = request.getCookies();
+        for (int i = 0; i < cookies.length; i++) {
+            if (cookies[i].getName() == name) {
+                return cookies[i].getValue()
+            }
+        }
+        return null
+    }
+
+    static void addCookie(HttpServletResponse response, String name, String value) {
+        Cookie cookie = new Cookie(name, value);
+        cookie.setPath("/");
+        cookie.setMaxAge(7 * 24 * 60 * 60 * 1000)
+        response.addCookie(cookie);
+    }
+
 }

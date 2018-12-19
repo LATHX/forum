@@ -1,6 +1,7 @@
 package com.forum.service.aspect
 
 import com.forum.global.Constant
+import com.forum.model.dto.CommonInfo
 import com.forum.model.dto.MessageCodeInfo
 import com.forum.redis.util.RedisUtil
 import com.forum.service.exception.RequestLimitException
@@ -16,7 +17,6 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter
 
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
-
 /**
  * @author LJL
  * @date 2018年11月2日 下午2:22:43
@@ -29,10 +29,13 @@ class RequestLimitAspect extends HandlerInterceptorAdapter {
     private static final Logger logger = LoggerFactory.getLogger(RequestLimitAspect.class)
     @Autowired
     private MessageCodeInfo msg
+    @Autowired
+    private CommonInfo commonInfo
 
     private int LIMIT_TIMEOUT = Constant.LIMIT_TIMEOUT?.toInteger()
     private int LIMIT_COUNT = Constant.LIMIT_COUNT?.toInteger()
     private String LIMIT_PATH = Constant.LIMIT_PATH
+    private String param = ''
 
     /**
      *
@@ -47,15 +50,27 @@ class RequestLimitAspect extends HandlerInterceptorAdapter {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws RequestLimitException {
         try {
 
+            String url = request.getRequestURL().toString()
+            String ip = CommonUtil.getRealIP(request)
             if (request == null) {
                 throw new RequestLimitException("Lost HttpServletRequest Param");
             }
-            String ip = CommonUtil.getRealIP(request);
-            String url = request.getRequestURL().toString();
-            String key = "req_limit_".concat(url).concat(ip);
-            if (url.substring(url.lastIndexOf('/')) == LIMIT_PATH) {
+            if (url.substring(url.lastIndexOf('/')) == LIMIT_PATH || url.substring(url.lastIndexOf('/')) == '/cookie'|| url.substring(url.lastIndexOf('/')) == '/setcookie.html') {
                 return true
             }
+            String uuidCookie = CommonUtil.getCookies(request, 'uuid')
+            if (CommonUtil.isEmpty(uuidCookie)) {
+                CommonUtil.addCookie(response, 'uuid',CommonUtil.generateUUID())
+                if(CommonUtil.isEmpty(request.getParameter('securetoken'))){
+                    renderCookie(request, response)
+                    return false
+                }
+                param = '该浏览器不被支持，必须开启JavaScript和Cookie以继续访问'
+                render(request, response)
+                return false
+            }
+            String key = "req_limit_".concat(url).concat(ip).concat(uuidCookie)
+
             if (!RedisUtil.hasKey(key) || CommonUtil.isEmpty(RedisUtil.get(key))) {
                 RedisUtil.set(key, String.valueOf(1));
             } else {
@@ -96,7 +111,25 @@ class RequestLimitAspect extends HandlerInterceptorAdapter {
     void render(HttpServletRequest request, HttpServletResponse response) throws Exception {
 //        response.setContentType("application/json;charset=UTF-8");
 //        response.sendRedirect(LIMIT_PATH)
+        request.setAttribute('msg', param)
         request.getRequestDispatcher(LIMIT_PATH).forward(request, response)
+
+    }
+    void renderCookie(HttpServletRequest request, HttpServletResponse response) throws Exception {
+//         CommonUtil.addCookie(response, 'uuid',CommonUtil.generateUUID())
+//        if (CommonUtil.isJsonRequest(request)) {
+//            response.setCharacterEncoding("UTF-8")
+//            response.setContentType("application/json;charset=UTF-8")
+//            PrintWriter printWriter = response.getWriter()
+//            msg.setMsgInfo('Cookie must be set')
+//            commonInfo.setMsg(msg)
+//            printWriter.write(JSONObject.toJSONString(commonInfo))
+//            printWriter.flush()
+//        } else {
+//            request.getRequestDispatcher('/setcookie.html').forward(request, response)
+//        }
+
+        request.getRequestDispatcher('/cookie').forward(request, response)
     }
 
     void redisDel(String key) {

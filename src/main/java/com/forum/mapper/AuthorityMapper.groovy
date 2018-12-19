@@ -7,6 +7,6 @@ import tk.mybatis.mapper.common.Mapper
 @org.apache.ibatis.annotations.Mapper
 interface AuthorityMapper extends Mapper<AuthorityEntity> {
     @Select('select * from f_authority')
-    List<AuthorityEntity> findAuthorities()
+    List<AuthorityEntity> selectAllFromTable()
 
 }

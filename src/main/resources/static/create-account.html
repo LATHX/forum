@@ -11,6 +11,7 @@
     <link href="css/login/css/templatemo_style.css" rel="stylesheet" type="text/css">
     <link href="css/login/css/scs.min.css" rel="stylesheet" type="text/css">
     <link href="css/custom.css" rel="stylesheet" type="text/css">
+    <link href="css/login/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 </head>
 <body class="templatemo-bg-gray">
 
@@ -22,9 +23,10 @@
             <div class="form-inner">
                 <div class="form-group">
                     <div class="col-md-6">
-                        <label for="first_name" class="control-label">昵称</label>
+                        <label for="first_name" class="control-label">昵称</label><div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
                         <input type="text" class="form-control" id="first_name" placeholder="输入昵称"
-                               name="nickname" data-toggle="dropdown" v-model="nickname">
+                               name="nickname" data-toggle="dropdown" v-model="nickname"></div>
                     </div>
                     <!--
                   <div class="col-md-6">
@@ -36,14 +38,18 @@
                 <div class="form-group">
                     <div class="col-md-6 col-lg-6">
                         <label for="email" class="control-label">邮箱</label>
+                        <div class="input-group margin-bottom-sm">
+                            <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
                         <input type="email" class="form-control" id="email" placeholder="输入邮箱" name="username"
-                               v-model="username" v-on:keyup="validationEmail" v-on:change="validationEmail">
+                               v-model="username" v-on:keyup="validationEmail" v-on:change="validationEmail"></div>
                         <label class="font_color_red">{{msgemail}}</label>
                     </div>
                     <div class="col-md-3">
                         <label for="password" class="control-label">验证码</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
                         <input type="text" class="form-control" id="code" placeholder="验证码" name="code"
-                               v-model="code">
+                               v-model="code"></div>
                         <label style="color: red;">{{msgcode}}</label>
                     </div>
                     <div class="col-md-3">
@@ -54,9 +60,9 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-12 col-lg-6">
-                        <label class="control-label">城市</label> <br>
+                        <label class="control-label">城市</label> <br> <div class="input-group margin-bottom-sm"><span class="input-group-addon"><i class="fa fa-institution fa-fw"></i></span>
                         <input type="text" class="form-control" readonly placeholder="选择城市" id="myAddrs"
-                               data-key="4-84-1298" name="city"/>
+                               data-key="4-84-1298" name="city"/></div>
                     </div>
                 </div>
                 <div class="form-group">
@@ -73,14 +79,16 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-6">
-                        <label for="password" class="control-label">密码</label>
+                        <label for="password" class="control-label">密码</label><div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-lock fa-fw"></i></span>
                         <input type="password" class="form-control" id="password" placeholder="输入8位以上密码"
-                               name="password" v-model="password">
+                               name="password" v-model="password"></div>
                     </div>
                     <div class="col-md-6">
-                        <label for="password" class="control-label">确认 密码</label>
+                        <label for="password" class="control-label">确认 密码</label><div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-lock fa-fw"></i></span>
                         <input type="password" class="form-control" id="confirmPassword" placeholder="确认 密码"
-                               name="confirmPassword" v-model="confirmPassword">
+                               name="confirmPassword" v-model="confirmPassword"></div>
                     </div>
                 </div>
                 <div class="form-group" id="agreeGroup">
