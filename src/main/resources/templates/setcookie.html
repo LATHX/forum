@@ -16,8 +16,7 @@ if((document.cookie || navigator.cookieEnabled))
 {
 document.getElementById('cookie').style.display='none';
 }
-if(getCookie('uuid')==null){
-    setCookie('uuid',guid());
+if(getCookie('custom.name')==null){
 location.href = document.location.toString()+"?securetoken="+guid();
 
 

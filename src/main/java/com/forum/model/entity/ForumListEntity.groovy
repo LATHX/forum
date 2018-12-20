@@ -2,6 +2,7 @@ package com.forum.model.entity
 
 import javax.persistence.Entity
 import javax.persistence.Table
+import java.sql.Timestamp
 
 @Entity
 @Table(name = 'f_forumList')
@@ -14,6 +15,23 @@ class ForumListEntity implements Serializable{
     String creatorIP
     boolean enable
     boolean authority
+    String type
+    Timestamp date
+    Timestamp getDate() {
+        return date
+    }
+
+    void setDate(Timestamp date) {
+        this.date = date
+    }
+
+    String getType() {
+        return type
+    }
+
+    void setType(String type) {
+        this.type = type
+    }
 
     String getFid() {
         return fid

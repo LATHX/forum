@@ -9,6 +9,8 @@ import org.springframework.stereotype.Component
 import javax.servlet.http.Cookie
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
+import java.sql.Timestamp
+import java.text.DateFormat
 import java.text.SimpleDateFormat
 
 @Component
@@ -184,6 +186,37 @@ class CommonUtil {
         cookie.setPath("/");
         cookie.setMaxAge(7 * 24 * 60 * 60 * 1000)
         response.addCookie(cookie);
+    }
+    /**
+     * 将java.sql.Timestamp对象转化为String字符串
+     * @param time
+     *            要格式的java.sql.Timestamp对象
+     * @param strFormat
+     *            输出的String字符串格式的限定（如："yyyy-MM-dd HH:mm:ss"）
+     * @return 表示日期的字符串
+     */
+    static String dateToStr(Timestamp time) {
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String str = df.format(time);
+        return str;
+    }
+    /**
+     * 将String字符串转换为java.sql.Timestamp格式日期,用于数据库保存
+     * @param strDate
+     *            表示日期的字符串
+     * @param dateFormat
+     *            传入字符串的日期表示格式（如："yyyy-MM-dd HH:mm:ss"）
+     * @return java.sql.Timestamp类型日期对象（如果转换失败则返回null）
+     */
+    static Timestamp strToSqlDate(String strDate) {
+        SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date date = null
+        date = sf.parse(strDate)
+        Timestamp dateSQL = new Timestamp(date.getTime());
+        return dateSQL;
+    }
+    static Timestamp getCurrentTimestamp(){
+        return new Timestamp((new Date()).getTime())
     }
 
 }

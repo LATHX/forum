@@ -14,7 +14,7 @@ class ForumController {
 
     @RequestMapping('/forumlist')
     @ResponseBody
-    getForumList(Integer page){
-        return forumService.getAllForumListByEnableAndAuthority(page, true, true)
+    getForumList(String type, Integer page){
+        return forumService.getAllForumListByEnableAndAuthority(type, page, true, true)
     }
 }

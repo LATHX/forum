@@ -1,0 +1,80 @@
+<ul class="ca bow box afa fade-in-animation">
+    <li class="b agz">
+        <h4 class="aeh">加入论坛</h4>
+    </li>
+
+
+    <li class="b rv agz">
+        <span class="h  axc aey yb"></span>
+
+        <div class="rw">
+            <small class="acx axc"></small>
+            <div class="bpb"><span class="fa fa-refresh" id="refreshing">&nbsp;<strong>正在加载...</strong></span>
+            </div>
+
+            <div class="aew">
+                <div class="dp" id="newlyforum">
+
+
+                    <!--<div class="fm">-->
+                    <!--<div class="pz bpi afa">-->
+                    <!--<div class="qf" style="background-image: url(images/instagram_4.jpg);"></div>-->
+                    <!--<div class="qa avz">-->
+                    <!--&lt;!&ndash;<img class="bpj" src="../assets/img/avatar-fat.jpg">&ndash;&gt;-->
+                    <!--<h5 class="qb">论坛3</h5>-->
+                    <!--<p class="afo">论坛3的简介</p>-->
+                    <!--<button class="cg nz ok">-->
+                    <!--<span class="h ayi"></span> 进入-->
+                    <!--</button>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+
+
+                </div>
+            </div>
+        </div>
+    </li>
+
+
+</ul>
+
+<script>
+    var page = 0;
+    refresh();
+function refresh(){
+     $("#refreshing").removeClass("hidden");
+     $.ajax({
+        type:"POST",
+        url:"/user-forum/forumlist",
+        dataType:"json",
+        timeout : 50000,
+        data: { page:page },
+        success:function(data){
+        for(var o in data){
+            var s ="<div class='fm'><div class='pz bpi afa'>";
+            var img = isEmpty(data[o].img) == true ?'images/instagram_4.jpg':data[o].img;
+            s += "<div class='qf' style='background-image: url("+img+");'></div><div class='qa avz'><!--<img class='bpj' src='../assets/img/avatar-fat.jpg'>-->";
+            s += "<h5 class='qb'>"+data[o].fname+"</h5>";
+            s += "<p class='afo'>"+data[o].description+"</p>";
+            s += "<a class='cg nz ok'  onclick=\"jump(";
+            s += "\'\/single_forum?fid="+data[o].fid+"\')\">";
+            s += "<span class='h'></span> 进入</a></div></div></div>";
+            $("#newlyforum").append(s);
+        }
+        page = page+1;
+        $("#refreshing").addClass("hidden");
+        },
+        complete: function (XMLHttpRequest, textStatus) {
+            if(textStatus == 'timeout') {
+                userPageAlert('',  '连接超时，请稍后再试')
+            }
+        },
+        error:function(jqXHR){
+            userPageAlert('',  '服务器繁忙，请稍后再试')
+
+        }
+    });
+}
+
+</script>

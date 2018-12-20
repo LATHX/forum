@@ -67,6 +67,7 @@ class ForgotPasswordServiceImpl implements ForgotPasswordService{
             messageCodeInfo.setMsgInfo(Constant.REGISTER_PASSWORD)
         }else{
             String username = RedisUtil.get(key)
+            RabbitUtil.deliveryMessageNotConfirm(Constant.DEL_REDIS_USER_SESSION, username)
             UserEntity userEntity = userMapper.findUserByUserName(username)
             userEntity.setPassword(DigestUtils?.sha1Hex(registerInfo.getPassword()))
             int updateInt = userMapper.updateByPrimaryKey(userEntity)
