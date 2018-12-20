@@ -64,6 +64,7 @@
     var url = GetUrlRelativePath();
     if(url.indexOf('index')!=-1)$("#indexpage").addClass('active');
     if(url.indexOf('forumlist')!=-1)$("#forumlistpage").addClass('active');
+    if(url.indexOf('single_forum')!=-1)$("#forumlistpage").addClass('active');
     function jump(url){
          activeControl(url);
          $("#jump").load(url,function(){ $("#jump").fadeIn(1100);});
