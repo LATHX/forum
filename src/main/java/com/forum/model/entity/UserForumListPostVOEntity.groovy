@@ -1,11 +1,11 @@
 package com.forum.model.entity
 
 import javax.persistence.Entity
-import javax.persistence.Table
 
 @Entity
-@Table(name = 'f_post')
-class PostEntity implements Serializable{
+class UserForumListPostVOEntity implements Serializable{
+    String sid
+    String nickname
     Integer postid
     Integer fid
     String creator
@@ -25,30 +25,33 @@ class PostEntity implements Serializable{
     String text
     String lastupdatetime
     String title
+    String fname
+    String img
+    String forumType
+    String userImg
 
-    String getTitle() {
-        return title
+    String getUserImg() {
+        return userImg
     }
 
-    void setTitle(String title) {
-        this.title = title
+    void setUserImg(String userImg) {
+        this.userImg = userImg
     }
 
-
-    String getText() {
-        return text
+    String getSid() {
+        return sid
     }
 
-    void setText(String text) {
-        this.text = text
+    void setSid(String sid) {
+        this.sid = sid
     }
 
-    boolean getEnable() {
-        return enable
+    String getNickname() {
+        return nickname
     }
 
-    void setEnable(boolean enable) {
-        this.enable = enable
+    void setNickname(String nickname) {
+        this.nickname = nickname
     }
 
     Integer getPostid() {
@@ -171,11 +174,59 @@ class PostEntity implements Serializable{
         this.date = date
     }
 
+    boolean getEnable() {
+        return enable
+    }
+
+    void setEnable(boolean enable) {
+        this.enable = enable
+    }
+
+    String getText() {
+        return text
+    }
+
+    void setText(String text) {
+        this.text = text
+    }
+
     String getLastupdatetime() {
         return lastupdatetime
     }
 
     void setLastupdatetime(String lastupdatetime) {
         this.lastupdatetime = lastupdatetime
+    }
+
+    String getTitle() {
+        return title
+    }
+
+    void setTitle(String title) {
+        this.title = title
+    }
+
+    String getFname() {
+        return fname
+    }
+
+    void setFname(String fname) {
+        this.fname = fname
+    }
+
+    String getImg() {
+        return img
+    }
+
+    void setImg(String img) {
+        this.img = img
+    }
+
+    String getForumType() {
+        return forumType
+    }
+
+    void setForumType(String forumType) {
+        this.forumType = forumType
     }
 }

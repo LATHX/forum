@@ -1,4 +1,4 @@
-<ul class="ca bow box afo">
+<ul class="ca bow box afo" id="list">
 
     <li class="rv b agz fade-in-animation">
         <div class="input-group">
@@ -11,7 +11,7 @@
 
     <li class="rv b agz fade-in-animation">
         <div class="input-group">
-            <input type="text" class="form-control" placeholder="Message">
+            <input type="text" class="form-control" placeholder="发布">
             <div class="bpt">
                 <button type="button" class="cg ns yf">
                     <span class="h bao"></span>
@@ -20,19 +20,12 @@
         </div>
     </li>
 
-    <li class="rv b agz fade-in-animation">
-        <img
-                class="bos vb yb aff"
-                src="images/avatar-dhg.png">
-        <div class="rw">
-            <div class="bpb">
-                <small class="acx axc">4 min</small>
-                <h6 th:text="${fid}"></h6>
-            </div>
 
-            <p>
-                Test
-            </p>
+
+
+
+
+
 
             <!--<div class="boy" data-grid="images">-->
             <!--<div style="display: none">-->
@@ -51,65 +44,42 @@
             <!--<img data-action="zoom" data-width="1535" data-height="1024" src="images/unsplash_2.jpg">-->
             <!--</div>-->
             <!--</div>-->
-            <ul class="figure-list boy" data-grid="images">
-                <li>
-                    <img data-action="zoom"  style="background-image:url(images/unsplash_1.jpg)" src="images/unsplash_1.jpg" url="images/unsplash_1.jpg"/>
-                </li>
-
-                <li>
-                    <img data-action="zoom" style="background-image:url(images/instagram_1.jpg)" src="images/instagram_1.jpg"/>
-                </li>
-                <li>
-                    <img data-action="zoom" style="background-image:url(images/instagram_13.jpg)" src="images/instagram_13.jpg"/>
-                </li>
-                <li>
-                    <img data-action="zoom" style="background-image:url(images/unsplash_1.jpg)" src="images/unsplash_1.jpg"/>
-                </li>
-                <li>
-                    <img data-action="zoom" style="background-image:url(images/instagram_13.jpg)" src="images/instagram_13.jpg"/>
-                </li>
-                <li>
-                    <img data-action="zoom" style="background-image:url(images/unsplash_1.jpg)" src="images/unsplash_1.jpg"/>
-                </li>
-                <li>
-                    <img data-action="zoom" style="background-image:url(images/unsplash_2.jpg)" src="images/unsplash_2.jpg"/>
-                </li>
-
-            </ul>
 
 
-            <ul class="bow afa">
-                <li class="rv afh">
-                    <div class="rw well">
-                        <p><strong style="color:red;">最佳答案: </strong></p>
-                        Test
-                        <ul class="figure-list boy" data-grid="images">
-                            <li>
-                                <img data-action="zoom"  style="background-image:url(images/unsplash_1.jpg)" src="images/unsplash_1.jpg" url="images/unsplash_1.jpg"/>
-                            </li>
 
-                            <li>
-                                <img data-action="zoom" style="background-image:url(images/instagram_1.jpg)" src="images/instagram_1.jpg"/>
-                            </li>
-                            <li>
-                                <img data-action="zoom" style="background-image:url(images/instagram_13.jpg)" src="images/instagram_13.jpg"/>
-                            </li>
-                            <li>
-                                <img data-action="zoom" style="background-image:url(images/unsplash_1.jpg)" src="images/unsplash_1.jpg"/>
-                            </li>
-                            <li>
-                                <img data-action="zoom" style="background-image:url(images/instagram_13.jpg)" src="images/instagram_13.jpg"/>
-                            </li>
-                            <li>
-                                <img data-action="zoom" style="background-image:url(images/unsplash_1.jpg)" src="images/unsplash_1.jpg"/>
-                            </li>
-                            <li>
-                                <img data-action="zoom" style="background-image:url(images/unsplash_2.jpg)" src="images/unsplash_2.jpg"/>
-                            </li>
+            <!--<ul class="bow afa">-->
+                <!--<li class="rv afh">-->
+                    <!--<div class="rw well">-->
+                        <!--<p><strong style="color:red;">最佳答案: </strong></p>-->
+                        <!--Test-->
+                        <!--<ul class="figure-list boy" data-grid="images">-->
+                            <!--<li>-->
+                                <!--<img data-action="zoom"  style="background-image:url(images/unsplash_1.jpg)" src="images/unsplash_1.jpg" url="images/unsplash_1.jpg"/>-->
+                            <!--</li>-->
 
-                        </ul>
-                    </div>
-                </li>
+                            <!--<li>-->
+                                <!--<img data-action="zoom" style="background-image:url(images/instagram_1.jpg)" src="images/instagram_1.jpg"/>-->
+                            <!--</li>-->
+                            <!--<li>-->
+                                <!--<img data-action="zoom" style="background-image:url(images/instagram_13.jpg)" src="images/instagram_13.jpg"/>-->
+                            <!--</li>-->
+                            <!--<li>-->
+                                <!--<img data-action="zoom" style="background-image:url(images/unsplash_1.jpg)" src="images/unsplash_1.jpg"/>-->
+                            <!--</li>-->
+                            <!--<li>-->
+                                <!--<img data-action="zoom" style="background-image:url(images/instagram_13.jpg)" src="images/instagram_13.jpg"/>-->
+                            <!--</li>-->
+                            <!--<li>-->
+                                <!--<img data-action="zoom" style="background-image:url(images/unsplash_1.jpg)" src="images/unsplash_1.jpg"/>-->
+                            <!--</li>-->
+                            <!--<li>-->
+                                <!--<img data-action="zoom" style="background-image:url(images/unsplash_2.jpg)" src="images/unsplash_2.jpg"/>-->
+                            <!--</li>-->
+
+                        <!--</ul>-->
+                    <!--</div>-->
+                <!--</li>-->
+
                 <!--<li class="rv">-->
                 <!--<img-->
                 <!--class="bos vb yb aff"-->
@@ -138,7 +108,59 @@
 </ul>
 
 <script>
-    function getTitle(){
+ getpost();
+    function getpost(){
+    var fid = $("#fid").val();
+        $.ajax({
+        type:"POST",
+        url:"/user-forum/single-forum-postlist",
+        dataType:"json",
+        timeout : 50000,
+        data: { fid:fid },
+        success:function(data){
+        for(var o in data){
+            var videoid = '';
+            var s = "";
+            var img = isEmpty(data[o].userImg) == true ?'images/no_user_image.png':data[o].userImg;
+            s += "<li class='rv b agz fade-in-animation'><img class='bos vb yb aff' src='"+img+"'><div class='rw'><div class='bpb'><small class='acx axc'>";
+            s += getDateDiff(data[o].lastupdatetime.substring(0, data[o].lastupdatetime.lastIndexOf('.')))+"</small><h6>"+data[o].title+"</h6></div><p>"+data[o].text+"</p>";
+            if(data[o].type == '1'){
+                s += "<ul class='figure-list boy' data-grid='images'>";
+                    if(!isEmpty(data[o].img0)) s += "<li><img data-action='zoom'  style='background-image:url("+data[o].img0+")' src='"+data[o].img0+"' url='"+data[o].img0+"'/></li>";
+                    if(!isEmpty(data[o].img1)) s += "<li><img data-action='zoom'  style='background-image:url("+data[o].img1+")' src='"+data[o].img1+"' url='"+data[o].img1+"'/></li>";
+                    if(!isEmpty(data[o].img2)) s += "<li><img data-action='zoom'  style='background-image:url("+data[o].img2+")' src='"+data[o].img2+"' url='"+data[o].img2+"'/></li>";
+                    if(!isEmpty(data[o].img3)) s += "<li><img data-action='zoom'  style='background-image:url("+data[o].img3+")' src='"+data[o].img3+"' url='"+data[o].img3+"'/></li>";
+                    if(!isEmpty(data[o].img4)) s += "<li><img data-action='zoom'  style='background-image:url("+data[o].img4+")' src='"+data[o].img4+"' url='"+data[o].img4+"'/></li>";
+                    if(!isEmpty(data[o].img5)) s += "<li><img data-action='zoom'  style='background-image:url("+data[o].img5+")' src='"+data[o].img5+"' url='"+data[o].img5+"'/></li>";
+                    if(!isEmpty(data[o].img6)) s += "<li><img data-action='zoom'  style='background-image:url("+data[o].img6+")' src='"+data[o].img6+"' url='"+data[o].img6+"'/></li>";
+                    if(!isEmpty(data[o].img7)) s += "<li><img data-action='zoom'  style='background-image:url("+data[o].img7+")' src='"+data[o].img7+"' url='"+data[o].img7+"'/></li>";
+                    if(!isEmpty(data[o].img8)) s += "<li><img data-action='zoom'  style='background-image:url("+data[o].img8+")' src='"+data[o].img8+"' url='"+data[o].img8+"'/></li>";
+                    s += "</ul>";
+            }else if(data[o].type == '2'){
+                videoid = S4();
+                s += " <ul class='figure-list boy' data-grid='' ><li><video controls>";
+                s += "<source src='"+data[o].video+"'  id='"+videoid+"'>";
+                s += "您的浏览器不支持HTML5视频</video></li></ul>";
+            }
+            s += "<ul class='bow afa'><li class='rv afh'><div class='rw '></div></li></ul></div></li>";
+            $("#title").text(data[o].fname)
+            $("#list").append(s);
 
+
+
+
+        }
+        $("#refreshing").addClass("hidden");
+        },
+        complete: function (XMLHttpRequest, textStatus) {
+            if(textStatus == 'timeout') {
+                userPageAlert('',  '连接超时，请稍后再试')
+            }
+        },
+        error:function(jqXHR){
+            userPageAlert('',  '服务器繁忙，请稍后再试')
+
+        }
+    });
     }
 </script>

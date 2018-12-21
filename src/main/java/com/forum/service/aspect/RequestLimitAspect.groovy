@@ -53,10 +53,7 @@ class RequestLimitAspect extends HandlerInterceptorAdapter {
             }
             String uuidCookie = CommonUtil.getCookies(request, 'custom.name')
             if (CommonUtil.isEmpty(uuidCookie)) {
-                if (CommonUtil.isEmpty(request.getParameter('securetoken'))) {
                     renderCookie(request, response)
-                    return false
-                }
             }
             String key = "req_limit_".concat(url).concat(ip).concat(uuidCookie)
 

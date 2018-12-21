@@ -2,7 +2,6 @@ package com.forum.model.entity
 
 import javax.persistence.Entity
 import javax.persistence.Table
-import java.sql.Timestamp
 
 @Entity
 @Table(name = 'f_forumList')
@@ -10,18 +9,19 @@ class ForumListEntity implements Serializable{
     String fid
     String fname
     String img
-    String description
     String creator
+    String description
     String creatorIP
     boolean enable
     boolean authority
     String type
-    Timestamp date
-    Timestamp getDate() {
+    String date
+
+    String getDate() {
         return date
     }
 
-    void setDate(Timestamp date) {
+    void setDate(String date) {
         this.date = date
     }
 

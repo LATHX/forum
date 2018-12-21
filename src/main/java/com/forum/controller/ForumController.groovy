@@ -17,4 +17,10 @@ class ForumController {
     getForumList(String type, Integer page){
         return forumService.getAllForumListByEnableAndAuthority(type, page, true, true)
     }
+
+    @RequestMapping('/single-forum-postlist')
+    @ResponseBody
+    getSingleForumPostList(String fid){
+        return forumService.getSingleForumPostList(fid)
+    }
 }

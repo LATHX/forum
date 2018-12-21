@@ -80,11 +80,56 @@ function guid() {
       return (S4()+S4()+"-"+S4()+"-"+S4()+"-"+S4()+"-"+S4()+S4()+S4());
 }
 function isEmpty(str){
-    if(str == null || str.trim().length() == 0){
+    if(str == null || str.trim().length == 0){
         return true;
     }
     return false;
 }
 function userPageAlert(strogerText, Text){
 $('nav').after("<div id='myAlert2' class='alert alert-danger fade-in-animation opacity95' style='position: fixed;left:0;right:0;top:auto;z-index:1031;'><a href='#' class='close' data-dismiss='alert'>&times;</a><strong>"+strogerText+"</strong>"+Text+"</div>");
+}
+
+
+function getDateDiff(dateTimeStamp){
+var minute = 1000 * 60;
+var hour = minute * 60;
+var day = hour * 24;
+var halfamonth = day * 15;
+var month = day * 30;
+var now = new Date().getTime();
+var datetime = dateTimeStamp;
+dateTimeStamp = getDateTimeStamp(dateTimeStamp);
+var diffValue = now - dateTimeStamp;
+if(diffValue < 0){
+ //若日期不符则弹出窗口告之
+ //alert("结束日期不能小于开始日期！");
+ }
+var monthC =diffValue/month;
+var weekC =diffValue/(7*day);
+var dayC =diffValue/day;
+var hourC =diffValue/hour;
+var minC =diffValue/minute;
+if(monthC>=1){
+// result="" + parseInt(monthC) + "个月前";
+result = datetime;
+ }
+ else if(weekC>=1){
+// result="" + parseInt(weekC) + "周前";
+result = datetime;
+ }
+ else if(dayC>=1){
+ result=""+ parseInt(dayC) +"天前";
+ }
+ else if(hourC>=1){
+ result=""+ parseInt(hourC) +"小时前";
+ }
+ else if(minC>=1){
+ result=""+ parseInt(minC) +"分钟前";
+ }else
+ result="刚刚";
+return result;
+}
+//js函数代码：字符串转换为时间戳
+function getDateTimeStamp(dateStr){
+ return Date.parse(dateStr.replace(/-/gi,"/"));
 }
