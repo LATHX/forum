@@ -51,11 +51,12 @@ class RequestLimitAspect extends HandlerInterceptorAdapter {
             if (url.substring(url.lastIndexOf('/')) == LIMIT_PATH || url.substring(url.lastIndexOf('/')) == '/cookie' || url.substring(url.lastIndexOf('/')) == '/setcookie.html') {
                 return true
             }
-            String uuidCookie = CommonUtil.getCookies(request, 'custom.name')
-            if (CommonUtil.isEmpty(uuidCookie)) {
+            String customCookie = CommonUtil.getCookies(request, 'custom.name')
+            if (CommonUtil.isEmpty(customCookie)) {
                     renderCookie(request, response)
+                    return false
             }
-            String key = "req_limit_".concat(url).concat(ip).concat(uuidCookie)
+            String key = "req_limit_".concat(url).concat(ip).concat(customCookie)
 
             if (!RedisUtil.hasKey(key) || CommonUtil.isEmpty(RedisUtil.get(key))) {
                 RedisUtil.set(key, String.valueOf(1))

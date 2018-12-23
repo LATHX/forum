@@ -113,7 +113,7 @@ var vm = new Vue({
                         dataType:"json",
                         timeout : 5000,
                         success:function(ret){
-                            if(ret.msg.msgCode == '201'){
+                            if(ret.msg.msgCode == '200'){
                                 that.loginCodeButton=ret.msg.msgInfo
                                 that.loginCodeClass='btn-success'
                                 that.publicKey=ret.publicKey;

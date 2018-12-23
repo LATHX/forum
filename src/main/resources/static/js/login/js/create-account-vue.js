@@ -44,7 +44,7 @@
                     timeout : 50000,
                     data: {username: this.username},
                     success:function(ret){
-                        if(ret.msg.msgCode == '202'){
+                        if(ret.msg.msgCode == '200'){
                         }else{
                             that.msgcode='获取频繁，请稍后再试'
                         }
@@ -73,7 +73,7 @@
                             timeout : 50000,
                             data: { nickname: this.nickname, username: this.username, password:strToMD5(strToMD5(this.password)),password:strToMD5(strToMD5(this.password)),confirmPassword:strToMD5(strToMD5(this.confirmPassword)),code:this.code,city:this.city,sex:this.sex },
                             success:function(ret){
-                                if(ret.msg.msgCode == '202'){
+                                if(ret.msg.msgCode == '200'){
                                 	location.href="login.html"
                                 }else{
 									that.msginfo = ret.msg.msgInfo

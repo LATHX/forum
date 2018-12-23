@@ -1,11 +1,12 @@
 package com.forum.service
 
 import com.forum.model.dto.LoginInfo
+import com.forum.model.dto.MessageCodeInfo
 
 import javax.servlet.http.HttpServletRequest
 
 interface LoginService {
-    String validationLoginInfo(HttpServletRequest request, LoginInfo loginInfo)
-    String getToken(HttpServletRequest request)
+    MessageCodeInfo validationLoginInfo(HttpServletRequest request, LoginInfo loginInfo)
+    MessageCodeInfo getToken(HttpServletRequest request, LoginInfo loginInfo)
     void logout()
 }

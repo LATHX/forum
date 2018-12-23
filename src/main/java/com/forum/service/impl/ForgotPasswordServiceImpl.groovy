@@ -37,9 +37,9 @@ class ForgotPasswordServiceImpl implements ForgotPasswordService{
             boolean isSetKeyExpired = RedisUtil.expire(key, Constant.FORGOT_PASSWORD_TIMEOUT?.toLong())
             if(!isSetKey || !isSetKeyExpired){
                 messageCodeInfo.setMsgInfo(Constant.REGISTER_MAIL_FAIL)
-                messageCodeInfo.setMsgCode(GlobalCode.REGISTER_MAIL_FAIL)
+                messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
             }else{
-                messageCodeInfo.setMsgCode(GlobalCode.REGISTER_MAIL_OK)
+                messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_SUCCESS)
                 messageCodeInfo.setMsgInfo(Constant.LOGIN_CODE_SUCCESS_MSG)
                 mailInfo.setSubject(Constant.FORGOT_MAIL_SUBJECT)
                 mailInfo.setText(String.format(Constant.FORGOT_MAIL_TEXT, mailText))
@@ -50,7 +50,7 @@ class ForgotPasswordServiceImpl implements ForgotPasswordService{
             }
         }else{
             messageCodeInfo.setMsgInfo(Constant.USERNAME_NOT_EXITS)
-            messageCodeInfo.setMsgCode(GlobalCode.REGISTER_MAIL_FAIL)
+            messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
         }
         return messageCodeInfo
     }
@@ -60,23 +60,23 @@ class ForgotPasswordServiceImpl implements ForgotPasswordService{
         String key = Constant.REDIS_FORGOT_PASSWORD_NAME + registerInfo.getCode()
         boolean hasKey = RedisUtil?.hasKey(key)
         if(!hasKey){
-            messageCodeInfo.setMsgCode(GlobalCode.REGISTER_MAIL_FAIL)
+            messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
             messageCodeInfo.setMsgInfo(Constant.REST_PASSWORD_TIMEOUT_MSG)
         }else if((registerInfo.getPassword() != registerInfo.getConfirmPassword()) ||(CommonUtil.replaceIllegalCharacter(registerInfo.getPassword())?.length() != registerInfo.getPassword()?.length())){
-            messageCodeInfo.setMsgCode(GlobalCode.REGISTER_MAIL_FAIL)
+            messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
             messageCodeInfo.setMsgInfo(Constant.REGISTER_PASSWORD)
         }else{
             String username = RedisUtil.get(key)
-            RabbitUtil.deliveryMessageNotConfirm(Constant.DEL_REDIS_USER_SESSION, username)
+            RabbitUtil.deliveryMessageNotConfirm(Constant.MQ_DEL_REDIS_USER_SESSION, CommonUtil.getCookies(request, 'custom.name'))
             UserEntity userEntity = userMapper.findUserByUserName(username)
             userEntity.setPassword(DigestUtils?.sha1Hex(registerInfo.getPassword()))
             int updateInt = userMapper.updateByPrimaryKey(userEntity)
             RabbitUtil.deliveryMessageNotConfirm(Constant.MQ_REDIS_DEL, key)
             if(updateInt == 1){
-                messageCodeInfo.setMsgCode(GlobalCode.REGISTER_MAIL_OK)
+                messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_SUCCESS)
                 messageCodeInfo.setMsgInfo('')
             }else{
-                messageCodeInfo.setMsgCode(GlobalCode.REGISTER_MAIL_FAIL)
+                messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
                 messageCodeInfo.setMsgInfo(Constant.REST_PASSWORD_FAIL_MSG)
             }
         }

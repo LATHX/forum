@@ -54,7 +54,7 @@ class RabbitConfig {
 
     @Bean
     Binding delRedisUserSession() {
-        return BindingBuilder.bind(new Queue(Constant.DEL_REDIS_USER_SESSION, true)).to(topicExchange()).with(Constant.DEL_REDIS_USER_SESSION)
+        return BindingBuilder.bind(new Queue(Constant.MQ_DEL_REDIS_USER_SESSION, true)).to(topicExchange()).with(Constant.MQ_DEL_REDIS_USER_SESSION)
     }
 
     @Bean

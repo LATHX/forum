@@ -1,4 +1,4 @@
-<ul class="ca bow box afo" id="list">
+<ul class="ca bow box afo">
 
     <li class="rv b agz fade-in-animation">
         <div class="input-group">
@@ -11,7 +11,7 @@
 
     <li class="rv b agz fade-in-animation">
         <div class="input-group">
-            <input type="text" class="form-control" placeholder="发布">
+            <input type="text" class="form-control" placeholder="有什么话想对我说...">
             <div class="bpt">
                 <button type="button" class="cg ns yf">
                     <span class="h bao"></span>
@@ -89,12 +89,11 @@
                 <!--Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.-->
                 <!--</div>-->
                 <!--</li>-->
-            </ul>
-        </div>
-    </li>
+            <!--</ul>-->
+        <!--</div>-->
+    <!--</li>-->
 
-
-    <li class="rv b agz">
+    <li class="rv b agz" id="list" >
 
         <div class="rw">
             <div class="bpb" id="refreshing">
@@ -103,7 +102,6 @@
 
         </div>
     </li>
-
 
 </ul>
 
@@ -139,18 +137,20 @@
             }else if(data[o].type == '2'){
                 videoid = S4();
                 s += " <ul class='figure-list boy' data-grid='' ><li><video controls>";
-                s += "<source src='"+data[o].video+"'  id='"+videoid+"'>";
+                s += "<source src='"+data[o].video+"'  id='"+videoid+"'></source>";
                 s += "您的浏览器不支持HTML5视频</video></li></ul>";
             }
-            s += "<ul class='bow afa'><li class='rv afh'><div class='rw '></div></li></ul></div></li>";
+            s += "<ul class='bow afa'><li class='rv afh'> <div class='rw well'><p><strong style='color:red;'>最佳: </strong></p>Test <ul class='figure-list boy' data-grid='images'></ul></div></li></ul>";
+            s += "</div></li>"
             $("#title").text(data[o].fname)
-            $("#list").append(s);
+            $("#list").before(s);
 
 
 
 
         }
-        $("#refreshing").addClass("hidden");
+
+        //$("#refreshing").addClass("hidden");
         },
         complete: function (XMLHttpRequest, textStatus) {
             if(textStatus == 'timeout') {

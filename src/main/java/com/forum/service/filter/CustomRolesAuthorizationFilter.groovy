@@ -73,7 +73,7 @@ class CustomRolesAuthorizationFilter extends RolesAuthorizationFilter {
             loginInfo.setToken('')
             loginInfo.setPassword('')
             if (subject.getPrincipal() == null) {
-                messageCodeInfo.setMsgCode(GlobalCode.LOGIN_VERIFY_FAIL)
+                messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
                 messageCodeInfo.setMsgInfo(Constant.LOGIN_OUT_MSG)
                 commonInfo.setMsg(messageCodeInfo)
                 respStr = JSONObject.toJSONString(commonInfo)

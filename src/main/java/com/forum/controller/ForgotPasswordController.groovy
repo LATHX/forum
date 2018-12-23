@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody
 import javax.servlet.http.HttpServletRequest
 
 @Controller
-class ForgotPassWordController {
+class ForgotPasswordController {
     @Autowired
     MessageCodeInfo messageCodeInfo
     @Autowired
@@ -30,7 +30,7 @@ class ForgotPassWordController {
     restPassword(HttpServletRequest request,
                  @Validated(value = [RestPasswordGroup.class]) RegisterInfo registerInfo, BindingResult bindingResult) {
         if (bindingResult?.hasErrors()) {
-            messageCodeInfo.setMsgCode(GlobalCode.REGISTER_MAIL_FAIL)
+            messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
             messageCodeInfo.setMsgInfo(bindingResult?.getFieldError()?.getDefaultMessage())
         }else{
             messageCodeInfo = forgotPasswordService.restPassword(request, registerInfo)
@@ -44,7 +44,7 @@ class ForgotPassWordController {
     forgotMail(HttpServletRequest request,
                @Validated(value = [ForgotPasswordGroup.class]) RegisterInfo registerInfo, BindingResult bindingResult) {
         if (bindingResult?.hasErrors()) {
-            messageCodeInfo.setMsgCode(GlobalCode.REGISTER_MAIL_FAIL)
+            messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
             messageCodeInfo.setMsgInfo(bindingResult?.getFieldError()?.getDefaultMessage())
         } else {
             messageCodeInfo = forgotPasswordService.sendForgotMail(request, registerInfo.getUsername())

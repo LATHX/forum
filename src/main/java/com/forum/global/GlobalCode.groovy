@@ -20,15 +20,8 @@ class GlobalCode implements InitializingBean {
     void afterPropertiesSet() throws Exception {
         load()
     }
-    static String LOGIN_VERIFY_OK
-    static String LOGIN_CODE_OK
-    static String LOGIN_VERIFY_FAIL
-    static String LOGIN_CODE_FAIL
-    static String LOGIN_CODE_FREQUENT
-    static String LOGIN_PERMISSION
-    static String REGISTER_MAIL_FAIL
-    static String REGISTER_MAIL_OK
-    static String ACCOUNT_BLOCK
+    static String REFERENCE_SUCCESS
+    static String REFERENCE_FAIL
     void load() {
         logger.info('Initializing GlobalCode')
         List<DictionaryEntity> list = dictionaryMapper.selectAllInTableWithParamType('参数代码')

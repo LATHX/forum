@@ -50,7 +50,7 @@
                             timeout : 50000,
                             data: {code: code, password:strToMD5(strToMD5(password)),confirmPassword:strToMD5(strToMD5(confirmPassword))},
                             success:function(ret){
-                                if(ret.msg.msgCode == '202'){forgotPassword
+                                if(ret.msg.msgCode == '200'){forgotPassword
                                 	 $("#successMail").removeClass("hidden");
                                 	 $("#resetPassword").addClass("hidden");
                                 	 $("#msg").text('重置密码完成');
@@ -81,7 +81,7 @@
                             timeout : 50000,
                             data: {username: $("#username").val().trim() },
                             success:function(ret){
-                                if(ret.msg.msgCode == '202'){forgotPassword
+                                if(ret.msg.msgCode == '200'){forgotPassword
                                 	 $("#successMail").removeClass("hidden");
                                 	 $("#forgotPassword").addClass("hidden");
                                 	 $("#msg").text('重置密码邮件已发送到邮箱,请注意查收');

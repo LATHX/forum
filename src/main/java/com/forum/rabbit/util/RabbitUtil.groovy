@@ -17,6 +17,7 @@ class RabbitUtil implements RabbitTemplate.ConfirmCallback, ReturnCallback {
     private final static Logger logger = LoggerFactory.getLogger(RabbitUtil.class)
 
     private static RabbitTemplate rabbitTemplate
+
     @Autowired
     void setRabbitTemplate(RabbitTemplate rabbitTemplate) {
         this.rabbitTemplate = rabbitTemplate

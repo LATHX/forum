@@ -29,18 +29,19 @@ class RegisterServiceImpl implements RegisterService {
 
     @Override
     MessageCodeInfo register(HttpServletRequest request, RegisterInfo registerInfo) {
+        String customCookie = CommonUtil.getCookies(request, 'custom.name')?.toString()
         String IP = CommonUtil.getRealIP(request)
-        String key = Constant.REGISTER_REDIS_MAIL_NAME + IP
+        String key = Constant.REGISTER_REDIS_MAIL_NAME + IP + customCookie
         String code = RedisUtil.get(key)
         int usernameCount = userMapper.countNumberByUsername(registerInfo.getUsername())
         if (usernameCount != 0) {
-            messageCodeInfo.setMsgCode(GlobalCode.REGISTER_MAIL_FAIL)
+            messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
             messageCodeInfo.setMsgInfo(Constant.REGISTER_SAME)
         } else if (code?.toLowerCase() != RedisUtil.get(key)?.toString()?.toLowerCase()) {
-            messageCodeInfo.setMsgCode(GlobalCode.REGISTER_MAIL_FAIL)
+            messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
             messageCodeInfo.setMsgInfo(Constant.REGISTER_CODE)
         } else if ((registerInfo.getPassword() != registerInfo.getConfirmPassword()) || (CommonUtil.replaceIllegalCharacter(registerInfo.getPassword())?.length() != registerInfo.getPassword()?.length())) {
-            messageCodeInfo.setMsgCode(GlobalCode.REGISTER_MAIL_FAIL)
+            messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
             messageCodeInfo.setMsgInfo(Constant.REGISTER_PASSWORD)
         } else {
             UserEntity user = new UserEntity()
@@ -65,7 +66,7 @@ class RegisterServiceImpl implements RegisterService {
             if(mergerName?.trim() != '海外'){
                 int areaCount = areaMapper.selectCountByMergeName('中国'+mergerName?.trim())
                 if(areaCount!=1){
-                    messageCodeInfo.setMsgCode(GlobalCode.REGISTER_MAIL_FAIL)
+                    messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
                     messageCodeInfo.setMsgInfo(Constant.REGISTER_VERIFY_AREA_FAIL)
                     return messageCodeInfo
                 }
@@ -85,10 +86,10 @@ class RegisterServiceImpl implements RegisterService {
 //            }
             int insertInt = userMapper.insertIntoTable(user)
             if (insertInt == 1) {
-                messageCodeInfo.setMsgCode(GlobalCode.REGISTER_MAIL_OK)
+                messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_SUCCESS)
                 messageCodeInfo.setMsgInfo('')
             } else {
-                messageCodeInfo.setMsgCode(GlobalCode.REGISTER_MAIL_FAIL)
+                messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
                 messageCodeInfo.setMsgInfo('')
             }
         }
@@ -96,9 +97,10 @@ class RegisterServiceImpl implements RegisterService {
     }
 
     @Override
-    boolean registerMail(HttpServletRequest request, RegisterInfo registerInfo) {
+    MessageCodeInfo registerMail(HttpServletRequest request, RegisterInfo registerInfo) {
+        String customCookie = CommonUtil.getCookies(request, 'custom.name')?.toString()
         String IP = CommonUtil.getRealIP(request)
-        String key = Constant.REGISTER_REDIS_MAIL_NAME + IP
+        String key = Constant.REGISTER_REDIS_MAIL_NAME + IP + customCookie
         int alive = Constant.REGISTER_REDIS_TIMEOUT?.toInteger() - (Constant.UUID_REDIS_KEY_TIMEOUT?.toInteger())
         if (CommonUtil.hasRedisKey(key) && RedisUtil.getExpire(key) > alive) {
             return false
@@ -112,9 +114,13 @@ class RegisterServiceImpl implements RegisterService {
                 mailInfo.setText(String.format(Constant.REGISTER_TEXT, code))
                 mailInfo.setUseHTTP(false)
                 RabbitUtil.deliveryMessageNotConfirm(Constant.MQ_SEND_MAIL, mailInfo)
-                return true
+                messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_SUCCESS)
+                messageCodeInfo.setMsgInfo('')
+                return messageCodeInfo
             } else {
-                return false
+                messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
+                messageCodeInfo.setMsgInfo(Constant.REGISTER_MAIL_FAIL)
+                return messageCodeInfo
             }
         }
 

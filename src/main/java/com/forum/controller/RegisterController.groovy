@@ -1,6 +1,5 @@
 package com.forum.controller
 
-import com.forum.global.Constant
 import com.forum.global.GlobalCode
 import com.forum.model.dto.CommonInfo
 import com.forum.model.dto.MessageCodeInfo
@@ -29,7 +28,7 @@ class RegisterController {
     @ResponseBody
      register(HttpServletRequest request, @Validated(value = [RegisterGroup.class]) RegisterInfo registerInfo, BindingResult bindingResult) throws Exception {
         if(bindingResult?.hasErrors()){
-            messageCodeInfo.setMsgCode(GlobalCode.REGISTER_MAIL_FAIL)
+            messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
             messageCodeInfo.setMsgInfo(bindingResult?.getFieldError()?.getDefaultMessage())
         }else{
             messageCodeInfo = registerService.register(request, registerInfo)
@@ -41,16 +40,10 @@ class RegisterController {
     @ResponseBody
     registerMail(HttpServletRequest request, @Validated(value = [RegisterMailGroup.class]) RegisterInfo registerInfo, BindingResult bindingResult) throws Exception {
         if(bindingResult?.hasErrors()){
-            messageCodeInfo.setMsgCode(GlobalCode.REGISTER_MAIL_FAIL)
+            messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
             messageCodeInfo.setMsgInfo(bindingResult?.getFieldError()?.getDefaultMessage())
         }else{
-            if(registerService.registerMail(request, registerInfo)){
-                messageCodeInfo.setMsgCode(GlobalCode.REGISTER_MAIL_OK)
-                messageCodeInfo.setMsgInfo('')
-            }else{
-                messageCodeInfo.setMsgCode(GlobalCode.REGISTER_MAIL_FAIL)
-                messageCodeInfo.setMsgInfo(Constant.REGISTER_MAIL_FAIL)
-            }
+            messageCodeInfo = registerService.registerMail(request, registerInfo)
         }
         info.setMsg(messageCodeInfo)
         return info

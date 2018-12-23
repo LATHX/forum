@@ -38,9 +38,9 @@ class RabbitListenerService {
     }
 
     @RabbitListener(queues = 'del.redis_user_session')
-    void delRedisUserSession(byte[] msg) {
+    void delRedisUserSession(byte[] msg) throws Exception{
         println('Del Redis User Session')
-        String username = (String) CommonUtil.getObjectFromBytes(msg)
-        ShiroUtil.kickOutUser(username, true)
+        String usernmae = (String) CommonUtil.getObjectFromBytes(msg)
+        ShiroUtil.kickOutUser(usernmae, true)
     }
 }
