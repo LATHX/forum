@@ -18,6 +18,7 @@ import org.springframework.web.context.request.ServletRequestAttributes
 
 import javax.servlet.http.HttpServletRequest
 import java.text.SimpleDateFormat
+
 /**
  * @describe: 实现controller的日志切面
  * @author: LJL
@@ -43,11 +44,11 @@ class ControllerLogAspect {
  * ~ .. 匹配任意数量的参数.
  */
     @Pointcut("execution(* com.forum.controller.*.*(..))")
-     void serviceAspect() {
+    void serviceAspect() {
     }
 
     @Before("serviceAspect()")
-     void doBefore(JoinPoint joinPoint) {
+    void doBefore(JoinPoint joinPoint) {
         startTime.set(System.currentTimeMillis())
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes()
         HttpServletRequest request = attributes.getRequest()
@@ -65,7 +66,7 @@ class ControllerLogAspect {
     }
 
     @Around("serviceAspect()")
-     Object doAround(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
+    Object doAround(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         long startTime = System.currentTimeMillis()
         Object ob = proceedingJoinPoint.proceed()
         logger.info("Finish Method Spend Time : ".concat((System.currentTimeMillis() - startTime).toString()).concat('ms'))
@@ -77,7 +78,7 @@ class ControllerLogAspect {
      * @param result
      */
     @AfterReturning(returning = "result", pointcut = "serviceAspect()")
-     void doAfterReturning(Object result) {
+    void doAfterReturning(Object result) {
         ObjectMapper mapper = new ObjectMapper()
         try {
             logger.info("Returning >>> response={}", result.toString())

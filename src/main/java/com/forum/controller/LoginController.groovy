@@ -5,6 +5,7 @@ import com.forum.global.GlobalCode
 import com.forum.model.dto.CommonInfo
 import com.forum.model.dto.LoginInfo
 import com.forum.model.dto.MessageCodeInfo
+import com.forum.model.entity.SessionEntity
 import com.forum.model.validationInterface.LoginGroup
 import com.forum.service.LoginService
 import org.springframework.beans.factory.annotation.Autowired
@@ -21,23 +22,18 @@ import javax.servlet.http.HttpServletResponse
 @Controller
 class LoginController {
     @Autowired
-    LoginInfo loginInfo
-    @Autowired
-    MessageCodeInfo messageCodeInfo
-    @Autowired
     LoginService loginService
-    @Autowired
-    CommonInfo commonInfo
+
 
     @PostMapping('/login')
     @ResponseBody
     login(HttpServletRequest request,
-          @Validated(value = [LoginGroup.class]) LoginInfo info, BindingResult bindingResult) throws Exception {
+          @Validated(value = [LoginGroup.class]) LoginInfo info, BindingResult bindingResult, MessageCodeInfo messageCodeInfo, CommonInfo commonInfo, SessionEntity sessionEntity) throws Exception {
         if (bindingResult?.hasErrors()) {
             messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
             messageCodeInfo.setMsgInfo(bindingResult?.getFieldError()?.getDefaultMessage())
         } else {
-            messageCodeInfo = loginService.validationLoginInfo(request, info)
+            messageCodeInfo = loginService.validationLoginInfo(request, info, messageCodeInfo, commonInfo, sessionEntity)
         }
         commonInfo.setMsg(messageCodeInfo)
         return commonInfo
@@ -45,8 +41,8 @@ class LoginController {
 
     @PostMapping('/token')
     @ResponseBody
-    token(HttpServletRequest request) throws Exception {
-        messageCodeInfo = loginService.getToken(request, loginInfo)
+    token(HttpServletRequest request, LoginInfo loginInfo, MessageCodeInfo messageCodeInfo, CommonInfo commonInfo) throws Exception {
+        messageCodeInfo = loginService.getToken(request, loginInfo, messageCodeInfo, commonInfo)
         if (messageCodeInfo.getMsgCode() != GlobalCode.REFERENCE_SUCCESS) {
             commonInfo.setMsg(messageCodeInfo)
             return commonInfo

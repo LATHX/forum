@@ -46,3 +46,6 @@ https://github.com/hankcs/HanLP
 Shiro标签
 https://www.sojson.com/blog/144.html
 https://www.cnblogs.com/mrelk/p/7872188.html
+
+Bean状态
+https://blog.csdn.net/cs408/article/details/47809271

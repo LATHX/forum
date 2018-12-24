@@ -3,8 +3,10 @@ package com.forum.service.impl
 import com.forum.global.Constant
 import com.forum.mapper.ForumListMapper
 import com.forum.mapper.UserForumListPostVOMapper
+import com.forum.mapper.UserPostReplyVOMapper
 import com.forum.model.entity.ForumListEntity
 import com.forum.model.entity.UserForumListPostVOEntity
+import com.forum.model.entity.UserPostReplyVOEntity
 import com.forum.service.ForumService
 import com.forum.utils.CommonUtil
 import com.github.pagehelper.PageHelper
@@ -17,9 +19,12 @@ class ForumServiceImpl implements ForumService{
     ForumListMapper forumListMapper
     @Autowired
     UserForumListPostVOMapper userForumListPostVOMapper
+    @Autowired
+    UserPostReplyVOMapper userPostReplyVOMapper
 
     @Override
     List<ForumListEntity> getAllForumListByEnableAndAuthority(String type, Integer page, boolean enable, boolean authority) {
+        page = page?.toString()?.isNumber()? page : 1
         PageHelper.startPage(page, Constant.PAGEROW.toInteger())
         List<ForumListEntity> list = null
         if(CommonUtil.isEmpty(type)){
@@ -31,7 +36,20 @@ class ForumServiceImpl implements ForumService{
     }
 
     @Override
-    List<UserForumListPostVOEntity> getSingleForumPostList(String fid) {
-        return userForumListPostVOMapper.userSingleForumPostList(fid)
+    List<UserForumListPostVOEntity> getSingleForumPostList(String fid, Integer page) {
+        page = page?.toString()?.isNumber()? page : 1
+        PageHelper.startPage(page, Constant.PAGEROW.toInteger())
+        StringBuilder sb = new StringBuilder('')
+        List<UserForumListPostVOEntity> list = userForumListPostVOMapper.userSingleForumPostList(fid)
+        list?.eachWithIndex { current_postId, Idx ->
+            sb.append('\"')
+            sb.append(current_postId?.postid)
+            sb.append('\"')
+            if(Idx != list.size() - 1)
+            sb.append(',')
+        }
+        List<UserPostReplyVOEntity> favouriteList = userPostReplyVOMapper.SelectMaxFavouriteReplyByPostIdGroup(sb.toString())
+        favouriteList
+        return list
     }
 }

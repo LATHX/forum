@@ -215,22 +215,24 @@ class CommonUtil {
         Timestamp dateSQL = new Timestamp(date.getTime());
         return dateSQL;
     }
-    static Timestamp getCurrentTimestamp(){
+
+    static Timestamp getCurrentTimestamp() {
         return new Timestamp((new Date()).getTime())
     }
-    static String getDeviceInfo(HttpServletRequest request){
-        String userAgent = request.getHeader("user-agent").toLowerCase();;
-        if(userAgent.indexOf("micromessenger")!= -1){
+
+    static String getDeviceInfo(HttpServletRequest request) {
+        String userAgent = request.getHeader("user-agent").toLowerCase()
+        if (userAgent.indexOf("micromessenger") != -1) {
             return '微信登录'
-        }else if(userAgent.indexOf("android") != -1){
-            return '安卓设备'
-        }else if(userAgent.indexOf("iphone") != -1){
-            return 'iPhone设备'
-        }else if(userAgent.indexOf("ipad") != -1){
-            return 'iPad设备'
-        }else if(userAgent.indexOf("ipod") != -1){
-            return 'iPod设备'
-        }else{
+        } else if (userAgent.indexOf("android") != -1) {
+            return '安卓'
+        } else if (userAgent.indexOf("iphone") != -1) {
+            return 'iPhone'
+        } else if (userAgent.indexOf("ipad") != -1) {
+            return 'iPad'
+        } else if (userAgent.indexOf("ipod") != -1) {
+            return 'iPod'
+        } else {
             return '电脑'
         }
     }

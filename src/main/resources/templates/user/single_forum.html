@@ -93,7 +93,7 @@
         <!--</div>-->
     <!--</li>-->
 
-    <li class="rv b agz" id="list" >
+    <li class="rv b agz" id="single_forum_list" >
 
         <div class="rw">
             <div class="bpb" id="refreshing">
@@ -106,16 +106,38 @@
 </ul>
 
 <script>
- getpost();
-    function getpost(){
+
+$('#single_forum_list').val(50);
+var loading = false;
+$(window).scroll(function(){
+ if((($(window).scrollTop()+$(window).height())+250)>=$(document).height()){
+      if(loading == false){
+           loading = true;
+           if(isSingleForumloading){
+            getSingleForum();
+           }
+                $('#single_forum_list').val(parseInt($('#single_forum_list').val())+50);
+                loading = false;
+
+      }
+ }
+});
+
+
+ getSingleForum();
+    function getSingleForum(){
+
     var fid = $("#fid").val();
+    if(isSingleForumloading){
+    isSingleForumloading = false;
         $.ajax({
         type:"POST",
         url:"/user-forum/single-forum-postlist",
         dataType:"json",
         timeout : 50000,
-        data: { fid:fid },
+        data: { fid:fid ,page:page},
         success:function(data){
+        alert(page);
         for(var o in data){
             var videoid = '';
             var s = "";
@@ -143,24 +165,22 @@
             s += "<ul class='bow afa'><li class='rv afh'> <div class='rw well'><p><strong style='color:red;'>最佳: </strong></p>Test <ul class='figure-list boy' data-grid='images'></ul></div></li></ul>";
             s += "</div></li>"
             $("#title").text(data[o].fname)
-            $("#list").before(s);
-
-
-
-
+            $("#single_forum_list").before(s);
         }
-
-        //$("#refreshing").addClass("hidden");
+        isSingleForumloading = true;
+        page = page+1;
         },
         complete: function (XMLHttpRequest, textStatus) {
             if(textStatus == 'timeout') {
                 userPageAlert('',  '连接超时，请稍后再试')
+        isSingleForumloading = true;
             }
         },
         error:function(jqXHR){
             userPageAlert('',  '服务器繁忙，请稍后再试')
+        isSingleForumloading = true;
 
         }
-    });
+    });}
     }
 </script>

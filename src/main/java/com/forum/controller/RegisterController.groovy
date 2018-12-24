@@ -19,33 +19,33 @@ import javax.servlet.http.HttpServletRequest
 @Controller
 class RegisterController {
     @Autowired
-    MessageCodeInfo messageCodeInfo
-    @Autowired
-    CommonInfo info
-    @Autowired
     RegisterService registerService
+
     @PostMapping('/register')
     @ResponseBody
-     register(HttpServletRequest request, @Validated(value = [RegisterGroup.class]) RegisterInfo registerInfo, BindingResult bindingResult) throws Exception {
-        if(bindingResult?.hasErrors()){
+    register(HttpServletRequest request,
+             @Validated(value = [RegisterGroup.class]) RegisterInfo registerInfo, BindingResult bindingResult, MessageCodeInfo messageCodeInfo, CommonInfo commonInfo) throws Exception {
+        if (bindingResult?.hasErrors()) {
             messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
             messageCodeInfo.setMsgInfo(bindingResult?.getFieldError()?.getDefaultMessage())
-        }else{
-            messageCodeInfo = registerService.register(request, registerInfo)
+        } else {
+            messageCodeInfo = registerService.register(request, registerInfo, messageCodeInfo)
         }
-        info.setMsg(messageCodeInfo)
-        return info
+        commonInfo.setMsg(messageCodeInfo)
+        return commonInfo
     }
+
     @PostMapping('/send-register-mail')
     @ResponseBody
-    registerMail(HttpServletRequest request, @Validated(value = [RegisterMailGroup.class]) RegisterInfo registerInfo, BindingResult bindingResult) throws Exception {
-        if(bindingResult?.hasErrors()){
+    registerMail(HttpServletRequest request,
+                 @Validated(value = [RegisterMailGroup.class]) RegisterInfo registerInfo, BindingResult bindingResult, MessageCodeInfo messageCodeInfo, CommonInfo commonInfo) throws Exception {
+        if (bindingResult?.hasErrors()) {
             messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
             messageCodeInfo.setMsgInfo(bindingResult?.getFieldError()?.getDefaultMessage())
-        }else{
-            messageCodeInfo = registerService.registerMail(request, registerInfo)
+        } else {
+            messageCodeInfo = registerService.registerMail(request, registerInfo, messageCodeInfo)
         }
-        info.setMsg(messageCodeInfo)
-        return info
+        commonInfo.setMsg(messageCodeInfo)
+        return commonInfo
     }
 }

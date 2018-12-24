@@ -1,11 +1,13 @@
 package com.forum.model.entity
 
 import javax.persistence.Entity
+import javax.persistence.Id
 import javax.persistence.Table
 
 @Entity
 @Table(name = 'f_authority')
 class AuthorityEntity implements Serializable {
+    @Id
     private Integer authorityId
     private String authorityName
     private String icon

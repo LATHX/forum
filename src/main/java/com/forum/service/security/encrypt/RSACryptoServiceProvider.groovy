@@ -1,25 +1,23 @@
 package com.forum.service.security.encrypt
 
-import org.springframework.stereotype.Service
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
+import org.springframework.stereotype.Component
 
 import javax.crypto.Cipher
-import java.security.KeyFactory
-import java.security.KeyPair
-import java.security.KeyPairGenerator
-import java.security.NoSuchAlgorithmException
-import java.security.SecureRandom
+import java.security.*
 import java.security.interfaces.RSAPrivateKey
 import java.security.interfaces.RSAPublicKey
 import java.security.spec.PKCS8EncodedKeySpec
 import java.security.spec.X509EncodedKeySpec
-
 /**
  * @author LJL
  * @Description 生成RSA密钥和公钥
  * @version 1.0
  */
-@Service
+@Component
 class RSACryptoServiceProvider {
+    private static final Logger logger = LoggerFactory.getLogger(this.getClass())
     // Public key and Private key
     private static Map<String, String> keyStore = new HashMap<String, String>()
 
@@ -30,7 +28,7 @@ class RSACryptoServiceProvider {
     private RSACryptoServiceProvider(){}
 
     RSACryptoServiceProvider getInstance(){
-        println 'Initializing RSACryptoServiceProvider'
+        logger.info('Initializing RSACryptoServiceProvider')
         return SingletonClassInstance.instance
     }
 

@@ -1,5 +1,7 @@
 package com.forum.utils
 
+import com.forum.mapper.SessionMapper
+import com.forum.model.entity.SessionEntity
 import com.forum.model.entity.UserEntity
 import com.forum.redis.util.RedisUtil
 import org.apache.shiro.SecurityUtils
@@ -7,11 +9,14 @@ import org.apache.shiro.session.Session
 import org.apache.shiro.subject.SimplePrincipalCollection
 import org.apache.shiro.subject.support.DefaultSubjectContext
 import org.crazycake.shiro.RedisSessionDAO
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 
 @Component
 class ShiroUtil {
     private static String SESSION_KEY = 'shiro:session:'
+    @Autowired
+    SessionMapper sessionMapper
 /**
      * 获取指定用户名的Session
      * @param username
@@ -43,9 +48,13 @@ class ShiroUtil {
      * @param username 用户名
      * @param isRemoveSession 是否删除session，删除后用户需重新登录
      */
-    static void kickOutUser(String username, boolean isRemoveSession) throws Exception {
-        String key = SESSION_KEY + username
-        RedisUtil.del(key)
+     void kickOutUser(String username, boolean isRemoveSession) throws Exception {
+        List<SessionEntity> list = sessionMapper.SelectAllCookieByUsername(username)
+        list.each {
+            String key = SESSION_KEY + it.getCookie()
+            RedisUtil.del(key)
+        }
+        sessionMapper.DeleteAllByUsername(username)
     }
 
     static UserEntity getUser() {

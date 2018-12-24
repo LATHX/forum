@@ -1,15 +1,23 @@
 package com.forum.model.entity
 
+import org.springframework.context.annotation.Scope
+import org.springframework.stereotype.Component
+
 import javax.persistence.Entity
+import javax.persistence.Id
 import javax.persistence.Table
 
+@Component
 @Entity
 @Table(name = 'f_session')
-class SessionEntity {
+@Scope(value = "prototype")
+class SessionEntity implements Serializable {
+    @Id
     Integer sessionid
     String username
     String cookie
     String updatetime
+    String device
 
     Integer getSessionid() {
         return sessionid
@@ -41,5 +49,13 @@ class SessionEntity {
 
     void setUpdatetime(String updatetime) {
         this.updatetime = updatetime
+    }
+
+    String getDevice() {
+        return device
+    }
+
+    void setDevice(String device) {
+        this.device = device
     }
 }

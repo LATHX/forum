@@ -5,5 +5,5 @@ import com.forum.model.entity.UserForumListPostVOEntity
 
 interface ForumService {
     List<ForumListEntity> getAllForumListByEnableAndAuthority(String type, Integer page, boolean enable, boolean authority)
-    List<UserForumListPostVOEntity> getSingleForumPostList(String fid)
+    List<UserForumListPostVOEntity> getSingleForumPostList(String fid, Integer page)
 }

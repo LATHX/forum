@@ -4,7 +4,6 @@ import com.alibaba.fastjson.JSONObject
 import com.forum.global.Constant
 import com.forum.global.GlobalCode
 import com.forum.model.dto.CommonInfo
-import com.forum.model.dto.LoginInfo
 import com.forum.model.dto.MessageCodeInfo
 import com.forum.utils.CommonUtil
 import org.apache.shiro.subject.Subject
@@ -18,8 +17,6 @@ import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
 
 class CustomRolesAuthorizationFilter extends RolesAuthorizationFilter {
-    @Autowired
-    LoginInfo loginInfo
     @Autowired
     MessageCodeInfo messageCodeInfo
     @Autowired
@@ -69,16 +66,13 @@ class CustomRolesAuthorizationFilter extends RolesAuthorizationFilter {
         String respStr
         if (CommonUtil.isJsonRequest(request)) {
             PrintWriter printWriter = servletResponse.getWriter()
-            loginInfo.setPublicKey('')
-            loginInfo.setToken('')
-            loginInfo.setPassword('')
             if (subject.getPrincipal() == null) {
                 messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
                 messageCodeInfo.setMsgInfo(Constant.LOGIN_OUT_MSG)
                 commonInfo.setMsg(messageCodeInfo)
                 respStr = JSONObject.toJSONString(commonInfo)
             } else {
-                messageCodeInfo.setMsgCode(GlobalCode.LOGIN_PERMISSION)
+                messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
                 messageCodeInfo.setMsgInfo(Constant.LOGIN_PERMISSION_MSG)
                 commonInfo.setMsg(messageCodeInfo)
                 respStr = JSONObject.toJSONString(commonInfo)

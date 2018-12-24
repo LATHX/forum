@@ -4,11 +4,13 @@ import com.forum.model.validationInterface.ForgotPasswordGroup
 import com.forum.model.validationInterface.RegisterGroup
 import com.forum.model.validationInterface.RegisterMailGroup
 import com.forum.model.validationInterface.RestPasswordGroup
+import org.springframework.context.annotation.Scope
 import org.springframework.stereotype.Component
 
 import javax.validation.constraints.*
 
 @Component
+@Scope(value = "prototype")
 class RegisterInfo implements Serializable {
     @NotBlank(message = '{register.username.blank}', groups = [RegisterGroup.class, RegisterMailGroup.class, ForgotPasswordGroup.class])
     @Size(max = 70, message = '{register.username.blank}', groups = [RegisterGroup.class, RegisterMailGroup.class, ForgotPasswordGroup.class])

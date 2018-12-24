@@ -1,11 +1,13 @@
 package com.forum.model.dto
 
 import com.forum.model.validationInterface.LoginGroup
+import org.springframework.context.annotation.Scope
 import org.springframework.stereotype.Component
 
 import javax.validation.constraints.NotBlank
 
 @Component
+@Scope(value = "prototype")
 class LoginInfo implements Serializable {
     @NotBlank(message = '{login.username.blank}', groups = [LoginGroup.class])
     private String username

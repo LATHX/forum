@@ -19,21 +19,18 @@ import javax.servlet.http.HttpServletRequest
 @Controller
 class ForgotPasswordController {
     @Autowired
-    MessageCodeInfo messageCodeInfo
-    @Autowired
     ForgotPasswordService forgotPasswordService
-    @Autowired
-    CommonInfo commonInfo
+
 
     @RequestMapping('/rest-password')
     @ResponseBody
     restPassword(HttpServletRequest request,
-                 @Validated(value = [RestPasswordGroup.class]) RegisterInfo registerInfo, BindingResult bindingResult) {
+                 @Validated(value = [RestPasswordGroup.class]) RegisterInfo registerInfo, BindingResult bindingResult, MessageCodeInfo messageCodeInfo, CommonInfo commonInfo) {
         if (bindingResult?.hasErrors()) {
             messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
             messageCodeInfo.setMsgInfo(bindingResult?.getFieldError()?.getDefaultMessage())
-        }else{
-            messageCodeInfo = forgotPasswordService.restPassword(request, registerInfo)
+        } else {
+            messageCodeInfo = forgotPasswordService.restPassword(request, registerInfo, messageCodeInfo)
         }
         commonInfo.setMsg(messageCodeInfo)
         return commonInfo
@@ -42,12 +39,12 @@ class ForgotPasswordController {
     @RequestMapping('/forgot-mail')
     @ResponseBody
     forgotMail(HttpServletRequest request,
-               @Validated(value = [ForgotPasswordGroup.class]) RegisterInfo registerInfo, BindingResult bindingResult) {
+               @Validated(value = [ForgotPasswordGroup.class]) RegisterInfo registerInfo, BindingResult bindingResult, MessageCodeInfo messageCodeInfo, CommonInfo commonInfo) {
         if (bindingResult?.hasErrors()) {
             messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
             messageCodeInfo.setMsgInfo(bindingResult?.getFieldError()?.getDefaultMessage())
         } else {
-            messageCodeInfo = forgotPasswordService.sendForgotMail(request, registerInfo.getUsername())
+            messageCodeInfo = forgotPasswordService.sendForgotMail(request, registerInfo.getUsername(), messageCodeInfo)
         }
         commonInfo.setMsg(messageCodeInfo)
         return commonInfo

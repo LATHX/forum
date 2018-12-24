@@ -2,8 +2,10 @@ package com.forum.rabbit.service
 
 import com.forum.global.Constant
 import com.forum.model.dto.MailInfo
+import com.forum.model.entity.SessionEntity
 import com.forum.redis.util.RedisUtil
 import com.forum.service.MailService
+import com.forum.service.impl.ShiroServiceImpl
 import com.forum.utils.CommonUtil
 import com.forum.utils.ShiroUtil
 import org.springframework.amqp.rabbit.annotation.RabbitListener
@@ -14,6 +16,10 @@ import org.springframework.stereotype.Component
 class RabbitListenerService {
     @Autowired
     MailService mailService
+    @Autowired
+    ShiroServiceImpl shiroService
+    @Autowired
+    ShiroUtil shiroUtil
 
     @RabbitListener(queues = 'secure.token_generate')
     void generateUUID() {
@@ -38,9 +44,15 @@ class RabbitListenerService {
     }
 
     @RabbitListener(queues = 'del.redis_user_session')
-    void delRedisUserSession(byte[] msg) throws Exception{
+    void delRedisUserSession(byte[] msg){
         println('Del Redis User Session')
-        String usernmae = (String) CommonUtil.getObjectFromBytes(msg)
-        ShiroUtil.kickOutUser(usernmae, true)
+        String username = (String) CommonUtil.getObjectFromBytes(msg)
+        shiroUtil.kickOutUser(username, true)
+    }
+    @RabbitListener(queues = 'add.user_session')
+    void addUserSession(byte[] msg){
+        println('Add User Session')
+        SessionEntity sessionEntity = (SessionEntity) CommonUtil.getObjectFromBytes(msg)
+        shiroService.addUserSession(sessionEntity)
     }
 }

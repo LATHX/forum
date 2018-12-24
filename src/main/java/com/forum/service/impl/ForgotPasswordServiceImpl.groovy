@@ -18,27 +18,26 @@ import org.springframework.stereotype.Service
 import javax.servlet.http.HttpServletRequest
 
 @Service
-class ForgotPasswordServiceImpl implements ForgotPasswordService{
+class ForgotPasswordServiceImpl implements ForgotPasswordService {
     @Autowired
     MailInfo mailInfo
     @Autowired
     UserMapper userMapper
-    @Autowired
-    MessageCodeInfo messageCodeInfo
+
     @Override
-    MessageCodeInfo sendForgotMail(HttpServletRequest request, String username) {
+    MessageCodeInfo sendForgotMail(HttpServletRequest request, String username, MessageCodeInfo messageCodeInfo) {
         Integer count = userMapper.countNumberByUsername(username)
-        if(count == 1){
-            String redisText = CommonUtil.generateUUID()+username?.substring(0, username.lastIndexOf('@'))?.reverse()
-            String key = Constant.REDIS_FORGOT_PASSWORD_NAME+redisText
+        if (count == 1) {
+            String redisText = CommonUtil.generateUUID() + username?.substring(0, username.lastIndexOf('@'))?.reverse()
+            String key = Constant.REDIS_FORGOT_PASSWORD_NAME + redisText
             String url = CommonUtil.getURLWithoutContext(request)
-            String mailText = url+Constant.REST_PASSWORD_PAGE+'?token='+redisText
+            String mailText = url + Constant.REST_PASSWORD_PAGE + '?token=' + redisText
             boolean isSetKey = RedisUtil.set(key, username)
             boolean isSetKeyExpired = RedisUtil.expire(key, Constant.FORGOT_PASSWORD_TIMEOUT?.toLong())
-            if(!isSetKey || !isSetKeyExpired){
+            if (!isSetKey || !isSetKeyExpired) {
                 messageCodeInfo.setMsgInfo(Constant.REGISTER_MAIL_FAIL)
                 messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
-            }else{
+            } else {
                 messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_SUCCESS)
                 messageCodeInfo.setMsgInfo(Constant.LOGIN_CODE_SUCCESS_MSG)
                 mailInfo.setSubject(Constant.FORGOT_MAIL_SUBJECT)
@@ -48,7 +47,7 @@ class ForgotPasswordServiceImpl implements ForgotPasswordService{
                 mailInfo.setUseHTTP(true)
                 RabbitUtil.deliveryMessageNotConfirm(Constant.MQ_SEND_MAIL, mailInfo)
             }
-        }else{
+        } else {
             messageCodeInfo.setMsgInfo(Constant.USERNAME_NOT_EXITS)
             messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
         }
@@ -56,26 +55,26 @@ class ForgotPasswordServiceImpl implements ForgotPasswordService{
     }
 
     @Override
-    MessageCodeInfo restPassword(HttpServletRequest request, RegisterInfo registerInfo) {
+    MessageCodeInfo restPassword(HttpServletRequest request, RegisterInfo registerInfo, MessageCodeInfo messageCodeInfo) {
         String key = Constant.REDIS_FORGOT_PASSWORD_NAME + registerInfo.getCode()
         boolean hasKey = RedisUtil?.hasKey(key)
-        if(!hasKey){
+        if (!hasKey) {
             messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
             messageCodeInfo.setMsgInfo(Constant.REST_PASSWORD_TIMEOUT_MSG)
-        }else if((registerInfo.getPassword() != registerInfo.getConfirmPassword()) ||(CommonUtil.replaceIllegalCharacter(registerInfo.getPassword())?.length() != registerInfo.getPassword()?.length())){
+        } else if ((registerInfo.getPassword() != registerInfo.getConfirmPassword()) || (CommonUtil.replaceIllegalCharacter(registerInfo.getPassword())?.length() != registerInfo.getPassword()?.length())) {
             messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
             messageCodeInfo.setMsgInfo(Constant.REGISTER_PASSWORD)
-        }else{
+        } else {
             String username = RedisUtil.get(key)
-            RabbitUtil.deliveryMessageNotConfirm(Constant.MQ_DEL_REDIS_USER_SESSION, CommonUtil.getCookies(request, 'custom.name'))
+            RabbitUtil.deliveryMessageNotConfirm(Constant.MQ_DEL_REDIS_USER_SESSION, username)
             UserEntity userEntity = userMapper.findUserByUserName(username)
             userEntity.setPassword(DigestUtils?.sha1Hex(registerInfo.getPassword()))
             int updateInt = userMapper.updateByPrimaryKey(userEntity)
             RabbitUtil.deliveryMessageNotConfirm(Constant.MQ_REDIS_DEL, key)
-            if(updateInt == 1){
+            if (updateInt == 1) {
                 messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_SUCCESS)
                 messageCodeInfo.setMsgInfo('')
-            }else{
+            } else {
                 messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
                 messageCodeInfo.setMsgInfo(Constant.REST_PASSWORD_FAIL_MSG)
             }

@@ -5,11 +5,12 @@ import javax.persistence.Id
 import javax.persistence.Table
 
 @Entity
-@Table(name = 'f_post')
-class PostEntity implements Serializable{
+@Table(name = 'f_post_reply')
+class PostReplyEntity {
     @Id
+    Integer replyid
     Integer postid
-    Integer fid
+    Integer favourite
     String creator
     char type
     String img0
@@ -26,31 +27,21 @@ class PostEntity implements Serializable{
     boolean enable
     String text
     String lastupdatetime
-    String title
 
-    String getTitle() {
-        return title
+    Integer getFavourite() {
+        return favourite
     }
 
-    void setTitle(String title) {
-        this.title = title
+    void setFavourite(Integer favourite) {
+        this.favourite = favourite
     }
 
-
-    String getText() {
-        return text
+    Integer getReplyid() {
+        return replyid
     }
 
-    void setText(String text) {
-        this.text = text
-    }
-
-    boolean getEnable() {
-        return enable
-    }
-
-    void setEnable(boolean enable) {
-        this.enable = enable
+    void setReplyid(Integer replyid) {
+        this.replyid = replyid
     }
 
     Integer getPostid() {
@@ -59,14 +50,6 @@ class PostEntity implements Serializable{
 
     void setPostid(Integer postid) {
         this.postid = postid
-    }
-
-    Integer getFid() {
-        return fid
-    }
-
-    void setFid(Integer fid) {
-        this.fid = fid
     }
 
     String getCreator() {
@@ -173,6 +156,22 @@ class PostEntity implements Serializable{
         this.date = date
     }
 
+    boolean getEnable() {
+        return enable
+    }
+
+    void setEnable(boolean enable) {
+        this.enable = enable
+    }
+
+    String getText() {
+        return text
+    }
+
+    void setText(String text) {
+        this.text = text
+    }
+
     String getLastupdatetime() {
         return lastupdatetime
     }
@@ -180,4 +179,6 @@ class PostEntity implements Serializable{
     void setLastupdatetime(String lastupdatetime) {
         this.lastupdatetime = lastupdatetime
     }
+
+
 }

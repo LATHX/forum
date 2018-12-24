@@ -61,6 +61,7 @@ class Constant implements InitializingBean {
     static String REGISTER_VERIFY_AREA_FAIL
     static String PAGEROW
     static String MQ_DEL_REDIS_USER_SESSION
+    static String MQ_ADD_USER_SESSION
     void load() {
         logger.info('Initializing Constant')
         List<DictionaryEntity> list = dictionaryMapper.selectAllInTableWithoutParamType('参数代码')

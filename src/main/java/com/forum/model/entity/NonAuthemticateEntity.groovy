@@ -1,11 +1,13 @@
 package com.forum.model.entity
 
 import javax.persistence.Entity
+import javax.persistence.Id
 import javax.persistence.Table
 
 @Entity
 @Table(name = 'f_non_authemticate')
 class NonAuthemticateEntity implements Serializable {
+    @Id
     private Integer id
     private String url
     private String description

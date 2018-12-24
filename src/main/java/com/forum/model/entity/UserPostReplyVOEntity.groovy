@@ -1,56 +1,36 @@
 package com.forum.model.entity
 
 import javax.persistence.Entity
-import javax.persistence.Id
-import javax.persistence.Table
 
 @Entity
-@Table(name = 'f_post')
-class PostEntity implements Serializable{
-    @Id
-    Integer postid
-    Integer fid
-    String creator
-    char type
-    String img0
-    String img1
-    String img2
-    String img3
-    String img4
-    String img5
-    String img6
-    String img7
-    String img8
-    String video
-    String date
-    boolean enable
-    String text
-    String lastupdatetime
-    String title
+class UserPostReplyVOEntity {
+    private Integer replyid
+    private Integer postid
+    private Integer favourite
+    private String creator
+    private char type
+    private String img0
+    private String img1
+    private String img2
+    private String img3
+    private String img4
+    private String img5
+    private String img6
+    private String img7
+    private String img8
+    private String video
+    private String date
+    private boolean enable
+    private String text
+    private String lastupdatetime
+    private String userImg
 
-    String getTitle() {
-        return title
+    Integer getReplyid() {
+        return replyid
     }
 
-    void setTitle(String title) {
-        this.title = title
-    }
-
-
-    String getText() {
-        return text
-    }
-
-    void setText(String text) {
-        this.text = text
-    }
-
-    boolean getEnable() {
-        return enable
-    }
-
-    void setEnable(boolean enable) {
-        this.enable = enable
+    void setReplyid(Integer replyid) {
+        this.replyid = replyid
     }
 
     Integer getPostid() {
@@ -61,12 +41,12 @@ class PostEntity implements Serializable{
         this.postid = postid
     }
 
-    Integer getFid() {
-        return fid
+    Integer getFavourite() {
+        return favourite
     }
 
-    void setFid(Integer fid) {
-        this.fid = fid
+    void setFavourite(Integer favourite) {
+        this.favourite = favourite
     }
 
     String getCreator() {
@@ -173,11 +153,35 @@ class PostEntity implements Serializable{
         this.date = date
     }
 
+    boolean getEnable() {
+        return enable
+    }
+
+    void setEnable(boolean enable) {
+        this.enable = enable
+    }
+
+    String getText() {
+        return text
+    }
+
+    void setText(String text) {
+        this.text = text
+    }
+
     String getLastupdatetime() {
         return lastupdatetime
     }
 
     void setLastupdatetime(String lastupdatetime) {
         this.lastupdatetime = lastupdatetime
+    }
+
+    String getUserImg() {
+        return userImg
+    }
+
+    void setUserImg(String userImg) {
+        this.userImg = userImg
     }
 }

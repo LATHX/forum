@@ -4,31 +4,40 @@ import javax.persistence.Entity
 
 @Entity
 class UserForumListPostVOEntity implements Serializable{
-    String sid
-    String nickname
-    Integer postid
-    Integer fid
-    String creator
-    char type
-    String img0
-    String img1
-    String img2
-    String img3
-    String img4
-    String img5
-    String img6
-    String img7
-    String img8
-    String video
-    String date
-    boolean enable
-    String text
-    String lastupdatetime
-    String title
-    String fname
-    String img
-    String forumType
-    String userImg
+    private String sid
+    private String nickname
+    private Integer postid
+    private Integer fid
+    private String creator
+    private char type
+    private String img0
+    private String img1
+    private String img2
+    private String img3
+    private String img4
+    private String img5
+    private String img6
+    private String img7
+    private String img8
+    private String video
+    private String date
+    private boolean enable
+    private String text
+    private String lastupdatetime
+    private String title
+    private String fname
+    private String img
+    private String forumType
+    private String userImg
+    private UserPostReplyVOEntity UserPostReplyVOEntity
+
+    UserPostReplyVOEntity getUserPostReplyVOEntity() {
+        return UserPostReplyVOEntity
+    }
+
+    void setUserPostReplyVOEntity(UserPostReplyVOEntity userPostReplyVOEntity) {
+        UserPostReplyVOEntity = userPostReplyVOEntity
+    }
 
     String getUserImg() {
         return userImg

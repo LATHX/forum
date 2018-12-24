@@ -5,6 +5,7 @@ import com.forum.global.GlobalCode
 import com.forum.mapper.UserMapper
 import com.forum.model.dto.LoginInfo
 import com.forum.model.dto.MessageCodeInfo
+import com.forum.model.entity.SessionEntity
 import com.forum.rabbit.util.RabbitUtil
 import com.forum.redis.util.RedisUtil
 import com.forum.service.LoginService
@@ -28,11 +29,10 @@ class LoginServiceImpl implements LoginService {
     GenerateToken generateToken
     @Autowired
     UserMapper userMapper
-    @Autowired
-    MessageCodeInfo messageCodeInfo
+
 
     @Override
-    MessageCodeInfo validationLoginInfo(HttpServletRequest request, LoginInfo loginInfo) {
+    MessageCodeInfo validationLoginInfo(HttpServletRequest request, LoginInfo loginInfo, MessageCodeInfo messageCodeInfo, SessionEntity sessionEntity) {
         String customCookie = CommonUtil.getCookies(request, 'custom.name')?.toString()
         String key = CommonUtil.getRealIP(request).concat(customCookie)
         boolean isRememberMe = true
@@ -55,7 +55,7 @@ class LoginServiceImpl implements LoginService {
             RabbitUtil.deliveryMessageNotConfirm(Constant.MQ_REDIS_DEL, key)
         }
         Integer hasAccount = userMapper.countNumberByUsername(loginInfo.getUsername())
-        if(hasAccount != 1){
+        if (hasAccount != 1) {
             messageCodeInfo.setMsgCode(Constant.REGISTER_MAIL_FAIL)
             messageCodeInfo?.setMsgInfo(Constant.USERNAME_NOT_EXITS)
             return messageCodeInfo
@@ -71,6 +71,11 @@ class LoginServiceImpl implements LoginService {
         UsernamePasswordToken token = new UsernamePasswordToken(loginInfo.getUsername(), DigestUtils?.sha1Hex(loginInfo.getPassword()), isRememberMe)
         try {
             subject.login(token)
+            sessionEntity.setUsername(loginInfo.getUsername())
+            sessionEntity.setCookie(customCookie)
+            sessionEntity.setUpdatetime(CommonUtil.getCurrentDate())
+            sessionEntity.setDevice(CommonUtil.getDeviceInfo(request))
+            RabbitUtil.deliveryMessageNotConfirm(Constant.MQ_ADD_USER_SESSION, sessionEntity)
             messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_SUCCESS)
             messageCodeInfo.setMsgInfo('')
             return messageCodeInfo
@@ -82,7 +87,7 @@ class LoginServiceImpl implements LoginService {
     }
 
     @Override
-    MessageCodeInfo getToken(HttpServletRequest request, LoginInfo loginInfo) {
+    MessageCodeInfo getToken(HttpServletRequest request, LoginInfo loginInfo, MessageCodeInfo messageCodeInfo) {
         String customCookie = CommonUtil?.getCookies(request, 'custom.name')?.toString()
         String ip = CommonUtil.getRealIP(request).concat(customCookie)
         if (!RedisUtil.hasKey(Constant.UUID_REDIS_QUEUE_NAME)) {

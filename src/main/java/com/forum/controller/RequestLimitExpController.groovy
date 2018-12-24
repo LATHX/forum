@@ -6,7 +6,6 @@ import com.forum.model.dto.CommonInfo
 import com.forum.model.dto.LoginInfo
 import com.forum.model.dto.MessageCodeInfo
 import com.forum.utils.CommonUtil
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.RequestMapping
@@ -16,19 +15,13 @@ import javax.servlet.http.HttpServletResponse
 
 @Controller
 class RequestLimitExpController {
-    @Autowired
-    MessageCodeInfo messageCodeInfo
-    @Autowired
-    LoginInfo loginInfo
-    @Autowired
-    CommonInfo commonInfo
 
     @RequestMapping(value = "/limit")
-    safeLimitRes(HttpServletRequest request, HttpServletResponse response,  Model model) {
-        CommonUtil.addCookie(response, 'uuid',CommonUtil.generateUUID())
+    safeLimitRes(HttpServletRequest request, HttpServletResponse response, Model model, MessageCodeInfo messageCodeInfo, LoginInfo loginInfo, CommonInfo commonInfo) {
+        CommonUtil.addCookie(response, 'uuid', CommonUtil.generateUUID())
         String msg = request.getAttribute('msg')
         String messageInfo = Constant.LIMIT_MSG
-        if(CommonUtil.isNotEmpty(msg)){
+        if (CommonUtil.isNotEmpty(msg)) {
             messageInfo = msg
         }
         if (CommonUtil.isJsonRequest(request)) {
@@ -45,8 +38,9 @@ class RequestLimitExpController {
             return 'error.html'
         }
     }
+
     @RequestMapping(value = "/cookie")
-    cookieLimitRes(HttpServletRequest request, HttpServletResponse response,  Model model) {
+    cookieLimitRes(HttpServletRequest request, HttpServletResponse response, Model model, MessageCodeInfo messageCodeInfo, LoginInfo loginInfo, CommonInfo commonInfo) {
         if (CommonUtil.isJsonRequest(request)) {
             response.setCharacterEncoding("UTF-8")
             response.setContentType("application/json;charset=UTF-8")

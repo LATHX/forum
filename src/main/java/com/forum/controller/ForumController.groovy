@@ -20,7 +20,7 @@ class ForumController {
 
     @RequestMapping('/single-forum-postlist')
     @ResponseBody
-    getSingleForumPostList(String fid){
-        return forumService.getSingleForumPostList(fid)
+    getSingleForumPostList(String fid,Integer page){
+        return forumService.getSingleForumPostList(fid, page)
     }
 }

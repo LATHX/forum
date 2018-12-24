@@ -1,11 +1,13 @@
 package com.forum.model.entity
 
 import javax.persistence.Entity
+import javax.persistence.Id
 import javax.persistence.Table
 
 @Entity
 @Table(name = 'f_dictionary')
 class DictionaryEntity implements Serializable {
+    @Id
     private Integer id
     private String paramName
     private String description

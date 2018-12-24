@@ -58,6 +58,11 @@ class RabbitConfig {
     }
 
     @Bean
+    Binding addUserSession() {
+        return BindingBuilder.bind(new Queue(Constant.MQ_ADD_USER_SESSION, true)).to(topicExchange()).with(Constant.MQ_ADD_USER_SESSION)
+    }
+
+    @Bean
     Queue maintainQueue() {
         Map<String, Object> args = new HashMap<>()
         // 设置该Queue的死信的信箱

@@ -63,6 +63,8 @@
 
 <script>
     var url = GetUrlRelativePath();
+    var isSingleForumloading = true;
+    var page = 1;
     if(url.indexOf('index')!=-1)$("#indexpage").addClass('active');
     if(url.indexOf('forumlist')!=-1)$("#forumlistpage").addClass('active');
     if(url.indexOf('single_forum')!=-1)$("#forumlistpage").addClass('active');
@@ -72,10 +74,15 @@
          $("#navbarResponsive").removeClass("show");
     }
     function activeControl(url){
+        init();
         $("#indexpage").removeClass('active');
         $("#forumlistpage").removeClass('active');
-        if(url.indexOf('index')!=-1)$("#indexpage").addClass('active');
-        if(url.indexOf('forum_list')!=-1)$("#forumlistpage").addClass('active');
-        if(url.indexOf('single_forum')!=-1)$("#forumlistpage").addClass('active');
+        if(url.indexOf('index')!=-1){$("#indexpage").addClass('active');}
+        if(url.indexOf('forum_list')!=-1){$("#forumlistpage").addClass('active');}
+        if(url.indexOf('single_forum')!=-1){$("#forumlistpage").addClass('active');isSingleForumloading=true;}
+    }
+    function init(){
+        isSingleForumloading = false;
+        page = 1;
     }
 </script>

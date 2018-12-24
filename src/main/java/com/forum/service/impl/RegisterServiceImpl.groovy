@@ -21,14 +21,12 @@ import javax.servlet.http.HttpServletRequest
 @Service
 class RegisterServiceImpl implements RegisterService {
     @Autowired
-    MessageCodeInfo messageCodeInfo
-    @Autowired
     UserMapper userMapper
     @Autowired
     AreaMapper areaMapper
 
     @Override
-    MessageCodeInfo register(HttpServletRequest request, RegisterInfo registerInfo) {
+    MessageCodeInfo register(HttpServletRequest request, RegisterInfo registerInfo, MessageCodeInfo messageCodeInfo) {
         String customCookie = CommonUtil.getCookies(request, 'custom.name')?.toString()
         String IP = CommonUtil.getRealIP(request)
         String key = Constant.REGISTER_REDIS_MAIL_NAME + IP + customCookie
@@ -97,7 +95,7 @@ class RegisterServiceImpl implements RegisterService {
     }
 
     @Override
-    MessageCodeInfo registerMail(HttpServletRequest request, RegisterInfo registerInfo) {
+    MessageCodeInfo registerMail(HttpServletRequest request, RegisterInfo registerInfo, MessageCodeInfo messageCodeInfo) {
         String customCookie = CommonUtil.getCookies(request, 'custom.name')?.toString()
         String IP = CommonUtil.getRealIP(request)
         String key = Constant.REGISTER_REDIS_MAIL_NAME + IP + customCookie

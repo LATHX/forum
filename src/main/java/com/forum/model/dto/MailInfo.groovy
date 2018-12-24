@@ -1,8 +1,10 @@
 package com.forum.model.dto
 
+import org.springframework.context.annotation.Scope
 import org.springframework.stereotype.Component
 
 @Component
+@Scope(value = "prototype")
 class MailInfo implements Serializable {
     private String subject
     private String text
