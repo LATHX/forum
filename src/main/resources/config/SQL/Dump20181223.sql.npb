@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<BackupProfile Ver="1.0">
-  <General ConnectionName="localhost" DatabaseName="forum" SchemaName="" LockAllTables="False" UseSingleTransaction="False" UseSpecifiedFileName="False" FileName=""/>
-  <Tables SelectAll="True"/>
-  <Views SelectAll="True"/>
-  <Procedures SelectAll="True"/>
-  <Functions SelectAll="True"/>
-  <Events SelectAll="True"/>
-</BackupProfile>

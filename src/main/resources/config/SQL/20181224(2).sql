@@ -11,7 +11,7 @@
  Target Server Version : 50724
  File Encoding         : utf-8
 
- Date: 12/23/2018 23:28:10 PM
+ Date: 12/24/2018 23:44:06 PM
 */
 
 SET NAMES utf8;
@@ -93,13 +93,13 @@ CREATE TABLE `f_dictionary` (
   `value` varchar(100) DEFAULT NULL,
   `param_type` varchar(25) DEFAULT '配置参数',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Records of `f_dictionary`
 -- ----------------------------
 BEGIN;
-INSERT INTO `f_dictionary` VALUES ('1', 'LOGIN_PAGE', '跳转登录页面地址', '/index', '配置参数'), ('2', 'UUID_REDIS_CACHE_SIZE', 'Redis缓存大小', '4', '配置参数'), ('3', 'UUID_REDIS_QUEUE_NAME', 'Redis登录Token储存名', 'token', '配置参数'), ('4', 'UUID_REDIS_KEY_TIMEOUT', 'Redis参数过期时间(s)', '57', '配置参数'), ('5', 'LOGIN_CODE_FREQUENT_MSG', '登录验证提示', '验证过于频繁', '配置参数'), ('6', 'LOGIN_CODE_FAIL_MSG', '登录验证提示', '验证失败', '配置参数'), ('7', 'LOGIN_CODE_SUCCESS_MSG', '登录验证提示', '验证通过', '配置参数'), ('8', 'LOGIN_CODE_TIMEOUT_MSG', '登录验证提示', '验证超时，请重新认证', '配置参数'), ('9', 'LOGIN_VERIFY_FAIL_MSG', '登录提示', '用户名或密码不正确', '配置参数'), ('10', 'LOGIN_OUT_MSG', '登录提示', '您还未登录，请先登录', '配置参数'), ('11', 'LOGIN_PERMISSION_MSG', '权限提示', '您没有此权限', '配置参数'), ('12', 'LOGIN_BLOCK_MSG', '登录提示', '账号已停用', '配置参数'), ('13', 'LIMIT_MSG', '限流提示', '刷新次数过多', '配置参数'), ('14', 'MAIL_ADDRESS', '邮件发送地址', 'llshadowsock@foxmail.com', '配置参数'), ('15', 'REGISTER_REDIS_MAIL_NAME', 'Redis注册邮件发送名', 'regitser_mail:', '配置参数'), ('16', 'REGISTER_MAIL_FAIL', '注册提示', '发送过于频繁', '配置参数'), ('17', 'REGISTER_REDIS_TIMEOUT', 'Redis注册验证码有效时间(s)', '900', '配置参数'), ('18', 'REGISTER_TITLE', '注册邮件标题', '验证邮件', '配置参数'), ('19', 'REGISTER_TEXT', '注册邮件内容', '您的注册验证码为:%s,15分钟内有效', '配置参数'), ('20', 'REGISTER_CODE', '注册验证码提示', '验证码错误', '配置参数'), ('21', 'REGISTER_PASSWORD', '注册提示', '两次密码不一致', '配置参数'), ('22', 'REGISTER_SAME', '注册提示', '账户已存在', '配置参数'), ('23', 'MQ_TOKEN_GENERATE', '消息队列Token', 'secure.token_generate', '消息队列参数'), ('24', 'MQ_SEND_MAIL', '消息队列注册邮件', 'secure.send_mail', '消息队列参数'), ('25', 'REFERENCE_SUCCESS', '成功识别码', '200', '参数代码'), ('28', 'REFERENCE_FAIL', '失败识别码', '300', '参数代码'), ('34', 'LIMIT_COUNT', '限流访问次数最大值', '30', '配置参数'), ('35', 'LIMIT_TIMEOUT', '限流时间(ms)', '60000', '配置参数'), ('36', 'LIMIT_PATH', '超出限流跳转网址 (/跳转目标)', '/limit', '配置参数'), ('37', 'ENABLE_SEND_MAIL', '启用邮件发送(true为启用，其余为停用)', 'false', '配置参数'), ('38', 'FORGOT_PASSWORD_TIMEOUT', 'Redis忘记密码超时(s)', '1800', '配置参数'), ('39', 'REDIS_FORGOT_PASSWORD_NAME', 'Redis忘记密码名', 'forgot_mail:', '配置参数'), ('40', 'MQ_REDIS_DEL', '消息队列删除Redis', 'del.redis_key', '消息队列参数'), ('41', 'USERNAME_NOT_EXITS', '提示消息', '账号不存在', '配置参数'), ('42', 'FORGOT_MAIL_SUBJECT', '忘记密码邮件标题', '找回密码', '配置参数'), ('43', 'FORGOT_MAIL_TEXT', '忘记密码邮件内容', '请使用此链接重置您的密码: %s', '配置参数'), ('44', 'REST_PASSWORD_PAGE', '重置密码页面', 'forgot-password.html', '配置参数'), ('45', 'REST_PASSWORD_TIMEOUT_MSG', '重置密码超时信息', '验证已失效，请重新验证', '配置参数'), ('46', 'REST_PASSWORD_FAIL_MSG', '重置密码失败消息', '重置密码失败', '配置参数'), ('47', 'REGISTER_VERIFY_AREA_FAIL', '城市错误消息', '城市错误', '配置参数'), ('48', 'PAGEROW', '每页个数', '5', '配置参数'), ('49', 'MQ_DEL_REDIS_USER_SESSION', '删除Shiro用户Session', 'del.redis_user_session', '消息队列');
+INSERT INTO `f_dictionary` VALUES ('1', 'LOGIN_PAGE', '跳转登录页面地址', '/index', '配置参数'), ('2', 'UUID_REDIS_CACHE_SIZE', 'Redis缓存大小', '4', '配置参数'), ('3', 'UUID_REDIS_QUEUE_NAME', 'Redis登录Token储存名', 'token', '配置参数'), ('4', 'UUID_REDIS_KEY_TIMEOUT', 'Redis参数过期时间(s)', '57', '配置参数'), ('5', 'LOGIN_CODE_FREQUENT_MSG', '登录验证提示', '验证过于频繁', '配置参数'), ('6', 'LOGIN_CODE_FAIL_MSG', '登录验证提示', '验证失败', '配置参数'), ('7', 'LOGIN_CODE_SUCCESS_MSG', '登录验证提示', '验证通过', '配置参数'), ('8', 'LOGIN_CODE_TIMEOUT_MSG', '登录验证提示', '验证超时，请重新认证', '配置参数'), ('9', 'LOGIN_VERIFY_FAIL_MSG', '登录提示', '用户名或密码不正确', '配置参数'), ('10', 'LOGIN_OUT_MSG', '登录提示', '您还未登录，请先登录', '配置参数'), ('11', 'LOGIN_PERMISSION_MSG', '权限提示', '您没有此权限', '配置参数'), ('12', 'LOGIN_BLOCK_MSG', '登录提示', '账号已停用', '配置参数'), ('13', 'LIMIT_MSG', '限流提示', '刷新次数过多', '配置参数'), ('14', 'MAIL_ADDRESS', '邮件发送地址', 'llshadowsock@foxmail.com', '配置参数'), ('15', 'REGISTER_REDIS_MAIL_NAME', 'Redis注册邮件发送名', 'regitser_mail:', '配置参数'), ('16', 'REGISTER_MAIL_FAIL', '注册提示', '发送过于频繁', '配置参数'), ('17', 'REGISTER_REDIS_TIMEOUT', 'Redis注册验证码有效时间(s)', '900', '配置参数'), ('18', 'REGISTER_TITLE', '注册邮件标题', '验证邮件', '配置参数'), ('19', 'REGISTER_TEXT', '注册邮件内容', '您的注册验证码为:%s,15分钟内有效', '配置参数'), ('20', 'REGISTER_CODE', '注册验证码提示', '验证码错误', '配置参数'), ('21', 'REGISTER_PASSWORD', '注册提示', '两次密码不一致', '配置参数'), ('22', 'REGISTER_SAME', '注册提示', '账户已存在', '配置参数'), ('23', 'MQ_TOKEN_GENERATE', '消息队列Token', 'secure.token_generate', '消息队列参数'), ('24', 'MQ_SEND_MAIL', '消息队列注册邮件', 'secure.send_mail', '消息队列参数'), ('25', 'REFERENCE_SUCCESS', '成功识别码', '200', '参数代码'), ('28', 'REFERENCE_FAIL', '失败识别码', '300', '参数代码'), ('34', 'LIMIT_COUNT', '限流访问次数最大值', '30', '配置参数'), ('35', 'LIMIT_TIMEOUT', '限流时间(ms)', '60000', '配置参数'), ('36', 'LIMIT_PATH', '超出限流跳转网址 (/跳转目标)', '/limit', '配置参数'), ('37', 'ENABLE_SEND_MAIL', '启用邮件发送(true为启用，其余为停用)', 'false', '配置参数'), ('38', 'FORGOT_PASSWORD_TIMEOUT', 'Redis忘记密码超时(s)', '1800', '配置参数'), ('39', 'REDIS_FORGOT_PASSWORD_NAME', 'Redis忘记密码名', 'forgot_mail:', '配置参数'), ('40', 'MQ_REDIS_DEL', '消息队列删除Redis', 'del.redis_key', '消息队列参数'), ('41', 'USERNAME_NOT_EXITS', '提示消息', '账号不存在', '配置参数'), ('42', 'FORGOT_MAIL_SUBJECT', '忘记密码邮件标题', '找回密码', '配置参数'), ('43', 'FORGOT_MAIL_TEXT', '忘记密码邮件内容', '请使用此链接重置您的密码: %s', '配置参数'), ('44', 'REST_PASSWORD_PAGE', '重置密码页面', 'forgot-password.html', '配置参数'), ('45', 'REST_PASSWORD_TIMEOUT_MSG', '重置密码超时信息', '验证已失效，请重新验证', '配置参数'), ('46', 'REST_PASSWORD_FAIL_MSG', '重置密码失败消息', '重置密码失败', '配置参数'), ('47', 'REGISTER_VERIFY_AREA_FAIL', '城市错误消息', '城市错误', '配置参数'), ('48', 'PAGEROW', '每页个数', '5', '配置参数'), ('49', 'MQ_DEL_REDIS_USER_SESSION', '删除Shiro用户Session', 'del.redis_user_session', '消息队列'), ('50', 'MQ_ADD_USER_SESSION', '添加用户session', 'add.user_session', '消息队列');
 COMMIT;
 
 -- ----------------------------
@@ -115,8 +115,8 @@ CREATE TABLE `f_forumlist` (
   `creator_ip` varchar(15) NOT NULL,
   `enable` tinyint(1) NOT NULL DEFAULT '0',
   `authority` tinyint(1) NOT NULL DEFAULT '0',
-  `type` varchar(45) DEFAULT NULL COMMENT '0文字\n1图片\n2视频',
   `date` datetime DEFAULT CURRENT_TIMESTAMP,
+  `type` varchar(45) DEFAULT NULL COMMENT '论坛类型',
   PRIMARY KEY (`fid`),
   KEY `idx_forumlist_creator` (`creator`),
   CONSTRAINT `fk_creator` FOREIGN KEY (`creator`) REFERENCES `f_user` (`sid`) ON DELETE NO ACTION ON UPDATE NO ACTION
@@ -126,7 +126,7 @@ CREATE TABLE `f_forumlist` (
 --  Records of `f_forumlist`
 -- ----------------------------
 BEGIN;
-INSERT INTO `f_forumlist` VALUES ('1', 'HI1', null, 'HI', '1068310406818304000', '0', '1', '1', null, '2018-12-20 16:21:51'), ('2', 'HI2', null, 'HIHI', '1068310406881218560', '0', '1', '1', null, '2018-12-20 16:21:51');
+INSERT INTO `f_forumlist` VALUES ('1', 'HI1', null, 'HI', '1068310406818304000', '0', '1', '1', '2018-12-20 16:21:51', null), ('2', 'HI2', null, 'HIHI', '1068310406881218560', '0', '1', '1', '2018-12-20 16:21:51', null);
 COMMIT;
 
 -- ----------------------------
@@ -157,7 +157,7 @@ CREATE TABLE `f_post` (
   `postid` int(11) NOT NULL AUTO_INCREMENT,
   `fid` int(11) NOT NULL,
   `creator` varchar(19) DEFAULT NULL,
-  `type` char(1) DEFAULT '1',
+  `type` char(1) DEFAULT '1' COMMENT '0文字\n1图片\n2视频',
   `img0` varchar(90) DEFAULT NULL,
   `img1` varchar(90) DEFAULT NULL,
   `img2` varchar(90) DEFAULT NULL,
@@ -176,13 +176,49 @@ CREATE TABLE `f_post` (
   PRIMARY KEY (`postid`),
   KEY `fk_forum_fid_idx` (`fid`),
   CONSTRAINT `fk_forum_fid` FOREIGN KEY (`fid`) REFERENCES `f_forumlist` (`fid`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Records of `f_post`
 -- ----------------------------
 BEGIN;
-INSERT INTO `f_post` VALUES ('1', '1', '1068310406818304000', '0', null, null, null, null, null, null, null, null, null, null, '2018-12-20 16:21:51', '1', 'Hello', '2018-12-20 16:32:38', 'HI'), ('2', '1', '1068310406881218560', '1', 'images/unsplash_1.jpg', 'images/unsplash_1.jpg', null, null, null, null, null, null, null, null, '2018-11-21 09:05:43', '1', 'HI2', '2018-11-21 09:05:43', 'HI2'), ('3', '1', '1068310406881218560', '2', null, null, null, null, null, null, null, null, null, 'images/video/demo.mp4', '2018-12-21 09:06:30', '1', '<p style=\'color:red\'>Hi3</p>', '2018-12-21 09:06:30', 'Hi3');
+INSERT INTO `f_post` VALUES ('1', '1', '1068310406818304000', '0', null, null, null, null, null, null, null, null, null, null, '2018-12-20 16:21:51', '1', 'Hello', '2018-12-24 14:35:24', '1'), ('2', '1', '1068310406881218560', '1', 'images/unsplash_1.jpg', 'images/unsplash_1.jpg', null, null, null, null, null, null, null, null, '2018-11-21 09:05:43', '1', 'HI2', '2018-12-24 14:35:23', '2'), ('3', '1', '1068310406881218560', '2', null, null, null, null, null, null, null, null, null, 'images/video/demo.mp4', '2018-12-21 09:06:30', '1', '<p style=\'color:red\'>Hi3</p>', '2018-12-24 14:35:22', '3'), ('4', '1', '1068310406881218560', '0', null, null, null, null, null, null, null, null, null, null, '2018-12-24 14:35:24', '1', '1', '2018-12-24 14:35:21', '4'), ('5', '1', '1068310406881218560', '0', null, null, null, null, null, null, null, null, null, null, '2018-12-24 14:35:24', '1', '2', '2018-12-24 14:35:20', '5'), ('6', '1', '1068310406881218560', '0', null, null, null, null, null, null, null, null, null, null, '2018-12-24 14:35:24', '1', '3', '2018-12-24 14:35:19', '6'), ('7', '1', '1068310406881218560', '0', null, null, null, null, null, null, null, null, null, null, '2018-12-24 14:35:24', '1', '4', '2018-12-24 14:35:18', '7'), ('8', '1', '1068310406881218560', '0', null, null, null, null, null, null, null, null, null, null, '2018-12-24 14:35:24', '1', '5', '2018-12-24 14:35:17', '8'), ('9', '1', '1068310406881218560', '0', null, null, null, null, null, null, null, null, null, null, '2018-12-24 14:35:24', '1', '6', '2018-12-24 14:35:16', '9'), ('10', '1', '1068310406881218560', '0', null, null, null, null, null, null, null, null, null, null, '2018-12-24 14:35:24', '1', '7', '2018-12-24 14:35:15', '10'), ('11', '1', '1068310406881218560', '0', null, null, null, null, null, null, null, null, null, null, '2018-12-24 14:35:24', '1', '8', '2018-12-24 14:35:14', '11'), ('12', '1', '1068310406881218560', '0', null, null, null, null, null, null, null, null, null, null, '2018-12-24 14:35:24', '1', '9', '2018-12-24 14:35:13', '12'), ('13', '1', '1068310406881218560', '0', null, null, null, null, null, null, null, null, null, null, '2018-12-24 14:35:24', '1', '10', '2018-12-24 14:35:12', '13'), ('14', '1', '1068310406881218560', '0', null, null, null, null, null, null, null, null, null, null, '2018-12-24 14:35:24', '1', '11', '2018-12-24 14:35:11', '14'), ('15', '1', '1068310406881218560', '0', null, null, null, null, null, null, null, null, null, null, '2018-12-24 15:35:37', '1', '12', '2018-12-24 14:35:25', '0');
+COMMIT;
+
+-- ----------------------------
+--  Table structure for `f_post_reply`
+-- ----------------------------
+DROP TABLE IF EXISTS `f_post_reply`;
+CREATE TABLE `f_post_reply` (
+  `replyid` int(11) NOT NULL AUTO_INCREMENT,
+  `postid` int(11) NOT NULL,
+  `creator` varchar(19) DEFAULT NULL,
+  `type` char(1) DEFAULT '1',
+  `img0` varchar(90) DEFAULT NULL,
+  `img1` varchar(90) DEFAULT NULL,
+  `img2` varchar(90) DEFAULT NULL,
+  `img3` varchar(90) DEFAULT NULL,
+  `img4` varchar(90) DEFAULT NULL,
+  `img5` varchar(90) DEFAULT NULL,
+  `img6` varchar(90) DEFAULT NULL,
+  `img7` varchar(90) DEFAULT NULL,
+  `img8` varchar(90) DEFAULT NULL,
+  `video` varchar(90) DEFAULT NULL,
+  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `enable` tinyint(1) DEFAULT '1',
+  `text` varchar(255) DEFAULT NULL,
+  `lastupdatetime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `favourite` int(11) DEFAULT NULL,
+  PRIMARY KEY (`replyid`),
+  KEY `fk_reply_postid_idx` (`postid`),
+  CONSTRAINT `fk_reply_postid` FOREIGN KEY (`postid`) REFERENCES `f_post` (`postid`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+--  Records of `f_post_reply`
+-- ----------------------------
+BEGIN;
+INSERT INTO `f_post_reply` VALUES ('1', '15', '1068310406881218560', '0', null, null, null, null, null, null, null, null, null, null, '2018-12-24 16:45:29', '1', 'abc', '2018-12-24 16:45:29', '0'), ('2', '15', '1068310406881218560', '0', null, null, null, null, null, null, null, null, null, null, '2018-12-24 16:45:29', '1', 'def', '2018-12-24 16:45:29', '1'), ('3', '1', '1068310406881218560', '0', null, null, null, null, null, null, null, null, null, null, '2018-12-24 21:02:50', '1', 'qqq', '2018-12-24 21:02:50', '1'), ('4', '1', '1068310406881218560', '0', null, null, null, null, null, null, null, null, null, null, '2018-12-24 21:02:50', '1', 'www', '2018-12-24 21:02:50', null);
 COMMIT;
 
 -- ----------------------------
@@ -230,18 +266,19 @@ DROP TABLE IF EXISTS `f_session`;
 CREATE TABLE `f_session` (
   `sessionid` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(45) DEFAULT NULL,
-  `cookie` varchar(60) DEFAULT NULL,
+  `cookie` char(36) DEFAULT NULL,
   `updatetime` datetime DEFAULT CURRENT_TIMESTAMP,
+  `device` varchar(8) DEFAULT NULL,
   PRIMARY KEY (`sessionid`),
   KEY `fk_session_username_idx` (`username`),
   CONSTRAINT `fk_session_username` FOREIGN KEY (`username`) REFERENCES `f_user` (`username`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Records of `f_session`
 -- ----------------------------
 BEGIN;
-INSERT INTO `f_session` VALUES ('1', 'admin', '1', '2018-12-23 23:15:20');
+INSERT INTO `f_session` VALUES ('1', 'admin', '1', '2018-12-23 23:15:20', null), ('3', 'admin', '8ff42f11-945c-4f34-ba59-c4afde56fb28', '2018-12-24 09:42:03', '电脑'), ('5', 'admin', '5596c814-8047-4493-a883-3208c36cffed', '2018-12-24 09:45:43', 'iPhone设备'), ('6', 'admin', 'ef6ce503-8450-4568-8c29-e6cb914d4320', '2018-12-24 10:38:29', 'iPhone'), ('7', 'admin', '03d182aa-5fd8-41ed-add8-d43c6ee81c66', '2018-12-24 11:24:16', 'iPhone'), ('8', 'admin', '222d7212-4058-4252-acc7-dda1c3a91a70', '2018-12-24 12:22:33', '电脑'), ('9', 'admin', '061d0672-874d-4d2f-8b77-7a4f5e694a27', '2018-12-24 14:14:29', '电脑');
 COMMIT;
 
 -- ----------------------------
@@ -262,6 +299,7 @@ CREATE TABLE `f_user` (
   `user_img` varchar(95) DEFAULT NULL,
   PRIMARY KEY (`sid`),
   UNIQUE KEY `username_UNIQUE` (`username`),
+  UNIQUE KEY `nickname_UNIQUE` (`nickname`),
   KEY `fk_province_idx` (`province`),
   KEY `idx_povince` (`province`),
   KEY `idx_user_povince` (`province`),
@@ -275,7 +313,7 @@ CREATE TABLE `f_user` (
 --  Records of `f_user`
 -- ----------------------------
 BEGIN;
-INSERT INTO `f_user` VALUES ('1068310406818304000', 'admin', '3e64129af6c5765d78dfb8e8ff6a339003509b4b', '1', '1', 'admin', '0', '海外', '', '', null), ('1068310406881218560', 'guest', '3e64129af6c5765d78dfb8e8ff6a339003509b4b', '1000', '1', 'guest', '1', '海外', '', '', null), ('1072752696303423488', '222@qq.com', '8e1baeee1109eafbe2ae7025757eeed6fdcc7db9', '1000', '1', 'test', '0', '广东省', '广州市', '天河区', null), ('1072754834454745088', '111@qq.com', '579646aad11fae4dd295812fb4526245', '1000', '1', '12312', '1', '山西省', '太原市', '市辖区', null), ('1072755841133842432', '333@qq.com', 'a76a7be415d5d144f188f33202c4ea51', '1000', '1', 'qewq', '1', '澳门特别行政区', '澳门半岛', null, null), ('1072756068297347072', '444@qq.com', 'a76a7be415d5d144f188f33202c4ea51', '1000', '1', '4444', '1', '海外', null, null, null), ('1072782789897752576', '11223@qq.com', 'b7d785afb7b606343a9d04ff7bd6e1e8', '1000', '1', 'HI', '0', '山西省', '太原市', '市辖区', null), ('1074943630831128576', '666@qq.com', '8e1baeee1109eafbe2ae7025757eeed6fdcc7db9', '1000', '1', 'Hello', '0', '辽宁省', '沈阳市', '市辖区', null), ('1076741554460299264', '10101@qq.com', '8e1baeee1109eafbe2ae7025757eeed6fdcc7db9', '1000', '1', 'hihihih', '0', '山西省', '太原市', '市辖区', null);
+INSERT INTO `f_user` VALUES ('1068310406818304000', 'admin', '3e64129af6c5765d78dfb8e8ff6a339003509b4b', '1', '1', 'admin', '0', '海外', '', '', null), ('1068310406881218560', 'guest', '3e64129af6c5765d78dfb8e8ff6a339003509b4b', '1000', '1', 'guest', '1', '海外', '', '', null), ('1072752696303423488', '222@qq.com', 'c49901a10e2f0a9d1e431c9a93f2e3a8659dbd46', '1000', '1', 'test', '0', '广东省', '广州市', '天河区', null), ('1072754834454745088', '111@qq.com', '579646aad11fae4dd295812fb4526245', '1000', '1', '12312', '1', '山西省', '太原市', '市辖区', null), ('1072755841133842432', '333@qq.com', 'a76a7be415d5d144f188f33202c4ea51', '1000', '1', 'qewq', '1', '澳门特别行政区', '澳门半岛', null, null), ('1072756068297347072', '444@qq.com', 'a76a7be415d5d144f188f33202c4ea51', '1000', '1', '4444', '1', '海外', null, null, null), ('1072782789897752576', '11223@qq.com', 'b7d785afb7b606343a9d04ff7bd6e1e8', '1000', '1', 'HI', '0', '山西省', '太原市', '市辖区', null), ('1074943630831128576', '666@qq.com', '8e1baeee1109eafbe2ae7025757eeed6fdcc7db9', '1000', '1', 'Hello', '0', '辽宁省', '沈阳市', '市辖区', null), ('1076741554460299264', '10101@qq.com', '8e1baeee1109eafbe2ae7025757eeed6fdcc7db9', '1000', '1', 'hihihih', '0', '山西省', '太原市', '市辖区', null), ('1077056341580845056', '888@qq.com', 'bd1836e969145e88390a58f8b5e291ba4fbf1afd', '1000', '1', 'Hello1', '0', '山西省', '太原市', '市辖区', null);
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;

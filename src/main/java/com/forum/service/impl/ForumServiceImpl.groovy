@@ -49,7 +49,9 @@ class ForumServiceImpl implements ForumService{
             sb.append(',')
         }
         List<UserPostReplyVOEntity> favouriteList = userPostReplyVOMapper.SelectMaxFavouriteReplyByPostIdGroup(sb.toString())
-        favouriteList
+        favouriteList?.each {current ->
+            list?.find{it?.postid == current?.postid}?.setUserPostReplyVOEntity(current)
+        }
         return list
     }
 }

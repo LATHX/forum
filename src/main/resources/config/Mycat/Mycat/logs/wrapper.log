@@ -2380,3 +2380,512 @@ INFO   | jvm 1    | 2018/12/24 17:25:08 | 2018-12-24 17:25:07,959 [INFO ][$_NIOR
 STATUS | wrapper  | 2018/12/24 17:32:12 | CTRL-C trapped.  Shutting down.
 INFO   | jvm 1    | 2018/12/24 17:32:14 | Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=64M; support was removed in 8.0
 STATUS | wrapper  | 2018/12/24 17:32:14 | <-- Wrapper Stopped
+STATUS | wrapper  | 2018/12/24 20:30:23 | --> Wrapper Started as Console
+STATUS | wrapper  | 2018/12/24 20:30:23 | Launching a JVM...
+INFO   | jvm 1    | 2018/12/24 20:30:23 | Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=64M; support was removed in 8.0
+INFO   | jvm 1    | 2018/12/24 20:30:24 | Wrapper (Version 3.2.3) http://wrapper.tanukisoftware.org
+INFO   | jvm 1    | 2018/12/24 20:30:24 |   Copyright 1999-2006 Tanuki Software, Inc.  All Rights Reserved.
+INFO   | jvm 1    | 2018/12/24 20:30:24 | 
+INFO   | jvm 1    | 2018/12/24 20:30:24 | 
+INFO   | jvm 1    | 2018/12/24 20:30:24 | WARNING - Unable to load the Wrapper's native library because none of the
+INFO   | jvm 1    | 2018/12/24 20:30:24 |           following files:
+INFO   | jvm 1    | 2018/12/24 20:30:24 |             libwrapper-macosx-x86-64.dylib
+INFO   | jvm 1    | 2018/12/24 20:30:24 |             libwrapper-macosx-universal-64.dylib
+INFO   | jvm 1    | 2018/12/24 20:30:24 |             libwrapper.dylib
+INFO   | jvm 1    | 2018/12/24 20:30:24 |           could be located on the following java.library.path:
+INFO   | jvm 1    | 2018/12/24 20:30:24 |             /Users/ljl/Documents/forum/src/main/resources/config/Mycat/Mycat/lib
+INFO   | jvm 1    | 2018/12/24 20:30:24 |           Please see the documentation for the wrapper.java.library.path
+INFO   | jvm 1    | 2018/12/24 20:30:24 |           configuration property.
+INFO   | jvm 1    | 2018/12/24 20:30:24 |           System signals will not be handled correctly.
+INFO   | jvm 1    | 2018/12/24 20:30:24 | 
+INFO   | jvm 1    | 2018/12/24 20:30:24 | 2018-12-24 20:30:24,631 [INFO ][WrapperSimpleAppMain] total resouces of dataHost localhost1 is :1  (io.mycat.backend.datasource.PhysicalDBPool:PhysicalDBPool.java:100) 
+INFO   | jvm 1    | 2018/12/24 20:30:24 | 2018-12-24 20:30:24,641 [INFO ][WrapperSimpleAppMain] create layer cache pool TableID2DataNodeCache of type encache ,default cache size 10000 ,default expire seconds18000  (io.mycat.cache.CacheService:CacheService.java:125) 
+INFO   | jvm 1    | 2018/12/24 20:30:24 | 2018-12-24 20:30:24,642 [INFO ][WrapperSimpleAppMain] create child Cache: TESTDB_ORDERS for layered cache TableID2DataNodeCache, size 50000, expire seconds 18000  (io.mycat.cache.DefaultLayedCachePool:DefaultLayedCachePool.java:80) 
+INFO   | jvm 1    | 2018/12/24 20:30:24 | 2018-12-24 20:30:24,756 [INFO ][WrapperSimpleAppMain] dyna class load from ./catlet,and auto check for class file modified every 60 seconds  (io.mycat.config.classloader.DynaClassLoader:DynaClassLoader.java:34) 
+INFO   | jvm 1    | 2018/12/24 20:30:24 | 2018-12-24 20:30:24,757 [INFO ][WrapperSimpleAppMain] ===============================================  (io.mycat.MycatServer:MycatServer.java:266) 
+INFO   | jvm 1    | 2018/12/24 20:30:24 | 2018-12-24 20:30:24,757 [INFO ][WrapperSimpleAppMain] MyCat is ready to startup ...  (io.mycat.MycatServer:MycatServer.java:267) 
+INFO   | jvm 1    | 2018/12/24 20:30:24 | 2018-12-24 20:30:24,757 [INFO ][WrapperSimpleAppMain] Startup processors ...,total processors:8,aio thread pool size:16    
+INFO   | jvm 1    | 2018/12/24 20:30:24 |  each process allocated socket buffer pool  bytes ,a page size:2097152  a page's chunk number(PageSize/ChunkSize) is:512  buffer page's number is:160  (io.mycat.MycatServer:MycatServer.java:279) 
+INFO   | jvm 1    | 2018/12/24 20:30:24 | 2018-12-24 20:30:24,757 [INFO ][WrapperSimpleAppMain] sysconfig params:SystemConfig [processorBufferLocalPercent=100, frontSocketSoRcvbuf=1048576, frontSocketSoSndbuf=4194304, backSocketSoRcvbuf=4194304, backSocketSoSndbuf=1048576, frontSocketNoDelay=1, backSocketNoDelay=1, maxStringLiteralLength=65535, frontWriteQueueSize=2048, bindIp=127.0.0.1, serverPort=8066, managerPort=9066, charset=utf8, processors=8, processorExecutor=16, timerExecutor=2, managerExecutor=2, idleTimeout=300000, catletClassCheckSeconds=60, sqlExecuteTimeout=300, processorCheckPeriod=1000, dataNodeIdleCheckPeriod=300000, dataNodeHeartbeatPeriod=10000, clusterHeartbeatUser=_HEARTBEAT_USER_, clusterHeartbeatPass=_HEARTBEAT_PASS_, clusterHeartbeatPeriod=5000, clusterHeartbeatTimeout=10000, clusterHeartbeatRetry=10, txIsolation=3, parserCommentVersion=50148, sqlRecordCount=10, bufferPoolPageSize=2097152, bufferPoolChunkSize=4096, bufferPoolPageNumber=160, maxResultSet=524288, bigResultSizeSqlCount=10, bufferUsagePercent=80, flowControlRejectStrategy=0, clearBigSqLResultSetMapMs=600000, defaultMaxLimit=100, sequnceHandlerType=2, sqlInterceptor=io.mycat.server.interceptor.impl.DefaultSqlInterceptor, sqlInterceptorType=select, sqlInterceptorFile=/Users/ljl/Documents/forum/src/main/resources/config/Mycat/Mycat/logs/sql.txt, mutiNodeLimitType=0, mutiNodePatchSize=100, defaultSqlParser=druidparser, usingAIO=0, packetHeaderSize=4, maxPacketSize=16777216, mycatNodeId=1]  (io.mycat.MycatServer:MycatServer.java:280) 
+INFO   | jvm 1    | 2018/12/24 20:30:25 | 2018-12-24 20:30:24,947 [INFO ][WrapperSimpleAppMain] useOffHeapForMerge = 1  (io.mycat.memory.MyCatMemory:MyCatMemory.java:53) 
+INFO   | jvm 1    | 2018/12/24 20:30:25 | 2018-12-24 20:30:24,947 [INFO ][WrapperSimpleAppMain] memoryPageSize = 1m  (io.mycat.memory.MyCatMemory:MyCatMemory.java:54) 
+INFO   | jvm 1    | 2018/12/24 20:30:25 | 2018-12-24 20:30:24,947 [INFO ][WrapperSimpleAppMain] spillsFileBufferSize = 1k  (io.mycat.memory.MyCatMemory:MyCatMemory.java:55) 
+INFO   | jvm 1    | 2018/12/24 20:30:25 | 2018-12-24 20:30:24,947 [INFO ][WrapperSimpleAppMain] useStreamOutput = 0  (io.mycat.memory.MyCatMemory:MyCatMemory.java:56) 
+INFO   | jvm 1    | 2018/12/24 20:30:25 | 2018-12-24 20:30:24,948 [INFO ][WrapperSimpleAppMain] systemReserveMemorySize = 384m  (io.mycat.memory.MyCatMemory:MyCatMemory.java:57) 
+INFO   | jvm 1    | 2018/12/24 20:30:25 | 2018-12-24 20:30:24,963 [INFO ][WrapperSimpleAppMain] totalNetWorkBufferSize = 320MB  (io.mycat.memory.MyCatMemory:MyCatMemory.java:58) 
+INFO   | jvm 1    | 2018/12/24 20:30:25 | 2018-12-24 20:30:24,966 [INFO ][WrapperSimpleAppMain] dataNodeSortedTempDir = /Users/ljl/Documents/forum/src/main/resources/config/Mycat/Mycat  (io.mycat.memory.MyCatMemory:MyCatMemory.java:59) 
+INFO   | jvm 1    | 2018/12/24 20:30:25 | 2018-12-24 20:30:24,970 [INFO ][WrapperSimpleAppMain] mycat.memory.offHeap.size: 985MB  (io.mycat.memory.MyCatMemory:MyCatMemory.java:122) 
+INFO   | jvm 1    | 2018/12/24 20:30:25 | 2018-12-24 20:30:24,979 [INFO ][WrapperSimpleAppMain] using nio network handler   (io.mycat.MycatServer:MycatServer.java:381) 
+INFO   | jvm 1    | 2018/12/24 20:30:25 | 2018-12-24 20:30:25,019 [INFO ][WrapperSimpleAppMain] $_MyCatManager is started and listening on 9066  (io.mycat.MycatServer:MycatServer.java:397) 
+INFO   | jvm 1    | 2018/12/24 20:30:25 | 2018-12-24 20:30:25,019 [INFO ][WrapperSimpleAppMain] $_MyCatServer is started and listening on 8066  (io.mycat.MycatServer:MycatServer.java:401) 
+INFO   | jvm 1    | 2018/12/24 20:30:25 | 2018-12-24 20:30:25,019 [INFO ][WrapperSimpleAppMain] ===============================================  (io.mycat.MycatServer:MycatServer.java:403) 
+INFO   | jvm 1    | 2018/12/24 20:30:25 | 2018-12-24 20:30:25,020 [INFO ][WrapperSimpleAppMain] Initialize dataHost ...  (io.mycat.MycatServer:MycatServer.java:407) 
+INFO   | jvm 1    | 2018/12/24 20:30:25 | 2018-12-24 20:30:25,020 [INFO ][WrapperSimpleAppMain] init backend myqsl source ,create connections total 10 for hostM1 index :0  (io.mycat.backend.datasource.PhysicalDBPool:PhysicalDBPool.java:294) 
+INFO   | jvm 1    | 2018/12/24 20:30:25 | 2018-12-24 20:30:25,021 [INFO ][WrapperSimpleAppMain] no ilde connection in pool,create new connection for hostM1 of schema forum  (io.mycat.backend.datasource.PhysicalDatasource:PhysicalDatasource.java:413) 
+INFO   | jvm 1    | 2018/12/24 20:30:25 | 2018-12-24 20:30:25,022 [INFO ][WrapperSimpleAppMain] no ilde connection in pool,create new connection for hostM1 of schema forum  (io.mycat.backend.datasource.PhysicalDatasource:PhysicalDatasource.java:413) 
+INFO   | jvm 1    | 2018/12/24 20:30:25 | 2018-12-24 20:30:25,022 [INFO ][WrapperSimpleAppMain] no ilde connection in pool,create new connection for hostM1 of schema forum  (io.mycat.backend.datasource.PhysicalDatasource:PhysicalDatasource.java:413) 
+INFO   | jvm 1    | 2018/12/24 20:30:25 | 2018-12-24 20:30:25,023 [INFO ][WrapperSimpleAppMain] no ilde connection in pool,create new connection for hostM1 of schema forum  (io.mycat.backend.datasource.PhysicalDatasource:PhysicalDatasource.java:413) 
+INFO   | jvm 1    | 2018/12/24 20:30:25 | 2018-12-24 20:30:25,023 [INFO ][WrapperSimpleAppMain] no ilde connection in pool,create new connection for hostM1 of schema forum  (io.mycat.backend.datasource.PhysicalDatasource:PhysicalDatasource.java:413) 
+INFO   | jvm 1    | 2018/12/24 20:30:25 | 2018-12-24 20:30:25,024 [INFO ][WrapperSimpleAppMain] no ilde connection in pool,create new connection for hostM1 of schema forum  (io.mycat.backend.datasource.PhysicalDatasource:PhysicalDatasource.java:413) 
+INFO   | jvm 1    | 2018/12/24 20:30:25 | 2018-12-24 20:30:25,024 [INFO ][WrapperSimpleAppMain] no ilde connection in pool,create new connection for hostM1 of schema forum  (io.mycat.backend.datasource.PhysicalDatasource:PhysicalDatasource.java:413) 
+INFO   | jvm 1    | 2018/12/24 20:30:25 | 2018-12-24 20:30:25,024 [INFO ][WrapperSimpleAppMain] no ilde connection in pool,create new connection for hostM1 of schema forum  (io.mycat.backend.datasource.PhysicalDatasource:PhysicalDatasource.java:413) 
+INFO   | jvm 1    | 2018/12/24 20:30:25 | 2018-12-24 20:30:25,025 [INFO ][WrapperSimpleAppMain] no ilde connection in pool,create new connection for hostM1 of schema forum  (io.mycat.backend.datasource.PhysicalDatasource:PhysicalDatasource.java:413) 
+INFO   | jvm 1    | 2018/12/24 20:30:25 | 2018-12-24 20:30:25,025 [INFO ][WrapperSimpleAppMain] no ilde connection in pool,create new connection for hostM1 of schema forum  (io.mycat.backend.datasource.PhysicalDatasource:PhysicalDatasource.java:413) 
+INFO   | jvm 1    | 2018/12/24 20:30:25 | 2018-12-24 20:30:25,066 [INFO ][$_NIOREACTOR-5-RW] connected successfuly MySQLConnection [id=5, lastTime=1545654625066, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=13, charset=latin1, txIsolation=3, autocommit=true, attachment=null, respHandler=null, host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false]  (io.mycat.backend.mysql.nio.handler.GetConnectionHandler:GetConnectionHandler.java:67) 
+INFO   | jvm 1    | 2018/12/24 20:30:25 | 2018-12-24 20:30:25,067 [INFO ][$_NIOREACTOR-2-RW] connected successfuly MySQLConnection [id=2, lastTime=1545654625067, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=8, charset=latin1, txIsolation=3, autocommit=true, attachment=null, respHandler=null, host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false]  (io.mycat.backend.mysql.nio.handler.GetConnectionHandler:GetConnectionHandler.java:67) 
+INFO   | jvm 1    | 2018/12/24 20:30:25 | 2018-12-24 20:30:25,067 [INFO ][$_NIOREACTOR-2-RW] connected successfuly MySQLConnection [id=10, lastTime=1545654625067, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=14, charset=latin1, txIsolation=3, autocommit=true, attachment=null, respHandler=null, host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false]  (io.mycat.backend.mysql.nio.handler.GetConnectionHandler:GetConnectionHandler.java:67) 
+INFO   | jvm 1    | 2018/12/24 20:30:25 | 2018-12-24 20:30:25,067 [INFO ][$_NIOREACTOR-3-RW] connected successfuly MySQLConnection [id=3, lastTime=1545654625067, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=11, charset=latin1, txIsolation=3, autocommit=true, attachment=null, respHandler=null, host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false]  (io.mycat.backend.mysql.nio.handler.GetConnectionHandler:GetConnectionHandler.java:67) 
+INFO   | jvm 1    | 2018/12/24 20:30:25 | 2018-12-24 20:30:25,067 [INFO ][$_NIOREACTOR-7-RW] connected successfuly MySQLConnection [id=7, lastTime=1545654625067, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=12, charset=latin1, txIsolation=3, autocommit=true, attachment=null, respHandler=null, host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false]  (io.mycat.backend.mysql.nio.handler.GetConnectionHandler:GetConnectionHandler.java:67) 
+INFO   | jvm 1    | 2018/12/24 20:30:25 | 2018-12-24 20:30:25,068 [INFO ][$_NIOREACTOR-6-RW] connected successfuly MySQLConnection [id=6, lastTime=1545654625068, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=10, charset=latin1, txIsolation=3, autocommit=true, attachment=null, respHandler=null, host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false]  (io.mycat.backend.mysql.nio.handler.GetConnectionHandler:GetConnectionHandler.java:67) 
+INFO   | jvm 1    | 2018/12/24 20:30:25 | 2018-12-24 20:30:25,069 [INFO ][$_NIOREACTOR-1-RW] connected successfuly MySQLConnection [id=1, lastTime=1545654625069, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=7, charset=latin1, txIsolation=3, autocommit=true, attachment=null, respHandler=null, host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false]  (io.mycat.backend.mysql.nio.handler.GetConnectionHandler:GetConnectionHandler.java:67) 
+INFO   | jvm 1    | 2018/12/24 20:30:25 | 2018-12-24 20:30:25,069 [INFO ][$_NIOREACTOR-1-RW] connected successfuly MySQLConnection [id=9, lastTime=1545654625069, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=15, charset=latin1, txIsolation=3, autocommit=true, attachment=null, respHandler=null, host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false]  (io.mycat.backend.mysql.nio.handler.GetConnectionHandler:GetConnectionHandler.java:67) 
+INFO   | jvm 1    | 2018/12/24 20:30:25 | 2018-12-24 20:30:25,069 [INFO ][$_NIOREACTOR-4-RW] connected successfuly MySQLConnection [id=4, lastTime=1545654625069, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=9, charset=latin1, txIsolation=3, autocommit=true, attachment=null, respHandler=null, host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false]  (io.mycat.backend.mysql.nio.handler.GetConnectionHandler:GetConnectionHandler.java:67) 
+INFO   | jvm 1    | 2018/12/24 20:30:25 | 2018-12-24 20:30:25,070 [INFO ][$_NIOREACTOR-0-RW] connected successfuly MySQLConnection [id=8, lastTime=1545654625070, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=6, charset=latin1, txIsolation=3, autocommit=true, attachment=null, respHandler=null, host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false]  (io.mycat.backend.mysql.nio.handler.GetConnectionHandler:GetConnectionHandler.java:67) 
+INFO   | jvm 1    | 2018/12/24 20:30:25 | 2018-12-24 20:30:25,126 [INFO ][WrapperSimpleAppMain] init result :finished 10 success 10 target count:10  (io.mycat.backend.datasource.PhysicalDBPool:PhysicalDBPool.java:319) 
+INFO   | jvm 1    | 2018/12/24 20:30:25 | 2018-12-24 20:30:25,126 [INFO ][WrapperSimpleAppMain] localhost1 index:0 init success  (io.mycat.backend.datasource.PhysicalDBPool:PhysicalDBPool.java:265) 
+INFO   | jvm 1    | 2018/12/24 20:30:25 | MyCAT Server startup successfully. see logs in logs/mycat.log
+INFO   | jvm 1    | 2018/12/24 21:05:50 | 2018-12-24 21:05:50,369 [INFO ][$_NIOREACTOR-3-RW] ServerConnection [id=1, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success  (io.mycat.net.handler.FrontendAuthenticator:FrontendAuthenticator.java:194) 
+INFO   | jvm 1    | 2018/12/24 21:06:17 | 2018-12-24 21:06:17,607 [INFO ][$_NIOREACTOR-3-RW] close connection,reason:stream closed ,ServerConnection [id=1, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]  (io.mycat.net.AbstractConnection:AbstractConnection.java:508) 
+STATUS | wrapper  | 2018/12/24 21:06:29 | <-- Wrapper Stopped
+STATUS | wrapper  | 2018/12/24 21:06:32 | --> Wrapper Started as Console
+STATUS | wrapper  | 2018/12/24 21:06:32 | Launching a JVM...
+INFO   | jvm 1    | 2018/12/24 21:06:33 | Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=64M; support was removed in 8.0
+INFO   | jvm 1    | 2018/12/24 21:06:33 | Wrapper (Version 3.2.3) http://wrapper.tanukisoftware.org
+INFO   | jvm 1    | 2018/12/24 21:06:33 |   Copyright 1999-2006 Tanuki Software, Inc.  All Rights Reserved.
+INFO   | jvm 1    | 2018/12/24 21:06:33 | 
+INFO   | jvm 1    | 2018/12/24 21:06:33 | 
+INFO   | jvm 1    | 2018/12/24 21:06:33 | WARNING - Unable to load the Wrapper's native library because none of the
+INFO   | jvm 1    | 2018/12/24 21:06:33 |           following files:
+INFO   | jvm 1    | 2018/12/24 21:06:33 |             libwrapper-macosx-x86-64.dylib
+INFO   | jvm 1    | 2018/12/24 21:06:33 |             libwrapper-macosx-universal-64.dylib
+INFO   | jvm 1    | 2018/12/24 21:06:33 |             libwrapper.dylib
+INFO   | jvm 1    | 2018/12/24 21:06:33 |           could be located on the following java.library.path:
+INFO   | jvm 1    | 2018/12/24 21:06:33 |             /Users/ljl/Documents/forum/src/main/resources/config/Mycat/Mycat/lib
+INFO   | jvm 1    | 2018/12/24 21:06:33 |           Please see the documentation for the wrapper.java.library.path
+INFO   | jvm 1    | 2018/12/24 21:06:33 |           configuration property.
+INFO   | jvm 1    | 2018/12/24 21:06:33 |           System signals will not be handled correctly.
+INFO   | jvm 1    | 2018/12/24 21:06:33 | 
+INFO   | jvm 1    | 2018/12/24 21:06:33 | 2018-12-24 21:06:33,734 [INFO ][WrapperSimpleAppMain] total resouces of dataHost localhost1 is :1  (io.mycat.backend.datasource.PhysicalDBPool:PhysicalDBPool.java:100) 
+INFO   | jvm 1    | 2018/12/24 21:06:33 | 2018-12-24 21:06:33,740 [INFO ][WrapperSimpleAppMain] create layer cache pool TableID2DataNodeCache of type encache ,default cache size 10000 ,default expire seconds18000  (io.mycat.cache.CacheService:CacheService.java:125) 
+INFO   | jvm 1    | 2018/12/24 21:06:33 | 2018-12-24 21:06:33,740 [INFO ][WrapperSimpleAppMain] create child Cache: TESTDB_ORDERS for layered cache TableID2DataNodeCache, size 50000, expire seconds 18000  (io.mycat.cache.DefaultLayedCachePool:DefaultLayedCachePool.java:80) 
+INFO   | jvm 1    | 2018/12/24 21:06:33 | 2018-12-24 21:06:33,818 [INFO ][WrapperSimpleAppMain] dyna class load from ./catlet,and auto check for class file modified every 60 seconds  (io.mycat.config.classloader.DynaClassLoader:DynaClassLoader.java:34) 
+INFO   | jvm 1    | 2018/12/24 21:06:33 | 2018-12-24 21:06:33,819 [INFO ][WrapperSimpleAppMain] ===============================================  (io.mycat.MycatServer:MycatServer.java:266) 
+INFO   | jvm 1    | 2018/12/24 21:06:33 | 2018-12-24 21:06:33,819 [INFO ][WrapperSimpleAppMain] MyCat is ready to startup ...  (io.mycat.MycatServer:MycatServer.java:267) 
+INFO   | jvm 1    | 2018/12/24 21:06:33 | 2018-12-24 21:06:33,819 [INFO ][WrapperSimpleAppMain] Startup processors ...,total processors:8,aio thread pool size:16    
+INFO   | jvm 1    | 2018/12/24 21:06:33 |  each process allocated socket buffer pool  bytes ,a page size:2097152  a page's chunk number(PageSize/ChunkSize) is:512  buffer page's number is:160  (io.mycat.MycatServer:MycatServer.java:279) 
+INFO   | jvm 1    | 2018/12/24 21:06:33 | 2018-12-24 21:06:33,819 [INFO ][WrapperSimpleAppMain] sysconfig params:SystemConfig [processorBufferLocalPercent=100, frontSocketSoRcvbuf=1048576, frontSocketSoSndbuf=4194304, backSocketSoRcvbuf=4194304, backSocketSoSndbuf=1048576, frontSocketNoDelay=1, backSocketNoDelay=1, maxStringLiteralLength=65535, frontWriteQueueSize=2048, bindIp=127.0.0.1, serverPort=8066, managerPort=9066, charset=utf8, processors=8, processorExecutor=16, timerExecutor=2, managerExecutor=2, idleTimeout=300000, catletClassCheckSeconds=60, sqlExecuteTimeout=300, processorCheckPeriod=1000, dataNodeIdleCheckPeriod=300000, dataNodeHeartbeatPeriod=10000, clusterHeartbeatUser=_HEARTBEAT_USER_, clusterHeartbeatPass=_HEARTBEAT_PASS_, clusterHeartbeatPeriod=5000, clusterHeartbeatTimeout=10000, clusterHeartbeatRetry=10, txIsolation=3, parserCommentVersion=50148, sqlRecordCount=10, bufferPoolPageSize=2097152, bufferPoolChunkSize=4096, bufferPoolPageNumber=160, maxResultSet=524288, bigResultSizeSqlCount=10, bufferUsagePercent=80, flowControlRejectStrategy=0, clearBigSqLResultSetMapMs=600000, defaultMaxLimit=100, sequnceHandlerType=2, sqlInterceptor=io.mycat.server.interceptor.impl.DefaultSqlInterceptor, sqlInterceptorType=select, sqlInterceptorFile=/Users/ljl/Documents/forum/src/main/resources/config/Mycat/Mycat/logs/sql.txt, mutiNodeLimitType=0, mutiNodePatchSize=100, defaultSqlParser=druidparser, usingAIO=0, packetHeaderSize=4, maxPacketSize=16777216, mycatNodeId=1]  (io.mycat.MycatServer:MycatServer.java:280) 
+INFO   | jvm 1    | 2018/12/24 21:06:34 | 2018-12-24 21:06:34,004 [INFO ][WrapperSimpleAppMain] useOffHeapForMerge = 1  (io.mycat.memory.MyCatMemory:MyCatMemory.java:53) 
+INFO   | jvm 1    | 2018/12/24 21:06:34 | 2018-12-24 21:06:34,004 [INFO ][WrapperSimpleAppMain] memoryPageSize = 1m  (io.mycat.memory.MyCatMemory:MyCatMemory.java:54) 
+INFO   | jvm 1    | 2018/12/24 21:06:34 | 2018-12-24 21:06:34,004 [INFO ][WrapperSimpleAppMain] spillsFileBufferSize = 1k  (io.mycat.memory.MyCatMemory:MyCatMemory.java:55) 
+INFO   | jvm 1    | 2018/12/24 21:06:34 | 2018-12-24 21:06:34,004 [INFO ][WrapperSimpleAppMain] useStreamOutput = 0  (io.mycat.memory.MyCatMemory:MyCatMemory.java:56) 
+INFO   | jvm 1    | 2018/12/24 21:06:34 | 2018-12-24 21:06:34,005 [INFO ][WrapperSimpleAppMain] systemReserveMemorySize = 384m  (io.mycat.memory.MyCatMemory:MyCatMemory.java:57) 
+INFO   | jvm 1    | 2018/12/24 21:06:34 | 2018-12-24 21:06:34,014 [INFO ][WrapperSimpleAppMain] totalNetWorkBufferSize = 320MB  (io.mycat.memory.MyCatMemory:MyCatMemory.java:58) 
+INFO   | jvm 1    | 2018/12/24 21:06:34 | 2018-12-24 21:06:34,014 [INFO ][WrapperSimpleAppMain] dataNodeSortedTempDir = /Users/ljl/Documents/forum/src/main/resources/config/Mycat/Mycat  (io.mycat.memory.MyCatMemory:MyCatMemory.java:59) 
+INFO   | jvm 1    | 2018/12/24 21:06:34 | 2018-12-24 21:06:34,016 [INFO ][WrapperSimpleAppMain] mycat.memory.offHeap.size: 985MB  (io.mycat.memory.MyCatMemory:MyCatMemory.java:122) 
+INFO   | jvm 1    | 2018/12/24 21:06:34 | 2018-12-24 21:06:34,022 [INFO ][WrapperSimpleAppMain] using nio network handler   (io.mycat.MycatServer:MycatServer.java:381) 
+INFO   | jvm 1    | 2018/12/24 21:06:34 | 2018-12-24 21:06:34,051 [INFO ][WrapperSimpleAppMain] $_MyCatManager is started and listening on 9066  (io.mycat.MycatServer:MycatServer.java:397) 
+INFO   | jvm 1    | 2018/12/24 21:06:34 | 2018-12-24 21:06:34,054 [INFO ][WrapperSimpleAppMain] $_MyCatServer is started and listening on 8066  (io.mycat.MycatServer:MycatServer.java:401) 
+INFO   | jvm 1    | 2018/12/24 21:06:34 | 2018-12-24 21:06:34,054 [INFO ][WrapperSimpleAppMain] ===============================================  (io.mycat.MycatServer:MycatServer.java:403) 
+INFO   | jvm 1    | 2018/12/24 21:06:34 | 2018-12-24 21:06:34,054 [INFO ][WrapperSimpleAppMain] Initialize dataHost ...  (io.mycat.MycatServer:MycatServer.java:407) 
+INFO   | jvm 1    | 2018/12/24 21:06:34 | 2018-12-24 21:06:34,054 [INFO ][WrapperSimpleAppMain] init backend myqsl source ,create connections total 10 for hostM1 index :0  (io.mycat.backend.datasource.PhysicalDBPool:PhysicalDBPool.java:294) 
+INFO   | jvm 1    | 2018/12/24 21:06:34 | 2018-12-24 21:06:34,055 [INFO ][WrapperSimpleAppMain] no ilde connection in pool,create new connection for hostM1 of schema forum  (io.mycat.backend.datasource.PhysicalDatasource:PhysicalDatasource.java:413) 
+INFO   | jvm 1    | 2018/12/24 21:06:34 | 2018-12-24 21:06:34,056 [INFO ][WrapperSimpleAppMain] no ilde connection in pool,create new connection for hostM1 of schema forum  (io.mycat.backend.datasource.PhysicalDatasource:PhysicalDatasource.java:413) 
+INFO   | jvm 1    | 2018/12/24 21:06:34 | 2018-12-24 21:06:34,056 [INFO ][WrapperSimpleAppMain] no ilde connection in pool,create new connection for hostM1 of schema forum  (io.mycat.backend.datasource.PhysicalDatasource:PhysicalDatasource.java:413) 
+INFO   | jvm 1    | 2018/12/24 21:06:34 | 2018-12-24 21:06:34,057 [INFO ][WrapperSimpleAppMain] no ilde connection in pool,create new connection for hostM1 of schema forum  (io.mycat.backend.datasource.PhysicalDatasource:PhysicalDatasource.java:413) 
+INFO   | jvm 1    | 2018/12/24 21:06:34 | 2018-12-24 21:06:34,057 [INFO ][WrapperSimpleAppMain] no ilde connection in pool,create new connection for hostM1 of schema forum  (io.mycat.backend.datasource.PhysicalDatasource:PhysicalDatasource.java:413) 
+INFO   | jvm 1    | 2018/12/24 21:06:34 | 2018-12-24 21:06:34,057 [INFO ][WrapperSimpleAppMain] no ilde connection in pool,create new connection for hostM1 of schema forum  (io.mycat.backend.datasource.PhysicalDatasource:PhysicalDatasource.java:413) 
+INFO   | jvm 1    | 2018/12/24 21:06:34 | 2018-12-24 21:06:34,058 [INFO ][WrapperSimpleAppMain] no ilde connection in pool,create new connection for hostM1 of schema forum  (io.mycat.backend.datasource.PhysicalDatasource:PhysicalDatasource.java:413) 
+INFO   | jvm 1    | 2018/12/24 21:06:34 | 2018-12-24 21:06:34,058 [INFO ][WrapperSimpleAppMain] no ilde connection in pool,create new connection for hostM1 of schema forum  (io.mycat.backend.datasource.PhysicalDatasource:PhysicalDatasource.java:413) 
+INFO   | jvm 1    | 2018/12/24 21:06:34 | 2018-12-24 21:06:34,058 [INFO ][WrapperSimpleAppMain] no ilde connection in pool,create new connection for hostM1 of schema forum  (io.mycat.backend.datasource.PhysicalDatasource:PhysicalDatasource.java:413) 
+INFO   | jvm 1    | 2018/12/24 21:06:34 | 2018-12-24 21:06:34,058 [INFO ][WrapperSimpleAppMain] no ilde connection in pool,create new connection for hostM1 of schema forum  (io.mycat.backend.datasource.PhysicalDatasource:PhysicalDatasource.java:413) 
+INFO   | jvm 1    | 2018/12/24 21:06:34 | 2018-12-24 21:06:34,090 [INFO ][$_NIOREACTOR-2-RW] connected successfuly MySQLConnection [id=2, lastTime=1545656794090, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=25, charset=latin1, txIsolation=3, autocommit=true, attachment=null, respHandler=null, host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false]  (io.mycat.backend.mysql.nio.handler.GetConnectionHandler:GetConnectionHandler.java:67) 
+INFO   | jvm 1    | 2018/12/24 21:06:34 | 2018-12-24 21:06:34,090 [INFO ][$_NIOREACTOR-4-RW] connected successfuly MySQLConnection [id=4, lastTime=1545656794090, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=18, charset=latin1, txIsolation=3, autocommit=true, attachment=null, respHandler=null, host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false]  (io.mycat.backend.mysql.nio.handler.GetConnectionHandler:GetConnectionHandler.java:67) 
+INFO   | jvm 1    | 2018/12/24 21:06:34 | 2018-12-24 21:06:34,090 [INFO ][$_NIOREACTOR-6-RW] connected successfuly MySQLConnection [id=6, lastTime=1545656794090, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=17, charset=latin1, txIsolation=3, autocommit=true, attachment=null, respHandler=null, host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false]  (io.mycat.backend.mysql.nio.handler.GetConnectionHandler:GetConnectionHandler.java:67) 
+INFO   | jvm 1    | 2018/12/24 21:06:34 | 2018-12-24 21:06:34,091 [INFO ][$_NIOREACTOR-5-RW] connected successfuly MySQLConnection [id=5, lastTime=1545656794091, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=21, charset=latin1, txIsolation=3, autocommit=true, attachment=null, respHandler=null, host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false]  (io.mycat.backend.mysql.nio.handler.GetConnectionHandler:GetConnectionHandler.java:67) 
+INFO   | jvm 1    | 2018/12/24 21:06:34 | 2018-12-24 21:06:34,091 [INFO ][$_NIOREACTOR-2-RW] connected successfuly MySQLConnection [id=10, lastTime=1545656794091, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=24, charset=latin1, txIsolation=3, autocommit=true, attachment=null, respHandler=null, host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false]  (io.mycat.backend.mysql.nio.handler.GetConnectionHandler:GetConnectionHandler.java:67) 
+INFO   | jvm 1    | 2018/12/24 21:06:34 | 2018-12-24 21:06:34,092 [INFO ][$_NIOREACTOR-3-RW] connected successfuly MySQLConnection [id=3, lastTime=1545656794092, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=20, charset=latin1, txIsolation=3, autocommit=true, attachment=null, respHandler=null, host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false]  (io.mycat.backend.mysql.nio.handler.GetConnectionHandler:GetConnectionHandler.java:67) 
+INFO   | jvm 1    | 2018/12/24 21:06:34 | 2018-12-24 21:06:34,093 [INFO ][$_NIOREACTOR-1-RW] connected successfuly MySQLConnection [id=1, lastTime=1545656794093, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=16, charset=latin1, txIsolation=3, autocommit=true, attachment=null, respHandler=null, host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false]  (io.mycat.backend.mysql.nio.handler.GetConnectionHandler:GetConnectionHandler.java:67) 
+INFO   | jvm 1    | 2018/12/24 21:06:34 | 2018-12-24 21:06:34,093 [INFO ][$_NIOREACTOR-0-RW] connected successfuly MySQLConnection [id=8, lastTime=1545656794093, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=23, charset=latin1, txIsolation=3, autocommit=true, attachment=null, respHandler=null, host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false]  (io.mycat.backend.mysql.nio.handler.GetConnectionHandler:GetConnectionHandler.java:67) 
+INFO   | jvm 1    | 2018/12/24 21:06:34 | 2018-12-24 21:06:34,093 [INFO ][$_NIOREACTOR-1-RW] connected successfuly MySQLConnection [id=9, lastTime=1545656794093, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=22, charset=latin1, txIsolation=3, autocommit=true, attachment=null, respHandler=null, host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false]  (io.mycat.backend.mysql.nio.handler.GetConnectionHandler:GetConnectionHandler.java:67) 
+INFO   | jvm 1    | 2018/12/24 21:06:34 | 2018-12-24 21:06:34,094 [INFO ][$_NIOREACTOR-7-RW] connected successfuly MySQLConnection [id=7, lastTime=1545656794094, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=19, charset=latin1, txIsolation=3, autocommit=true, attachment=null, respHandler=null, host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false]  (io.mycat.backend.mysql.nio.handler.GetConnectionHandler:GetConnectionHandler.java:67) 
+INFO   | jvm 1    | 2018/12/24 21:06:34 | 2018-12-24 21:06:34,159 [INFO ][WrapperSimpleAppMain] init result :finished 10 success 10 target count:10  (io.mycat.backend.datasource.PhysicalDBPool:PhysicalDBPool.java:319) 
+INFO   | jvm 1    | 2018/12/24 21:06:34 | 2018-12-24 21:06:34,159 [INFO ][WrapperSimpleAppMain] localhost1 index:0 init success  (io.mycat.backend.datasource.PhysicalDBPool:PhysicalDBPool.java:265) 
+INFO   | jvm 1    | 2018/12/24 21:06:34 | MyCAT Server startup successfully. see logs in logs/mycat.log
+INFO   | jvm 1    | 2018/12/24 21:06:51 | 2018-12-24 21:06:51,750 [INFO ][$_NIOREACTOR-3-RW] ServerConnection [id=1, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success  (io.mycat.net.handler.FrontendAuthenticator:FrontendAuthenticator.java:194) 
+INFO   | jvm 1    | 2018/12/24 21:07:04 | 2018-12-24 21:07:04,406 [INFO ][$_NIOREACTOR-3-RW] close connection,reason:stream closed ,ServerConnection [id=1, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]  (io.mycat.net.AbstractConnection:AbstractConnection.java:508) 
+INFO   | jvm 1    | 2018/12/24 21:07:57 | 2018-12-24 21:07:57,480 [INFO ][$_NIOREACTOR-4-RW] ServerConnection [id=2, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success  (io.mycat.net.handler.FrontendAuthenticator:FrontendAuthenticator.java:194) 
+INFO   | jvm 1    | 2018/12/24 21:08:16 | 2018-12-24 21:08:16,056 [INFO ][$_NIOREACTOR-5-RW] ServerConnection [id=3, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success  (io.mycat.net.handler.FrontendAuthenticator:FrontendAuthenticator.java:194) 
+INFO   | jvm 1    | 2018/12/24 21:08:28 | 2018-12-24 21:08:28,560 [WARN ][$_NIOREACTOR-5-RW] can't find table define in schema F_POST_REPLY schema:forum  (io.mycat.route.util.RouterUtil:RouterUtil.java:1212) 
+INFO   | jvm 1    | 2018/12/24 21:08:28 | 2018-12-24 21:08:28,567 [WARN ][$_NIOREACTOR-5-RW] ServerConnection [id=3, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]select  user_img,e.*   from (select * from f_post_reply as a where  favourite=(select max(b.favourite) from f_post_reply as b where a.postid = b.postid)  and a.postId in ("15","1","2","3","4")) as e ,f_user where e.creator = sid err:java.sql.SQLNonTransientException: can't find table define in schema F_POST_REPLY schema:forum java.sql.SQLNonTransientException: can't find table define in schema F_POST_REPLY schema:forum
+INFO   | jvm 1    | 2018/12/24 21:08:28 | 	at io.mycat.route.util.RouterUtil.findRouteWithcConditionsForTables(RouterUtil.java:1213)
+INFO   | jvm 1    | 2018/12/24 21:08:28 | 	at io.mycat.route.util.RouterUtil.tryRouteForTables(RouterUtil.java:958)
+INFO   | jvm 1    | 2018/12/24 21:08:28 | 	at io.mycat.route.parser.druid.impl.DruidSelectParser.tryRoute(DruidSelectParser.java:412)
+INFO   | jvm 1    | 2018/12/24 21:08:28 | 	at io.mycat.route.parser.druid.impl.DruidSelectParser.changeSql(DruidSelectParser.java:287)
+INFO   | jvm 1    | 2018/12/24 21:08:28 | 	at io.mycat.route.parser.druid.impl.DefaultDruidParser.parser(DefaultDruidParser.java:67)
+INFO   | jvm 1    | 2018/12/24 21:08:28 | 	at io.mycat.route.impl.DruidMycatRouteStrategy.routeNormalSqlWithAST(DruidMycatRouteStrategy.java:84)
+INFO   | jvm 1    | 2018/12/24 21:08:28 | 	at io.mycat.route.impl.AbstractRouteStrategy.route(AbstractRouteStrategy.java:81)
+INFO   | jvm 1    | 2018/12/24 21:08:28 | 	at io.mycat.route.RouteService.route(RouteService.java:133)
+INFO   | jvm 1    | 2018/12/24 21:08:28 | 	at io.mycat.server.ServerConnection.routeEndExecuteSQL(ServerConnection.java:273)
+INFO   | jvm 1    | 2018/12/24 21:08:28 | 	at io.mycat.server.ServerConnection.execute(ServerConnection.java:222)
+INFO   | jvm 1    | 2018/12/24 21:08:28 | 	at io.mycat.server.handler.SelectHandler.handle(SelectHandler.java:105)
+INFO   | jvm 1    | 2018/12/24 21:08:28 | 	at io.mycat.server.ServerQueryHandler.query(ServerQueryHandler.java:79)
+INFO   | jvm 1    | 2018/12/24 21:08:28 | 	at io.mycat.net.FrontendConnection.query(FrontendConnection.java:317)
+INFO   | jvm 1    | 2018/12/24 21:08:28 | 	at io.mycat.net.FrontendConnection.query(FrontendConnection.java:337)
+INFO   | jvm 1    | 2018/12/24 21:08:28 | 	at io.mycat.net.handler.FrontendCommandHandler.handle(FrontendCommandHandler.java:71)
+INFO   | jvm 1    | 2018/12/24 21:08:28 | 	at io.mycat.net.FrontendConnection.rawHandle(FrontendConnection.java:478)
+INFO   | jvm 1    | 2018/12/24 21:08:28 | 	at io.mycat.net.FrontendConnection.handle(FrontendConnection.java:460)
+INFO   | jvm 1    | 2018/12/24 21:08:28 | 	at io.mycat.net.AbstractConnection.onReadData(AbstractConnection.java:321)
+INFO   | jvm 1    | 2018/12/24 21:08:28 | 	at io.mycat.net.NIOSocketWR.asynRead(NIOSocketWR.java:190)
+INFO   | jvm 1    | 2018/12/24 21:08:28 | 	at io.mycat.net.AbstractConnection.asynRead(AbstractConnection.java:273)
+INFO   | jvm 1    | 2018/12/24 21:08:28 | 	at io.mycat.net.NIOReactor$RW.run(NIOReactor.java:102)
+INFO   | jvm 1    | 2018/12/24 21:08:28 | 	at java.lang.Thread.run(Thread.java:745)
+INFO   | jvm 1    | 2018/12/24 21:08:28 |  (io.mycat.server.ServerConnection:ServerConnection.java:281) 
+INFO   | jvm 1    | 2018/12/24 21:09:03 | 2018-12-24 21:09:03,839 [WARN ][$_NIOREACTOR-5-RW] can't find table define in schema F_POST_REPLY schema:forum  (io.mycat.route.util.RouterUtil:RouterUtil.java:1212) 
+INFO   | jvm 1    | 2018/12/24 21:09:03 | 2018-12-24 21:09:03,840 [WARN ][$_NIOREACTOR-5-RW] ServerConnection [id=3, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]select  user_img,e.*   from (select * from f_post_reply as a where  favourite=(select max(b.favourite) from f_post_reply as b where a.postid = b.postid)  and a.postId in ("15","1","2","3","4")) as e ,f_user where e.creator = sid err:java.sql.SQLNonTransientException: can't find table define in schema F_POST_REPLY schema:forum java.sql.SQLNonTransientException: can't find table define in schema F_POST_REPLY schema:forum
+INFO   | jvm 1    | 2018/12/24 21:09:03 | 	at io.mycat.route.util.RouterUtil.findRouteWithcConditionsForTables(RouterUtil.java:1213)
+INFO   | jvm 1    | 2018/12/24 21:09:03 | 	at io.mycat.route.util.RouterUtil.tryRouteForTables(RouterUtil.java:958)
+INFO   | jvm 1    | 2018/12/24 21:09:03 | 	at io.mycat.route.parser.druid.impl.DruidSelectParser.tryRoute(DruidSelectParser.java:412)
+INFO   | jvm 1    | 2018/12/24 21:09:03 | 	at io.mycat.route.parser.druid.impl.DruidSelectParser.changeSql(DruidSelectParser.java:287)
+INFO   | jvm 1    | 2018/12/24 21:09:03 | 	at io.mycat.route.parser.druid.impl.DefaultDruidParser.parser(DefaultDruidParser.java:67)
+INFO   | jvm 1    | 2018/12/24 21:09:03 | 	at io.mycat.route.impl.DruidMycatRouteStrategy.routeNormalSqlWithAST(DruidMycatRouteStrategy.java:84)
+INFO   | jvm 1    | 2018/12/24 21:09:03 | 	at io.mycat.route.impl.AbstractRouteStrategy.route(AbstractRouteStrategy.java:81)
+INFO   | jvm 1    | 2018/12/24 21:09:03 | 	at io.mycat.route.RouteService.route(RouteService.java:133)
+INFO   | jvm 1    | 2018/12/24 21:09:03 | 	at io.mycat.server.ServerConnection.routeEndExecuteSQL(ServerConnection.java:273)
+INFO   | jvm 1    | 2018/12/24 21:09:03 | 	at io.mycat.server.ServerConnection.execute(ServerConnection.java:222)
+INFO   | jvm 1    | 2018/12/24 21:09:03 | 	at io.mycat.server.handler.SelectHandler.handle(SelectHandler.java:105)
+INFO   | jvm 1    | 2018/12/24 21:09:03 | 	at io.mycat.server.ServerQueryHandler.query(ServerQueryHandler.java:79)
+INFO   | jvm 1    | 2018/12/24 21:09:03 | 	at io.mycat.net.FrontendConnection.query(FrontendConnection.java:317)
+INFO   | jvm 1    | 2018/12/24 21:09:03 | 	at io.mycat.net.FrontendConnection.query(FrontendConnection.java:337)
+INFO   | jvm 1    | 2018/12/24 21:09:03 | 	at io.mycat.net.handler.FrontendCommandHandler.handle(FrontendCommandHandler.java:71)
+INFO   | jvm 1    | 2018/12/24 21:09:03 | 	at io.mycat.net.FrontendConnection.rawHandle(FrontendConnection.java:478)
+INFO   | jvm 1    | 2018/12/24 21:09:03 | 	at io.mycat.net.FrontendConnection.handle(FrontendConnection.java:460)
+INFO   | jvm 1    | 2018/12/24 21:09:03 | 	at io.mycat.net.AbstractConnection.onReadData(AbstractConnection.java:321)
+INFO   | jvm 1    | 2018/12/24 21:09:03 | 	at io.mycat.net.NIOSocketWR.asynRead(NIOSocketWR.java:190)
+INFO   | jvm 1    | 2018/12/24 21:09:03 | 	at io.mycat.net.AbstractConnection.asynRead(AbstractConnection.java:273)
+INFO   | jvm 1    | 2018/12/24 21:09:03 | 	at io.mycat.net.NIOReactor$RW.run(NIOReactor.java:102)
+INFO   | jvm 1    | 2018/12/24 21:09:03 | 	at java.lang.Thread.run(Thread.java:745)
+INFO   | jvm 1    | 2018/12/24 21:09:03 |  (io.mycat.server.ServerConnection:ServerConnection.java:281) 
+INFO   | jvm 1    | 2018/12/24 21:10:53 | 2018-12-24 21:10:53,376 [WARN ][$_NIOREACTOR-5-RW] can't find table define in schema F_POST_REPLY schema:forum  (io.mycat.route.util.RouterUtil:RouterUtil.java:1212) 
+INFO   | jvm 1    | 2018/12/24 21:10:53 | 2018-12-24 21:10:53,376 [WARN ][$_NIOREACTOR-5-RW] ServerConnection [id=3, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]select  user_img,e.*   from (select * from f_post_reply as a where  favourite=(select max(b.favourite) from f_post_reply as b where a.postid = b.postid)  and a.postId in ("15","1","2","3","4")) as e ,f_user where e.creator = sid err:java.sql.SQLNonTransientException: can't find table define in schema F_POST_REPLY schema:forum java.sql.SQLNonTransientException: can't find table define in schema F_POST_REPLY schema:forum
+INFO   | jvm 1    | 2018/12/24 21:10:53 | 	at io.mycat.route.util.RouterUtil.findRouteWithcConditionsForTables(RouterUtil.java:1213)
+INFO   | jvm 1    | 2018/12/24 21:10:53 | 	at io.mycat.route.util.RouterUtil.tryRouteForTables(RouterUtil.java:958)
+INFO   | jvm 1    | 2018/12/24 21:10:53 | 	at io.mycat.route.parser.druid.impl.DruidSelectParser.tryRoute(DruidSelectParser.java:412)
+INFO   | jvm 1    | 2018/12/24 21:10:53 | 	at io.mycat.route.parser.druid.impl.DruidSelectParser.changeSql(DruidSelectParser.java:287)
+INFO   | jvm 1    | 2018/12/24 21:10:53 | 	at io.mycat.route.parser.druid.impl.DefaultDruidParser.parser(DefaultDruidParser.java:67)
+INFO   | jvm 1    | 2018/12/24 21:10:53 | 	at io.mycat.route.impl.DruidMycatRouteStrategy.routeNormalSqlWithAST(DruidMycatRouteStrategy.java:84)
+INFO   | jvm 1    | 2018/12/24 21:10:53 | 	at io.mycat.route.impl.AbstractRouteStrategy.route(AbstractRouteStrategy.java:81)
+INFO   | jvm 1    | 2018/12/24 21:10:53 | 	at io.mycat.route.RouteService.route(RouteService.java:133)
+INFO   | jvm 1    | 2018/12/24 21:10:53 | 	at io.mycat.server.ServerConnection.routeEndExecuteSQL(ServerConnection.java:273)
+INFO   | jvm 1    | 2018/12/24 21:10:53 | 	at io.mycat.server.ServerConnection.execute(ServerConnection.java:222)
+INFO   | jvm 1    | 2018/12/24 21:10:53 | 	at io.mycat.server.handler.SelectHandler.handle(SelectHandler.java:105)
+INFO   | jvm 1    | 2018/12/24 21:10:53 | 	at io.mycat.server.ServerQueryHandler.query(ServerQueryHandler.java:79)
+INFO   | jvm 1    | 2018/12/24 21:10:53 | 	at io.mycat.net.FrontendConnection.query(FrontendConnection.java:317)
+INFO   | jvm 1    | 2018/12/24 21:10:53 | 	at io.mycat.net.FrontendConnection.query(FrontendConnection.java:337)
+INFO   | jvm 1    | 2018/12/24 21:10:53 | 	at io.mycat.net.handler.FrontendCommandHandler.handle(FrontendCommandHandler.java:71)
+INFO   | jvm 1    | 2018/12/24 21:10:53 | 	at io.mycat.net.FrontendConnection.rawHandle(FrontendConnection.java:478)
+INFO   | jvm 1    | 2018/12/24 21:10:53 | 	at io.mycat.net.FrontendConnection.handle(FrontendConnection.java:460)
+INFO   | jvm 1    | 2018/12/24 21:10:53 | 	at io.mycat.net.AbstractConnection.onReadData(AbstractConnection.java:321)
+INFO   | jvm 1    | 2018/12/24 21:10:53 | 	at io.mycat.net.NIOSocketWR.asynRead(NIOSocketWR.java:190)
+INFO   | jvm 1    | 2018/12/24 21:10:53 | 	at io.mycat.net.AbstractConnection.asynRead(AbstractConnection.java:273)
+INFO   | jvm 1    | 2018/12/24 21:10:53 | 	at io.mycat.net.NIOReactor$RW.run(NIOReactor.java:102)
+INFO   | jvm 1    | 2018/12/24 21:10:53 | 	at java.lang.Thread.run(Thread.java:745)
+INFO   | jvm 1    | 2018/12/24 21:10:53 |  (io.mycat.server.ServerConnection:ServerConnection.java:281) 
+INFO   | jvm 1    | 2018/12/24 21:10:53 | 2018-12-24 21:10:53,646 [INFO ][$_NIOREACTOR-4-RW] close connection,reason:stream closed ,ServerConnection [id=2, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]  (io.mycat.net.AbstractConnection:AbstractConnection.java:508) 
+INFO   | jvm 1    | 2018/12/24 21:10:53 | 2018-12-24 21:10:53,646 [INFO ][$_NIOREACTOR-5-RW] close connection,reason:stream closed ,ServerConnection [id=3, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]  (io.mycat.net.AbstractConnection:AbstractConnection.java:508) 
+INFO   | jvm 1    | 2018/12/24 21:11:02 | 2018-12-24 21:11:02,082 [INFO ][$_NIOREACTOR-6-RW] ServerConnection [id=4, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success  (io.mycat.net.handler.FrontendAuthenticator:FrontendAuthenticator.java:194) 
+INFO   | jvm 1    | 2018/12/24 21:11:07 | 2018-12-24 21:11:07,418 [INFO ][$_NIOREACTOR-7-RW] ServerConnection [id=5, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success  (io.mycat.net.handler.FrontendAuthenticator:FrontendAuthenticator.java:194) 
+INFO   | jvm 1    | 2018/12/24 21:11:09 | 2018-12-24 21:11:09,125 [WARN ][$_NIOREACTOR-7-RW] can't find table define in schema F_POST_REPLY schema:forum  (io.mycat.route.util.RouterUtil:RouterUtil.java:1212) 
+INFO   | jvm 1    | 2018/12/24 21:11:09 | 2018-12-24 21:11:09,125 [WARN ][$_NIOREACTOR-7-RW] ServerConnection [id=5, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]select  user_img,e.*   from (select * from f_post_reply as a where  favourite=(select max(b.favourite) from f_post_reply as b where a.postid = b.postid)  and a.postId in ("15","1","2","3","4")) as e ,f_user where e.creator = sid err:java.sql.SQLNonTransientException: can't find table define in schema F_POST_REPLY schema:forum java.sql.SQLNonTransientException: can't find table define in schema F_POST_REPLY schema:forum
+INFO   | jvm 1    | 2018/12/24 21:11:09 | 	at io.mycat.route.util.RouterUtil.findRouteWithcConditionsForTables(RouterUtil.java:1213)
+INFO   | jvm 1    | 2018/12/24 21:11:09 | 	at io.mycat.route.util.RouterUtil.tryRouteForTables(RouterUtil.java:958)
+INFO   | jvm 1    | 2018/12/24 21:11:09 | 	at io.mycat.route.parser.druid.impl.DruidSelectParser.tryRoute(DruidSelectParser.java:412)
+INFO   | jvm 1    | 2018/12/24 21:11:09 | 	at io.mycat.route.parser.druid.impl.DruidSelectParser.changeSql(DruidSelectParser.java:287)
+INFO   | jvm 1    | 2018/12/24 21:11:09 | 	at io.mycat.route.parser.druid.impl.DefaultDruidParser.parser(DefaultDruidParser.java:67)
+INFO   | jvm 1    | 2018/12/24 21:11:09 | 	at io.mycat.route.impl.DruidMycatRouteStrategy.routeNormalSqlWithAST(DruidMycatRouteStrategy.java:84)
+INFO   | jvm 1    | 2018/12/24 21:11:09 | 	at io.mycat.route.impl.AbstractRouteStrategy.route(AbstractRouteStrategy.java:81)
+INFO   | jvm 1    | 2018/12/24 21:11:09 | 	at io.mycat.route.RouteService.route(RouteService.java:133)
+INFO   | jvm 1    | 2018/12/24 21:11:09 | 	at io.mycat.server.ServerConnection.routeEndExecuteSQL(ServerConnection.java:273)
+INFO   | jvm 1    | 2018/12/24 21:11:09 | 	at io.mycat.server.ServerConnection.execute(ServerConnection.java:222)
+INFO   | jvm 1    | 2018/12/24 21:11:09 | 	at io.mycat.server.handler.SelectHandler.handle(SelectHandler.java:105)
+INFO   | jvm 1    | 2018/12/24 21:11:09 | 	at io.mycat.server.ServerQueryHandler.query(ServerQueryHandler.java:79)
+INFO   | jvm 1    | 2018/12/24 21:11:09 | 	at io.mycat.net.FrontendConnection.query(FrontendConnection.java:317)
+INFO   | jvm 1    | 2018/12/24 21:11:09 | 	at io.mycat.net.FrontendConnection.query(FrontendConnection.java:337)
+INFO   | jvm 1    | 2018/12/24 21:11:09 | 	at io.mycat.net.handler.FrontendCommandHandler.handle(FrontendCommandHandler.java:71)
+INFO   | jvm 1    | 2018/12/24 21:11:09 | 	at io.mycat.net.FrontendConnection.rawHandle(FrontendConnection.java:478)
+INFO   | jvm 1    | 2018/12/24 21:11:09 | 	at io.mycat.net.FrontendConnection.handle(FrontendConnection.java:460)
+INFO   | jvm 1    | 2018/12/24 21:11:09 | 	at io.mycat.net.AbstractConnection.onReadData(AbstractConnection.java:321)
+INFO   | jvm 1    | 2018/12/24 21:11:09 | 	at io.mycat.net.NIOSocketWR.asynRead(NIOSocketWR.java:190)
+INFO   | jvm 1    | 2018/12/24 21:11:09 | 	at io.mycat.net.AbstractConnection.asynRead(AbstractConnection.java:273)
+INFO   | jvm 1    | 2018/12/24 21:11:09 | 	at io.mycat.net.NIOReactor$RW.run(NIOReactor.java:102)
+INFO   | jvm 1    | 2018/12/24 21:11:09 | 	at java.lang.Thread.run(Thread.java:745)
+INFO   | jvm 1    | 2018/12/24 21:11:09 |  (io.mycat.server.ServerConnection:ServerConnection.java:281) 
+INFO   | jvm 1    | 2018/12/24 21:16:04 | 2018-12-24 21:16:04,162 [INFO ][Timer0] ServerConnection [id=4, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum] idle timeout  (io.mycat.net.AbstractConnection:AbstractConnection.java:521) 
+INFO   | jvm 1    | 2018/12/24 21:16:04 | 2018-12-24 21:16:04,162 [INFO ][Timer0] close connection,reason: idle  ,ServerConnection [id=4, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]  (io.mycat.net.AbstractConnection:AbstractConnection.java:508) 
+INFO   | jvm 1    | 2018/12/24 21:16:09 | 2018-12-24 21:16:09,164 [INFO ][Timer1] ServerConnection [id=5, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum] idle timeout  (io.mycat.net.AbstractConnection:AbstractConnection.java:521) 
+INFO   | jvm 1    | 2018/12/24 21:16:09 | 2018-12-24 21:16:09,165 [INFO ][Timer1] close connection,reason: idle  ,ServerConnection [id=5, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]  (io.mycat.net.AbstractConnection:AbstractConnection.java:508) 
+INFO   | jvm 1    | 2018/12/24 21:18:54 | 2018-12-24 21:18:54,551 [INFO ][$_NIOREACTOR-0-RW] ServerConnection [id=6, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success  (io.mycat.net.handler.FrontendAuthenticator:FrontendAuthenticator.java:194) 
+INFO   | jvm 1    | 2018/12/24 21:18:59 | 2018-12-24 21:18:59,522 [INFO ][$_NIOREACTOR-1-RW] ServerConnection [id=7, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success  (io.mycat.net.handler.FrontendAuthenticator:FrontendAuthenticator.java:194) 
+INFO   | jvm 1    | 2018/12/24 21:19:01 | 2018-12-24 21:19:01,459 [WARN ][$_NIOREACTOR-1-RW] can't find table define in schema F_POST_REPLY schema:forum  (io.mycat.route.util.RouterUtil:RouterUtil.java:1212) 
+INFO   | jvm 1    | 2018/12/24 21:19:01 | 2018-12-24 21:19:01,459 [WARN ][$_NIOREACTOR-1-RW] ServerConnection [id=7, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]select  * from (select * from f_post_reply as a where  favourite=(select max(b.favourite) from f_post_reply as b where a.postid = b.postid)  and a.postId in ("15","1","2","3","4")) as e ,f_user where e.creator = sid err:java.sql.SQLNonTransientException: can't find table define in schema F_POST_REPLY schema:forum java.sql.SQLNonTransientException: can't find table define in schema F_POST_REPLY schema:forum
+INFO   | jvm 1    | 2018/12/24 21:19:01 | 	at io.mycat.route.util.RouterUtil.findRouteWithcConditionsForTables(RouterUtil.java:1213)
+INFO   | jvm 1    | 2018/12/24 21:19:01 | 	at io.mycat.route.util.RouterUtil.tryRouteForTables(RouterUtil.java:958)
+INFO   | jvm 1    | 2018/12/24 21:19:01 | 	at io.mycat.route.parser.druid.impl.DruidSelectParser.tryRoute(DruidSelectParser.java:412)
+INFO   | jvm 1    | 2018/12/24 21:19:01 | 	at io.mycat.route.parser.druid.impl.DruidSelectParser.changeSql(DruidSelectParser.java:287)
+INFO   | jvm 1    | 2018/12/24 21:19:01 | 	at io.mycat.route.parser.druid.impl.DefaultDruidParser.parser(DefaultDruidParser.java:67)
+INFO   | jvm 1    | 2018/12/24 21:19:01 | 	at io.mycat.route.impl.DruidMycatRouteStrategy.routeNormalSqlWithAST(DruidMycatRouteStrategy.java:84)
+INFO   | jvm 1    | 2018/12/24 21:19:01 | 	at io.mycat.route.impl.AbstractRouteStrategy.route(AbstractRouteStrategy.java:81)
+INFO   | jvm 1    | 2018/12/24 21:19:01 | 	at io.mycat.route.RouteService.route(RouteService.java:133)
+INFO   | jvm 1    | 2018/12/24 21:19:01 | 	at io.mycat.server.ServerConnection.routeEndExecuteSQL(ServerConnection.java:273)
+INFO   | jvm 1    | 2018/12/24 21:19:01 | 	at io.mycat.server.ServerConnection.execute(ServerConnection.java:222)
+INFO   | jvm 1    | 2018/12/24 21:19:01 | 	at io.mycat.server.handler.SelectHandler.handle(SelectHandler.java:105)
+INFO   | jvm 1    | 2018/12/24 21:19:01 | 	at io.mycat.server.ServerQueryHandler.query(ServerQueryHandler.java:79)
+INFO   | jvm 1    | 2018/12/24 21:19:01 | 	at io.mycat.net.FrontendConnection.query(FrontendConnection.java:317)
+INFO   | jvm 1    | 2018/12/24 21:19:01 | 	at io.mycat.net.FrontendConnection.query(FrontendConnection.java:337)
+INFO   | jvm 1    | 2018/12/24 21:19:01 | 	at io.mycat.net.handler.FrontendCommandHandler.handle(FrontendCommandHandler.java:71)
+INFO   | jvm 1    | 2018/12/24 21:19:01 | 	at io.mycat.net.FrontendConnection.rawHandle(FrontendConnection.java:478)
+INFO   | jvm 1    | 2018/12/24 21:19:01 | 	at io.mycat.net.FrontendConnection.handle(FrontendConnection.java:460)
+INFO   | jvm 1    | 2018/12/24 21:19:01 | 	at io.mycat.net.AbstractConnection.onReadData(AbstractConnection.java:321)
+INFO   | jvm 1    | 2018/12/24 21:19:01 | 	at io.mycat.net.NIOSocketWR.asynRead(NIOSocketWR.java:190)
+INFO   | jvm 1    | 2018/12/24 21:19:01 | 	at io.mycat.net.AbstractConnection.asynRead(AbstractConnection.java:273)
+INFO   | jvm 1    | 2018/12/24 21:19:01 | 	at io.mycat.net.NIOReactor$RW.run(NIOReactor.java:102)
+INFO   | jvm 1    | 2018/12/24 21:19:01 | 	at java.lang.Thread.run(Thread.java:745)
+INFO   | jvm 1    | 2018/12/24 21:19:01 |  (io.mycat.server.ServerConnection:ServerConnection.java:281) 
+INFO   | jvm 1    | 2018/12/24 21:20:07 | 2018-12-24 21:20:07,587 [INFO ][$_NIOREACTOR-1-RW] close connection,reason:stream closed ,ServerConnection [id=7, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]  (io.mycat.net.AbstractConnection:AbstractConnection.java:508) 
+INFO   | jvm 1    | 2018/12/24 21:20:07 | 2018-12-24 21:20:07,587 [INFO ][$_NIOREACTOR-0-RW] close connection,reason:stream closed ,ServerConnection [id=6, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]  (io.mycat.net.AbstractConnection:AbstractConnection.java:508) 
+INFO   | jvm 1    | 2018/12/24 21:20:16 | 2018-12-24 21:20:16,312 [INFO ][$_NIOREACTOR-2-RW] ServerConnection [id=8, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success  (io.mycat.net.handler.FrontendAuthenticator:FrontendAuthenticator.java:194) 
+INFO   | jvm 1    | 2018/12/24 21:20:23 | 2018-12-24 21:20:23,062 [INFO ][$_NIOREACTOR-3-RW] ServerConnection [id=9, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success  (io.mycat.net.handler.FrontendAuthenticator:FrontendAuthenticator.java:194) 
+INFO   | jvm 1    | 2018/12/24 21:20:30 | 2018-12-24 21:20:30,094 [INFO ][$_NIOREACTOR-3-RW] close connection,reason:stream closed ,ServerConnection [id=9, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]  (io.mycat.net.AbstractConnection:AbstractConnection.java:508) 
+INFO   | jvm 1    | 2018/12/24 21:20:30 | 2018-12-24 21:20:30,094 [INFO ][$_NIOREACTOR-2-RW] close connection,reason:stream closed ,ServerConnection [id=8, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]  (io.mycat.net.AbstractConnection:AbstractConnection.java:508) 
+INFO   | jvm 1    | 2018/12/24 21:20:39 | 2018-12-24 21:20:39,843 [INFO ][$_NIOREACTOR-4-RW] ServerConnection [id=10, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success  (io.mycat.net.handler.FrontendAuthenticator:FrontendAuthenticator.java:194) 
+INFO   | jvm 1    | 2018/12/24 21:20:46 | 2018-12-24 21:20:46,508 [INFO ][$_NIOREACTOR-5-RW] ServerConnection [id=11, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success  (io.mycat.net.handler.FrontendAuthenticator:FrontendAuthenticator.java:194) 
+INFO   | jvm 1    | 2018/12/24 21:21:20 | 2018-12-24 21:21:20,216 [INFO ][$_NIOREACTOR-5-RW] close connection,reason:stream closed ,ServerConnection [id=11, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]  (io.mycat.net.AbstractConnection:AbstractConnection.java:508) 
+INFO   | jvm 1    | 2018/12/24 21:21:20 | 2018-12-24 21:21:20,216 [INFO ][$_NIOREACTOR-4-RW] close connection,reason:stream closed ,ServerConnection [id=10, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]  (io.mycat.net.AbstractConnection:AbstractConnection.java:508) 
+INFO   | jvm 1    | 2018/12/24 21:22:24 | 2018-12-24 21:22:24,436 [INFO ][$_NIOREACTOR-6-RW] ServerConnection [id=12, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success  (io.mycat.net.handler.FrontendAuthenticator:FrontendAuthenticator.java:194) 
+INFO   | jvm 1    | 2018/12/24 21:22:42 | 2018-12-24 21:22:42,476 [INFO ][$_NIOREACTOR-7-RW] ServerConnection [id=13, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success  (io.mycat.net.handler.FrontendAuthenticator:FrontendAuthenticator.java:194) 
+INFO   | jvm 1    | 2018/12/24 21:22:42 | 2018-12-24 21:22:42,513 [INFO ][$_NIOREACTOR-0-RW] ServerConnection [id=14, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success  (io.mycat.net.handler.FrontendAuthenticator:FrontendAuthenticator.java:194) 
+INFO   | jvm 1    | 2018/12/24 21:22:42 | 2018-12-24 21:22:42,521 [INFO ][$_NIOREACTOR-1-RW] ServerConnection [id=15, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success  (io.mycat.net.handler.FrontendAuthenticator:FrontendAuthenticator.java:194) 
+INFO   | jvm 1    | 2018/12/24 21:23:09 | 2018-12-24 21:23:09,828 [INFO ][$_NIOREACTOR-7-RW] close connection,reason:stream closed ,ServerConnection [id=13, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]  (io.mycat.net.AbstractConnection:AbstractConnection.java:508) 
+INFO   | jvm 1    | 2018/12/24 21:23:09 | 2018-12-24 21:23:09,828 [INFO ][$_NIOREACTOR-6-RW] close connection,reason:stream closed ,ServerConnection [id=12, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]  (io.mycat.net.AbstractConnection:AbstractConnection.java:508) 
+INFO   | jvm 1    | 2018/12/24 21:23:09 | 2018-12-24 21:23:09,828 [INFO ][$_NIOREACTOR-1-RW] close connection,reason:stream closed ,ServerConnection [id=15, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]  (io.mycat.net.AbstractConnection:AbstractConnection.java:508) 
+INFO   | jvm 1    | 2018/12/24 21:23:09 | 2018-12-24 21:23:09,828 [INFO ][$_NIOREACTOR-0-RW] close connection,reason:stream closed ,ServerConnection [id=14, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]  (io.mycat.net.AbstractConnection:AbstractConnection.java:508) 
+INFO   | jvm 1    | 2018/12/24 21:25:44 | 2018-12-24 21:25:44,201 [INFO ][$_NIOREACTOR-2-RW] ServerConnection [id=16, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success  (io.mycat.net.handler.FrontendAuthenticator:FrontendAuthenticator.java:194) 
+INFO   | jvm 1    | 2018/12/24 21:25:53 | 2018-12-24 21:25:53,721 [INFO ][$_NIOREACTOR-3-RW] ServerConnection [id=17, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success  (io.mycat.net.handler.FrontendAuthenticator:FrontendAuthenticator.java:194) 
+INFO   | jvm 1    | 2018/12/24 21:26:04 | 2018-12-24 21:26:04,560 [INFO ][$_NIOREACTOR-3-RW] close connection,reason:stream closed ,ServerConnection [id=17, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]  (io.mycat.net.AbstractConnection:AbstractConnection.java:508) 
+INFO   | jvm 1    | 2018/12/24 21:26:04 | 2018-12-24 21:26:04,560 [INFO ][$_NIOREACTOR-2-RW] close connection,reason:stream closed ,ServerConnection [id=16, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]  (io.mycat.net.AbstractConnection:AbstractConnection.java:508) 
+INFO   | jvm 1    | 2018/12/24 23:02:54 | 2018-12-24 23:02:54,011 [INFO ][$_NIOREACTOR-4-RW] ServerConnection [id=18, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success  (io.mycat.net.handler.FrontendAuthenticator:FrontendAuthenticator.java:194) 
+INFO   | jvm 1    | 2018/12/24 23:03:09 | 2018-12-24 23:03:09,259 [INFO ][$_NIOREACTOR-5-RW] ServerConnection [id=19, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success  (io.mycat.net.handler.FrontendAuthenticator:FrontendAuthenticator.java:194) 
+INFO   | jvm 1    | 2018/12/24 23:07:56 | 2018-12-24 23:07:56,174 [INFO ][Timer1] ServerConnection [id=18, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum] idle timeout  (io.mycat.net.AbstractConnection:AbstractConnection.java:521) 
+INFO   | jvm 1    | 2018/12/24 23:07:56 | 2018-12-24 23:07:56,175 [INFO ][Timer1] close connection,reason: idle  ,ServerConnection [id=18, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]  (io.mycat.net.AbstractConnection:AbstractConnection.java:508) 
+INFO   | jvm 1    | 2018/12/24 23:08:12 | 2018-12-24 23:08:12,175 [INFO ][Timer1] ServerConnection [id=19, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum] idle timeout  (io.mycat.net.AbstractConnection:AbstractConnection.java:521) 
+INFO   | jvm 1    | 2018/12/24 23:08:12 | 2018-12-24 23:08:12,175 [INFO ][Timer1] close connection,reason: idle  ,ServerConnection [id=19, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]  (io.mycat.net.AbstractConnection:AbstractConnection.java:508) 
+INFO   | jvm 1    | 2018/12/24 23:09:13 | 2018-12-24 23:09:13,870 [INFO ][$_NIOREACTOR-6-RW] ServerConnection [id=20, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success  (io.mycat.net.handler.FrontendAuthenticator:FrontendAuthenticator.java:194) 
+INFO   | jvm 1    | 2018/12/24 23:10:35 | 2018-12-24 23:10:35,685 [WARN ][$_NIOREACTOR-6-RW] execute  sql err : errno:1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')
+INFO   | jvm 1    | 2018/12/24 23:10:35 | 	) f_post_reply, f_user
+INFO   | jvm 1    | 2018/12/24 23:10:35 | WHERE f_post_reply.creator = sid
+INFO   | jvm 1    | 2018/12/24 23:10:35 | LIMIT 100' at line 7 con:MySQLConnection [id=6, lastTime=1545664235680, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=17, charset=utf8, txIsolation=3, autocommit=true, attachment=dn1{SELECT user_img, f_post_reply.*
+INFO   | jvm 1    | 2018/12/24 23:10:35 | FROM (SELECT *
+INFO   | jvm 1    | 2018/12/24 23:10:35 | 	FROM f_post_reply a
+INFO   | jvm 1    | 2018/12/24 23:10:35 | 	WHERE favourite = (
+INFO   | jvm 1    | 2018/12/24 23:10:35 | 			SELECT MAX(b.favourite)
+INFO   | jvm 1    | 2018/12/24 23:10:35 | 			FROM f_post_reply b
+INFO   | jvm 1    | 2018/12/24 23:10:35 | 			WHERE a.postId = b.postId
+INFO   | jvm 1    | 2018/12/24 23:10:35 | 			)
+INFO   | jvm 1    | 2018/12/24 23:10:35 | 		AND a.postId IN ()
+INFO   | jvm 1    | 2018/12/24 23:10:35 | 	) f_post_reply, f_user
+INFO   | jvm 1    | 2018/12/24 23:10:35 | WHERE f_post_reply.creator = sid
+INFO   | jvm 1    | 2018/12/24 23:10:35 | LIMIT 100}, respHandler=SingleNodeHandler [node=dn1{SELECT user_img, f_post_reply.*
+INFO   | jvm 1    | 2018/12/24 23:10:35 | FROM (SELECT *
+INFO   | jvm 1    | 2018/12/24 23:10:35 | 	FROM f_post_reply a
+INFO   | jvm 1    | 2018/12/24 23:10:35 | 	WHERE favourite = (
+INFO   | jvm 1    | 2018/12/24 23:10:35 | 			SELECT MAX(b.favourite)
+INFO   | jvm 1    | 2018/12/24 23:10:35 | 			FROM f_post_reply b
+INFO   | jvm 1    | 2018/12/24 23:10:35 | 			WHERE a.postId = b.postId
+INFO   | jvm 1    | 2018/12/24 23:10:35 | 			)
+INFO   | jvm 1    | 2018/12/24 23:10:35 | 		AND a.postId IN ()
+INFO   | jvm 1    | 2018/12/24 23:10:35 | 	) f_post_reply, f_user
+INFO   | jvm 1    | 2018/12/24 23:10:35 | WHERE f_post_reply.creator = sid
+INFO   | jvm 1    | 2018/12/24 23:10:35 | LIMIT 100}, packetId=1], host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false] frontend host:127.0.0.1/52469/root  (io.mycat.backend.mysql.nio.handler.SingleNodeHandler:SingleNodeHandler.java:249) 
+INFO   | jvm 1    | 2018/12/24 23:11:10 | 2018-12-24 23:11:09,916 [WARN ][$_NIOREACTOR-0-RW] execute  sql err : errno:1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')
+INFO   | jvm 1    | 2018/12/24 23:11:10 | 	) f_post_reply, f_user
+INFO   | jvm 1    | 2018/12/24 23:11:10 | WHERE f_post_reply.creator = sid
+INFO   | jvm 1    | 2018/12/24 23:11:10 | LIMIT 100' at line 7 con:MySQLConnection [id=8, lastTime=1545664269900, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=23, charset=utf8, txIsolation=3, autocommit=true, attachment=dn1{SELECT user_img, f_post_reply.*
+INFO   | jvm 1    | 2018/12/24 23:11:10 | FROM (SELECT *
+INFO   | jvm 1    | 2018/12/24 23:11:10 | 	FROM f_post_reply a
+INFO   | jvm 1    | 2018/12/24 23:11:10 | 	WHERE favourite = (
+INFO   | jvm 1    | 2018/12/24 23:11:10 | 			SELECT MAX(b.favourite)
+INFO   | jvm 1    | 2018/12/24 23:11:10 | 			FROM f_post_reply b
+INFO   | jvm 1    | 2018/12/24 23:11:10 | 			WHERE a.postId = b.postId
+INFO   | jvm 1    | 2018/12/24 23:11:10 | 			)
+INFO   | jvm 1    | 2018/12/24 23:11:10 | 		AND a.postId IN ()
+INFO   | jvm 1    | 2018/12/24 23:11:10 | 	) f_post_reply, f_user
+INFO   | jvm 1    | 2018/12/24 23:11:10 | WHERE f_post_reply.creator = sid
+INFO   | jvm 1    | 2018/12/24 23:11:10 | LIMIT 100}, respHandler=SingleNodeHandler [node=dn1{SELECT user_img, f_post_reply.*
+INFO   | jvm 1    | 2018/12/24 23:11:10 | FROM (SELECT *
+INFO   | jvm 1    | 2018/12/24 23:11:10 | 	FROM f_post_reply a
+INFO   | jvm 1    | 2018/12/24 23:11:10 | 	WHERE favourite = (
+INFO   | jvm 1    | 2018/12/24 23:11:10 | 			SELECT MAX(b.favourite)
+INFO   | jvm 1    | 2018/12/24 23:11:10 | 			FROM f_post_reply b
+INFO   | jvm 1    | 2018/12/24 23:11:10 | 			WHERE a.postId = b.postId
+INFO   | jvm 1    | 2018/12/24 23:11:10 | 			)
+INFO   | jvm 1    | 2018/12/24 23:11:10 | 		AND a.postId IN ()
+INFO   | jvm 1    | 2018/12/24 23:11:10 | 	) f_post_reply, f_user
+INFO   | jvm 1    | 2018/12/24 23:11:10 | WHERE f_post_reply.creator = sid
+INFO   | jvm 1    | 2018/12/24 23:11:10 | LIMIT 100}, packetId=1], host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false] frontend host:127.0.0.1/52469/root  (io.mycat.backend.mysql.nio.handler.SingleNodeHandler:SingleNodeHandler.java:249) 
+INFO   | jvm 1    | 2018/12/24 23:12:05 | 2018-12-24 23:12:05,662 [INFO ][$_NIOREACTOR-6-RW] close connection,reason:stream closed ,ServerConnection [id=20, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]  (io.mycat.net.AbstractConnection:AbstractConnection.java:508) 
+INFO   | jvm 1    | 2018/12/24 23:12:12 | 2018-12-24 23:12:12,659 [INFO ][$_NIOREACTOR-7-RW] ServerConnection [id=21, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success  (io.mycat.net.handler.FrontendAuthenticator:FrontendAuthenticator.java:194) 
+INFO   | jvm 1    | 2018/12/24 23:12:20 | 2018-12-24 23:12:20,304 [INFO ][$_NIOREACTOR-0-RW] ServerConnection [id=22, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success  (io.mycat.net.handler.FrontendAuthenticator:FrontendAuthenticator.java:194) 
+INFO   | jvm 1    | 2018/12/24 23:12:20 | 2018-12-24 23:12:20,359 [WARN ][$_NIOREACTOR-6-RW] execute  sql err : errno:1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')
+INFO   | jvm 1    | 2018/12/24 23:12:20 | 	) F_POST_REPLY, f_user
+INFO   | jvm 1    | 2018/12/24 23:12:20 | WHERE F_POST_REPLY.creator = sid
+INFO   | jvm 1    | 2018/12/24 23:12:20 | LIMIT 100' at line 7 con:MySQLConnection [id=6, lastTime=1545664340338, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=17, charset=utf8, txIsolation=3, autocommit=true, attachment=dn1{SELECT user_img, F_POST_REPLY.*
+INFO   | jvm 1    | 2018/12/24 23:12:20 | FROM (SELECT *
+INFO   | jvm 1    | 2018/12/24 23:12:20 | 	FROM f_post_reply a
+INFO   | jvm 1    | 2018/12/24 23:12:20 | 	WHERE favourite = (
+INFO   | jvm 1    | 2018/12/24 23:12:20 | 			SELECT MAX(b.favourite)
+INFO   | jvm 1    | 2018/12/24 23:12:20 | 			FROM f_post_reply b
+INFO   | jvm 1    | 2018/12/24 23:12:20 | 			WHERE a.postId = b.postId
+INFO   | jvm 1    | 2018/12/24 23:12:20 | 			)
+INFO   | jvm 1    | 2018/12/24 23:12:20 | 		AND a.postId IN ()
+INFO   | jvm 1    | 2018/12/24 23:12:20 | 	) F_POST_REPLY, f_user
+INFO   | jvm 1    | 2018/12/24 23:12:20 | WHERE F_POST_REPLY.creator = sid
+INFO   | jvm 1    | 2018/12/24 23:12:20 | LIMIT 100}, respHandler=SingleNodeHandler [node=dn1{SELECT user_img, F_POST_REPLY.*
+INFO   | jvm 1    | 2018/12/24 23:12:20 | FROM (SELECT *
+INFO   | jvm 1    | 2018/12/24 23:12:20 | 	FROM f_post_reply a
+INFO   | jvm 1    | 2018/12/24 23:12:20 | 	WHERE favourite = (
+INFO   | jvm 1    | 2018/12/24 23:12:20 | 			SELECT MAX(b.favourite)
+INFO   | jvm 1    | 2018/12/24 23:12:20 | 			FROM f_post_reply b
+INFO   | jvm 1    | 2018/12/24 23:12:20 | 			WHERE a.postId = b.postId
+INFO   | jvm 1    | 2018/12/24 23:12:20 | 			)
+INFO   | jvm 1    | 2018/12/24 23:12:20 | 		AND a.postId IN ()
+INFO   | jvm 1    | 2018/12/24 23:12:20 | 	) F_POST_REPLY, f_user
+INFO   | jvm 1    | 2018/12/24 23:12:20 | WHERE F_POST_REPLY.creator = sid
+INFO   | jvm 1    | 2018/12/24 23:12:20 | LIMIT 100}, packetId=1], host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false] frontend host:127.0.0.1/52537/root  (io.mycat.backend.mysql.nio.handler.SingleNodeHandler:SingleNodeHandler.java:249) 
+INFO   | jvm 1    | 2018/12/24 23:13:58 | 2018-12-24 23:13:58,127 [INFO ][$_NIOREACTOR-0-RW] close connection,reason:stream closed ,ServerConnection [id=22, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]  (io.mycat.net.AbstractConnection:AbstractConnection.java:508) 
+INFO   | jvm 1    | 2018/12/24 23:13:58 | 2018-12-24 23:13:58,127 [INFO ][$_NIOREACTOR-7-RW] close connection,reason:stream closed ,ServerConnection [id=21, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]  (io.mycat.net.AbstractConnection:AbstractConnection.java:508) 
+INFO   | jvm 1    | 2018/12/24 23:14:05 | 2018-12-24 23:14:05,555 [INFO ][$_NIOREACTOR-1-RW] ServerConnection [id=23, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success  (io.mycat.net.handler.FrontendAuthenticator:FrontendAuthenticator.java:194) 
+INFO   | jvm 1    | 2018/12/24 23:14:13 | 2018-12-24 23:14:13,727 [INFO ][$_NIOREACTOR-2-RW] ServerConnection [id=24, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success  (io.mycat.net.handler.FrontendAuthenticator:FrontendAuthenticator.java:194) 
+INFO   | jvm 1    | 2018/12/24 23:14:13 | 2018-12-24 23:14:13,772 [WARN ][$_NIOREACTOR-2-RW] execute  sql err : errno:1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')
+INFO   | jvm 1    | 2018/12/24 23:14:13 | 	) F_POST_REPLY, f_user
+INFO   | jvm 1    | 2018/12/24 23:14:13 | WHERE F_POST_REPLY.creator = sid
+INFO   | jvm 1    | 2018/12/24 23:14:13 | LIMIT 100' at line 7 con:MySQLConnection [id=2, lastTime=1545664453762, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=25, charset=utf8, txIsolation=3, autocommit=true, attachment=dn1{SELECT user_img, F_POST_REPLY.*
+INFO   | jvm 1    | 2018/12/24 23:14:13 | FROM (SELECT *
+INFO   | jvm 1    | 2018/12/24 23:14:13 | 	FROM f_post_reply a
+INFO   | jvm 1    | 2018/12/24 23:14:13 | 	WHERE favourite = (
+INFO   | jvm 1    | 2018/12/24 23:14:13 | 			SELECT MAX(b.favourite)
+INFO   | jvm 1    | 2018/12/24 23:14:13 | 			FROM f_post_reply b
+INFO   | jvm 1    | 2018/12/24 23:14:13 | 			WHERE a.postId = b.postId
+INFO   | jvm 1    | 2018/12/24 23:14:13 | 			)
+INFO   | jvm 1    | 2018/12/24 23:14:13 | 		AND a.postId IN ()
+INFO   | jvm 1    | 2018/12/24 23:14:13 | 	) F_POST_REPLY, f_user
+INFO   | jvm 1    | 2018/12/24 23:14:13 | WHERE F_POST_REPLY.creator = sid
+INFO   | jvm 1    | 2018/12/24 23:14:13 | LIMIT 100}, respHandler=SingleNodeHandler [node=dn1{SELECT user_img, F_POST_REPLY.*
+INFO   | jvm 1    | 2018/12/24 23:14:13 | FROM (SELECT *
+INFO   | jvm 1    | 2018/12/24 23:14:13 | 	FROM f_post_reply a
+INFO   | jvm 1    | 2018/12/24 23:14:13 | 	WHERE favourite = (
+INFO   | jvm 1    | 2018/12/24 23:14:13 | 			SELECT MAX(b.favourite)
+INFO   | jvm 1    | 2018/12/24 23:14:13 | 			FROM f_post_reply b
+INFO   | jvm 1    | 2018/12/24 23:14:13 | 			WHERE a.postId = b.postId
+INFO   | jvm 1    | 2018/12/24 23:14:13 | 			)
+INFO   | jvm 1    | 2018/12/24 23:14:13 | 		AND a.postId IN ()
+INFO   | jvm 1    | 2018/12/24 23:14:13 | 	) F_POST_REPLY, f_user
+INFO   | jvm 1    | 2018/12/24 23:14:13 | WHERE F_POST_REPLY.creator = sid
+INFO   | jvm 1    | 2018/12/24 23:14:13 | LIMIT 100}, packetId=1], host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false] frontend host:127.0.0.1/52593/root  (io.mycat.backend.mysql.nio.handler.SingleNodeHandler:SingleNodeHandler.java:249) 
+INFO   | jvm 1    | 2018/12/24 23:15:15 | 2018-12-24 23:15:15,154 [INFO ][$_NIOREACTOR-2-RW] close connection,reason:stream closed ,ServerConnection [id=24, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]  (io.mycat.net.AbstractConnection:AbstractConnection.java:508) 
+INFO   | jvm 1    | 2018/12/24 23:15:15 | 2018-12-24 23:15:15,154 [INFO ][$_NIOREACTOR-1-RW] close connection,reason:stream closed ,ServerConnection [id=23, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]  (io.mycat.net.AbstractConnection:AbstractConnection.java:508) 
+INFO   | jvm 1    | 2018/12/24 23:15:29 | 2018-12-24 23:15:29,622 [INFO ][$_NIOREACTOR-3-RW] ServerConnection [id=25, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success  (io.mycat.net.handler.FrontendAuthenticator:FrontendAuthenticator.java:194) 
+INFO   | jvm 1    | 2018/12/24 23:15:37 | 2018-12-24 23:15:37,635 [INFO ][$_NIOREACTOR-4-RW] ServerConnection [id=26, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success  (io.mycat.net.handler.FrontendAuthenticator:FrontendAuthenticator.java:194) 
+INFO   | jvm 1    | 2018/12/24 23:15:37 | 2018-12-24 23:15:37,681 [WARN ][$_NIOREACTOR-1-RW] execute  sql err : errno:1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')
+INFO   | jvm 1    | 2018/12/24 23:15:37 | 	) F_POST_REPLY, f_user
+INFO   | jvm 1    | 2018/12/24 23:15:37 | WHERE F_POST_REPLY.creator = sid
+INFO   | jvm 1    | 2018/12/24 23:15:37 | LIMIT 100' at line 7 con:MySQLConnection [id=9, lastTime=1545664537678, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=22, charset=utf8, txIsolation=3, autocommit=true, attachment=dn1{SELECT *
+INFO   | jvm 1    | 2018/12/24 23:15:37 | FROM (SELECT *
+INFO   | jvm 1    | 2018/12/24 23:15:37 | 	FROM f_post_reply a
+INFO   | jvm 1    | 2018/12/24 23:15:37 | 	WHERE favourite = (
+INFO   | jvm 1    | 2018/12/24 23:15:37 | 			SELECT MAX(b.favourite)
+INFO   | jvm 1    | 2018/12/24 23:15:37 | 			FROM f_post_reply b
+INFO   | jvm 1    | 2018/12/24 23:15:37 | 			WHERE a.postId = b.postId
+INFO   | jvm 1    | 2018/12/24 23:15:37 | 			)
+INFO   | jvm 1    | 2018/12/24 23:15:37 | 		AND a.postId IN ()
+INFO   | jvm 1    | 2018/12/24 23:15:37 | 	) F_POST_REPLY, f_user
+INFO   | jvm 1    | 2018/12/24 23:15:37 | WHERE F_POST_REPLY.creator = sid
+INFO   | jvm 1    | 2018/12/24 23:15:37 | LIMIT 100}, respHandler=SingleNodeHandler [node=dn1{SELECT *
+INFO   | jvm 1    | 2018/12/24 23:15:37 | FROM (SELECT *
+INFO   | jvm 1    | 2018/12/24 23:15:37 | 	FROM f_post_reply a
+INFO   | jvm 1    | 2018/12/24 23:15:37 | 	WHERE favourite = (
+INFO   | jvm 1    | 2018/12/24 23:15:37 | 			SELECT MAX(b.favourite)
+INFO   | jvm 1    | 2018/12/24 23:15:37 | 			FROM f_post_reply b
+INFO   | jvm 1    | 2018/12/24 23:15:37 | 			WHERE a.postId = b.postId
+INFO   | jvm 1    | 2018/12/24 23:15:37 | 			)
+INFO   | jvm 1    | 2018/12/24 23:15:37 | 		AND a.postId IN ()
+INFO   | jvm 1    | 2018/12/24 23:15:37 | 	) F_POST_REPLY, f_user
+INFO   | jvm 1    | 2018/12/24 23:15:37 | WHERE F_POST_REPLY.creator = sid
+INFO   | jvm 1    | 2018/12/24 23:15:37 | LIMIT 100}, packetId=1], host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false] frontend host:127.0.0.1/52634/root  (io.mycat.backend.mysql.nio.handler.SingleNodeHandler:SingleNodeHandler.java:249) 
+INFO   | jvm 1    | 2018/12/24 23:16:09 | 2018-12-24 23:16:09,682 [INFO ][$_NIOREACTOR-4-RW] close connection,reason:stream closed ,ServerConnection [id=26, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]  (io.mycat.net.AbstractConnection:AbstractConnection.java:508) 
+INFO   | jvm 1    | 2018/12/24 23:16:09 | 2018-12-24 23:16:09,682 [INFO ][$_NIOREACTOR-3-RW] close connection,reason:stream closed ,ServerConnection [id=25, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]  (io.mycat.net.AbstractConnection:AbstractConnection.java:508) 
+INFO   | jvm 1    | 2018/12/24 23:16:17 | 2018-12-24 23:16:17,618 [INFO ][$_NIOREACTOR-5-RW] ServerConnection [id=27, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success  (io.mycat.net.handler.FrontendAuthenticator:FrontendAuthenticator.java:194) 
+INFO   | jvm 1    | 2018/12/24 23:16:23 | 2018-12-24 23:16:23,608 [INFO ][$_NIOREACTOR-6-RW] ServerConnection [id=28, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success  (io.mycat.net.handler.FrontendAuthenticator:FrontendAuthenticator.java:194) 
+INFO   | jvm 1    | 2018/12/24 23:16:23 | 2018-12-24 23:16:23,660 [WARN ][$_NIOREACTOR-4-RW] execute  sql err : errno:1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')
+INFO   | jvm 1    | 2018/12/24 23:16:23 | 	) F_POST_REPLY, f_user
+INFO   | jvm 1    | 2018/12/24 23:16:23 | WHERE F_POST_REPLY.creator = sid
+INFO   | jvm 1    | 2018/12/24 23:16:23 | LIMIT 100' at line 7 con:MySQLConnection [id=4, lastTime=1545664583639, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=18, charset=utf8, txIsolation=3, autocommit=true, attachment=dn1{SELECT *
+INFO   | jvm 1    | 2018/12/24 23:16:23 | FROM (SELECT *
+INFO   | jvm 1    | 2018/12/24 23:16:23 | 	FROM f_post_reply a
+INFO   | jvm 1    | 2018/12/24 23:16:23 | 	WHERE favourite = (
+INFO   | jvm 1    | 2018/12/24 23:16:23 | 			SELECT MAX(b.favourite)
+INFO   | jvm 1    | 2018/12/24 23:16:23 | 			FROM f_post_reply b
+INFO   | jvm 1    | 2018/12/24 23:16:23 | 			WHERE a.postid = b.postid
+INFO   | jvm 1    | 2018/12/24 23:16:23 | 			)
+INFO   | jvm 1    | 2018/12/24 23:16:23 | 		AND a.postId IN ()
+INFO   | jvm 1    | 2018/12/24 23:16:23 | 	) F_POST_REPLY, f_user
+INFO   | jvm 1    | 2018/12/24 23:16:23 | WHERE F_POST_REPLY.creator = sid
+INFO   | jvm 1    | 2018/12/24 23:16:23 | LIMIT 100}, respHandler=SingleNodeHandler [node=dn1{SELECT *
+INFO   | jvm 1    | 2018/12/24 23:16:23 | FROM (SELECT *
+INFO   | jvm 1    | 2018/12/24 23:16:23 | 	FROM f_post_reply a
+INFO   | jvm 1    | 2018/12/24 23:16:23 | 	WHERE favourite = (
+INFO   | jvm 1    | 2018/12/24 23:16:23 | 			SELECT MAX(b.favourite)
+INFO   | jvm 1    | 2018/12/24 23:16:23 | 			FROM f_post_reply b
+INFO   | jvm 1    | 2018/12/24 23:16:23 | 			WHERE a.postid = b.postid
+INFO   | jvm 1    | 2018/12/24 23:16:23 | 			)
+INFO   | jvm 1    | 2018/12/24 23:16:23 | 		AND a.postId IN ()
+INFO   | jvm 1    | 2018/12/24 23:16:23 | 	) F_POST_REPLY, f_user
+INFO   | jvm 1    | 2018/12/24 23:16:23 | WHERE F_POST_REPLY.creator = sid
+INFO   | jvm 1    | 2018/12/24 23:16:23 | LIMIT 100}, packetId=1], host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false] frontend host:127.0.0.1/52668/root  (io.mycat.backend.mysql.nio.handler.SingleNodeHandler:SingleNodeHandler.java:249) 
+INFO   | jvm 1    | 2018/12/24 23:17:29 | 2018-12-24 23:17:29,043 [WARN ][$_NIOREACTOR-7-RW] execute  sql err : errno:1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')
+INFO   | jvm 1    | 2018/12/24 23:17:29 | 	) F_POST_REPLY, f_user
+INFO   | jvm 1    | 2018/12/24 23:17:29 | WHERE F_POST_REPLY.creator = sid
+INFO   | jvm 1    | 2018/12/24 23:17:29 | LIMIT 100' at line 7 con:MySQLConnection [id=7, lastTime=1545664649040, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=19, charset=utf8, txIsolation=3, autocommit=true, attachment=dn1{SELECT *
+INFO   | jvm 1    | 2018/12/24 23:17:29 | FROM (SELECT *
+INFO   | jvm 1    | 2018/12/24 23:17:29 | 	FROM f_post_reply a
+INFO   | jvm 1    | 2018/12/24 23:17:29 | 	WHERE favourite = (
+INFO   | jvm 1    | 2018/12/24 23:17:29 | 			SELECT MAX(b.favourite)
+INFO   | jvm 1    | 2018/12/24 23:17:29 | 			FROM f_post_reply b
+INFO   | jvm 1    | 2018/12/24 23:17:29 | 			WHERE a.postid = b.postid
+INFO   | jvm 1    | 2018/12/24 23:17:29 | 			)
+INFO   | jvm 1    | 2018/12/24 23:17:29 | 		AND a.postId IN ()
+INFO   | jvm 1    | 2018/12/24 23:17:29 | 	) F_POST_REPLY, f_user
+INFO   | jvm 1    | 2018/12/24 23:17:29 | WHERE F_POST_REPLY.creator = sid
+INFO   | jvm 1    | 2018/12/24 23:17:29 | LIMIT 100}, respHandler=SingleNodeHandler [node=dn1{SELECT *
+INFO   | jvm 1    | 2018/12/24 23:17:29 | FROM (SELECT *
+INFO   | jvm 1    | 2018/12/24 23:17:29 | 	FROM f_post_reply a
+INFO   | jvm 1    | 2018/12/24 23:17:29 | 	WHERE favourite = (
+INFO   | jvm 1    | 2018/12/24 23:17:29 | 			SELECT MAX(b.favourite)
+INFO   | jvm 1    | 2018/12/24 23:17:29 | 			FROM f_post_reply b
+INFO   | jvm 1    | 2018/12/24 23:17:29 | 			WHERE a.postid = b.postid
+INFO   | jvm 1    | 2018/12/24 23:17:29 | 			)
+INFO   | jvm 1    | 2018/12/24 23:17:29 | 		AND a.postId IN ()
+INFO   | jvm 1    | 2018/12/24 23:17:29 | 	) F_POST_REPLY, f_user
+INFO   | jvm 1    | 2018/12/24 23:17:29 | WHERE F_POST_REPLY.creator = sid
+INFO   | jvm 1    | 2018/12/24 23:17:29 | LIMIT 100}, packetId=1], host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false] frontend host:127.0.0.1/52668/root  (io.mycat.backend.mysql.nio.handler.SingleNodeHandler:SingleNodeHandler.java:249) 
+INFO   | jvm 1    | 2018/12/24 23:19:30 | 2018-12-24 23:19:30,006 [INFO ][$_NIOREACTOR-6-RW] close connection,reason:stream closed ,ServerConnection [id=28, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]  (io.mycat.net.AbstractConnection:AbstractConnection.java:508) 
+INFO   | jvm 1    | 2018/12/24 23:19:30 | 2018-12-24 23:19:30,006 [INFO ][$_NIOREACTOR-5-RW] close connection,reason:stream closed ,ServerConnection [id=27, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]  (io.mycat.net.AbstractConnection:AbstractConnection.java:508) 
+INFO   | jvm 1    | 2018/12/24 23:19:37 | 2018-12-24 23:19:37,478 [INFO ][$_NIOREACTOR-7-RW] ServerConnection [id=29, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success  (io.mycat.net.handler.FrontendAuthenticator:FrontendAuthenticator.java:194) 
+INFO   | jvm 1    | 2018/12/24 23:19:48 | 2018-12-24 23:19:48,057 [INFO ][$_NIOREACTOR-0-RW] ServerConnection [id=30, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success  (io.mycat.net.handler.FrontendAuthenticator:FrontendAuthenticator.java:194) 
+INFO   | jvm 1    | 2018/12/24 23:20:38 | 2018-12-24 23:20:38,654 [INFO ][$_NIOREACTOR-0-RW] close connection,reason:quit cmd ,ServerConnection [id=30, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]  (io.mycat.net.AbstractConnection:AbstractConnection.java:508) 
+INFO   | jvm 1    | 2018/12/24 23:20:40 | 2018-12-24 23:20:40,242 [INFO ][$_NIOREACTOR-7-RW] close connection,reason:stream closed ,ServerConnection [id=29, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]  (io.mycat.net.AbstractConnection:AbstractConnection.java:508) 
+INFO   | jvm 1    | 2018/12/24 23:22:00 | 2018-12-24 23:22:00,858 [INFO ][$_NIOREACTOR-1-RW] ServerConnection [id=31, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success  (io.mycat.net.handler.FrontendAuthenticator:FrontendAuthenticator.java:194) 
+INFO   | jvm 1    | 2018/12/24 23:22:07 | 2018-12-24 23:22:07,780 [INFO ][$_NIOREACTOR-2-RW] ServerConnection [id=32, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success  (io.mycat.net.handler.FrontendAuthenticator:FrontendAuthenticator.java:194) 
+INFO   | jvm 1    | 2018/12/24 23:27:03 | 2018-12-24 23:27:03,157 [INFO ][Timer0] ServerConnection [id=31, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum] idle timeout  (io.mycat.net.AbstractConnection:AbstractConnection.java:521) 
+INFO   | jvm 1    | 2018/12/24 23:27:03 | 2018-12-24 23:27:03,157 [INFO ][Timer0] close connection,reason: idle  ,ServerConnection [id=31, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]  (io.mycat.net.AbstractConnection:AbstractConnection.java:508) 
+INFO   | jvm 1    | 2018/12/24 23:27:08 | 2018-12-24 23:27:08,158 [INFO ][Timer0] ServerConnection [id=32, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum] idle timeout  (io.mycat.net.AbstractConnection:AbstractConnection.java:521) 
+INFO   | jvm 1    | 2018/12/24 23:27:08 | 2018-12-24 23:27:08,159 [INFO ][Timer0] close connection,reason: idle  ,ServerConnection [id=32, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]  (io.mycat.net.AbstractConnection:AbstractConnection.java:508) 
+STATUS | wrapper  | 2018/12/24 23:44:22 | <-- Wrapper Stopped

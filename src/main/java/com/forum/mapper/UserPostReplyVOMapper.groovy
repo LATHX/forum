@@ -7,10 +7,10 @@ import org.apache.ibatis.annotations.Select
 
 @Mapper
 interface UserPostReplyVOMapper {
-    @Select('select user_img,f_post_reply.*,max(favourite) from f_post_reply,f_user where postId = #{postId} and sid=creator group by postId')
+    @Select('select user_img, f_post_reply.* from (select * from f_post_reply as a where favourite=(select max(b.favourite) from f_post_reply as b where a.postId = b.postId) and a.postId = (#{postId})) as f_post_reply ,f_user where f_post_reply.creator = sid and f_post_reply.enable=true')
     UserPostReplyVOEntity SelectMaxFavouriteReplyByPostId(@Param("postId") Integer postId)
 
-    @Select('select user_img,f_post_reply.*,max(favourite) from f_post_reply,f_user where postId in (${postId}) and sid=creator group by postId')
+    @Select('select user_img, f_post_reply.* from (select * from f_post_reply as a where favourite=(select max(b.favourite) from f_post_reply as b where a.postId = b.postId) and a.postId in (${postId})) as f_post_reply, f_user where f_post_reply.creator = sid and f_post_reply.enable=true')
     List<UserPostReplyVOEntity> SelectMaxFavouriteReplyByPostIdGroup(@Param("postId") String postId)
 
 }
