@@ -92,7 +92,7 @@ mybatis:
 pagehelper:
   autoDialect: true
   closeConn: false
-  reasonable: true
+  reasonable: false
 loggin:
   config: classpath:config/log/logback-spring.xml
   path: classpath:log
