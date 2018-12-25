@@ -237,4 +237,9 @@ class CommonUtil {
         }
     }
 
+    static boolean isNumber(String number){
+        if(isEmpty(number)) return false
+        return number?.isNumber()
+    }
+
 }

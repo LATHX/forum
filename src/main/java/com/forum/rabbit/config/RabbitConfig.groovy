@@ -51,6 +51,10 @@ class RabbitConfig {
     Binding delRedisKey() {
         return BindingBuilder.bind(new Queue(Constant.MQ_REDIS_DEL, true)).to(topicExchange()).with(Constant.MQ_REDIS_DEL)
     }
+    @Bean
+    Binding addPostFavourite() {
+        return BindingBuilder.bind(new Queue(Constant.MQ_ADD_FAVOURITE, true)).to(topicExchange()).with(Constant.MQ_ADD_FAVOURITE)
+    }
 
     @Bean
     Binding delRedisUserSession() {

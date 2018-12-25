@@ -3,10 +3,11 @@ package com.forum.model.entity
 import javax.persistence.Entity
 import javax.persistence.Id
 import javax.persistence.Table
+import javax.persistence.Version
 
 @Entity
 @Table(name = 'f_post_reply')
-class PostReplyEntity {
+class PostReplyEntity implements Serializable{
     @Id
     Integer replyid
     Integer postid
@@ -27,6 +28,16 @@ class PostReplyEntity {
     boolean enable
     String text
     String lastupdatetime
+    @Version
+    Integer version
+
+    Integer getVersion() {
+        return version
+    }
+
+    void setVersion(Integer version) {
+        this.version = version
+    }
 
     Integer getFavourite() {
         return favourite

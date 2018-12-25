@@ -1,35 +1,41 @@
 package com.forum.service.impl
 
 import com.forum.global.Constant
-import com.forum.mapper.ForumListMapper
-import com.forum.mapper.UserForumListPostVOMapper
-import com.forum.mapper.UserPostReplyVOMapper
-import com.forum.model.entity.ForumListEntity
-import com.forum.model.entity.UserForumListPostVOEntity
-import com.forum.model.entity.UserPostReplyVOEntity
+import com.forum.global.GlobalCode
+import com.forum.mapper.*
+import com.forum.model.dto.FavouriteInfo
+import com.forum.model.dto.MessageCodeInfo
+import com.forum.model.entity.*
+import com.forum.rabbit.util.RabbitUtil
 import com.forum.service.ForumService
 import com.forum.utils.CommonUtil
+import com.forum.utils.ShiroUtil
 import com.github.pagehelper.PageHelper
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
+import org.springframework.transaction.annotation.Transactional
 
 @Service
-class ForumServiceImpl implements ForumService{
+class ForumServiceImpl implements ForumService {
     @Autowired
     ForumListMapper forumListMapper
     @Autowired
     UserForumListPostVOMapper userForumListPostVOMapper
     @Autowired
     UserPostReplyVOMapper userPostReplyVOMapper
+    @Autowired
+    ReplyFavouriteMapper replyFavouriteMapper
+    @Autowired
+    PostReplyMapper postReplyMapper
 
     @Override
     List<ForumListEntity> getAllForumListByEnableAndAuthority(String type, Integer page, boolean enable, boolean authority) {
-        page = page?.toString()?.isNumber()? page : 1
+        page = page?.toString()?.isNumber() ? page : 1
         PageHelper.startPage(page, Constant.PAGEROW.toInteger())
         List<ForumListEntity> list = null
-        if(CommonUtil.isEmpty(type)){
+        if (CommonUtil.isEmpty(type)) {
             list = forumListMapper.selectAllFromTableByEnableAndAuthorityWithoutType(enable, authority)
-        }else{
+        } else {
             list = forumListMapper.selectAllFromTableByEnableAndAuthorityWithType(enable, authority, type)
         }
         return list
@@ -37,21 +43,85 @@ class ForumServiceImpl implements ForumService{
 
     @Override
     List<UserForumListPostVOEntity> getSingleForumPostList(String fid, Integer page) {
-        page = page?.toString()?.isNumber()? page : 1
+        page = page?.toString()?.isNumber() ? page : 1
         PageHelper.startPage(page, Constant.PAGEROW.toInteger())
         StringBuilder sb = new StringBuilder('')
+        StringBuilder sb1 = new StringBuilder('')
         List<UserForumListPostVOEntity> list = userForumListPostVOMapper.userSingleForumPostList(fid)
+        List<UserPostReplyVOEntity> bestList = null
+        UserEntity userEntity = ShiroUtil.getUser()
         list?.eachWithIndex { current_postId, Idx ->
             sb.append('\"')
             sb.append(current_postId?.postid)
             sb.append('\"')
-            if(Idx != list.size() - 1)
-            sb.append(',')
+            if (Idx != list.size() - 1)
+                sb.append(',')
         }
-        List<UserPostReplyVOEntity> favouriteList = userPostReplyVOMapper.SelectMaxFavouriteReplyByPostIdGroup(sb.toString())
-        favouriteList?.each {current ->
-            list?.find{it?.postid == current?.postid}?.setUserPostReplyVOEntity(current)
+        if (CommonUtil.isNotEmpty(sb.toString())) {
+            bestList = userPostReplyVOMapper.SelectMaxFavouriteReplyByPostIdGroup(sb.toString())
+            bestList?.eachWithIndex { current, Idx ->
+                sb1.append('\"')
+                sb1.append(current?.replyid)
+                sb1.append('\"')
+                if (Idx != bestList.size() - 1) {
+                    sb1.append(',')
+                }
+                list?.find { it?.postid == current?.postid }?.setUserPostReplyVOEntity(current)
+            }
+        }
+        if (userEntity != null && CommonUtil.isNotEmpty(sb1.toString())) {
+            List<ReplyFavouriteEntity> favouriteList = replyFavouriteMapper.SelectFavouriteByReplyIdGroupAndSid(sb1.toString(), userEntity.getSid())
+            favouriteList?.each { current ->
+                bestList?.find { it?.replyid == current?.replyid }.setReplyFavouriteEntity(current)
+            }
         }
         return list
+    }
+
+    @Override
+    MessageCodeInfo favouriteQueue(FavouriteInfo favouriteInfo, MessageCodeInfo messageCodeInfo) {
+        if(ShiroUtil.getUser() == null){
+            messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
+            messageCodeInfo.setMsgInfo(Constant.LOGIN_OUT_MSG)
+        }else if(CommonUtil.isEmpty(favouriteInfo.getOperate()) || CommonUtil.isEmpty(favouriteInfo.getReplyId()) && (favouriteInfo.getOperate() != '1' || favouriteInfo.getOperate() != '-1'|| favouriteInfo.getOperate() != '0')){
+            messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
+            messageCodeInfo.setMsgInfo(Constant.ERROR_PARAM)
+        }else{
+            favouriteInfo.setSid(ShiroUtil.getUser().getSid())
+            RabbitUtil.deliveryMessageNotConfirm(Constant.MQ_ADD_FAVOURITE, favouriteInfo)
+            messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_SUCCESS)
+        }
+        return messageCodeInfo
+    }
+
+    @Transactional
+    @Override
+    void favouriteWriter(FavouriteInfo favouriteInfo) {
+        Integer count = replyFavouriteMapper.SelectFavouriteCountByReplyIdAndSid(favouriteInfo.getReplyId(), favouriteInfo.getSid())
+        if(count != 0){
+            ReplyFavouriteEntity replyFavouriteEntity = replyFavouriteMapper.SelectFavouriteByReplyIdAndSid(favouriteInfo.getReplyId(), favouriteInfo.getSid())
+            if(favouriteInfo?.getOperate() == '0'){
+                replyFavouriteMapper.deleteFavourite(replyFavouriteEntity)
+                PostReplyEntity postReplyEntity = postReplyMapper.SelectByReplyId(favouriteInfo.getReplyId())
+                postReplyEntity.setFavourite(postReplyEntity.getFavourite()+(0-(replyFavouriteEntity.getFavourite()?.toInteger())))
+                postReplyMapper.updateByPrimaryKey(postReplyEntity)
+            }else if(replyFavouriteEntity.getFavourite()?.toString() != favouriteInfo?.getOperate()){
+                replyFavouriteEntity.setFavourite(favouriteInfo?.getOperate()?.toInteger())
+                replyFavouriteMapper.updateFavourite(replyFavouriteEntity)
+                PostReplyEntity postReplyEntity = postReplyMapper.SelectByReplyId(favouriteInfo.getReplyId())
+                postReplyEntity.setFavourite(postReplyEntity.getFavourite()+(favouriteInfo.getOperate()?.toInteger()))
+                postReplyMapper.updateByPrimaryKey(postReplyEntity)
+            }
+        }else{
+            ReplyFavouriteEntity replyFavouriteEntity1 = new ReplyFavouriteEntity()
+            replyFavouriteEntity1.setSid(favouriteInfo.getSid())
+            replyFavouriteEntity1.setFavourite(favouriteInfo.getOperate()?.toInteger())
+            replyFavouriteEntity1.setReplyid(favouriteInfo.getReplyId()?.toInteger())
+            replyFavouriteMapper.insertToTable(replyFavouriteEntity1)
+            PostReplyEntity postReplyEntity = postReplyMapper.SelectByReplyId(favouriteInfo.getReplyId())
+            postReplyEntity.setFavourite(postReplyEntity.getFavourite()+(favouriteInfo.getOperate()?.toInteger()))
+            postReplyMapper.updateByPrimaryKey(postReplyEntity)
+        }
+
     }
 }

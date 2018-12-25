@@ -14,6 +14,8 @@
 		<table name="f_forumlist" dataNode="dn1"/>
 		<table name="f_post" dataNode="dn1"/>
 		<table name="f_session" dataNode="dn1"/>
+		<table name="f_post_reply" dataNode="dn1"/>
+		<table name="f_reply_favourite" dataNode="dn1"/>
 
 </schema>
 	<dataNode name="dn1" dataHost="localhost1" database="forum" />

@@ -1,422 +1,307 @@
-2018-12-24 21:06:33.734  INFO [WrapperSimpleAppMain] (io.mycat.backend.datasource.PhysicalDBPool.<init>(PhysicalDBPool.java:100)) - total resouces of dataHost localhost1 is :1
-2018-12-24 21:06:33.740  INFO [WrapperSimpleAppMain] (io.mycat.cache.CacheService.createLayeredPool(CacheService.java:125)) - create layer cache pool TableID2DataNodeCache of type encache ,default cache size 10000 ,default expire seconds18000
-2018-12-24 21:06:33.740  INFO [WrapperSimpleAppMain] (io.mycat.cache.DefaultLayedCachePool.createChildCache(DefaultLayedCachePool.java:80)) - create child Cache: TESTDB_ORDERS for layered cache TableID2DataNodeCache, size 50000, expire seconds 18000
-2018-12-24 21:06:33.818  INFO [WrapperSimpleAppMain] (io.mycat.config.classloader.DynaClassLoader.<init>(DynaClassLoader.java:34)) - dyna class load from ./catlet,and auto check for class file modified every 60 seconds
-2018-12-24 21:06:33.819  INFO [WrapperSimpleAppMain] (io.mycat.MycatServer.startup(MycatServer.java:266)) - ===============================================
-2018-12-24 21:06:33.819  INFO [WrapperSimpleAppMain] (io.mycat.MycatServer.startup(MycatServer.java:267)) - MyCat is ready to startup ...
-2018-12-24 21:06:33.819  INFO [WrapperSimpleAppMain] (io.mycat.MycatServer.startup(MycatServer.java:279)) - Startup processors ...,total processors:8,aio thread pool size:16    
- each process allocated socket buffer pool  bytes ,a page size:2097152  a page's chunk number(PageSize/ChunkSize) is:512  buffer page's number is:160
-2018-12-24 21:06:33.819  INFO [WrapperSimpleAppMain] (io.mycat.MycatServer.startup(MycatServer.java:280)) - sysconfig params:SystemConfig [processorBufferLocalPercent=100, frontSocketSoRcvbuf=1048576, frontSocketSoSndbuf=4194304, backSocketSoRcvbuf=4194304, backSocketSoSndbuf=1048576, frontSocketNoDelay=1, backSocketNoDelay=1, maxStringLiteralLength=65535, frontWriteQueueSize=2048, bindIp=127.0.0.1, serverPort=8066, managerPort=9066, charset=utf8, processors=8, processorExecutor=16, timerExecutor=2, managerExecutor=2, idleTimeout=300000, catletClassCheckSeconds=60, sqlExecuteTimeout=300, processorCheckPeriod=1000, dataNodeIdleCheckPeriod=300000, dataNodeHeartbeatPeriod=10000, clusterHeartbeatUser=_HEARTBEAT_USER_, clusterHeartbeatPass=_HEARTBEAT_PASS_, clusterHeartbeatPeriod=5000, clusterHeartbeatTimeout=10000, clusterHeartbeatRetry=10, txIsolation=3, parserCommentVersion=50148, sqlRecordCount=10, bufferPoolPageSize=2097152, bufferPoolChunkSize=4096, bufferPoolPageNumber=160, maxResultSet=524288, bigResultSizeSqlCount=10, bufferUsagePercent=80, flowControlRejectStrategy=0, clearBigSqLResultSetMapMs=600000, defaultMaxLimit=100, sequnceHandlerType=2, sqlInterceptor=io.mycat.server.interceptor.impl.DefaultSqlInterceptor, sqlInterceptorType=select, sqlInterceptorFile=/Users/ljl/Documents/forum/src/main/resources/config/Mycat/Mycat/logs/sql.txt, mutiNodeLimitType=0, mutiNodePatchSize=100, defaultSqlParser=druidparser, usingAIO=0, packetHeaderSize=4, maxPacketSize=16777216, mycatNodeId=1]
-2018-12-24 21:06:34.004  INFO [WrapperSimpleAppMain] (io.mycat.memory.MyCatMemory.<init>(MyCatMemory.java:53)) - useOffHeapForMerge = 1
-2018-12-24 21:06:34.004  INFO [WrapperSimpleAppMain] (io.mycat.memory.MyCatMemory.<init>(MyCatMemory.java:54)) - memoryPageSize = 1m
-2018-12-24 21:06:34.004  INFO [WrapperSimpleAppMain] (io.mycat.memory.MyCatMemory.<init>(MyCatMemory.java:55)) - spillsFileBufferSize = 1k
-2018-12-24 21:06:34.004  INFO [WrapperSimpleAppMain] (io.mycat.memory.MyCatMemory.<init>(MyCatMemory.java:56)) - useStreamOutput = 0
-2018-12-24 21:06:34.005  INFO [WrapperSimpleAppMain] (io.mycat.memory.MyCatMemory.<init>(MyCatMemory.java:57)) - systemReserveMemorySize = 384m
-2018-12-24 21:06:34.014  INFO [WrapperSimpleAppMain] (io.mycat.memory.MyCatMemory.<init>(MyCatMemory.java:58)) - totalNetWorkBufferSize = 320MB
-2018-12-24 21:06:34.014  INFO [WrapperSimpleAppMain] (io.mycat.memory.MyCatMemory.<init>(MyCatMemory.java:59)) - dataNodeSortedTempDir = /Users/ljl/Documents/forum/src/main/resources/config/Mycat/Mycat
-2018-12-24 21:06:34.016  INFO [WrapperSimpleAppMain] (io.mycat.memory.MyCatMemory.<init>(MyCatMemory.java:122)) - mycat.memory.offHeap.size: 985MB
-2018-12-24 21:06:34.022  INFO [WrapperSimpleAppMain] (io.mycat.MycatServer.startup(MycatServer.java:381)) - using nio network handler 
-2018-12-24 21:06:34.051  INFO [WrapperSimpleAppMain] (io.mycat.MycatServer.startup(MycatServer.java:397)) - $_MyCatManager is started and listening on 9066
-2018-12-24 21:06:34.054  INFO [WrapperSimpleAppMain] (io.mycat.MycatServer.startup(MycatServer.java:401)) - $_MyCatServer is started and listening on 8066
-2018-12-24 21:06:34.054  INFO [WrapperSimpleAppMain] (io.mycat.MycatServer.startup(MycatServer.java:403)) - ===============================================
-2018-12-24 21:06:34.054  INFO [WrapperSimpleAppMain] (io.mycat.MycatServer.startup(MycatServer.java:407)) - Initialize dataHost ...
-2018-12-24 21:06:34.054  INFO [WrapperSimpleAppMain] (io.mycat.backend.datasource.PhysicalDBPool.initSource(PhysicalDBPool.java:294)) - init backend myqsl source ,create connections total 10 for hostM1 index :0
-2018-12-24 21:06:34.055  INFO [WrapperSimpleAppMain] (io.mycat.backend.datasource.PhysicalDatasource.getConnection(PhysicalDatasource.java:413)) - no ilde connection in pool,create new connection for hostM1 of schema forum
-2018-12-24 21:06:34.056  INFO [WrapperSimpleAppMain] (io.mycat.backend.datasource.PhysicalDatasource.getConnection(PhysicalDatasource.java:413)) - no ilde connection in pool,create new connection for hostM1 of schema forum
-2018-12-24 21:06:34.056  INFO [WrapperSimpleAppMain] (io.mycat.backend.datasource.PhysicalDatasource.getConnection(PhysicalDatasource.java:413)) - no ilde connection in pool,create new connection for hostM1 of schema forum
-2018-12-24 21:06:34.057  INFO [WrapperSimpleAppMain] (io.mycat.backend.datasource.PhysicalDatasource.getConnection(PhysicalDatasource.java:413)) - no ilde connection in pool,create new connection for hostM1 of schema forum
-2018-12-24 21:06:34.057  INFO [WrapperSimpleAppMain] (io.mycat.backend.datasource.PhysicalDatasource.getConnection(PhysicalDatasource.java:413)) - no ilde connection in pool,create new connection for hostM1 of schema forum
-2018-12-24 21:06:34.057  INFO [WrapperSimpleAppMain] (io.mycat.backend.datasource.PhysicalDatasource.getConnection(PhysicalDatasource.java:413)) - no ilde connection in pool,create new connection for hostM1 of schema forum
-2018-12-24 21:06:34.058  INFO [WrapperSimpleAppMain] (io.mycat.backend.datasource.PhysicalDatasource.getConnection(PhysicalDatasource.java:413)) - no ilde connection in pool,create new connection for hostM1 of schema forum
-2018-12-24 21:06:34.058  INFO [WrapperSimpleAppMain] (io.mycat.backend.datasource.PhysicalDatasource.getConnection(PhysicalDatasource.java:413)) - no ilde connection in pool,create new connection for hostM1 of schema forum
-2018-12-24 21:06:34.058  INFO [WrapperSimpleAppMain] (io.mycat.backend.datasource.PhysicalDatasource.getConnection(PhysicalDatasource.java:413)) - no ilde connection in pool,create new connection for hostM1 of schema forum
-2018-12-24 21:06:34.058  INFO [WrapperSimpleAppMain] (io.mycat.backend.datasource.PhysicalDatasource.getConnection(PhysicalDatasource.java:413)) - no ilde connection in pool,create new connection for hostM1 of schema forum
-2018-12-24 21:06:34.090  INFO [$_NIOREACTOR-2-RW] (io.mycat.backend.mysql.nio.handler.GetConnectionHandler.connectionAcquired(GetConnectionHandler.java:67)) - connected successfuly MySQLConnection [id=2, lastTime=1545656794090, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=25, charset=latin1, txIsolation=3, autocommit=true, attachment=null, respHandler=null, host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false]
-2018-12-24 21:06:34.090  INFO [$_NIOREACTOR-4-RW] (io.mycat.backend.mysql.nio.handler.GetConnectionHandler.connectionAcquired(GetConnectionHandler.java:67)) - connected successfuly MySQLConnection [id=4, lastTime=1545656794090, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=18, charset=latin1, txIsolation=3, autocommit=true, attachment=null, respHandler=null, host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false]
-2018-12-24 21:06:34.090  INFO [$_NIOREACTOR-6-RW] (io.mycat.backend.mysql.nio.handler.GetConnectionHandler.connectionAcquired(GetConnectionHandler.java:67)) - connected successfuly MySQLConnection [id=6, lastTime=1545656794090, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=17, charset=latin1, txIsolation=3, autocommit=true, attachment=null, respHandler=null, host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false]
-2018-12-24 21:06:34.091  INFO [$_NIOREACTOR-5-RW] (io.mycat.backend.mysql.nio.handler.GetConnectionHandler.connectionAcquired(GetConnectionHandler.java:67)) - connected successfuly MySQLConnection [id=5, lastTime=1545656794091, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=21, charset=latin1, txIsolation=3, autocommit=true, attachment=null, respHandler=null, host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false]
-2018-12-24 21:06:34.091  INFO [$_NIOREACTOR-2-RW] (io.mycat.backend.mysql.nio.handler.GetConnectionHandler.connectionAcquired(GetConnectionHandler.java:67)) - connected successfuly MySQLConnection [id=10, lastTime=1545656794091, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=24, charset=latin1, txIsolation=3, autocommit=true, attachment=null, respHandler=null, host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false]
-2018-12-24 21:06:34.092  INFO [$_NIOREACTOR-3-RW] (io.mycat.backend.mysql.nio.handler.GetConnectionHandler.connectionAcquired(GetConnectionHandler.java:67)) - connected successfuly MySQLConnection [id=3, lastTime=1545656794092, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=20, charset=latin1, txIsolation=3, autocommit=true, attachment=null, respHandler=null, host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false]
-2018-12-24 21:06:34.093  INFO [$_NIOREACTOR-1-RW] (io.mycat.backend.mysql.nio.handler.GetConnectionHandler.connectionAcquired(GetConnectionHandler.java:67)) - connected successfuly MySQLConnection [id=1, lastTime=1545656794093, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=16, charset=latin1, txIsolation=3, autocommit=true, attachment=null, respHandler=null, host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false]
-2018-12-24 21:06:34.093  INFO [$_NIOREACTOR-0-RW] (io.mycat.backend.mysql.nio.handler.GetConnectionHandler.connectionAcquired(GetConnectionHandler.java:67)) - connected successfuly MySQLConnection [id=8, lastTime=1545656794093, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=23, charset=latin1, txIsolation=3, autocommit=true, attachment=null, respHandler=null, host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false]
-2018-12-24 21:06:34.093  INFO [$_NIOREACTOR-1-RW] (io.mycat.backend.mysql.nio.handler.GetConnectionHandler.connectionAcquired(GetConnectionHandler.java:67)) - connected successfuly MySQLConnection [id=9, lastTime=1545656794093, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=22, charset=latin1, txIsolation=3, autocommit=true, attachment=null, respHandler=null, host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false]
-2018-12-24 21:06:34.094  INFO [$_NIOREACTOR-7-RW] (io.mycat.backend.mysql.nio.handler.GetConnectionHandler.connectionAcquired(GetConnectionHandler.java:67)) - connected successfuly MySQLConnection [id=7, lastTime=1545656794094, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=19, charset=latin1, txIsolation=3, autocommit=true, attachment=null, respHandler=null, host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false]
-2018-12-24 21:06:34.159  INFO [WrapperSimpleAppMain] (io.mycat.backend.datasource.PhysicalDBPool.initSource(PhysicalDBPool.java:319)) - init result :finished 10 success 10 target count:10
-2018-12-24 21:06:34.159  INFO [WrapperSimpleAppMain] (io.mycat.backend.datasource.PhysicalDBPool.init(PhysicalDBPool.java:265)) - localhost1 index:0 init success
-2018-12-24 21:06:51.750  INFO [$_NIOREACTOR-3-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=1, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
-2018-12-24 21:07:04.406  INFO [$_NIOREACTOR-3-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:stream closed ,ServerConnection [id=1, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
-2018-12-24 21:07:57.480  INFO [$_NIOREACTOR-4-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=2, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
-2018-12-24 21:08:16.056  INFO [$_NIOREACTOR-5-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=3, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
-2018-12-24 21:08:28.560  WARN [$_NIOREACTOR-5-RW] (io.mycat.route.util.RouterUtil.findRouteWithcConditionsForTables(RouterUtil.java:1212)) - can't find table define in schema F_POST_REPLY schema:forum
-2018-12-24 21:08:28.567  WARN [$_NIOREACTOR-5-RW] (io.mycat.server.ServerConnection.routeEndExecuteSQL(ServerConnection.java:281)) - ServerConnection [id=3, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]select  user_img,e.*   from (select * from f_post_reply as a where  favourite=(select max(b.favourite) from f_post_reply as b where a.postid = b.postid)  and a.postId in ("15","1","2","3","4")) as e ,f_user where e.creator = sid err:java.sql.SQLNonTransientException: can't find table define in schema F_POST_REPLY schema:forum
-java.sql.SQLNonTransientException: can't find table define in schema F_POST_REPLY schema:forum
-	at io.mycat.route.util.RouterUtil.findRouteWithcConditionsForTables(RouterUtil.java:1213) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.route.util.RouterUtil.tryRouteForTables(RouterUtil.java:958) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.route.parser.druid.impl.DruidSelectParser.tryRoute(DruidSelectParser.java:412) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.route.parser.druid.impl.DruidSelectParser.changeSql(DruidSelectParser.java:287) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.route.parser.druid.impl.DefaultDruidParser.parser(DefaultDruidParser.java:67) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.route.impl.DruidMycatRouteStrategy.routeNormalSqlWithAST(DruidMycatRouteStrategy.java:84) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.route.impl.AbstractRouteStrategy.route(AbstractRouteStrategy.java:81) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.route.RouteService.route(RouteService.java:133) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.server.ServerConnection.routeEndExecuteSQL(ServerConnection.java:273) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.server.ServerConnection.execute(ServerConnection.java:222) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.server.handler.SelectHandler.handle(SelectHandler.java:105) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.server.ServerQueryHandler.query(ServerQueryHandler.java:79) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.net.FrontendConnection.query(FrontendConnection.java:317) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.net.FrontendConnection.query(FrontendConnection.java:337) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.net.handler.FrontendCommandHandler.handle(FrontendCommandHandler.java:71) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.net.FrontendConnection.rawHandle(FrontendConnection.java:478) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.net.FrontendConnection.handle(FrontendConnection.java:460) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.net.AbstractConnection.onReadData(AbstractConnection.java:321) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.net.NIOSocketWR.asynRead(NIOSocketWR.java:190) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.net.AbstractConnection.asynRead(AbstractConnection.java:273) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.net.NIOReactor$RW.run(NIOReactor.java:102) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at java.lang.Thread.run(Thread.java:745) [?:1.8.0_121]
-2018-12-24 21:09:03.839  WARN [$_NIOREACTOR-5-RW] (io.mycat.route.util.RouterUtil.findRouteWithcConditionsForTables(RouterUtil.java:1212)) - can't find table define in schema F_POST_REPLY schema:forum
-2018-12-24 21:09:03.840  WARN [$_NIOREACTOR-5-RW] (io.mycat.server.ServerConnection.routeEndExecuteSQL(ServerConnection.java:281)) - ServerConnection [id=3, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]select  user_img,e.*   from (select * from f_post_reply as a where  favourite=(select max(b.favourite) from f_post_reply as b where a.postid = b.postid)  and a.postId in ("15","1","2","3","4")) as e ,f_user where e.creator = sid err:java.sql.SQLNonTransientException: can't find table define in schema F_POST_REPLY schema:forum
-java.sql.SQLNonTransientException: can't find table define in schema F_POST_REPLY schema:forum
-	at io.mycat.route.util.RouterUtil.findRouteWithcConditionsForTables(RouterUtil.java:1213) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.route.util.RouterUtil.tryRouteForTables(RouterUtil.java:958) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.route.parser.druid.impl.DruidSelectParser.tryRoute(DruidSelectParser.java:412) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.route.parser.druid.impl.DruidSelectParser.changeSql(DruidSelectParser.java:287) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.route.parser.druid.impl.DefaultDruidParser.parser(DefaultDruidParser.java:67) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.route.impl.DruidMycatRouteStrategy.routeNormalSqlWithAST(DruidMycatRouteStrategy.java:84) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.route.impl.AbstractRouteStrategy.route(AbstractRouteStrategy.java:81) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.route.RouteService.route(RouteService.java:133) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.server.ServerConnection.routeEndExecuteSQL(ServerConnection.java:273) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.server.ServerConnection.execute(ServerConnection.java:222) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.server.handler.SelectHandler.handle(SelectHandler.java:105) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.server.ServerQueryHandler.query(ServerQueryHandler.java:79) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.net.FrontendConnection.query(FrontendConnection.java:317) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.net.FrontendConnection.query(FrontendConnection.java:337) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.net.handler.FrontendCommandHandler.handle(FrontendCommandHandler.java:71) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.net.FrontendConnection.rawHandle(FrontendConnection.java:478) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.net.FrontendConnection.handle(FrontendConnection.java:460) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.net.AbstractConnection.onReadData(AbstractConnection.java:321) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.net.NIOSocketWR.asynRead(NIOSocketWR.java:190) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.net.AbstractConnection.asynRead(AbstractConnection.java:273) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.net.NIOReactor$RW.run(NIOReactor.java:102) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at java.lang.Thread.run(Thread.java:745) [?:1.8.0_121]
-2018-12-24 21:10:53.376  WARN [$_NIOREACTOR-5-RW] (io.mycat.route.util.RouterUtil.findRouteWithcConditionsForTables(RouterUtil.java:1212)) - can't find table define in schema F_POST_REPLY schema:forum
-2018-12-24 21:10:53.376  WARN [$_NIOREACTOR-5-RW] (io.mycat.server.ServerConnection.routeEndExecuteSQL(ServerConnection.java:281)) - ServerConnection [id=3, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]select  user_img,e.*   from (select * from f_post_reply as a where  favourite=(select max(b.favourite) from f_post_reply as b where a.postid = b.postid)  and a.postId in ("15","1","2","3","4")) as e ,f_user where e.creator = sid err:java.sql.SQLNonTransientException: can't find table define in schema F_POST_REPLY schema:forum
-java.sql.SQLNonTransientException: can't find table define in schema F_POST_REPLY schema:forum
-	at io.mycat.route.util.RouterUtil.findRouteWithcConditionsForTables(RouterUtil.java:1213) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.route.util.RouterUtil.tryRouteForTables(RouterUtil.java:958) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.route.parser.druid.impl.DruidSelectParser.tryRoute(DruidSelectParser.java:412) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.route.parser.druid.impl.DruidSelectParser.changeSql(DruidSelectParser.java:287) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.route.parser.druid.impl.DefaultDruidParser.parser(DefaultDruidParser.java:67) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.route.impl.DruidMycatRouteStrategy.routeNormalSqlWithAST(DruidMycatRouteStrategy.java:84) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.route.impl.AbstractRouteStrategy.route(AbstractRouteStrategy.java:81) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.route.RouteService.route(RouteService.java:133) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.server.ServerConnection.routeEndExecuteSQL(ServerConnection.java:273) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.server.ServerConnection.execute(ServerConnection.java:222) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.server.handler.SelectHandler.handle(SelectHandler.java:105) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.server.ServerQueryHandler.query(ServerQueryHandler.java:79) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.net.FrontendConnection.query(FrontendConnection.java:317) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.net.FrontendConnection.query(FrontendConnection.java:337) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.net.handler.FrontendCommandHandler.handle(FrontendCommandHandler.java:71) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.net.FrontendConnection.rawHandle(FrontendConnection.java:478) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.net.FrontendConnection.handle(FrontendConnection.java:460) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.net.AbstractConnection.onReadData(AbstractConnection.java:321) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.net.NIOSocketWR.asynRead(NIOSocketWR.java:190) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.net.AbstractConnection.asynRead(AbstractConnection.java:273) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.net.NIOReactor$RW.run(NIOReactor.java:102) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at java.lang.Thread.run(Thread.java:745) [?:1.8.0_121]
-2018-12-24 21:10:53.646  INFO [$_NIOREACTOR-4-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:stream closed ,ServerConnection [id=2, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
-2018-12-24 21:10:53.646  INFO [$_NIOREACTOR-5-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:stream closed ,ServerConnection [id=3, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
-2018-12-24 21:11:02.082  INFO [$_NIOREACTOR-6-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=4, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
-2018-12-24 21:11:07.418  INFO [$_NIOREACTOR-7-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=5, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
-2018-12-24 21:11:09.125  WARN [$_NIOREACTOR-7-RW] (io.mycat.route.util.RouterUtil.findRouteWithcConditionsForTables(RouterUtil.java:1212)) - can't find table define in schema F_POST_REPLY schema:forum
-2018-12-24 21:11:09.125  WARN [$_NIOREACTOR-7-RW] (io.mycat.server.ServerConnection.routeEndExecuteSQL(ServerConnection.java:281)) - ServerConnection [id=5, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]select  user_img,e.*   from (select * from f_post_reply as a where  favourite=(select max(b.favourite) from f_post_reply as b where a.postid = b.postid)  and a.postId in ("15","1","2","3","4")) as e ,f_user where e.creator = sid err:java.sql.SQLNonTransientException: can't find table define in schema F_POST_REPLY schema:forum
-java.sql.SQLNonTransientException: can't find table define in schema F_POST_REPLY schema:forum
-	at io.mycat.route.util.RouterUtil.findRouteWithcConditionsForTables(RouterUtil.java:1213) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.route.util.RouterUtil.tryRouteForTables(RouterUtil.java:958) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.route.parser.druid.impl.DruidSelectParser.tryRoute(DruidSelectParser.java:412) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.route.parser.druid.impl.DruidSelectParser.changeSql(DruidSelectParser.java:287) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.route.parser.druid.impl.DefaultDruidParser.parser(DefaultDruidParser.java:67) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.route.impl.DruidMycatRouteStrategy.routeNormalSqlWithAST(DruidMycatRouteStrategy.java:84) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.route.impl.AbstractRouteStrategy.route(AbstractRouteStrategy.java:81) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.route.RouteService.route(RouteService.java:133) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.server.ServerConnection.routeEndExecuteSQL(ServerConnection.java:273) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.server.ServerConnection.execute(ServerConnection.java:222) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.server.handler.SelectHandler.handle(SelectHandler.java:105) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.server.ServerQueryHandler.query(ServerQueryHandler.java:79) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.net.FrontendConnection.query(FrontendConnection.java:317) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.net.FrontendConnection.query(FrontendConnection.java:337) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.net.handler.FrontendCommandHandler.handle(FrontendCommandHandler.java:71) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.net.FrontendConnection.rawHandle(FrontendConnection.java:478) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.net.FrontendConnection.handle(FrontendConnection.java:460) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.net.AbstractConnection.onReadData(AbstractConnection.java:321) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.net.NIOSocketWR.asynRead(NIOSocketWR.java:190) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.net.AbstractConnection.asynRead(AbstractConnection.java:273) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.net.NIOReactor$RW.run(NIOReactor.java:102) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at java.lang.Thread.run(Thread.java:745) [?:1.8.0_121]
-2018-12-24 21:16:04.162  INFO [Timer0] (io.mycat.net.AbstractConnection.idleCheck(AbstractConnection.java:521)) - ServerConnection [id=4, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum] idle timeout
-2018-12-24 21:16:04.162  INFO [Timer0] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason: idle  ,ServerConnection [id=4, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
-2018-12-24 21:16:09.164  INFO [Timer1] (io.mycat.net.AbstractConnection.idleCheck(AbstractConnection.java:521)) - ServerConnection [id=5, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum] idle timeout
-2018-12-24 21:16:09.165  INFO [Timer1] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason: idle  ,ServerConnection [id=5, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
-2018-12-24 21:18:54.551  INFO [$_NIOREACTOR-0-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=6, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
-2018-12-24 21:18:59.522  INFO [$_NIOREACTOR-1-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=7, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
-2018-12-24 21:19:01.459  WARN [$_NIOREACTOR-1-RW] (io.mycat.route.util.RouterUtil.findRouteWithcConditionsForTables(RouterUtil.java:1212)) - can't find table define in schema F_POST_REPLY schema:forum
-2018-12-24 21:19:01.459  WARN [$_NIOREACTOR-1-RW] (io.mycat.server.ServerConnection.routeEndExecuteSQL(ServerConnection.java:281)) - ServerConnection [id=7, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]select  * from (select * from f_post_reply as a where  favourite=(select max(b.favourite) from f_post_reply as b where a.postid = b.postid)  and a.postId in ("15","1","2","3","4")) as e ,f_user where e.creator = sid err:java.sql.SQLNonTransientException: can't find table define in schema F_POST_REPLY schema:forum
-java.sql.SQLNonTransientException: can't find table define in schema F_POST_REPLY schema:forum
-	at io.mycat.route.util.RouterUtil.findRouteWithcConditionsForTables(RouterUtil.java:1213) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.route.util.RouterUtil.tryRouteForTables(RouterUtil.java:958) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.route.parser.druid.impl.DruidSelectParser.tryRoute(DruidSelectParser.java:412) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.route.parser.druid.impl.DruidSelectParser.changeSql(DruidSelectParser.java:287) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.route.parser.druid.impl.DefaultDruidParser.parser(DefaultDruidParser.java:67) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.route.impl.DruidMycatRouteStrategy.routeNormalSqlWithAST(DruidMycatRouteStrategy.java:84) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.route.impl.AbstractRouteStrategy.route(AbstractRouteStrategy.java:81) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.route.RouteService.route(RouteService.java:133) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.server.ServerConnection.routeEndExecuteSQL(ServerConnection.java:273) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.server.ServerConnection.execute(ServerConnection.java:222) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.server.handler.SelectHandler.handle(SelectHandler.java:105) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.server.ServerQueryHandler.query(ServerQueryHandler.java:79) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.net.FrontendConnection.query(FrontendConnection.java:317) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.net.FrontendConnection.query(FrontendConnection.java:337) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.net.handler.FrontendCommandHandler.handle(FrontendCommandHandler.java:71) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.net.FrontendConnection.rawHandle(FrontendConnection.java:478) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.net.FrontendConnection.handle(FrontendConnection.java:460) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.net.AbstractConnection.onReadData(AbstractConnection.java:321) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.net.NIOSocketWR.asynRead(NIOSocketWR.java:190) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.net.AbstractConnection.asynRead(AbstractConnection.java:273) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at io.mycat.net.NIOReactor$RW.run(NIOReactor.java:102) ~[Mycat-server-1.6-RELEASE.jar:?]
-	at java.lang.Thread.run(Thread.java:745) [?:1.8.0_121]
-2018-12-24 21:20:07.587  INFO [$_NIOREACTOR-1-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:stream closed ,ServerConnection [id=7, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
-2018-12-24 21:20:07.587  INFO [$_NIOREACTOR-0-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:stream closed ,ServerConnection [id=6, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
-2018-12-24 21:20:16.312  INFO [$_NIOREACTOR-2-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=8, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
-2018-12-24 21:20:23.062  INFO [$_NIOREACTOR-3-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=9, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
-2018-12-24 21:20:30.094  INFO [$_NIOREACTOR-3-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:stream closed ,ServerConnection [id=9, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
-2018-12-24 21:20:30.094  INFO [$_NIOREACTOR-2-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:stream closed ,ServerConnection [id=8, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
-2018-12-24 21:20:39.843  INFO [$_NIOREACTOR-4-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=10, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
-2018-12-24 21:20:46.508  INFO [$_NIOREACTOR-5-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=11, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
-2018-12-24 21:21:20.216  INFO [$_NIOREACTOR-5-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:stream closed ,ServerConnection [id=11, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
-2018-12-24 21:21:20.216  INFO [$_NIOREACTOR-4-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:stream closed ,ServerConnection [id=10, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
-2018-12-24 21:22:24.436  INFO [$_NIOREACTOR-6-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=12, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
-2018-12-24 21:22:42.476  INFO [$_NIOREACTOR-7-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=13, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
-2018-12-24 21:22:42.513  INFO [$_NIOREACTOR-0-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=14, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
-2018-12-24 21:22:42.521  INFO [$_NIOREACTOR-1-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=15, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
-2018-12-24 21:23:09.828  INFO [$_NIOREACTOR-7-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:stream closed ,ServerConnection [id=13, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
-2018-12-24 21:23:09.828  INFO [$_NIOREACTOR-6-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:stream closed ,ServerConnection [id=12, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
-2018-12-24 21:23:09.828  INFO [$_NIOREACTOR-1-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:stream closed ,ServerConnection [id=15, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
-2018-12-24 21:23:09.828  INFO [$_NIOREACTOR-0-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:stream closed ,ServerConnection [id=14, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
-2018-12-24 21:25:44.201  INFO [$_NIOREACTOR-2-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=16, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
-2018-12-24 21:25:53.721  INFO [$_NIOREACTOR-3-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=17, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
-2018-12-24 21:26:04.560  INFO [$_NIOREACTOR-3-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:stream closed ,ServerConnection [id=17, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
-2018-12-24 21:26:04.560  INFO [$_NIOREACTOR-2-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:stream closed ,ServerConnection [id=16, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
-2018-12-24 23:02:54.011  INFO [$_NIOREACTOR-4-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=18, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
-2018-12-24 23:03:09.259  INFO [$_NIOREACTOR-5-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=19, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
-2018-12-24 23:07:56.174  INFO [Timer1] (io.mycat.net.AbstractConnection.idleCheck(AbstractConnection.java:521)) - ServerConnection [id=18, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum] idle timeout
-2018-12-24 23:07:56.175  INFO [Timer1] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason: idle  ,ServerConnection [id=18, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
-2018-12-24 23:08:12.175  INFO [Timer1] (io.mycat.net.AbstractConnection.idleCheck(AbstractConnection.java:521)) - ServerConnection [id=19, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum] idle timeout
-2018-12-24 23:08:12.175  INFO [Timer1] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason: idle  ,ServerConnection [id=19, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
-2018-12-24 23:09:13.870  INFO [$_NIOREACTOR-6-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=20, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
-2018-12-24 23:10:35.685  WARN [$_NIOREACTOR-6-RW] (io.mycat.backend.mysql.nio.handler.SingleNodeHandler.backConnectionErr(SingleNodeHandler.java:249)) - execute  sql err : errno:1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')
-	) f_post_reply, f_user
-WHERE f_post_reply.creator = sid
-LIMIT 100' at line 7 con:MySQLConnection [id=6, lastTime=1545664235680, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=17, charset=utf8, txIsolation=3, autocommit=true, attachment=dn1{SELECT user_img, f_post_reply.*
-FROM (SELECT *
-	FROM f_post_reply a
-	WHERE favourite = (
-			SELECT MAX(b.favourite)
-			FROM f_post_reply b
-			WHERE a.postId = b.postId
-			)
-		AND a.postId IN ()
-	) f_post_reply, f_user
-WHERE f_post_reply.creator = sid
-LIMIT 100}, respHandler=SingleNodeHandler [node=dn1{SELECT user_img, f_post_reply.*
-FROM (SELECT *
-	FROM f_post_reply a
-	WHERE favourite = (
-			SELECT MAX(b.favourite)
-			FROM f_post_reply b
-			WHERE a.postId = b.postId
-			)
-		AND a.postId IN ()
-	) f_post_reply, f_user
-WHERE f_post_reply.creator = sid
-LIMIT 100}, packetId=1], host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false] frontend host:127.0.0.1/52469/root
-2018-12-24 23:11:09.916  WARN [$_NIOREACTOR-0-RW] (io.mycat.backend.mysql.nio.handler.SingleNodeHandler.backConnectionErr(SingleNodeHandler.java:249)) - execute  sql err : errno:1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')
-	) f_post_reply, f_user
-WHERE f_post_reply.creator = sid
-LIMIT 100' at line 7 con:MySQLConnection [id=8, lastTime=1545664269900, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=23, charset=utf8, txIsolation=3, autocommit=true, attachment=dn1{SELECT user_img, f_post_reply.*
-FROM (SELECT *
-	FROM f_post_reply a
-	WHERE favourite = (
-			SELECT MAX(b.favourite)
-			FROM f_post_reply b
-			WHERE a.postId = b.postId
-			)
-		AND a.postId IN ()
-	) f_post_reply, f_user
-WHERE f_post_reply.creator = sid
-LIMIT 100}, respHandler=SingleNodeHandler [node=dn1{SELECT user_img, f_post_reply.*
-FROM (SELECT *
-	FROM f_post_reply a
-	WHERE favourite = (
-			SELECT MAX(b.favourite)
-			FROM f_post_reply b
-			WHERE a.postId = b.postId
-			)
-		AND a.postId IN ()
-	) f_post_reply, f_user
-WHERE f_post_reply.creator = sid
-LIMIT 100}, packetId=1], host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false] frontend host:127.0.0.1/52469/root
-2018-12-24 23:12:05.662  INFO [$_NIOREACTOR-6-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:stream closed ,ServerConnection [id=20, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
-2018-12-24 23:12:12.659  INFO [$_NIOREACTOR-7-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=21, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
-2018-12-24 23:12:20.304  INFO [$_NIOREACTOR-0-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=22, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
-2018-12-24 23:12:20.359  WARN [$_NIOREACTOR-6-RW] (io.mycat.backend.mysql.nio.handler.SingleNodeHandler.backConnectionErr(SingleNodeHandler.java:249)) - execute  sql err : errno:1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')
-	) F_POST_REPLY, f_user
-WHERE F_POST_REPLY.creator = sid
-LIMIT 100' at line 7 con:MySQLConnection [id=6, lastTime=1545664340338, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=17, charset=utf8, txIsolation=3, autocommit=true, attachment=dn1{SELECT user_img, F_POST_REPLY.*
-FROM (SELECT *
-	FROM f_post_reply a
-	WHERE favourite = (
-			SELECT MAX(b.favourite)
-			FROM f_post_reply b
-			WHERE a.postId = b.postId
-			)
-		AND a.postId IN ()
-	) F_POST_REPLY, f_user
-WHERE F_POST_REPLY.creator = sid
-LIMIT 100}, respHandler=SingleNodeHandler [node=dn1{SELECT user_img, F_POST_REPLY.*
-FROM (SELECT *
-	FROM f_post_reply a
-	WHERE favourite = (
-			SELECT MAX(b.favourite)
-			FROM f_post_reply b
-			WHERE a.postId = b.postId
-			)
-		AND a.postId IN ()
-	) F_POST_REPLY, f_user
-WHERE F_POST_REPLY.creator = sid
-LIMIT 100}, packetId=1], host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false] frontend host:127.0.0.1/52537/root
-2018-12-24 23:13:58.127  INFO [$_NIOREACTOR-0-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:stream closed ,ServerConnection [id=22, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
-2018-12-24 23:13:58.127  INFO [$_NIOREACTOR-7-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:stream closed ,ServerConnection [id=21, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
-2018-12-24 23:14:05.555  INFO [$_NIOREACTOR-1-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=23, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
-2018-12-24 23:14:13.727  INFO [$_NIOREACTOR-2-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=24, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
-2018-12-24 23:14:13.772  WARN [$_NIOREACTOR-2-RW] (io.mycat.backend.mysql.nio.handler.SingleNodeHandler.backConnectionErr(SingleNodeHandler.java:249)) - execute  sql err : errno:1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')
-	) F_POST_REPLY, f_user
-WHERE F_POST_REPLY.creator = sid
-LIMIT 100' at line 7 con:MySQLConnection [id=2, lastTime=1545664453762, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=25, charset=utf8, txIsolation=3, autocommit=true, attachment=dn1{SELECT user_img, F_POST_REPLY.*
-FROM (SELECT *
-	FROM f_post_reply a
-	WHERE favourite = (
-			SELECT MAX(b.favourite)
-			FROM f_post_reply b
-			WHERE a.postId = b.postId
-			)
-		AND a.postId IN ()
-	) F_POST_REPLY, f_user
-WHERE F_POST_REPLY.creator = sid
-LIMIT 100}, respHandler=SingleNodeHandler [node=dn1{SELECT user_img, F_POST_REPLY.*
-FROM (SELECT *
-	FROM f_post_reply a
-	WHERE favourite = (
-			SELECT MAX(b.favourite)
-			FROM f_post_reply b
-			WHERE a.postId = b.postId
-			)
-		AND a.postId IN ()
-	) F_POST_REPLY, f_user
-WHERE F_POST_REPLY.creator = sid
-LIMIT 100}, packetId=1], host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false] frontend host:127.0.0.1/52593/root
-2018-12-24 23:15:15.154  INFO [$_NIOREACTOR-2-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:stream closed ,ServerConnection [id=24, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
-2018-12-24 23:15:15.154  INFO [$_NIOREACTOR-1-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:stream closed ,ServerConnection [id=23, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
-2018-12-24 23:15:29.622  INFO [$_NIOREACTOR-3-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=25, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
-2018-12-24 23:15:37.635  INFO [$_NIOREACTOR-4-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=26, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
-2018-12-24 23:15:37.681  WARN [$_NIOREACTOR-1-RW] (io.mycat.backend.mysql.nio.handler.SingleNodeHandler.backConnectionErr(SingleNodeHandler.java:249)) - execute  sql err : errno:1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')
-	) F_POST_REPLY, f_user
-WHERE F_POST_REPLY.creator = sid
-LIMIT 100' at line 7 con:MySQLConnection [id=9, lastTime=1545664537678, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=22, charset=utf8, txIsolation=3, autocommit=true, attachment=dn1{SELECT *
-FROM (SELECT *
-	FROM f_post_reply a
-	WHERE favourite = (
-			SELECT MAX(b.favourite)
-			FROM f_post_reply b
-			WHERE a.postId = b.postId
-			)
-		AND a.postId IN ()
-	) F_POST_REPLY, f_user
-WHERE F_POST_REPLY.creator = sid
-LIMIT 100}, respHandler=SingleNodeHandler [node=dn1{SELECT *
-FROM (SELECT *
-	FROM f_post_reply a
-	WHERE favourite = (
-			SELECT MAX(b.favourite)
-			FROM f_post_reply b
-			WHERE a.postId = b.postId
-			)
-		AND a.postId IN ()
-	) F_POST_REPLY, f_user
-WHERE F_POST_REPLY.creator = sid
-LIMIT 100}, packetId=1], host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false] frontend host:127.0.0.1/52634/root
-2018-12-24 23:16:09.682  INFO [$_NIOREACTOR-4-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:stream closed ,ServerConnection [id=26, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
-2018-12-24 23:16:09.682  INFO [$_NIOREACTOR-3-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:stream closed ,ServerConnection [id=25, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
-2018-12-24 23:16:17.618  INFO [$_NIOREACTOR-5-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=27, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
-2018-12-24 23:16:23.608  INFO [$_NIOREACTOR-6-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=28, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
-2018-12-24 23:16:23.660  WARN [$_NIOREACTOR-4-RW] (io.mycat.backend.mysql.nio.handler.SingleNodeHandler.backConnectionErr(SingleNodeHandler.java:249)) - execute  sql err : errno:1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')
-	) F_POST_REPLY, f_user
-WHERE F_POST_REPLY.creator = sid
-LIMIT 100' at line 7 con:MySQLConnection [id=4, lastTime=1545664583639, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=18, charset=utf8, txIsolation=3, autocommit=true, attachment=dn1{SELECT *
-FROM (SELECT *
-	FROM f_post_reply a
-	WHERE favourite = (
-			SELECT MAX(b.favourite)
-			FROM f_post_reply b
-			WHERE a.postid = b.postid
-			)
-		AND a.postId IN ()
-	) F_POST_REPLY, f_user
-WHERE F_POST_REPLY.creator = sid
-LIMIT 100}, respHandler=SingleNodeHandler [node=dn1{SELECT *
-FROM (SELECT *
-	FROM f_post_reply a
-	WHERE favourite = (
-			SELECT MAX(b.favourite)
-			FROM f_post_reply b
-			WHERE a.postid = b.postid
-			)
-		AND a.postId IN ()
-	) F_POST_REPLY, f_user
-WHERE F_POST_REPLY.creator = sid
-LIMIT 100}, packetId=1], host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false] frontend host:127.0.0.1/52668/root
-2018-12-24 23:17:29.043  WARN [$_NIOREACTOR-7-RW] (io.mycat.backend.mysql.nio.handler.SingleNodeHandler.backConnectionErr(SingleNodeHandler.java:249)) - execute  sql err : errno:1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')
-	) F_POST_REPLY, f_user
-WHERE F_POST_REPLY.creator = sid
-LIMIT 100' at line 7 con:MySQLConnection [id=7, lastTime=1545664649040, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=19, charset=utf8, txIsolation=3, autocommit=true, attachment=dn1{SELECT *
-FROM (SELECT *
-	FROM f_post_reply a
-	WHERE favourite = (
-			SELECT MAX(b.favourite)
-			FROM f_post_reply b
-			WHERE a.postid = b.postid
-			)
-		AND a.postId IN ()
-	) F_POST_REPLY, f_user
-WHERE F_POST_REPLY.creator = sid
-LIMIT 100}, respHandler=SingleNodeHandler [node=dn1{SELECT *
-FROM (SELECT *
-	FROM f_post_reply a
-	WHERE favourite = (
-			SELECT MAX(b.favourite)
-			FROM f_post_reply b
-			WHERE a.postid = b.postid
-			)
-		AND a.postId IN ()
-	) F_POST_REPLY, f_user
-WHERE F_POST_REPLY.creator = sid
-LIMIT 100}, packetId=1], host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false] frontend host:127.0.0.1/52668/root
-2018-12-24 23:19:30.006  INFO [$_NIOREACTOR-6-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:stream closed ,ServerConnection [id=28, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
-2018-12-24 23:19:30.006  INFO [$_NIOREACTOR-5-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:stream closed ,ServerConnection [id=27, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
-2018-12-24 23:19:37.478  INFO [$_NIOREACTOR-7-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=29, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
-2018-12-24 23:19:48.057  INFO [$_NIOREACTOR-0-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=30, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
-2018-12-24 23:20:38.654  INFO [$_NIOREACTOR-0-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:quit cmd ,ServerConnection [id=30, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
-2018-12-24 23:20:40.242  INFO [$_NIOREACTOR-7-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:stream closed ,ServerConnection [id=29, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
-2018-12-24 23:22:00.858  INFO [$_NIOREACTOR-1-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=31, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
-2018-12-24 23:22:07.780  INFO [$_NIOREACTOR-2-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=32, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
-2018-12-24 23:27:03.157  INFO [Timer0] (io.mycat.net.AbstractConnection.idleCheck(AbstractConnection.java:521)) - ServerConnection [id=31, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum] idle timeout
-2018-12-24 23:27:03.157  INFO [Timer0] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason: idle  ,ServerConnection [id=31, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
-2018-12-24 23:27:08.158  INFO [Timer0] (io.mycat.net.AbstractConnection.idleCheck(AbstractConnection.java:521)) - ServerConnection [id=32, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum] idle timeout
-2018-12-24 23:27:08.159  INFO [Timer0] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason: idle  ,ServerConnection [id=32, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 11:31:25.293  INFO [WrapperSimpleAppMain] (io.mycat.backend.datasource.PhysicalDBPool.<init>(PhysicalDBPool.java:100)) - total resouces of dataHost localhost1 is :1
+2018-12-25 11:31:25.300  INFO [WrapperSimpleAppMain] (io.mycat.cache.CacheService.createLayeredPool(CacheService.java:125)) - create layer cache pool TableID2DataNodeCache of type encache ,default cache size 10000 ,default expire seconds18000
+2018-12-25 11:31:25.301  INFO [WrapperSimpleAppMain] (io.mycat.cache.DefaultLayedCachePool.createChildCache(DefaultLayedCachePool.java:80)) - create child Cache: TESTDB_ORDERS for layered cache TableID2DataNodeCache, size 50000, expire seconds 18000
+2018-12-25 11:31:25.390  INFO [WrapperSimpleAppMain] (io.mycat.config.classloader.DynaClassLoader.<init>(DynaClassLoader.java:34)) - dyna class load from .\catlet,and auto check for class file modified every 60 seconds
+2018-12-25 11:31:25.390  INFO [WrapperSimpleAppMain] (io.mycat.MycatServer.startup(MycatServer.java:266)) - ===============================================
+2018-12-25 11:31:25.390  INFO [WrapperSimpleAppMain] (io.mycat.MycatServer.startup(MycatServer.java:267)) - MyCat is ready to startup ...
+2018-12-25 11:31:25.390  INFO [WrapperSimpleAppMain] (io.mycat.MycatServer.startup(MycatServer.java:279)) - Startup processors ...,total processors:4,aio thread pool size:8    
+ each process allocated socket buffer pool  bytes ,a page size:2097152  a page's chunk number(PageSize/ChunkSize) is:512  buffer page's number is:80
+2018-12-25 11:31:25.391  INFO [WrapperSimpleAppMain] (io.mycat.MycatServer.startup(MycatServer.java:280)) - sysconfig params:SystemConfig [processorBufferLocalPercent=100, frontSocketSoRcvbuf=1048576, frontSocketSoSndbuf=4194304, backSocketSoRcvbuf=4194304, backSocketSoSndbuf=1048576, frontSocketNoDelay=1, backSocketNoDelay=1, maxStringLiteralLength=65535, frontWriteQueueSize=2048, bindIp=127.0.0.1, serverPort=8066, managerPort=9066, charset=utf8, processors=4, processorExecutor=8, timerExecutor=2, managerExecutor=2, idleTimeout=300000, catletClassCheckSeconds=60, sqlExecuteTimeout=300, processorCheckPeriod=1000, dataNodeIdleCheckPeriod=300000, dataNodeHeartbeatPeriod=10000, clusterHeartbeatUser=_HEARTBEAT_USER_, clusterHeartbeatPass=_HEARTBEAT_PASS_, clusterHeartbeatPeriod=5000, clusterHeartbeatTimeout=10000, clusterHeartbeatRetry=10, txIsolation=3, parserCommentVersion=50148, sqlRecordCount=10, bufferPoolPageSize=2097152, bufferPoolChunkSize=4096, bufferPoolPageNumber=80, maxResultSet=524288, bigResultSizeSqlCount=10, bufferUsagePercent=80, flowControlRejectStrategy=0, clearBigSqLResultSetMapMs=600000, defaultMaxLimit=100, sequnceHandlerType=2, sqlInterceptor=io.mycat.server.interceptor.impl.DefaultSqlInterceptor, sqlInterceptorType=select, sqlInterceptorFile=D:\forums\src\main\resources\config\Mycat\mycat/logs/sql.txt, mutiNodeLimitType=0, mutiNodePatchSize=100, defaultSqlParser=druidparser, usingAIO=0, packetHeaderSize=4, maxPacketSize=16777216, mycatNodeId=1]
+2018-12-25 11:31:25.442  INFO [WrapperSimpleAppMain] (io.mycat.memory.MyCatMemory.<init>(MyCatMemory.java:53)) - useOffHeapForMerge = 1
+2018-12-25 11:31:25.442  INFO [WrapperSimpleAppMain] (io.mycat.memory.MyCatMemory.<init>(MyCatMemory.java:54)) - memoryPageSize = 1m
+2018-12-25 11:31:25.442  INFO [WrapperSimpleAppMain] (io.mycat.memory.MyCatMemory.<init>(MyCatMemory.java:55)) - spillsFileBufferSize = 1k
+2018-12-25 11:31:25.442  INFO [WrapperSimpleAppMain] (io.mycat.memory.MyCatMemory.<init>(MyCatMemory.java:56)) - useStreamOutput = 0
+2018-12-25 11:31:25.442  INFO [WrapperSimpleAppMain] (io.mycat.memory.MyCatMemory.<init>(MyCatMemory.java:57)) - systemReserveMemorySize = 384m
+2018-12-25 11:31:25.451  INFO [WrapperSimpleAppMain] (io.mycat.memory.MyCatMemory.<init>(MyCatMemory.java:58)) - totalNetWorkBufferSize = 160MB
+2018-12-25 11:31:25.451  INFO [WrapperSimpleAppMain] (io.mycat.memory.MyCatMemory.<init>(MyCatMemory.java:59)) - dataNodeSortedTempDir = D:\forums\src\main\resources\config\Mycat\mycat
+2018-12-25 11:31:25.454  INFO [WrapperSimpleAppMain] (io.mycat.memory.MyCatMemory.<init>(MyCatMemory.java:122)) - mycat.memory.offHeap.size: 1209MB
+2018-12-25 11:31:25.459  INFO [WrapperSimpleAppMain] (io.mycat.MycatServer.startup(MycatServer.java:381)) - using nio network handler 
+2018-12-25 11:31:25.474  INFO [WrapperSimpleAppMain] (io.mycat.MycatServer.startup(MycatServer.java:397)) - $_MyCatManager is started and listening on 9066
+2018-12-25 11:31:25.474  INFO [WrapperSimpleAppMain] (io.mycat.MycatServer.startup(MycatServer.java:401)) - $_MyCatServer is started and listening on 8066
+2018-12-25 11:31:25.474  INFO [WrapperSimpleAppMain] (io.mycat.MycatServer.startup(MycatServer.java:403)) - ===============================================
+2018-12-25 11:31:25.475  INFO [WrapperSimpleAppMain] (io.mycat.MycatServer.startup(MycatServer.java:407)) - Initialize dataHost ...
+2018-12-25 11:31:25.475  INFO [WrapperSimpleAppMain] (io.mycat.backend.datasource.PhysicalDBPool.initSource(PhysicalDBPool.java:294)) - init backend myqsl source ,create connections total 10 for hostM1 index :0
+2018-12-25 11:31:25.475  INFO [WrapperSimpleAppMain] (io.mycat.backend.datasource.PhysicalDatasource.getConnection(PhysicalDatasource.java:413)) - no ilde connection in pool,create new connection for hostM1 of schema forum
+2018-12-25 11:31:25.476  INFO [WrapperSimpleAppMain] (io.mycat.backend.datasource.PhysicalDatasource.getConnection(PhysicalDatasource.java:413)) - no ilde connection in pool,create new connection for hostM1 of schema forum
+2018-12-25 11:31:25.476  INFO [WrapperSimpleAppMain] (io.mycat.backend.datasource.PhysicalDatasource.getConnection(PhysicalDatasource.java:413)) - no ilde connection in pool,create new connection for hostM1 of schema forum
+2018-12-25 11:31:25.476  INFO [WrapperSimpleAppMain] (io.mycat.backend.datasource.PhysicalDatasource.getConnection(PhysicalDatasource.java:413)) - no ilde connection in pool,create new connection for hostM1 of schema forum
+2018-12-25 11:31:25.477  INFO [WrapperSimpleAppMain] (io.mycat.backend.datasource.PhysicalDatasource.getConnection(PhysicalDatasource.java:413)) - no ilde connection in pool,create new connection for hostM1 of schema forum
+2018-12-25 11:31:25.477  INFO [WrapperSimpleAppMain] (io.mycat.backend.datasource.PhysicalDatasource.getConnection(PhysicalDatasource.java:413)) - no ilde connection in pool,create new connection for hostM1 of schema forum
+2018-12-25 11:31:25.477  INFO [WrapperSimpleAppMain] (io.mycat.backend.datasource.PhysicalDatasource.getConnection(PhysicalDatasource.java:413)) - no ilde connection in pool,create new connection for hostM1 of schema forum
+2018-12-25 11:31:25.477  INFO [WrapperSimpleAppMain] (io.mycat.backend.datasource.PhysicalDatasource.getConnection(PhysicalDatasource.java:413)) - no ilde connection in pool,create new connection for hostM1 of schema forum
+2018-12-25 11:31:25.478  INFO [WrapperSimpleAppMain] (io.mycat.backend.datasource.PhysicalDatasource.getConnection(PhysicalDatasource.java:413)) - no ilde connection in pool,create new connection for hostM1 of schema forum
+2018-12-25 11:31:25.478  INFO [WrapperSimpleAppMain] (io.mycat.backend.datasource.PhysicalDatasource.getConnection(PhysicalDatasource.java:413)) - no ilde connection in pool,create new connection for hostM1 of schema forum
+2018-12-25 11:31:25.497  INFO [$_NIOREACTOR-1-RW] (io.mycat.backend.mysql.nio.handler.GetConnectionHandler.connectionAcquired(GetConnectionHandler.java:67)) - connected successfuly MySQLConnection [id=1, lastTime=1545708685497, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=49, charset=latin1, txIsolation=3, autocommit=true, attachment=null, respHandler=null, host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false]
+2018-12-25 11:31:25.497  INFO [$_NIOREACTOR-3-RW] (io.mycat.backend.mysql.nio.handler.GetConnectionHandler.connectionAcquired(GetConnectionHandler.java:67)) - connected successfuly MySQLConnection [id=3, lastTime=1545708685497, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=53, charset=latin1, txIsolation=3, autocommit=true, attachment=null, respHandler=null, host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false]
+2018-12-25 11:31:25.498  INFO [$_NIOREACTOR-3-RW] (io.mycat.backend.mysql.nio.handler.GetConnectionHandler.connectionAcquired(GetConnectionHandler.java:67)) - connected successfuly MySQLConnection [id=7, lastTime=1545708685498, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=55, charset=latin1, txIsolation=3, autocommit=true, attachment=null, respHandler=null, host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false]
+2018-12-25 11:31:25.498  INFO [$_NIOREACTOR-1-RW] (io.mycat.backend.mysql.nio.handler.GetConnectionHandler.connectionAcquired(GetConnectionHandler.java:67)) - connected successfuly MySQLConnection [id=5, lastTime=1545708685498, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=52, charset=latin1, txIsolation=3, autocommit=true, attachment=null, respHandler=null, host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false]
+2018-12-25 11:31:25.498  INFO [$_NIOREACTOR-0-RW] (io.mycat.backend.mysql.nio.handler.GetConnectionHandler.connectionAcquired(GetConnectionHandler.java:67)) - connected successfuly MySQLConnection [id=4, lastTime=1545708685498, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=48, charset=latin1, txIsolation=3, autocommit=true, attachment=null, respHandler=null, host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false]
+2018-12-25 11:31:25.498  INFO [$_NIOREACTOR-1-RW] (io.mycat.backend.mysql.nio.handler.GetConnectionHandler.connectionAcquired(GetConnectionHandler.java:67)) - connected successfuly MySQLConnection [id=9, lastTime=1545708685498, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=50, charset=latin1, txIsolation=3, autocommit=true, attachment=null, respHandler=null, host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false]
+2018-12-25 11:31:25.498  INFO [$_NIOREACTOR-0-RW] (io.mycat.backend.mysql.nio.handler.GetConnectionHandler.connectionAcquired(GetConnectionHandler.java:67)) - connected successfuly MySQLConnection [id=8, lastTime=1545708685498, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=57, charset=latin1, txIsolation=3, autocommit=true, attachment=null, respHandler=null, host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false]
+2018-12-25 11:31:25.498  INFO [$_NIOREACTOR-2-RW] (io.mycat.backend.mysql.nio.handler.GetConnectionHandler.connectionAcquired(GetConnectionHandler.java:67)) - connected successfuly MySQLConnection [id=6, lastTime=1545708685498, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=51, charset=latin1, txIsolation=3, autocommit=true, attachment=null, respHandler=null, host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false]
+2018-12-25 11:31:25.498  INFO [$_NIOREACTOR-2-RW] (io.mycat.backend.mysql.nio.handler.GetConnectionHandler.connectionAcquired(GetConnectionHandler.java:67)) - connected successfuly MySQLConnection [id=10, lastTime=1545708685498, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=54, charset=latin1, txIsolation=3, autocommit=true, attachment=null, respHandler=null, host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false]
+2018-12-25 11:31:25.498  INFO [$_NIOREACTOR-2-RW] (io.mycat.backend.mysql.nio.handler.GetConnectionHandler.connectionAcquired(GetConnectionHandler.java:67)) - connected successfuly MySQLConnection [id=2, lastTime=1545708685498, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=56, charset=latin1, txIsolation=3, autocommit=true, attachment=null, respHandler=null, host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false]
+2018-12-25 11:31:25.579  INFO [WrapperSimpleAppMain] (io.mycat.backend.datasource.PhysicalDBPool.initSource(PhysicalDBPool.java:319)) - init result :finished 10 success 10 target count:10
+2018-12-25 11:31:25.579  INFO [WrapperSimpleAppMain] (io.mycat.backend.datasource.PhysicalDBPool.init(PhysicalDBPool.java:265)) - localhost1 index:0 init success
+2018-12-25 11:31:34.835  INFO [$_NIOREACTOR-3-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=1, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 11:31:43.693  INFO [$_NIOREACTOR-0-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=2, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 11:34:42.450  INFO [$_NIOREACTOR-3-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:program err:java.io.IOException: An existing connection was forcibly closed by the remote host ,ServerConnection [id=1, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 11:34:42.453  INFO [$_NIOREACTOR-0-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:program err:java.io.IOException: An existing connection was forcibly closed by the remote host ,ServerConnection [id=2, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 11:34:53.405  INFO [$_NIOREACTOR-1-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=3, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 11:35:01.481  INFO [$_NIOREACTOR-2-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=4, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 11:39:56.586  INFO [Timer1] (io.mycat.net.AbstractConnection.idleCheck(AbstractConnection.java:521)) - ServerConnection [id=3, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum] idle timeout
+2018-12-25 11:39:56.586  INFO [Timer1] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason: idle  ,ServerConnection [id=3, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 11:41:01.586  INFO [Timer0] (io.mycat.net.AbstractConnection.idleCheck(AbstractConnection.java:521)) - ServerConnection [id=4, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum] idle timeout
+2018-12-25 11:41:01.586  INFO [Timer0] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason: idle  ,ServerConnection [id=4, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 11:42:02.219  INFO [$_NIOREACTOR-3-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=5, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 11:42:24.792  INFO [$_NIOREACTOR-3-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:program err:java.io.IOException: An existing connection was forcibly closed by the remote host ,ServerConnection [id=5, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 11:42:47.415  INFO [$_NIOREACTOR-0-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=6, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 11:42:58.589  INFO [$_NIOREACTOR-1-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=7, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 11:47:51.589  INFO [Timer0] (io.mycat.net.AbstractConnection.idleCheck(AbstractConnection.java:521)) - ServerConnection [id=6, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum] idle timeout
+2018-12-25 11:47:51.590  INFO [Timer0] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason: idle  ,ServerConnection [id=6, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 11:49:55.591  INFO [Timer1] (io.mycat.net.AbstractConnection.idleCheck(AbstractConnection.java:521)) - ServerConnection [id=7, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum] idle timeout
+2018-12-25 11:49:55.591  INFO [Timer1] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason: idle  ,ServerConnection [id=7, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 12:10:06.484  INFO [$_NIOREACTOR-2-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=8, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 12:10:15.529  WARN [$_NIOREACTOR-2-RW] (io.mycat.backend.mysql.nio.handler.SingleNodeHandler.backConnectionErr(SingleNodeHandler.java:249)) - execute  sql err : errno:1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')
+	AND sid = '1068310406881218560'
+LIMIT 100' at line 1 con:MySQLConnection [id=10, lastTime=1545711015518, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=54, charset=utf8, txIsolation=3, autocommit=true, attachment=dn1{SELECT replyId, favourite
+FROM f_reply_favourite
+WHERE replyId IN ()
+	AND sid = '1068310406881218560'
+LIMIT 100}, respHandler=SingleNodeHandler [node=dn1{SELECT replyId, favourite
+FROM f_reply_favourite
+WHERE replyId IN ()
+	AND sid = '1068310406881218560'
+LIMIT 100}, packetId=1], host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false] frontend host:127.0.0.1/58913/root
+2018-12-25 12:10:15.955  WARN [$_NIOREACTOR-3-RW] (io.mycat.backend.mysql.nio.handler.SingleNodeHandler.backConnectionErr(SingleNodeHandler.java:249)) - execute  sql err : errno:1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')
+	AND sid = '1068310406881218560'
+LIMIT 100' at line 1 con:MySQLConnection [id=7, lastTime=1545711015937, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=55, charset=utf8, txIsolation=3, autocommit=true, attachment=dn1{SELECT replyId, favourite
+FROM f_reply_favourite
+WHERE replyId IN ()
+	AND sid = '1068310406881218560'
+LIMIT 100}, respHandler=SingleNodeHandler [node=dn1{SELECT replyId, favourite
+FROM f_reply_favourite
+WHERE replyId IN ()
+	AND sid = '1068310406881218560'
+LIMIT 100}, packetId=1], host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false] frontend host:127.0.0.1/58913/root
+2018-12-25 12:10:43.463  INFO [$_NIOREACTOR-2-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:program err:java.io.IOException: An existing connection was forcibly closed by the remote host ,ServerConnection [id=8, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 12:11:38.781  INFO [$_NIOREACTOR-3-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=9, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 12:11:49.187  INFO [$_NIOREACTOR-0-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=10, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 12:12:22.426  INFO [$_NIOREACTOR-3-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:program err:java.io.IOException: An existing connection was forcibly closed by the remote host ,ServerConnection [id=9, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 12:12:22.428  INFO [$_NIOREACTOR-0-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:program err:java.io.IOException: An existing connection was forcibly closed by the remote host ,ServerConnection [id=10, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 12:12:32.592  INFO [$_NIOREACTOR-1-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=11, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 12:12:43.410  INFO [$_NIOREACTOR-2-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=12, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 12:13:11.622  INFO [$_NIOREACTOR-1-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:program err:java.io.IOException: An existing connection was forcibly closed by the remote host ,ServerConnection [id=11, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 12:13:11.624  INFO [$_NIOREACTOR-2-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:program err:java.io.IOException: An existing connection was forcibly closed by the remote host ,ServerConnection [id=12, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 12:13:22.217  INFO [$_NIOREACTOR-3-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=13, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 12:13:30.203  INFO [$_NIOREACTOR-0-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=14, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 12:13:30.248  INFO [$_NIOREACTOR-1-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=15, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 12:13:30.255  INFO [$_NIOREACTOR-2-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=16, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 12:13:38.377  WARN [$_NIOREACTOR-2-RW] (io.mycat.backend.mysql.nio.handler.SingleNodeHandler.backConnectionErr(SingleNodeHandler.java:249)) - execute  sql err : errno:1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')
+	AND sid = '1068310406881218560'
+LIMIT 100' at line 1 con:MySQLConnection [id=6, lastTime=1545711218373, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=51, charset=utf8, txIsolation=3, autocommit=true, attachment=dn1{SELECT replyId, favourite
+FROM f_reply_favourite
+WHERE replyId IN ()
+	AND sid = '1068310406881218560'
+LIMIT 100}, respHandler=SingleNodeHandler [node=dn1{SELECT replyId, favourite
+FROM f_reply_favourite
+WHERE replyId IN ()
+	AND sid = '1068310406881218560'
+LIMIT 100}, packetId=1], host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false] frontend host:127.0.0.1/59336/root
+2018-12-25 12:13:38.515  WARN [$_NIOREACTOR-3-RW] (io.mycat.backend.mysql.nio.handler.SingleNodeHandler.backConnectionErr(SingleNodeHandler.java:249)) - execute  sql err : errno:1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')
+	AND sid = '1068310406881218560'
+LIMIT 100' at line 1 con:MySQLConnection [id=3, lastTime=1545711218500, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=53, charset=utf8, txIsolation=3, autocommit=true, attachment=dn1{SELECT replyId, favourite
+FROM f_reply_favourite
+WHERE replyId IN ()
+	AND sid = '1068310406881218560'
+LIMIT 100}, respHandler=SingleNodeHandler [node=dn1{SELECT replyId, favourite
+FROM f_reply_favourite
+WHERE replyId IN ()
+	AND sid = '1068310406881218560'
+LIMIT 100}, packetId=1], host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false] frontend host:127.0.0.1/59336/root
+2018-12-25 12:13:38.568  WARN [$_NIOREACTOR-0-RW] (io.mycat.backend.mysql.nio.handler.SingleNodeHandler.backConnectionErr(SingleNodeHandler.java:249)) - execute  sql err : errno:1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')
+	AND sid = '1068310406881218560'
+LIMIT 100' at line 1 con:MySQLConnection [id=8, lastTime=1545711218540, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=57, charset=utf8, txIsolation=3, autocommit=true, attachment=dn1{SELECT replyId, favourite
+FROM f_reply_favourite
+WHERE replyId IN ()
+	AND sid = '1068310406881218560'
+LIMIT 100}, respHandler=SingleNodeHandler [node=dn1{SELECT replyId, favourite
+FROM f_reply_favourite
+WHERE replyId IN ()
+	AND sid = '1068310406881218560'
+LIMIT 100}, packetId=1], host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false] frontend host:127.0.0.1/59336/root
+2018-12-25 12:13:38.614  WARN [$_NIOREACTOR-2-RW] (io.mycat.backend.mysql.nio.handler.SingleNodeHandler.backConnectionErr(SingleNodeHandler.java:249)) - execute  sql err : errno:1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')
+	AND sid = '1068310406881218560'
+LIMIT 100' at line 1 con:MySQLConnection [id=2, lastTime=1545711218600, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=56, charset=utf8, txIsolation=3, autocommit=true, attachment=dn1{SELECT replyId, favourite
+FROM f_reply_favourite
+WHERE replyId IN ()
+	AND sid = '1068310406881218560'
+LIMIT 100}, respHandler=SingleNodeHandler [node=dn1{SELECT replyId, favourite
+FROM f_reply_favourite
+WHERE replyId IN ()
+	AND sid = '1068310406881218560'
+LIMIT 100}, packetId=1], host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false] frontend host:127.0.0.1/59336/root
+2018-12-25 12:15:00.462  INFO [$_NIOREACTOR-3-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:program err:java.io.IOException: An existing connection was forcibly closed by the remote host ,ServerConnection [id=13, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 12:15:00.466  INFO [$_NIOREACTOR-1-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:program err:java.io.IOException: An existing connection was forcibly closed by the remote host ,ServerConnection [id=15, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 12:15:00.466  INFO [$_NIOREACTOR-0-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:program err:java.io.IOException: An existing connection was forcibly closed by the remote host ,ServerConnection [id=14, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 12:15:00.466  INFO [$_NIOREACTOR-2-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:program err:java.io.IOException: An existing connection was forcibly closed by the remote host ,ServerConnection [id=16, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 12:15:25.490  INFO [$_NIOREACTOR-3-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=17, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 12:15:32.901  INFO [$_NIOREACTOR-0-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=18, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 12:15:38.284  WARN [$_NIOREACTOR-2-RW] (io.mycat.backend.mysql.nio.handler.SingleNodeHandler.backConnectionErr(SingleNodeHandler.java:249)) - execute  sql err : errno:1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')
+	AND sid = '1068310406881218560'
+LIMIT 100' at line 1 con:MySQLConnection [id=6, lastTime=1545711338282, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=51, charset=utf8, txIsolation=3, autocommit=true, attachment=dn1{SELECT replyId, favourite
+FROM f_reply_favourite
+WHERE replyId IN ()
+	AND sid = '1068310406881218560'
+LIMIT 100}, respHandler=SingleNodeHandler [node=dn1{SELECT replyId, favourite
+FROM f_reply_favourite
+WHERE replyId IN ()
+	AND sid = '1068310406881218560'
+LIMIT 100}, packetId=1], host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false] frontend host:127.0.0.1/59567/root
+2018-12-25 12:15:38.711  WARN [$_NIOREACTOR-3-RW] (io.mycat.backend.mysql.nio.handler.SingleNodeHandler.backConnectionErr(SingleNodeHandler.java:249)) - execute  sql err : errno:1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')
+	AND sid = '1068310406881218560'
+LIMIT 100' at line 1 con:MySQLConnection [id=3, lastTime=1545711338701, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=53, charset=utf8, txIsolation=3, autocommit=true, attachment=dn1{SELECT replyId, favourite
+FROM f_reply_favourite
+WHERE replyId IN ()
+	AND sid = '1068310406881218560'
+LIMIT 100}, respHandler=SingleNodeHandler [node=dn1{SELECT replyId, favourite
+FROM f_reply_favourite
+WHERE replyId IN ()
+	AND sid = '1068310406881218560'
+LIMIT 100}, packetId=1], host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false] frontend host:127.0.0.1/59567/root
+2018-12-25 12:15:38.771  WARN [$_NIOREACTOR-0-RW] (io.mycat.backend.mysql.nio.handler.SingleNodeHandler.backConnectionErr(SingleNodeHandler.java:249)) - execute  sql err : errno:1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')
+	AND sid = '1068310406881218560'
+LIMIT 100' at line 1 con:MySQLConnection [id=8, lastTime=1545711338763, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=57, charset=utf8, txIsolation=3, autocommit=true, attachment=dn1{SELECT replyId, favourite
+FROM f_reply_favourite
+WHERE replyId IN ()
+	AND sid = '1068310406881218560'
+LIMIT 100}, respHandler=SingleNodeHandler [node=dn1{SELECT replyId, favourite
+FROM f_reply_favourite
+WHERE replyId IN ()
+	AND sid = '1068310406881218560'
+LIMIT 100}, packetId=1], host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false] frontend host:127.0.0.1/59567/root
+2018-12-25 12:15:38.815  WARN [$_NIOREACTOR-2-RW] (io.mycat.backend.mysql.nio.handler.SingleNodeHandler.backConnectionErr(SingleNodeHandler.java:249)) - execute  sql err : errno:1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')
+	AND sid = '1068310406881218560'
+LIMIT 100' at line 1 con:MySQLConnection [id=2, lastTime=1545711338801, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=56, charset=utf8, txIsolation=3, autocommit=true, attachment=dn1{SELECT replyId, favourite
+FROM f_reply_favourite
+WHERE replyId IN ()
+	AND sid = '1068310406881218560'
+LIMIT 100}, respHandler=SingleNodeHandler [node=dn1{SELECT replyId, favourite
+FROM f_reply_favourite
+WHERE replyId IN ()
+	AND sid = '1068310406881218560'
+LIMIT 100}, packetId=1], host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false] frontend host:127.0.0.1/59567/root
+2018-12-25 12:15:38.864  WARN [$_NIOREACTOR-3-RW] (io.mycat.backend.mysql.nio.handler.SingleNodeHandler.backConnectionErr(SingleNodeHandler.java:249)) - execute  sql err : errno:1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')
+	AND sid = '1068310406881218560'
+LIMIT 100' at line 1 con:MySQLConnection [id=7, lastTime=1545711338863, user=root, schema=forum, old shema=forum, borrowed=true, fromSlaveDB=false, threadId=55, charset=utf8, txIsolation=3, autocommit=true, attachment=dn1{SELECT replyId, favourite
+FROM f_reply_favourite
+WHERE replyId IN ()
+	AND sid = '1068310406881218560'
+LIMIT 100}, respHandler=SingleNodeHandler [node=dn1{SELECT replyId, favourite
+FROM f_reply_favourite
+WHERE replyId IN ()
+	AND sid = '1068310406881218560'
+LIMIT 100}, packetId=1], host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false] frontend host:127.0.0.1/59567/root
+2018-12-25 12:16:00.826  INFO [$_NIOREACTOR-3-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:program err:java.io.IOException: An existing connection was forcibly closed by the remote host ,ServerConnection [id=17, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 12:16:00.827  INFO [$_NIOREACTOR-0-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:program err:java.io.IOException: An existing connection was forcibly closed by the remote host ,ServerConnection [id=18, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 12:16:11.725  INFO [$_NIOREACTOR-1-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=19, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 12:16:20.049  INFO [$_NIOREACTOR-2-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=20, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 12:21:14.605  INFO [Timer0] (io.mycat.net.AbstractConnection.idleCheck(AbstractConnection.java:521)) - ServerConnection [id=19, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum] idle timeout
+2018-12-25 12:21:14.605  INFO [Timer0] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason: idle  ,ServerConnection [id=19, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 12:32:45.608  INFO [Timer0] (io.mycat.net.AbstractConnection.idleCheck(AbstractConnection.java:521)) - ServerConnection [id=20, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum] idle timeout
+2018-12-25 12:32:45.609  INFO [Timer0] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason: idle  ,ServerConnection [id=20, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 12:35:18.779  INFO [$_NIOREACTOR-3-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=21, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 12:41:31.612  INFO [Timer0] (io.mycat.net.AbstractConnection.idleCheck(AbstractConnection.java:521)) - ServerConnection [id=21, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum] idle timeout
+2018-12-25 12:41:31.612  INFO [Timer0] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason: idle  ,ServerConnection [id=21, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 13:36:33.706  INFO [$_NIOREACTOR-0-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=22, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 13:47:31.642  INFO [Timer0] (io.mycat.net.AbstractConnection.idleCheck(AbstractConnection.java:521)) - ServerConnection [id=22, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum] idle timeout
+2018-12-25 13:47:31.642  INFO [Timer0] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason: idle  ,ServerConnection [id=22, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 13:55:37.766  INFO [$_NIOREACTOR-1-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=23, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 14:17:44.656  INFO [Timer1] (io.mycat.net.AbstractConnection.idleCheck(AbstractConnection.java:521)) - ServerConnection [id=23, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum] idle timeout
+2018-12-25 14:17:44.656  INFO [Timer1] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason: idle  ,ServerConnection [id=23, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 15:21:18.110  INFO [$_NIOREACTOR-2-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=24, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 15:21:42.856  INFO [$_NIOREACTOR-2-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:program err:java.io.IOException: An existing connection was forcibly closed by the remote host ,ServerConnection [id=24, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 15:24:18.625  INFO [$_NIOREACTOR-3-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=25, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 15:24:37.014  INFO [$_NIOREACTOR-0-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=26, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 15:25:22.504  INFO [$_NIOREACTOR-3-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:program err:java.io.IOException: An existing connection was forcibly closed by the remote host ,ServerConnection [id=25, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 15:25:22.505  INFO [$_NIOREACTOR-0-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:program err:java.io.IOException: An existing connection was forcibly closed by the remote host ,ServerConnection [id=26, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 15:25:31.659  INFO [$_NIOREACTOR-1-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=27, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 15:25:40.983  INFO [$_NIOREACTOR-2-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=28, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 15:29:37.774  INFO [$_NIOREACTOR-1-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:program err:java.io.IOException: An existing connection was forcibly closed by the remote host ,ServerConnection [id=27, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 15:29:37.775  INFO [$_NIOREACTOR-2-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:program err:java.io.IOException: An existing connection was forcibly closed by the remote host ,ServerConnection [id=28, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 15:29:49.176  INFO [$_NIOREACTOR-3-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=29, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 15:30:09.135  INFO [$_NIOREACTOR-3-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:program err:java.io.IOException: An existing connection was forcibly closed by the remote host ,ServerConnection [id=29, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 15:30:32.270  INFO [$_NIOREACTOR-0-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=30, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 15:30:43.089  INFO [$_NIOREACTOR-1-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=31, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 15:32:30.353  INFO [$_NIOREACTOR-0-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:program err:java.io.IOException: An existing connection was forcibly closed by the remote host ,ServerConnection [id=30, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 15:32:30.354  INFO [$_NIOREACTOR-1-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:program err:java.io.IOException: An existing connection was forcibly closed by the remote host ,ServerConnection [id=31, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 15:32:41.275  INFO [$_NIOREACTOR-2-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=32, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 15:34:27.655  INFO [$_NIOREACTOR-2-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:program err:java.io.IOException: An existing connection was forcibly closed by the remote host ,ServerConnection [id=32, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 15:35:28.679  INFO [$_NIOREACTOR-3-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=33, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 15:36:10.628  INFO [$_NIOREACTOR-3-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:program err:java.io.IOException: An existing connection was forcibly closed by the remote host ,ServerConnection [id=33, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 15:36:23.145  INFO [$_NIOREACTOR-0-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=34, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 15:42:07.490  INFO [$_NIOREACTOR-0-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:program err:java.io.IOException: An existing connection was forcibly closed by the remote host ,ServerConnection [id=34, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 15:42:16.513  INFO [$_NIOREACTOR-1-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=35, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 15:44:35.359  INFO [$_NIOREACTOR-1-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:program err:java.io.IOException: An existing connection was forcibly closed by the remote host ,ServerConnection [id=35, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 15:44:45.004  INFO [$_NIOREACTOR-2-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=36, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 15:45:43.207  INFO [$_NIOREACTOR-2-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:program err:java.io.IOException: An existing connection was forcibly closed by the remote host ,ServerConnection [id=36, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 15:48:47.269  INFO [$_NIOREACTOR-3-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=37, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 15:49:01.291  INFO [$_NIOREACTOR-0-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=38, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 15:50:47.095  INFO [$_NIOREACTOR-3-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:program err:java.io.IOException: An existing connection was forcibly closed by the remote host ,ServerConnection [id=37, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 15:50:47.096  INFO [$_NIOREACTOR-0-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:program err:java.io.IOException: An existing connection was forcibly closed by the remote host ,ServerConnection [id=38, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 15:51:35.517  INFO [$_NIOREACTOR-1-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=39, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 15:53:00.577  INFO [$_NIOREACTOR-1-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:program err:java.io.IOException: An existing connection was forcibly closed by the remote host ,ServerConnection [id=39, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 15:56:31.827  INFO [$_NIOREACTOR-2-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=40, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 15:58:34.036  INFO [$_NIOREACTOR-3-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=41, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 16:00:24.957  INFO [$_NIOREACTOR-2-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:program err:java.io.IOException: An existing connection was forcibly closed by the remote host ,ServerConnection [id=40, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 16:00:24.958  INFO [$_NIOREACTOR-3-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:program err:java.io.IOException: An existing connection was forcibly closed by the remote host ,ServerConnection [id=41, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 16:00:33.969  INFO [$_NIOREACTOR-0-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=42, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 16:01:38.396  INFO [$_NIOREACTOR-0-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:program err:java.io.IOException: An existing connection was forcibly closed by the remote host ,ServerConnection [id=42, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 16:01:48.787  INFO [$_NIOREACTOR-1-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=43, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 16:02:18.017  INFO [$_NIOREACTOR-1-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:program err:java.io.IOException: An existing connection was forcibly closed by the remote host ,ServerConnection [id=43, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 16:02:56.573  INFO [$_NIOREACTOR-2-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=44, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 16:03:16.690  INFO [$_NIOREACTOR-2-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:program err:java.io.IOException: An existing connection was forcibly closed by the remote host ,ServerConnection [id=44, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 16:03:25.999  INFO [$_NIOREACTOR-3-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=45, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 16:03:53.718  INFO [$_NIOREACTOR-3-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:program err:java.io.IOException: An existing connection was forcibly closed by the remote host ,ServerConnection [id=45, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 16:04:36.226  INFO [$_NIOREACTOR-0-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=46, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 16:04:46.489  INFO [$_NIOREACTOR-1-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=47, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 16:05:12.358  INFO [$_NIOREACTOR-0-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:program err:java.io.IOException: An existing connection was forcibly closed by the remote host ,ServerConnection [id=46, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 16:05:12.359  INFO [$_NIOREACTOR-1-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:program err:java.io.IOException: An existing connection was forcibly closed by the remote host ,ServerConnection [id=47, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 16:05:49.855  INFO [$_NIOREACTOR-2-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=48, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 16:07:20.529  INFO [$_NIOREACTOR-2-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:program err:java.io.IOException: An existing connection was forcibly closed by the remote host ,ServerConnection [id=48, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 16:07:30.072  INFO [$_NIOREACTOR-3-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=49, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 16:08:37.336  INFO [$_NIOREACTOR-3-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:program err:java.io.IOException: An existing connection was forcibly closed by the remote host ,ServerConnection [id=49, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 16:08:47.291  INFO [$_NIOREACTOR-0-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=50, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 16:09:19.825  INFO [$_NIOREACTOR-0-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:program err:java.io.IOException: An existing connection was forcibly closed by the remote host ,ServerConnection [id=50, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 16:10:57.754  INFO [$_NIOREACTOR-1-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=51, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 16:12:11.532  INFO [$_NIOREACTOR-1-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:program err:java.io.IOException: An existing connection was forcibly closed by the remote host ,ServerConnection [id=51, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 16:12:32.378  INFO [$_NIOREACTOR-2-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=52, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 16:14:25.460  INFO [$_NIOREACTOR-2-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:program err:java.io.IOException: An existing connection was forcibly closed by the remote host ,ServerConnection [id=52, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 16:14:33.897  INFO [$_NIOREACTOR-3-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=53, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 16:15:14.891  INFO [$_NIOREACTOR-3-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:program err:java.io.IOException: An existing connection was forcibly closed by the remote host ,ServerConnection [id=53, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 16:15:25.144  INFO [$_NIOREACTOR-0-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=54, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 16:16:11.759  INFO [$_NIOREACTOR-0-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:program err:java.io.IOException: An existing connection was forcibly closed by the remote host ,ServerConnection [id=54, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 16:16:31.249  INFO [$_NIOREACTOR-1-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=55, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 16:17:23.390  INFO [$_NIOREACTOR-1-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:program err:java.io.IOException: An existing connection was forcibly closed by the remote host ,ServerConnection [id=55, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 16:17:57.521  INFO [$_NIOREACTOR-2-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=56, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 16:18:42.113  INFO [$_NIOREACTOR-2-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:program err:java.io.IOException: An existing connection was forcibly closed by the remote host ,ServerConnection [id=56, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 16:18:51.152  INFO [$_NIOREACTOR-3-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=57, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 16:19:24.248  INFO [$_NIOREACTOR-3-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:program err:java.io.IOException: An existing connection was forcibly closed by the remote host ,ServerConnection [id=57, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 16:19:50.696  INFO [$_NIOREACTOR-0-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=58, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 16:21:21.224  INFO [$_NIOREACTOR-1-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=59, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 16:22:51.244  INFO [$_NIOREACTOR-0-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:program err:java.io.IOException: An existing connection was forcibly closed by the remote host ,ServerConnection [id=58, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 16:22:51.245  INFO [$_NIOREACTOR-1-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:program err:java.io.IOException: An existing connection was forcibly closed by the remote host ,ServerConnection [id=59, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 16:23:02.718  INFO [$_NIOREACTOR-2-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=60, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 16:24:09.251  INFO [$_NIOREACTOR-2-RW] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason:program err:java.io.IOException: An existing connection was forcibly closed by the remote host ,ServerConnection [id=60, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 16:26:38.346  INFO [$_NIOREACTOR-3-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=61, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 16:27:51.383  INFO [$_NIOREACTOR-0-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=62, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 16:32:51.729  INFO [Timer0] (io.mycat.net.AbstractConnection.idleCheck(AbstractConnection.java:521)) - ServerConnection [id=61, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum] idle timeout
+2018-12-25 16:32:51.729  INFO [Timer0] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason: idle  ,ServerConnection [id=61, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 16:33:50.729  INFO [Timer0] (io.mycat.net.AbstractConnection.idleCheck(AbstractConnection.java:521)) - MySQLConnection [id=8, lastTime=1545726530410, user=root, schema=forum, old shema=forum, borrowed=false, fromSlaveDB=false, threadId=57, charset=utf8, txIsolation=3, autocommit=false, attachment=null, respHandler=null, host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false] idle timeout
+2018-12-25 16:33:50.729  INFO [Timer0] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason: idle  ,MySQLConnection [id=8, lastTime=1545726530410, user=root, schema=forum, old shema=forum, borrowed=false, fromSlaveDB=false, threadId=57, charset=utf8, txIsolation=3, autocommit=false, attachment=null, respHandler=null, host=localhost, port=3306, statusSync=null, writeQueue=0, modifiedSQLExecuted=false]
+2018-12-25 16:39:37.732  INFO [Timer0] (io.mycat.net.AbstractConnection.idleCheck(AbstractConnection.java:521)) - ServerConnection [id=62, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum] idle timeout
+2018-12-25 16:39:37.732  INFO [Timer0] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason: idle  ,ServerConnection [id=62, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]
+2018-12-25 17:09:29.975  INFO [$_NIOREACTOR-1-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=63, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 17:09:44.068  INFO [$_NIOREACTOR-2-RW] (io.mycat.net.handler.FrontendAuthenticator.success(FrontendAuthenticator.java:194)) - ServerConnection [id=64, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]'root' login success
+2018-12-25 17:14:32.747  INFO [Timer0] (io.mycat.net.AbstractConnection.idleCheck(AbstractConnection.java:521)) - ServerConnection [id=63, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum] idle timeout
+2018-12-25 17:14:32.747  INFO [Timer0] (io.mycat.net.AbstractConnection.close(AbstractConnection.java:508)) - close connection,reason: idle  ,ServerConnection [id=63, schema=forum, host=127.0.0.1, user=root,txIsolation=3, autocommit=true, schema=forum]

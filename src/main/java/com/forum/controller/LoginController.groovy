@@ -33,7 +33,7 @@ class LoginController {
             messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
             messageCodeInfo.setMsgInfo(bindingResult?.getFieldError()?.getDefaultMessage())
         } else {
-            messageCodeInfo = loginService.validationLoginInfo(request, info, messageCodeInfo, commonInfo, sessionEntity)
+            messageCodeInfo = loginService.validationLoginInfo(request, info, messageCodeInfo, sessionEntity)
         }
         commonInfo.setMsg(messageCodeInfo)
         return commonInfo
@@ -42,7 +42,7 @@ class LoginController {
     @PostMapping('/token')
     @ResponseBody
     token(HttpServletRequest request, LoginInfo loginInfo, MessageCodeInfo messageCodeInfo, CommonInfo commonInfo) throws Exception {
-        messageCodeInfo = loginService.getToken(request, loginInfo, messageCodeInfo, commonInfo)
+        messageCodeInfo = loginService.getToken(request, loginInfo, messageCodeInfo)
         if (messageCodeInfo.getMsgCode() != GlobalCode.REFERENCE_SUCCESS) {
             commonInfo.setMsg(messageCodeInfo)
             return commonInfo

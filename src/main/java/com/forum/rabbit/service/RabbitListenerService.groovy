@@ -1,9 +1,11 @@
 package com.forum.rabbit.service
 
 import com.forum.global.Constant
+import com.forum.model.dto.FavouriteInfo
 import com.forum.model.dto.MailInfo
 import com.forum.model.entity.SessionEntity
 import com.forum.redis.util.RedisUtil
+import com.forum.service.ForumService
 import com.forum.service.MailService
 import com.forum.service.impl.ShiroServiceImpl
 import com.forum.utils.CommonUtil
@@ -20,6 +22,8 @@ class RabbitListenerService {
     ShiroServiceImpl shiroService
     @Autowired
     ShiroUtil shiroUtil
+    @Autowired
+    ForumService forumService
 
     @RabbitListener(queues = 'secure.token_generate')
     void generateUUID() {
@@ -54,5 +58,10 @@ class RabbitListenerService {
         println('Add User Session')
         SessionEntity sessionEntity = (SessionEntity) CommonUtil.getObjectFromBytes(msg)
         shiroService.addUserSession(sessionEntity)
+    }
+    @RabbitListener(queues = 'user.post_favourite')
+    void addPostFavourtie(byte[] msg){
+        FavouriteInfo favouriteInfo = (FavouriteInfo) CommonUtil.getObjectFromBytes(msg)
+        forumService.favouriteWriter(favouriteInfo)
     }
 }

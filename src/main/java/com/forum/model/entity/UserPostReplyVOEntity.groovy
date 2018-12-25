@@ -24,6 +24,15 @@ class UserPostReplyVOEntity {
     private String text
     private String lastupdatetime
     private String userImg
+    private ReplyFavouriteEntity replyFavouriteEntity
+
+    ReplyFavouriteEntity getReplyFavouriteEntity() {
+        return replyFavouriteEntity
+    }
+
+    void setReplyFavouriteEntity(ReplyFavouriteEntity replyFavouriteEntity) {
+        this.replyFavouriteEntity = replyFavouriteEntity
+    }
 
     Integer getReplyid() {
         return replyid
