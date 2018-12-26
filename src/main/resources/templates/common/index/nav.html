@@ -72,6 +72,11 @@
     if(url.indexOf('single_forum')!=-1)$("#forumlistpage").addClass('active');
     function jump(url){
          activeControl(url);
+         if(url.indexOf('single_post')!=-1){
+            $("#hidePanel").removeClass('hidden');
+             $("#jump2").attr('src',url);
+             return;
+         }
          $("#jump").load(url,function(){ $("#jump").fadeIn(1100);});
          $("#navbarResponsive").removeClass("show");
     }

@@ -86,7 +86,8 @@ function isEmpty(str){
     return false;
 }
 function userPageAlert(strogerText, Text){
-$('nav').after("<div id='myAlert2' class='alert alert-danger fade-in-animation opacity95' style='position: fixed;left:0;right:0;top:auto;z-index:1031;'><a href='#' class='close' data-dismiss='alert'>&times;</a><strong>"+strogerText+"</strong>"+Text+"</div>");
+$('nav').after("<div id='myAlert2' class='alert alert-danger fade-in-animation opacity95' style='position: fixed;left:0;right:0;top:auto;z-index:10000;'><a href='#' class='close' data-dismiss='alert'>&times;</a><strong>"+strogerText+"</strong>"+Text+"</div>");
+    $('jump2').prepend("<div id='myAlert2' class='alert alert-danger fade-in-animation opacity95' style='position: fixed;left:0;right:0;top:auto;z-index:10000;'><a href='#' class='close' data-dismiss='alert'>&times;</a><strong>"+strogerText+"</strong>"+Text+"</div>");
 }
 
 
@@ -200,7 +201,8 @@ function media(data){
                     s += reply(data.userPostReplyVOEntity);
                 }
                 s += "</div></li>";
-                $("#title").html("<i class='fa fa-chevron-left width-auto color-blue fa-1x' onclick=\"jumpForum()\"></i>"+data.title);
+               // $("#title").html("<i class='fa fa-chevron-left width-auto color-blue fa-1x' onclick=\"jumpForum()\"></i>"+data.title);
+        $("#title").text(data.title);
                 return s;
         }
         function postReply(data){

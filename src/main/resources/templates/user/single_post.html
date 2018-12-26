@@ -1,3 +1,7 @@
+
+<div th:replace="common/index/css_common.html"></div>
+
+<div th:replace="common/index/js_common.html"></div>
 <ul class="ca bow box afo">
     <input readonly th:value="${postid}" id="postid" class="hidden">
     <input readonly th:value="${fid}" id="fid" class="hidden">
@@ -23,7 +27,8 @@
 
 </ul>
 <script>
-isSinglePostloading = true;
+    var page =1;
+var isSinglePostloading = true;
 $("#loadCompleteFinish").attr("onclick","singlePostFresh()");
 $('#single_post_list').val(50);
 var forum_post_loading = false;
