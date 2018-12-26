@@ -39,4 +39,10 @@ class RedirectController {
         request.setAttribute('fid', fid)
         return '/user/single_forum.html'
     }
+    @RequestMapping('/single_post')
+    singlePost(HttpServletRequest request, String postid, String fid) {
+        request.setAttribute('postid', postid)
+        request.setAttribute('fid', fid)
+        return '/user/single_post.html'
+    }
 }

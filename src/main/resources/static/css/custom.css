@@ -128,3 +128,12 @@ width:1px;
 .color-blue{
 color:#3097D1;
 }
+p{
+word-break: break-all;
+}
+h6{
+word-break: break-all;
+}
+h7{
+word-break: break-all;
+}

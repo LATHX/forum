@@ -1,12 +1,8 @@
 package com.forum.model.entity
 
-import javax.persistence.Entity
-
-@Entity
-class UserPostReplyVOEntity {
-    private Integer replyid
+class UserPostVOEntity {
     private Integer postid
-    private Integer favourite
+    private Integer fid
     private String creator
     private char type
     private String img0
@@ -16,16 +12,16 @@ class UserPostReplyVOEntity {
     private String img4
     private String img5
     private String img6
-    private String img7
+    private  String img7
     private String img8
     private String video
     private String date
     private boolean enable
     private String text
     private String lastupdatetime
+    private String title
     private String userImg
     private String nickname
-    private ReplyFavouriteEntity replyFavouriteEntity
 
     String getNickname() {
         return nickname
@@ -33,22 +29,6 @@ class UserPostReplyVOEntity {
 
     void setNickname(String nickname) {
         this.nickname = nickname
-    }
-
-    ReplyFavouriteEntity getReplyFavouriteEntity() {
-        return replyFavouriteEntity
-    }
-
-    void setReplyFavouriteEntity(ReplyFavouriteEntity replyFavouriteEntity) {
-        this.replyFavouriteEntity = replyFavouriteEntity
-    }
-
-    Integer getReplyid() {
-        return replyid
-    }
-
-    void setReplyid(Integer replyid) {
-        this.replyid = replyid
     }
 
     Integer getPostid() {
@@ -59,12 +39,12 @@ class UserPostReplyVOEntity {
         this.postid = postid
     }
 
-    Integer getFavourite() {
-        return favourite
+    Integer getFid() {
+        return fid
     }
 
-    void setFavourite(Integer favourite) {
-        this.favourite = favourite
+    void setFid(Integer fid) {
+        this.fid = fid
     }
 
     String getCreator() {
@@ -193,6 +173,14 @@ class UserPostReplyVOEntity {
 
     void setLastupdatetime(String lastupdatetime) {
         this.lastupdatetime = lastupdatetime
+    }
+
+    String getTitle() {
+        return title
+    }
+
+    void setTitle(String title) {
+        this.title = title
     }
 
     String getUserImg() {

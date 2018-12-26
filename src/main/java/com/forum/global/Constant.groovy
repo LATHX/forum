@@ -63,6 +63,7 @@ class Constant implements InitializingBean {
     static String MQ_DEL_REDIS_USER_SESSION
     static String MQ_ADD_USER_SESSION
     static String ERROR_PARAM
+    static String DATA_COMPLETE_MSG
     static String MQ_ADD_FAVOURITE
     void load() {
         logger.info('Initializing Constant')

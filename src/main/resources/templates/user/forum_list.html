@@ -8,9 +8,7 @@
         <span class="h  axc aey yb"></span>
 
         <div class="rw">
-            <small class="acx axc"></small>
-            <div class="bpb"><span class="fa fa-refresh" id="refreshing">&nbsp;<strong>正在加载...</strong></span>
-            </div>
+
 
             <div class="aew">
                 <div class="dp" id="newlyforum">
@@ -35,15 +33,42 @@
             </div>
         </div>
     </li>
-
+    <li class="rv b agz" id="single_forum_list">
+        <div th:replace="/common/index/loading.html"></div>
+    </li>
 
 </ul>
 
 <script>
-    var page = 0;
-    refresh();
-function refresh(){
-     $("#refreshing").removeClass("hidden");
+
+refreshForumList();
+$("#loadCompleteFinish").attr("onclick","forumListFresh()");
+    $('#newlyforum').val(50);
+    var forum_list_loading = false;
+    $(window).scroll(function(){
+      if((($(window).scrollTop()+$(window).height())+250)>=$(document).height()){
+        if(forum_list_loading == false){
+           forum_list_loading = true;
+           if(isSingleForumloading){
+             getSingleForum();
+            }
+           $('#newlyforum').val(parseInt($('#newlyforum').val())+50);
+           forum_list_loading = false;
+         }}
+        });
+
+function forumListFresh(){
+        isForumListloading = true;
+        $("#refreshing").removeClass("hidden");
+        $("#loadComplete").addClass("hidden");
+        refreshForumList();
+}
+
+    function refreshForumList(){
+    if(isForumListloading){
+    $("#refreshing").removeClass("hidden");
+    $("#loadComplete").addClass("hidden");
+    isForumListloading = false;
      $.ajax({
         type:"POST",
         url:"/user-forum/forumlist",
@@ -51,30 +76,40 @@ function refresh(){
         timeout : 50000,
         data: { page:page },
         success:function(data){
-        for(var o in data){
-            var s ="<div class='fm'><div class='pz bpi afa'>";
-            var img = isEmpty(data[o].img) == true ?'images/instagram_4.jpg':data[o].img;
-            s += "<div class='qf' style='background-image: url("+img+");'></div><div class='qa avz'><!--<img class='bpj' src='../assets/img/avatar-fat.jpg'>-->";
-            s += "<h5 class='qb'>"+data[o].fname+"</h5>";
-            s += "<p class='afo'>"+data[o].description+"</p>";
-            s += "<a class='cg nz ok'  onclick=\"jump(";
-            s += "\'\/single_forum?fid="+data[o].fid+"\')\">";
-            s += "<span class='h'></span> 进入</a></div></div></div>";
-            $("#newlyforum").append(s);
-        }
-        page = page+1;
+        if(jsonMsgValidation(data)){
+            for(var o in data){
+                var s ="<div class='fm'><div class='pz bpi afa'>";
+                var img = isEmpty(data[o].img) == true ?'images/instagram_4.jpg':data[o].img;
+                s += "<div class='qf' style='background-image: url("+img+");'></div><div class='qa avz'><!--<img class='bpj' src='../assets/img/avatar-fat.jpg'>-->";
+                s += "<h5 class='qb'>"+data[o].fname+"</h5>";
+                s += "<p class='afo'>"+data[o].description+"</p>";
+                s += "<a class='cg nz ok'  onclick=\"jump(";
+                s += "\'\/single_forum?fid="+data[o].fid+"\')\">";
+                s += "<span class='h'></span> 进入</a></div></div></div>";
+                $("#newlyforum").append(s);
+            }
+
         $("#refreshing").addClass("hidden");
+        $("#loadComplete").addClass("hidden");
+        page = page+1;
+        isForumListloading = true;
+        }else{
+        isForumListloading = false;
+        }
         },
         complete: function (XMLHttpRequest, textStatus) {
+            forumTimeout();
             if(textStatus == 'timeout') {
                 userPageAlert('',  '连接超时，请稍后再试')
+                isForumListloading = true;
             }
         },
         error:function(jqXHR){
-            userPageAlert('',  '服务器繁忙，请稍后再试')
-
+            forumError();
+            isForumListloading = true;
         }
     });
+    }
 }
 
 </script>

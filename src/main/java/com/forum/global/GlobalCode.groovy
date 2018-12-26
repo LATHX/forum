@@ -22,6 +22,7 @@ class GlobalCode implements InitializingBean {
     }
     static String REFERENCE_SUCCESS
     static String REFERENCE_FAIL
+    static String REFERENCE_DATA_COMPLETE
     void load() {
         logger.info('Initializing GlobalCode')
         List<DictionaryEntity> list = dictionaryMapper.selectAllInTableWithParamType('参数代码')

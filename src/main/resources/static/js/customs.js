@@ -133,3 +133,211 @@ return result;
 function getDateTimeStamp(dateStr){
  return Date.parse(dateStr.replace(/-/gi,"/"));
 }
+
+function jsonMsgValidation(data){
+    if(data.hasOwnProperty("msg")){
+        if(data.msg.msgCode == '301'){
+            $("#refreshing").addClass("hidden");
+            $("#loadComplete").removeClass("hidden");
+            return false;
+        }
+        userPageAlert('',  data.msg.msgInfo)
+        return false;
+    }
+    return true;
+}
+function forumTimeout(){
+    $("#refreshing").addClass("hidden");
+    $("#loadComplete").removeClass("hidden");
+}
+function forumError(){
+    $("#refreshing").addClass("hidden");
+    $("#loadComplete").removeClass("hidden");
+    userPageAlert('',  '服务器繁忙，请稍后再试')
+}
+function media(data){
+    var s ="";
+    if(data.type == '1'){
+             s += "<ul class='figure-list boy' data-grid='images'>";
+            if(!isEmpty(data.img0)) s += "<li><img data-action='zoom'  style='background-image:url("+data.img0+")' src='"+data.img0+"' url='"+data.img0+"'/></li>";
+            if(!isEmpty(data.img1)) s += "<li><img data-action='zoom'  style='background-image:url("+data.img1+")' src='"+data.img1+"' url='"+data.img1+"'/></li>";
+            if(!isEmpty(data.img2)) s += "<li><img data-action='zoom'  style='background-image:url("+data.img2+")' src='"+data.img2+"' url='"+data.img2+"'/></li>";
+            if(!isEmpty(data.img3)) s += "<li><img data-action='zoom'  style='background-image:url("+data.img3+")' src='"+data.img3+"' url='"+data.img3+"'/></li>";
+            if(!isEmpty(data.img4)) s += "<li><img data-action='zoom'  style='background-image:url("+data.img4+")' src='"+data.img4+"' url='"+data.img4+"'/></li>";
+            if(!isEmpty(data.img5)) s += "<li><img data-action='zoom'  style='background-image:url("+data.img5+")' src='"+data.img5+"' url='"+data.img5+"'/></li>";
+            if(!isEmpty(data.img6)) s += "<li><img data-action='zoom'  style='background-image:url("+data.img6+")' src='"+data.img6+"' url='"+data.img6+"'/></li>";
+            if(!isEmpty(data.img7)) s += "<li><img data-action='zoom'  style='background-image:url("+data.img7+")' src='"+data.img7+"' url='"+data.img7+"'/></li>";
+            if(!isEmpty(data.img8)) s += "<li><img data-action='zoom'  style='background-image:url("+data.img8+")' src='"+data.img8+"' url='"+data.img8+"'/></li>";
+            s += "</ul>";
+    }else if(data.type == '2'){
+        videoid = S4();
+        s += " <ul class='figure-list boy' data-grid='' ><li><video controls>";
+        s += "<source src='"+data.video+"'  id='"+videoid+"'></source>";
+        s += "您的浏览器不支持HTML5视频</video></li></ul>";
+    }
+    return s;
+}
+
+    function forumMain(data){
+        var s ="";
+        var img = isEmpty(data.userImg) == true ?'images/no_user_image.png':data.userImg;
+            s += "<li class='rv b agz fade-in-animation'><img class='bos vb yb aff' src='"+img+"'><div class='rw'><div class='bpb'><small class='acx axc'><i class='fa fa-share width-auto height-auto fa-1x'></i>";
+            s += getDateDiff(data.lastupdatetime.substring(0, data.lastupdatetime.lastIndexOf('.')))+"</small><h6><a href=\"javascript:void(0);\" onclick=\"jump('/single_post?postid="+data.postid+"&fid="+$("#fid").val()+"')\">"+data.title+"</a></h6></div><p>"+data.text+"</p>";
+            s += media(data);
+            if(data.hasOwnProperty("userPostReplyVOEntity")){
+                s += reply(data.userPostReplyVOEntity);
+            }
+            s += "</div></li>";
+            return s;
+    }
+    function postMain(data){
+            var s ="";
+            var img = isEmpty(data.userImg) == true ?'images/no_user_image.png':data.userImg;
+                s += "<li class='rv b agz fade-in-animation'><img class='bos vb yb aff' src='"+img+"'><div class='rw'><div class='bpb'><small class='acx axc'><i class='fa fa-share width-auto height-auto fa-1x'></i>";
+                s += getDateDiff(data.lastupdatetime.substring(0, data.lastupdatetime.lastIndexOf('.')))+"</small><h6>"+data.nickname+"</h6></div><p>"+data.text+"</p>";
+                s += media(data);
+                if(data.hasOwnProperty("userPostReplyVOEntity")){
+                    s += reply(data.userPostReplyVOEntity);
+                }
+                s += "</div></li>";
+                $("#title").html("<i class='fa fa-chevron-left width-auto color-blue fa-1x' onclick=\"jumpForum()\"></i>"+data.title);
+                return s;
+        }
+        function postReply(data){
+            var s ="";
+            var img =  isEmpty(true&&data.userImg) == true ?'images/no_user_image.png':data.userImg;
+                s += "<li class='rv b agz fade-in-animation'><img class='bos vb yb aff' src='"+img+"'><div class='rw'><div class='bpb'><small class='acx axc'>";
+                if(data.hasOwnProperty("replyFavouriteEntity")&&data.replyFavouriteEntity.favourite == '1'){
+                        s += "<i class='fa fa-arrow-up width-auto hegiht-auto color-blue' id='up"+data.replyid+"' onclick=\"favourite('up','"+data.replyid+"')\"></i>";
+                        }else{
+                        s += "<i class='fa fa-arrow-up width-auto hegiht-auto' id='up"+data.replyid+"' onclick=\"favourite('up','"+data.replyid+"')\"></i>";
+                        }
+                        s += "<i id='favouriteCount"+data.replyid+"'>"+data.favourite+"</i>";
+                        if(data.hasOwnProperty("replyFavouriteEntity")&&data.replyFavouriteEntity.favourite == '-1'){
+                        s += "<i class='fa fa-arrow-down width-1px hegiht-auto color-blue' id='down"+data.replyid+"' onclick=\"favourite('down','"+data.replyid+"')\"></i>";
+                        }else{
+                        s += "<i class='fa fa-arrow-down width-1px hegiht-auto' id='down"+data.replyid+"' onclick=\"favourite('down','"+data.replyid+"')\"></i>";
+                        }
+                s += "&nbsp;&nbsp;"+getDateDiff(data.lastupdatetime.substring(0, data.lastupdatetime.lastIndexOf('.')))+"</small><h6>"+data.nickname+"</h6></div><p>"+data.text+"</p>";
+                s += media(data);
+                if(data.hasOwnProperty("userPostReplyVOEntity")){
+                    s += reply(data.userPostReplyVOEntity);
+                }
+                s += "</div></li>";
+                return s;
+        }
+    function reply(data){
+        var s = "<ul class='bow afa'><li class='rv afh'> <div class='rw well'><p><strong style='color:red;'>最佳 </strong><span>";
+        if(data.hasOwnProperty("replyFavouriteEntity")&&data.replyFavouriteEntity.favourite == '1'){
+        s += "<i class='fa fa-arrow-up width-auto hegiht-auto color-blue' id='up"+data.replyid+"' onclick=\"favourite('up','"+data.replyid+"')\"></i>";
+        }else{
+        s += "<i class='fa fa-arrow-up width-auto hegiht-auto' id='up"+data.replyid+"' onclick=\"favourite('up','"+data.replyid+"')\"></i>";
+        }
+        s += "<i id='favouriteCount"+data.replyid+"'>"+data.favourite+"</i>";
+        if(data.hasOwnProperty("replyFavouriteEntity")&&data.replyFavouriteEntity.favourite == '-1'){
+        s += "<i class='fa fa-arrow-down width-1px hegiht-auto color-blue' id='down"+data.replyid+"' onclick=\"favourite('down','"+data.replyid+"')\"></i>";
+        }else{
+        s += "<i class='fa fa-arrow-down width-1px hegiht-auto' id='down"+data.replyid+"' onclick=\"favourite('down','"+data.replyid+"')\"></i>";
+        }
+        s += "</span></p>"+data.text;
+        s += media(data);
+        s += "</div></li></ul>";
+        return s;
+    }
+    function favourite(oper, replyid){
+        var hasColor = $("#"+oper+replyid).hasClass('color-blue');
+        var hasColorUp = $("#up"+replyid).hasClass('color-blue');
+        var hasColorDown = $("#down"+replyid).hasClass('color-blue');
+        var operation ="";
+
+        if(hasColor == true){
+        operation = "0";
+        $.ajax({
+        type:"POST",
+        url:"/user-forum/favourite",
+        dataType:"json",
+        timeout : 50000,
+        data: { replyId:replyid,operate:operation},
+        success:function(data){
+        if(data.msg.msgCode == '200'){
+          var opposite;
+        if(oper == 'up') {
+        $("#favouriteCount"+replyid).text(parseInt($("#favouriteCount"+replyid).text()) -1)
+        opposite = 'down';
+        }
+        if(oper == 'down') {
+        $("#favouriteCount"+replyid).text(parseInt($("#favouriteCount"+replyid).text()) +1)
+        opposite = 'up';
+        }
+            $("#"+oper+replyid).removeClass('color-blue');
+            $("#"+opposite+replyid).removeClass('color-blue');
+        }else{
+        userPageAlert('',  data.msg.msgInfo)
+        }
+        },
+        complete: function (XMLHttpRequest, textStatus) {
+            if(textStatus == 'timeout') {
+                userPageAlert('',  '连接超时，请稍后再试')
+                isSingleForumloading = true;
+            }
+        },
+        error:function(jqXHR){
+            userPageAlert('',  '服务器繁忙，请稍后再试')
+            isSingleForumloading = true;
+        }
+    });
+        return;
+    }
+
+   if(hasColorUp || hasColorDown){
+    if(hasColorUp)
+        userPageAlert('',  '请先取消之前的赞')
+    if(hasColorDown)
+        userPageAlert('',  '请先取消之前的踩')
+    return;
+   }
+
+    if(hasColor == false){
+    if(oper == 'up') {
+        operation="1";
+    }
+    if(oper == 'down') {
+         operation="-1";
+    }
+    $.ajax({
+    type:"POST",
+    url:"/user-forum/favourite",
+    dataType:"json",
+    timeout : 50000,
+    data: { replyId:replyid,operate:operation},
+    success:function(data){
+
+    if(data.msg.msgCode == '200'){
+        var opposite;
+    if(oper == 'up') {
+        $("#favouriteCount"+replyid).text(parseInt($("#favouriteCount"+replyid).text()) +1)
+        opposite = 'down';
+    }
+    if(oper == 'down') {
+        $("#favouriteCount"+replyid).text(parseInt($("#favouriteCount"+replyid).text()) -1)
+    opposite = 'up';
+    }
+        $("#"+oper+replyid).addClass('color-blue');
+        $("#"+opposite+replyid).removeClass('color-blue');
+    }else{
+        userPageAlert('',  data.msg.msgInfo)
+    }
+    },
+    complete: function (XMLHttpRequest, textStatus) {
+     if(textStatus == 'timeout') {
+         userPageAlert('',  '连接超时，请稍后再试')
+         isSingleForumloading = true;
+        }
+    },
+    error:function(jqXHR){
+        userPageAlert('',  '服务器繁忙，请稍后再试')
+        isSingleForumloading = true;
+    }
+    });
+    }
+}
