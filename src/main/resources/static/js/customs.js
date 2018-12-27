@@ -86,7 +86,6 @@ function isEmpty(str){
 }
 function userPageAlert(strogerText, Text){
 $('nav').after("<div id='myAlert2' class='alert alert-danger fade-in-animation opacity95' style='position: fixed;left:0;right:0;top:auto;z-index:10000;'><a href='#' class='close' data-dismiss='alert'>&times;</a><strong>"+strogerText+"</strong>"+Text+"</div>");
-    $('jump2').prepend("<div id='myAlert2' class='alert alert-danger fade-in-animation opacity95' style='position: fixed;left:0;right:0;top:auto;z-index:10000;'><a href='#' class='close' data-dismiss='alert'>&times;</a><strong>"+strogerText+"</strong>"+Text+"</div>");
 }
 
 
@@ -378,12 +377,12 @@ function getSingleForum(){
         forumTimeout();
             if(textStatus == 'timeout') {
                 userPageAlert('',  '连接超时，请稍后再试')
-                isSingleForumloading = true;
+                isSingleForumloading = false;
             }
         },
         error:function(jqXHR){
         forumError();
-        isSingleForumloading = true;
+        isSingleForumloading = false;
         }
     });
     }
@@ -395,10 +394,9 @@ function singleForumFresh(){
     getSingleForum();
 }
 function followForum(fid){
-$.post("demo_ajax_gethint.asp",{suggest:txt},function(result){
-    $("span").html(result);
-  });
+//$.post("demo_ajax_gethint.asp",{suggest:txt},function(result){$("span").html(result);});
  $('#followForum').attr('onclick','');
  $('#followForum').text('已关注');
+    $('#followForum').fadeOut(3500, null);
 
 }

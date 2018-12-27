@@ -83,9 +83,9 @@
      while(window.BS&&window.BS.loader&&window.BS.loader.length){
         (window.BS.loader.pop())();
      }
-    getRecommendPost();
     });
     function jump(url){
+        $("#hidePanel").addClass('hidden');
          if(url.indexOf('single_post')!=-1){
             $("#hidePanel").removeClass('hidden');
             $("#jump2").attr('src',url);

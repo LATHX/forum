@@ -4,7 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="author" content="">
@@ -18,7 +20,7 @@
 </head>
 
 
-<body class="bob">
+<body class="bob" style="overflow: scroll;">
 <nav class="ck pt adq py tk app-navbar">
     <a class="e" href="index.html">
         <i class="fa fa-angle-left fa-1x"></i>
@@ -27,7 +29,8 @@
         <i class="fa fa-angle-right fa-1x"></i>
     </a>
 </nav>
-<div class="by aha ahl">
+<div class="bon" id="app-growl"></div>
+<div class="by aha ahl" >
     <div class="dp">
         <div class="fj"></div>
         <div class="fm" id="jump">
@@ -64,13 +67,15 @@
 </div>
 </body>
 <script>
-$(function(){while(window.BS&&window.BS.loader&&window.BS.loader.length){(window.BS.loader.pop())()}})
+
+
+
 var page =1;
 var isSinglePostloading = true;
 $("#callback").attr('href','index?callback=/single_forum?fid='+$("#fid").val());
 $("#callback2").attr('href','index?callback=/single_forum?fid='+$("#fid").val());
 $("#loadCompleteFinish").attr("onclick","singlePostFresh()");
-$('#single_post_list').val(50);
+$('#single_post_list').val(70);
 var forum_post_loading = false;
 getSinglePost();
 $(window).scroll(function(){
@@ -87,7 +92,7 @@ $(window).scroll(function(){
 });
 
 function singlePostFresh(){
-    isSingleForumloading = true;
+    isSinglePostloading = true;
     $("#refreshing").removeClass("hidden");
     $("#loadComplete").addClass("hidden");
     getSinglePost();
@@ -108,6 +113,9 @@ function singlePostFresh(){
             success:function(data){
             var s = "";
             if(data.hasOwnProperty("userPostVOEntity")){
+                    $("#fid").val(data.userPostVOEntity.fid);
+                $("#callback").attr('href',"javascript:window.parent.location.href=\"/index?callback=/single_forum?fid="+data.userPostVOEntity.fid+"\"");
+                $("#callback2").attr('href',"javascript:window.parent.location.href=\"/index?callback=/single_forum?fid="+data.userPostVOEntity.fid+"\"");
                 s += postMain(data.userPostVOEntity)
                 $("#reply").before(s);
             }
@@ -128,12 +136,12 @@ function singlePostFresh(){
                  forumTimeout();
                 if(textStatus == 'timeout') {
                     userPageAlert('',  '连接超时，请稍后再试')
-                    isSinglePostloading = true;
+                    isSinglePostloading = false;
                 }
             },
             error:function(jqXHR){
                 forumError();
-                isSinglePostloading = true;
+                isSinglePostloading = false;
             }
         });
     }}
