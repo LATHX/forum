@@ -1,9 +1,17 @@
+
+<html lang="zh_CN" xmlns:th="http://www.w3.org/1999/xhtml">
 <ul class="ca bow box afo">
 
     <li class="rv b agz fade-in-animation">
         <div class="input-group">
             <h7 id="title"></h7>
             <input readonly th:value="${fid}" id="fid" class="hidden">
+            <div class="bpt">
+            </div>
+        </div>
+        <br>
+        <div class="input-group">
+            <a class="cg nz ok right-button" th:onclick="followForum([[${fid}]])" id="followForum"><span class="h  color-blue">关注</span></a>
             <div class="bpt">
             </div>
         </div>
@@ -99,56 +107,10 @@ $(window).scroll(function(){
  }
 });
 
-function singleForumFresh(){
-    isSingleForumloading = true;
-    $("#refreshing").removeClass("hidden");
-    $("#loadComplete").addClass("hidden");
-    getSingleForum();
-}
 
 
-    function getSingleForum(){
-        var fid = $("#fid").val();
-        if(isSingleForumloading){
-            $("#refreshing").removeClass("hidden");
-            $("#loadComplete").addClass("hidden");
-            isSingleForumloading = false;
-            $.ajax({
-            type:"POST",
-            url:"/user-forum/single-forum-postlist",
-            dataType:"json",
-            timeout : 50000,
-            data: { fid:fid ,page:page},
-            success:function(data){
-            if(jsonMsgValidation(data)){
-                for(var o in data){
-                var videoid = '';
-                var s = "";
-                s += forumMain(data[o]);
-                $("#title").text(data[o].fname)
-                $("#single_forum_list").before(s);
-            }
-            page = page+1;
-            $("#refreshing").addClass("hidden");
-            $("#loadComplete").addClass("hidden");
-            isSingleForumloading = true;
-            }else{
-            isSingleForumloading = false;
-            }
-            },
-            complete: function (XMLHttpRequest, textStatus) {
-            forumTimeout();
-                if(textStatus == 'timeout') {
-                    userPageAlert('',  '连接超时，请稍后再试')
-                    isSingleForumloading = true;
-                }
-            },
-            error:function(jqXHR){
-            forumError();
-            isSingleForumloading = true;
-            }
-        });}
-    }
+
+
 
 
 

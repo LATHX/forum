@@ -49,3 +49,7 @@ https://www.cnblogs.com/mrelk/p/7872188.html
 
 Bean状态
 https://blog.csdn.net/cs408/article/details/47809271
+
+thy取值
+https://blog.csdn.net/Lactually/article/details/84306960
+th:onclick="followForum([[${fid}]], this);"

@@ -79,7 +79,7 @@ CREATE TABLE `f_authority` (
 
 LOCK TABLES `f_authority` WRITE;
 /*!40000 ALTER TABLE `f_authority` DISABLE KEYS */;
-INSERT INTO `f_authority` VALUES (1,'查询用户列表','','/user/list','roles[admin,普通用户]'),(2,'查询角色列表','','/r','roles[admin]');
+INSERT INTO `f_authority` VALUES (1,'查询用户列表','','/user/list','roles[admin,普通用户]'),(2,'查询角色列表','','/r','roles[admin]'),(3,'用户操作','','/user/**','roles[admin,普通用户]');
 /*!40000 ALTER TABLE `f_authority` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -97,7 +97,7 @@ CREATE TABLE `f_dictionary` (
   `value` varchar(100) DEFAULT NULL,
   `param_type` varchar(25) DEFAULT '配置参数',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -106,8 +106,60 @@ CREATE TABLE `f_dictionary` (
 
 LOCK TABLES `f_dictionary` WRITE;
 /*!40000 ALTER TABLE `f_dictionary` DISABLE KEYS */;
-INSERT INTO `f_dictionary` VALUES (1,'LOGIN_PAGE','跳转登录页面地址','/index','配置参数'),(2,'UUID_REDIS_CACHE_SIZE','Redis缓存大小','4','配置参数'),(3,'UUID_REDIS_QUEUE_NAME','Redis登录Token储存名','token','配置参数'),(4,'UUID_REDIS_KEY_TIMEOUT','Redis参数过期时间(s)','57','配置参数'),(5,'LOGIN_CODE_FREQUENT_MSG','登录验证提示','验证过于频繁','配置参数'),(6,'LOGIN_CODE_FAIL_MSG','登录验证提示','验证失败','配置参数'),(7,'LOGIN_CODE_SUCCESS_MSG','登录验证提示','验证通过','配置参数'),(8,'LOGIN_CODE_TIMEOUT_MSG','登录验证提示','验证超时，请重新认证','配置参数'),(9,'LOGIN_VERIFY_FAIL_MSG','登录提示','用户名或密码不正确','配置参数'),(10,'LOGIN_OUT_MSG','登录提示','您还未登录，请先登录','配置参数'),(11,'LOGIN_PERMISSION_MSG','权限提示','您没有此权限','配置参数'),(12,'LOGIN_BLOCK_MSG','登录提示','账号已停用','配置参数'),(13,'LIMIT_MSG','限流提示','刷新次数过多','配置参数'),(14,'MAIL_ADDRESS','邮件发送地址','llshadowsock@foxmail.com','配置参数'),(15,'REGISTER_REDIS_MAIL_NAME','Redis注册邮件发送名','regitser_mail:','配置参数'),(16,'REGISTER_MAIL_FAIL','注册提示','发送过于频繁','配置参数'),(17,'REGISTER_REDIS_TIMEOUT','Redis注册验证码有效时间(s)','900','配置参数'),(18,'REGISTER_TITLE','注册邮件标题','验证邮件','配置参数'),(19,'REGISTER_TEXT','注册邮件内容','您的注册验证码为:%s,15分钟内有效','配置参数'),(20,'REGISTER_CODE','注册验证码提示','验证码错误','配置参数'),(21,'REGISTER_PASSWORD','注册提示','两次密码不一致','配置参数'),(22,'REGISTER_SAME','注册提示','账户已存在','配置参数'),(23,'MQ_TOKEN_GENERATE','消息队列Token','secure.token_generate','消息队列参数'),(24,'MQ_SEND_MAIL','消息队列注册邮件','secure.send_mail','消息队列参数'),(25,'REFERENCE_SUCCESS','成功识别码','200','参数代码'),(28,'REFERENCE_FAIL','失败识别码','300','参数代码'),(34,'LIMIT_COUNT','限流访问次数最大值','30','配置参数'),(35,'LIMIT_TIMEOUT','限流时间(ms)','60000','配置参数'),(36,'LIMIT_PATH','超出限流跳转网址 (/跳转目标)','/limit','配置参数'),(37,'ENABLE_SEND_MAIL','启用邮件发送(true为启用，其余为停用)','false','配置参数'),(38,'FORGOT_PASSWORD_TIMEOUT','Redis忘记密码超时(s)','1800','配置参数'),(39,'REDIS_FORGOT_PASSWORD_NAME','Redis忘记密码名','forgot_mail:','配置参数'),(40,'MQ_REDIS_DEL','消息队列删除Redis','del.redis_key','消息队列参数'),(41,'USERNAME_NOT_EXITS','提示消息','账号不存在','配置参数'),(42,'FORGOT_MAIL_SUBJECT','忘记密码邮件标题','找回密码','配置参数'),(43,'FORGOT_MAIL_TEXT','忘记密码邮件内容','请使用此链接重置您的密码: %s','配置参数'),(44,'REST_PASSWORD_PAGE','重置密码页面','forgot-password.html','配置参数'),(45,'REST_PASSWORD_TIMEOUT_MSG','重置密码超时信息','验证已失效，请重新验证','配置参数'),(46,'REST_PASSWORD_FAIL_MSG','重置密码失败消息','重置密码失败','配置参数'),(47,'REGISTER_VERIFY_AREA_FAIL','城市错误消息','城市错误','配置参数'),(48,'PAGEROW','每页个数','5','配置参数'),(49,'MQ_DEL_REDIS_USER_SESSION','删除Shiro用户Session','del.redis_user_session','消息队列'),(50,'MQ_ADD_USER_SESSION','添加用户session','add.user_session','消息队列');
+INSERT INTO `f_dictionary` VALUES (1,'LOGIN_PAGE','跳转登录页面地址','/index','配置参数'),(2,'UUID_REDIS_CACHE_SIZE','Redis缓存大小','4','配置参数'),(3,'UUID_REDIS_QUEUE_NAME','Redis登录Token储存名','token','配置参数'),(4,'UUID_REDIS_KEY_TIMEOUT','Redis参数过期时间(s)','57','配置参数'),(5,'LOGIN_CODE_FREQUENT_MSG','登录验证提示','验证过于频繁','配置参数'),(6,'LOGIN_CODE_FAIL_MSG','登录验证提示','验证失败','配置参数'),(7,'LOGIN_CODE_SUCCESS_MSG','登录验证提示','验证通过','配置参数'),(8,'LOGIN_CODE_TIMEOUT_MSG','登录验证提示','验证超时，请重新认证','配置参数'),(9,'LOGIN_VERIFY_FAIL_MSG','登录提示','用户名或密码不正确','配置参数'),(10,'LOGIN_OUT_MSG','登录提示','您还未登录，请先登录','配置参数'),(11,'LOGIN_PERMISSION_MSG','权限提示','您没有此权限','配置参数'),(12,'LOGIN_BLOCK_MSG','登录提示','账号已停用','配置参数'),(13,'LIMIT_MSG','限流提示','刷新次数过多','配置参数'),(14,'MAIL_ADDRESS','邮件发送地址','llshadowsock@foxmail.com','配置参数'),(15,'REGISTER_REDIS_MAIL_NAME','Redis注册邮件发送名','regitser_mail:','配置参数'),(16,'REGISTER_MAIL_FAIL','注册提示','发送过于频繁','配置参数'),(17,'REGISTER_REDIS_TIMEOUT','Redis注册验证码有效时间(s)','900','配置参数'),(18,'REGISTER_TITLE','注册邮件标题','验证邮件','配置参数'),(19,'REGISTER_TEXT','注册邮件内容','您的注册验证码为:%s,15分钟内有效','配置参数'),(20,'REGISTER_CODE','注册验证码提示','验证码错误','配置参数'),(21,'REGISTER_PASSWORD','注册提示','两次密码不一致','配置参数'),(22,'REGISTER_SAME','注册提示','账户已存在','配置参数'),(23,'MQ_TOKEN_GENERATE','消息队列Token','secure.token_generate','消息队列参数'),(24,'MQ_SEND_MAIL','消息队列注册邮件','secure.send_mail','消息队列参数'),(25,'REFERENCE_SUCCESS','成功识别码','200','参数代码'),(28,'REFERENCE_FAIL','失败识别码','300','参数代码'),(34,'LIMIT_COUNT','限流访问次数最大值','60','配置参数'),(35,'LIMIT_TIMEOUT','限流时间(ms)','60000','配置参数'),(36,'LIMIT_PATH','超出限流跳转网址 (/跳转目标)','/limit','配置参数'),(37,'ENABLE_SEND_MAIL','启用邮件发送(true为启用，其余为停用)','false','配置参数'),(38,'FORGOT_PASSWORD_TIMEOUT','Redis忘记密码超时(s)','1800','配置参数'),(39,'REDIS_FORGOT_PASSWORD_NAME','Redis忘记密码名','forgot_mail:','配置参数'),(40,'MQ_REDIS_DEL','消息队列删除Redis','del.redis_key','消息队列参数'),(41,'USERNAME_NOT_EXITS','提示消息','账号不存在','配置参数'),(42,'FORGOT_MAIL_SUBJECT','忘记密码邮件标题','找回密码','配置参数'),(43,'FORGOT_MAIL_TEXT','忘记密码邮件内容','请使用此链接重置您的密码: %s','配置参数'),(44,'REST_PASSWORD_PAGE','重置密码页面','forgot-password.html','配置参数'),(45,'REST_PASSWORD_TIMEOUT_MSG','重置密码超时信息','验证已失效，请重新验证','配置参数'),(46,'REST_PASSWORD_FAIL_MSG','重置密码失败消息','重置密码失败','配置参数'),(47,'REGISTER_VERIFY_AREA_FAIL','城市错误消息','城市错误','配置参数'),(48,'PAGEROW','每页个数','5','配置参数'),(49,'MQ_DEL_REDIS_USER_SESSION','删除Shiro用户Session','del.redis_user_session','消息队列'),(50,'MQ_ADD_USER_SESSION','添加用户session','add.user_session','消息队列'),(51,'ERROR_PARAM','参数错误','参数错误','配置参数'),(52,'MQ_ADD_FAVOURITE','Favourite','user.post_favourite','消息队列'),(53,'REFERENCE_DATA_COMPLETE','数据全部加载标识','301','参数代码'),(54,'DATA_COMPLETE_MSG','数据全部加载提示','数据已全部加载完','配置参数'),(55,'MQ_USER_FOLLOW','关注消息队列','user.follow','消息队列');
 /*!40000 ALTER TABLE `f_dictionary` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `f_follow_forum`
+--
+
+DROP TABLE IF EXISTS `f_follow_forum`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `f_follow_forum` (
+  `sid` char(19) NOT NULL,
+  `fid` int(11) NOT NULL,
+  PRIMARY KEY (`sid`,`fid`),
+  KEY `fk_follow_forum_fid_idx` (`fid`),
+  CONSTRAINT `fk_follow_forum_fid` FOREIGN KEY (`fid`) REFERENCES `f_forumlist` (`fid`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_follow_forum_sid` FOREIGN KEY (`sid`) REFERENCES `f_user` (`sid`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `f_follow_forum`
+--
+
+LOCK TABLES `f_follow_forum` WRITE;
+/*!40000 ALTER TABLE `f_follow_forum` DISABLE KEYS */;
+/*!40000 ALTER TABLE `f_follow_forum` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `f_follow_friends`
+--
+
+DROP TABLE IF EXISTS `f_follow_friends`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `f_follow_friends` (
+  `sid` char(19) NOT NULL,
+  `friend_sid` char(19) NOT NULL,
+  PRIMARY KEY (`sid`,`friend_sid`),
+  KEY `fk_follow_friend_friend_sid_idx` (`friend_sid`),
+  CONSTRAINT `fk_follow_friend_friend_sid` FOREIGN KEY (`friend_sid`) REFERENCES `f_user` (`sid`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_follow_friend_sid` FOREIGN KEY (`sid`) REFERENCES `f_user` (`sid`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `f_follow_friends`
+--
+
+LOCK TABLES `f_follow_friends` WRITE;
+/*!40000 ALTER TABLE `f_follow_friends` DISABLE KEYS */;
+/*!40000 ALTER TABLE `f_follow_friends` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -119,7 +171,7 @@ DROP TABLE IF EXISTS `f_forumlist`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `f_forumlist` (
   `fid` int(11) NOT NULL AUTO_INCREMENT,
-  `fname` varchar(60) DEFAULT NULL,
+  `fname` varchar(24) DEFAULT NULL,
   `img` varchar(90) DEFAULT NULL,
   `description` varchar(90) DEFAULT NULL,
   `creator` char(19) NOT NULL,
@@ -140,7 +192,7 @@ CREATE TABLE `f_forumlist` (
 
 LOCK TABLES `f_forumlist` WRITE;
 /*!40000 ALTER TABLE `f_forumlist` DISABLE KEYS */;
-INSERT INTO `f_forumlist` VALUES (1,'HI1',NULL,'HI','1068310406818304000','0',1,1,'2018-12-20 16:21:51',NULL),(2,'HI2',NULL,'HIHI','1068310406881218560','0',1,1,'2018-12-20 16:21:51',NULL);
+INSERT INTO `f_forumlist` VALUES (1,'我我我我我我我我我我我',NULL,'HI','1068310406818304000','0',1,1,'2018-12-20 16:21:51',NULL),(2,'HI2',NULL,'HIHI','1068310406881218560','0',1,1,'2018-12-20 16:21:51',NULL);
 /*!40000 ALTER TABLE `f_forumlist` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -158,7 +210,7 @@ CREATE TABLE `f_non_authemticate` (
   `description` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `url_UNIQUE` (`url`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -167,7 +219,7 @@ CREATE TABLE `f_non_authemticate` (
 
 LOCK TABLES `f_non_authemticate` WRITE;
 /*!40000 ALTER TABLE `f_non_authemticate` DISABLE KEYS */;
-INSERT INTO `f_non_authemticate` VALUES (1,'/index',1,'主页'),(2,'/login.html',1,'登录页面'),(3,'/login',1,'登录'),(4,'/token',1,'登录验证'),(5,'/css/**',1,'CSS资源'),(6,'/js/**',1,'JS资源'),(7,'/fonts/**',1,'Font资源'),(8,'/images/**',1,'图片资源'),(9,'/create-account.html',1,'创建账号'),(10,'/logout',1,'登出'),(11,'/limit',1,'限流页面'),(12,'/register',1,'注册页面'),(13,'/send-register-mail',1,'注册发送邮件页面'),(14,'/forgot-password.html',1,'忘记密码页面'),(15,'smtp.qq.com',1,'邮件服务器'),(16,'/send',1,'测试'),(17,'/w',1,'测试'),(18,'/druid/**',1,'Druid监控'),(19,'/forgot-mail',1,'忘记密码'),(20,'/rest-password',1,'重置密码'),(21,'/forum_list',1,'论坛列表'),(22,'/cookie',1,'设置Cookie'),(23,'/setcookie.html',1,'设置cookie页面'),(24,'/user-forum/**',1,'用户论坛操作'),(25,'/index_main',1,'主页内容'),(26,'/single_forum',1,'单个论坛');
+INSERT INTO `f_non_authemticate` VALUES (1,'/index',1,'主页'),(2,'/login.html',1,'登录页面'),(3,'/login',1,'登录'),(4,'/token',1,'登录验证'),(5,'/css/**',1,'CSS资源'),(6,'/js/**',1,'JS资源'),(7,'/fonts/**',1,'Font资源'),(8,'/images/**',1,'图片资源'),(9,'/create-account.html',1,'创建账号'),(10,'/logout',1,'登出'),(11,'/limit',1,'限流页面'),(12,'/register',1,'注册页面'),(13,'/send-register-mail',1,'注册发送邮件页面'),(14,'/forgot-password.html',1,'忘记密码页面'),(15,'smtp.qq.com',1,'邮件服务器'),(16,'/send',1,'测试'),(17,'/w',1,'测试'),(18,'/druid/**',1,'Druid监控'),(19,'/forgot-mail',1,'忘记密码'),(20,'/rest-password',1,'重置密码'),(21,'/forum_list',1,'论坛列表'),(22,'/cookie',1,'设置Cookie'),(23,'/setcookie.html',1,'设置cookie页面'),(24,'/user-forum/**',1,'用户论坛操作'),(25,'/index_main',1,'主页内容'),(26,'/single_forum',1,'单个论坛'),(27,'/single_post',1,'单个帖子');
 /*!40000 ALTER TABLE `f_non_authemticate` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -195,7 +247,7 @@ CREATE TABLE `f_post` (
   `video` varchar(90) DEFAULT NULL,
   `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `enable` tinyint(1) DEFAULT '1',
-  `text` varchar(255) DEFAULT NULL,
+  `text` varchar(500) DEFAULT NULL,
   `lastupdatetime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `title` varchar(15) NOT NULL,
   PRIMARY KEY (`postid`),
@@ -210,7 +262,7 @@ CREATE TABLE `f_post` (
 
 LOCK TABLES `f_post` WRITE;
 /*!40000 ALTER TABLE `f_post` DISABLE KEYS */;
-INSERT INTO `f_post` VALUES (1,1,'1068310406818304000','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2018-12-20 16:21:51',1,'Hello','2018-12-24 14:35:24','1'),(2,1,'1068310406881218560','1','images/unsplash_1.jpg','images/unsplash_1.jpg',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2018-11-21 09:05:43',1,'HI2','2018-12-24 14:35:23','2'),(3,1,'1068310406881218560','2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'images/video/demo.mp4','2018-12-21 09:06:30',1,'<p style=\'color:red\'>Hi3</p>','2018-12-24 14:35:22','3'),(4,1,'1068310406881218560','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2018-12-24 14:35:24',1,'1','2018-12-24 14:35:21','4'),(5,1,'1068310406881218560','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2018-12-24 14:35:24',1,'2','2018-12-24 14:35:20','5'),(6,1,'1068310406881218560','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2018-12-24 14:35:24',1,'3','2018-12-24 14:35:19','6'),(7,1,'1068310406881218560','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2018-12-24 14:35:24',1,'4','2018-12-24 14:35:18','7'),(8,1,'1068310406881218560','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2018-12-24 14:35:24',1,'5','2018-12-24 14:35:17','8'),(9,1,'1068310406881218560','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2018-12-24 14:35:24',1,'6','2018-12-24 14:35:16','9'),(10,1,'1068310406881218560','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2018-12-24 14:35:24',1,'7','2018-12-24 14:35:15','10'),(11,1,'1068310406881218560','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2018-12-24 14:35:24',1,'8','2018-12-24 14:35:14','11'),(12,1,'1068310406881218560','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2018-12-24 14:35:24',1,'9','2018-12-24 14:35:13','12'),(13,1,'1068310406881218560','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2018-12-24 14:35:24',1,'10','2018-12-24 14:35:12','13'),(14,1,'1068310406881218560','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2018-12-24 14:35:24',1,'11','2018-12-24 14:35:11','14'),(15,1,'1068310406881218560','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2018-12-24 15:35:37',1,'12','2018-12-24 14:35:25','0');
+INSERT INTO `f_post` VALUES (1,1,'1068310406818304000','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2018-12-20 16:21:51',1,'说有那么几个人在踢足球，分红蓝两方，红队守门员说：“我是铁门，你们球进不来１这时，蓝队守门员冷笑一声，“我是钢门１。。。','2018-12-24 14:35:24','逗的他(她)们满脸黑线头'),(2,1,'1068310406881218560','1','images/unsplash_1.jpg','images/unsplash_1.jpg','images/unsplash_1.jpg','images/unsplash_1.jpg','images/unsplash_1.jpg','images/unsplash_1.jpg','images/unsplash_1.jpg','images/unsplash_1.jpg','images/unsplash_1.jpg',NULL,'2018-11-21 09:05:43',1,'立冬以来，由于太阳的偷懒，日子一天比一天冷。傍晚五点，行人变得朦胧，不调整瞳孔是看不清人的模样。 “老逼！”一个少妇的声音打断我的思路。 天啊，肯定会有熟悉我的人在心里大叫，你也么会写出这样的脏话？是的，在说脏话成口头禅的儿时我就从不说脏话，何况当下的文明时代。也恰在高唱文明的进步社会，网络上变异的脏话常咯着我的眼。还有相信迷信的人也多了，例如高考的家长、污点官员等，社会是在退步还是进步，我迷茫了。 可是这天傍晚，朦胧的街边，我耳朵听到的就是这音调，通过大脑几十年存储的大数据分析出来就是这两个字。 “唉！”一位发福的中年妇女，身形好似水桶，无意中被少妇一喊开心地笑应。 看她们彼此的热情','2018-12-24 14:35:23','人间过客'),(3,1,'1068310406881218560','2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'images/video/demo.mp4','2018-12-21 09:06:30',1,'Hi3','2018-12-24 14:35:22','0度笑话,刚从冰箱里拿出来'),(4,1,'1068310406881218560','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2018-12-24 14:35:24',1,'最近看新闻总是看到生二胎的，最后却丢了性命，感觉异常恐怖。一天家里小孩央求给他生个弟弟或者妹妹。就把看到的新闻给他讲了一遍：“宝贝，你看新闻上说了，这个阿姨为了生弟弟妹妹，都死掉了。”宝贝马上问：“为什么你生我的时候没有死？”我和宝贝他爸尽无言以对','2018-12-24 14:35:21','童言无忌'),(5,1,'1068310406881218560','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2018-12-24 14:35:24',1,'一天，上数学课，老师说：“加法的意义，就是把两个数合起来。比方说1+1等于2。”第二天，老师问小明：“ 2+2等于几？”小明说：“老师，我们昨天没学2+2，只学了1+1。”','2018-12-24 14:35:20','2+2=？'),(6,1,'1068310406881218560','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2018-12-24 14:35:24',1,'有个脚痒患者或者是脚气患者去看医生，见到医生时突然脚就痒起来，就说脚痒脚痒，医生听成了久仰久仰，便客气地回答道哪里哪里，患者指着脚说这里这里','2018-12-24 14:35:19','久仰久仰'),(7,1,'1068310406881218560','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2018-12-24 14:35:24',1,'A和B在饭店吃饭，吃完以后谁都不想结帐，只好用掷骰子猜单双的方法决定。A：“好了，骰子盖在桌子上了！ ”B：“买定离手，你先来。”A：“我买双，你呢？”B：“我买单！ ”A：“去吧。”','2018-12-24 14:35:18','我买单'),(8,1,'1068310406881218560','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2018-12-24 14:35:24',1,'5','2018-12-24 14:35:17','8'),(9,1,'1068310406881218560','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2018-12-24 14:35:24',1,'6','2018-12-24 14:35:16','9'),(10,1,'1068310406881218560','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2018-12-24 14:35:24',1,'7','2018-12-24 14:35:15','10'),(11,1,'1068310406881218560','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2018-12-24 14:35:24',1,'8','2018-12-24 14:35:14','11'),(12,1,'1068310406881218560','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2018-12-24 14:35:24',1,'9','2018-12-24 14:35:13','12'),(13,1,'1068310406881218560','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2018-12-24 14:35:24',1,'10','2018-12-24 14:35:12','13'),(14,1,'1068310406881218560','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2018-12-24 14:35:24',1,'11','2018-12-24 14:35:11','14'),(15,1,'1068310406881218560','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2018-12-24 15:35:37',1,'一天，你遇到狮子，故作镇定，用可怕的眼神瞪狮子。突然狮子双手合十并跪了下来，你得意地说：知道厉害了吧！少顷,狮子幽幽地道：祷告完毕，可以用餐了。','2018-12-24 14:35:25','餐前祷告');
 /*!40000 ALTER TABLE `f_post` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -240,11 +292,12 @@ CREATE TABLE `f_post_reply` (
   `enable` tinyint(1) DEFAULT '1',
   `text` varchar(255) DEFAULT NULL,
   `lastupdatetime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `favourite` int(11) DEFAULT NULL,
+  `favourite` int(11) NOT NULL DEFAULT '0',
+  `version` int(11) DEFAULT '0',
   PRIMARY KEY (`replyid`),
   KEY `fk_reply_postid_idx` (`postid`),
   CONSTRAINT `fk_reply_postid` FOREIGN KEY (`postid`) REFERENCES `f_post` (`postid`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -253,8 +306,36 @@ CREATE TABLE `f_post_reply` (
 
 LOCK TABLES `f_post_reply` WRITE;
 /*!40000 ALTER TABLE `f_post_reply` DISABLE KEYS */;
-INSERT INTO `f_post_reply` VALUES (1,15,'1068310406881218560','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2018-12-24 16:45:29',1,'abc','2018-12-24 16:45:29',0),(2,15,'1068310406881218560','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2018-12-24 16:45:29',1,'def','2018-12-24 16:45:29',1);
+INSERT INTO `f_post_reply` VALUES (1,15,'1068310406881218560','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2018-12-24 16:45:29',1,'abc','2018-12-24 16:45:29',-1,0),(2,15,'1068310406881218560','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2018-12-24 16:45:29',1,'def','2018-12-24 16:45:29',1,0),(3,1,'1068310406881218560','1','images/unsplash_1.jpg','images/unsplash_1.jpg',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2018-12-24 21:02:50',1,'qqq','2018-12-24 21:02:50',0,0),(4,1,'1068310406881218560','2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'images/video/demo.mp4','2018-12-24 21:02:50',1,'www','2018-12-24 21:02:50',-1,0);
 /*!40000 ALTER TABLE `f_post_reply` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `f_reply_favourite`
+--
+
+DROP TABLE IF EXISTS `f_reply_favourite`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `f_reply_favourite` (
+  `replyid` int(11) NOT NULL,
+  `sid` char(19) NOT NULL,
+  `favourite` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`replyid`,`sid`),
+  KEY `fk_favourite_sid_idx` (`sid`),
+  CONSTRAINT `fk_favourite_replyid` FOREIGN KEY (`replyid`) REFERENCES `f_post_reply` (`replyid`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_favourite_sid` FOREIGN KEY (`sid`) REFERENCES `f_user` (`sid`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `f_reply_favourite`
+--
+
+LOCK TABLES `f_reply_favourite` WRITE;
+/*!40000 ALTER TABLE `f_reply_favourite` DISABLE KEYS */;
+INSERT INTO `f_reply_favourite` VALUES (1,'1068310406881218560',-1),(2,'1074943630831128576',1),(4,'1074943630831128576',-1);
+/*!40000 ALTER TABLE `f_reply_favourite` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -325,7 +406,7 @@ CREATE TABLE `f_session` (
   PRIMARY KEY (`sessionid`),
   KEY `fk_session_username_idx` (`username`),
   CONSTRAINT `fk_session_username` FOREIGN KEY (`username`) REFERENCES `f_user` (`username`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -334,7 +415,7 @@ CREATE TABLE `f_session` (
 
 LOCK TABLES `f_session` WRITE;
 /*!40000 ALTER TABLE `f_session` DISABLE KEYS */;
-INSERT INTO `f_session` VALUES (1,'admin','1','2018-12-23 23:15:20',NULL),(3,'admin','8ff42f11-945c-4f34-ba59-c4afde56fb28','2018-12-24 09:42:03','电脑'),(5,'admin','5596c814-8047-4493-a883-3208c36cffed','2018-12-24 09:45:43','iPhone设备'),(6,'admin','ef6ce503-8450-4568-8c29-e6cb914d4320','2018-12-24 10:38:29','iPhone'),(7,'admin','03d182aa-5fd8-41ed-add8-d43c6ee81c66','2018-12-24 11:24:16','iPhone'),(8,'admin','222d7212-4058-4252-acc7-dda1c3a91a70','2018-12-24 12:22:33','电脑'),(9,'admin','061d0672-874d-4d2f-8b77-7a4f5e694a27','2018-12-24 14:14:29','电脑');
+INSERT INTO `f_session` VALUES (1,'admin','1','2018-12-23 23:15:20',NULL),(3,'admin','8ff42f11-945c-4f34-ba59-c4afde56fb28','2018-12-24 09:42:03','电脑'),(5,'admin','5596c814-8047-4493-a883-3208c36cffed','2018-12-24 09:45:43','iPhone设备'),(6,'admin','ef6ce503-8450-4568-8c29-e6cb914d4320','2018-12-24 10:38:29','iPhone'),(7,'admin','03d182aa-5fd8-41ed-add8-d43c6ee81c66','2018-12-24 11:24:16','iPhone'),(8,'admin','222d7212-4058-4252-acc7-dda1c3a91a70','2018-12-24 12:22:33','电脑'),(9,'admin','061d0672-874d-4d2f-8b77-7a4f5e694a27','2018-12-24 14:14:29','电脑'),(10,'guest','82b5a9d8-34ec-4624-8646-3502a51b08ca','2018-12-25 11:26:45','电脑'),(11,'guest','0cca504c-bc0a-438d-8d75-b6c9f073c4ef','2018-12-25 13:38:38','电脑'),(12,'guest','e4e198fa-4b90-4ae8-b37e-356b2d6b5c33','2018-12-25 15:24:35','电脑'),(13,'guest','be04fcc8-175e-4b94-a128-1edc8f7d5c57','2018-12-25 17:09:52','电脑'),(14,'666@qq.com','dd49a345-16bd-475e-b496-c53882ab49a2','2018-12-26 23:41:55','iPhone');
 /*!40000 ALTER TABLE `f_session` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -359,6 +440,7 @@ CREATE TABLE `f_user` (
   `user_img` varchar(95) DEFAULT NULL,
   PRIMARY KEY (`sid`),
   UNIQUE KEY `username_UNIQUE` (`username`),
+  UNIQUE KEY `nickname_UNIQUE` (`nickname`),
   KEY `fk_province_idx` (`province`),
   KEY `idx_povince` (`province`),
   KEY `idx_user_povince` (`province`),
@@ -375,7 +457,7 @@ CREATE TABLE `f_user` (
 
 LOCK TABLES `f_user` WRITE;
 /*!40000 ALTER TABLE `f_user` DISABLE KEYS */;
-INSERT INTO `f_user` VALUES ('1068310406818304000','admin','3e64129af6c5765d78dfb8e8ff6a339003509b4b',1,1,'admin','0','海外','','',NULL),('1068310406881218560','guest','3e64129af6c5765d78dfb8e8ff6a339003509b4b',1000,1,'guest','1','海外','','',NULL),('1072752696303423488','222@qq.com','c49901a10e2f0a9d1e431c9a93f2e3a8659dbd46',1000,1,'test','0','广东省','广州市','天河区',NULL),('1072754834454745088','111@qq.com','579646aad11fae4dd295812fb4526245',1000,1,'12312','1','山西省','太原市','市辖区',NULL),('1072755841133842432','333@qq.com','a76a7be415d5d144f188f33202c4ea51',1000,1,'qewq','1','澳门特别行政区','澳门半岛',NULL,NULL),('1072756068297347072','444@qq.com','a76a7be415d5d144f188f33202c4ea51',1000,1,'4444','1','海外',NULL,NULL,NULL),('1072782789897752576','11223@qq.com','b7d785afb7b606343a9d04ff7bd6e1e8',1000,1,'HI','0','山西省','太原市','市辖区',NULL),('1074943630831128576','666@qq.com','8e1baeee1109eafbe2ae7025757eeed6fdcc7db9',1000,1,'Hello','0','辽宁省','沈阳市','市辖区',NULL),('1076741554460299264','10101@qq.com','8e1baeee1109eafbe2ae7025757eeed6fdcc7db9',1000,1,'hihihih','0','山西省','太原市','市辖区',NULL),('1077056341580845056','888@qq.com','bd1836e969145e88390a58f8b5e291ba4fbf1afd',1000,1,'Hello','0','山西省','太原市','市辖区',NULL);
+INSERT INTO `f_user` VALUES ('1068310406818304000','admin','3e64129af6c5765d78dfb8e8ff6a339003509b4b',1,1,'admin','0','海外','','',NULL),('1068310406881218560','guest','3e64129af6c5765d78dfb8e8ff6a339003509b4b',1000,1,'guest','1','海外','','',NULL),('1072752696303423488','222@qq.com','c49901a10e2f0a9d1e431c9a93f2e3a8659dbd46',1000,1,'test','0','广东省','广州市','天河区',NULL),('1072754834454745088','111@qq.com','579646aad11fae4dd295812fb4526245',1000,1,'12312','1','山西省','太原市','市辖区',NULL),('1072755841133842432','333@qq.com','a76a7be415d5d144f188f33202c4ea51',1000,1,'qewq','1','澳门特别行政区','澳门半岛',NULL,NULL),('1072756068297347072','444@qq.com','a76a7be415d5d144f188f33202c4ea51',1000,1,'4444','1','海外',NULL,NULL,NULL),('1072782789897752576','11223@qq.com','b7d785afb7b606343a9d04ff7bd6e1e8',1000,1,'HI','0','山西省','太原市','市辖区',NULL),('1074943630831128576','666@qq.com','8e1baeee1109eafbe2ae7025757eeed6fdcc7db9',1000,1,'Hello','0','辽宁省','沈阳市','市辖区',NULL),('1076741554460299264','10101@qq.com','8e1baeee1109eafbe2ae7025757eeed6fdcc7db9',1000,1,'hihihih','0','山西省','太原市','市辖区',NULL),('1077056341580845056','888@qq.com','bd1836e969145e88390a58f8b5e291ba4fbf1afd',1000,1,'Hello1','0','山西省','太原市','市辖区',NULL);
 /*!40000 ALTER TABLE `f_user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -388,4 +470,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-12-24 17:31:55
+-- Dump completed on 2018-12-27 17:17:30

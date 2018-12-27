@@ -20,15 +20,14 @@ function getUrlParms(name){
    return null;
 }
 function validationEmail(username){
-var reg = new RegExp("^[a-zA-Z0-9]+([._\\-]*[a-zA-Z0-9])*@([a-zA-Z0-9]+[-a-zA-Z0-9]*[a-zA-Z0-9]+.){1,63}[a-zA-Z0-9]+$");
-if(reg.test(username)){
-  return true;
-}else{
-  return false;
- }
+    var reg = new RegExp("^[a-zA-Z0-9]+([._\\-]*[a-zA-Z0-9])*@([a-zA-Z0-9]+[-a-zA-Z0-9]*[a-zA-Z0-9]+.){1,63}[a-zA-Z0-9]+$");
+    if(reg.test(username)){
+      return true;
+    }else{
+      return false;
+     }
 }
-function GetUrlRelativePath()
-　　{
+function GetUrlRelativePath(){
 　　　　var url = document.location.toString();
 　　　　var arrUrl = url.split("//");
 
@@ -55,23 +54,23 @@ function isPC() {
    return flag;
 }
 function S4() {
-        return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
+    return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
 }
 function guid() {
-        return (S4()+S4()+"-"+S4()+"-"+S4()+"-"+S4()+"-"+S4()+S4()+S4());
+    return (S4()+S4()+"-"+S4()+"-"+S4()+"-"+S4()+"-"+S4()+S4()+S4());
 }
 function setCookie(name,value){
-var Days = 30;
-var exp = new Date();
-exp.setTime(exp.getTime() + Days*24*60*60*1000);
-document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString();
+    var Days = 30;
+    var exp = new Date();
+    exp.setTime(exp.getTime() + Days*24*60*60*1000);
+    document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString();
 }
 function getCookie(name){
-var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
-if(arr=document.cookie.match(reg))
-return unescape(arr[2]);
-else
-return null;
+    var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+    if(arr=document.cookie.match(reg))
+    return unescape(arr[2]);
+    else
+    return null;
 }
 function S4() {
      return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
@@ -92,47 +91,47 @@ $('nav').after("<div id='myAlert2' class='alert alert-danger fade-in-animation o
 
 
 function getDateDiff(dateTimeStamp){
-var minute = 1000 * 60;
-var hour = minute * 60;
-var day = hour * 24;
-var halfamonth = day * 15;
-var month = day * 30;
-var now = new Date().getTime();
-var datetime = dateTimeStamp;
-dateTimeStamp = getDateTimeStamp(dateTimeStamp);
-var diffValue = now - dateTimeStamp;
-if(diffValue < 0){
- //若日期不符则弹出窗口告之
- //alert("结束日期不能小于开始日期！");
- }
-var monthC =diffValue/month;
-var weekC =diffValue/(7*day);
-var dayC =diffValue/day;
-var hourC =diffValue/hour;
-var minC =diffValue/minute;
-if(monthC>=1){
-// result="" + parseInt(monthC) + "个月前";
-result = datetime;
- }
- else if(weekC>=1){
-// result="" + parseInt(weekC) + "周前";
-result = datetime;
- }
- else if(dayC>=1){
- result=""+ parseInt(dayC) +"天前";
- }
- else if(hourC>=1){
- result=""+ parseInt(hourC) +"小时前";
- }
- else if(minC>=1){
- result=""+ parseInt(minC) +"分钟前";
- }else
- result="刚刚";
-return result;
+    var minute = 1000 * 60;
+    var hour = minute * 60;
+    var day = hour * 24;
+    var halfamonth = day * 15;
+    var month = day * 30;
+    var now = new Date().getTime();
+    var datetime = dateTimeStamp;
+    dateTimeStamp = getDateTimeStamp(dateTimeStamp);
+    var diffValue = now - dateTimeStamp;
+    if(diffValue < 0){
+     //若日期不符则弹出窗口告之
+     //alert("结束日期不能小于开始日期！");
+     }
+    var monthC =diffValue/month;
+    var weekC =diffValue/(7*day);
+    var dayC =diffValue/day;
+    var hourC =diffValue/hour;
+    var minC =diffValue/minute;
+    if(monthC>=1){
+    // result="" + parseInt(monthC) + "个月前";
+    result = datetime;
+     }
+     else if(weekC>=1){
+    // result="" + parseInt(weekC) + "周前";
+    result = datetime;
+     }
+     else if(dayC>=1){
+     result=""+ parseInt(dayC) +"天前";
+     }
+     else if(hourC>=1){
+     result=""+ parseInt(hourC) +"小时前";
+     }
+     else if(minC>=1){
+     result=""+ parseInt(minC) +"分钟前";
+     }else
+     result="刚刚";
+    return result;
 }
 //js函数代码：字符串转换为时间戳
 function getDateTimeStamp(dateStr){
- return Date.parse(dateStr.replace(/-/gi,"/"));
+    return Date.parse(dateStr.replace(/-/gi,"/"));
 }
 
 function jsonMsgValidation(data){
@@ -182,7 +181,7 @@ function media(data){
     function forumMain(data){
         var s ="";
         var img = isEmpty(data.userImg) == true ?'images/no_user_image.png':data.userImg;
-            s += "<li class='rv b agz fade-in-animation'><img class='bos vb yb aff' src='"+img+"'><div class='rw'><div class='bpb'><small class='acx axc'><i class='fa fa-share width-auto height-auto fa-1x'></i>";
+            s += "<li class='rv b agz fade-in-animation'><img class='bos vb yb aff' src='"+img+"'><div class='rw'><div class='bpb'><small class='acx axc'><i class='fa fa-share-alt width-auto height-auto fa-1x'></i>";
             s += getDateDiff(data.lastupdatetime.substring(0, data.lastupdatetime.lastIndexOf('.')))+"</small><h6><a href=\"javascript:void(0);\" onclick=\"jump('/single_post?postid="+data.postid+"&fid="+$("#fid").val()+"')\">"+data.title+"</a></h6></div><p>"+data.text+"</p>";
             s += media(data);
             if(data.hasOwnProperty("userPostReplyVOEntity")){
@@ -194,7 +193,7 @@ function media(data){
     function postMain(data){
             var s ="";
             var img = isEmpty(data.userImg) == true ?'images/no_user_image.png':data.userImg;
-                s += "<li class='rv b agz fade-in-animation'><img class='bos vb yb aff' src='"+img+"'><div class='rw'><div class='bpb'><small class='acx axc'><i class='fa fa-share width-auto height-auto fa-1x'></i>";
+                s += "<li class='rv b agz fade-in-animation'><img class='bos vb yb aff' src='"+img+"'><div class='rw'><div class='bpb'><small class='acx axc'><i class='fa fa-share-alt width-auto height-auto fa-1x'></i>";
                 s += getDateDiff(data.lastupdatetime.substring(0, data.lastupdatetime.lastIndexOf('.')))+"</small><h6>"+data.nickname+"</h6></div><p>"+data.text+"</p>";
                 s += media(data);
                 if(data.hasOwnProperty("userPostReplyVOEntity")){
@@ -342,4 +341,64 @@ function media(data){
     }
     });
     }
+}
+function closeHidePanel(){
+    $("#hidePanel").addClass('hidden');
+}
+function getSingleForum(){
+    var fid = $("#fid").val();
+    if(isSingleForumloading){
+        $("#refreshing").removeClass("hidden");
+        $("#loadComplete").addClass("hidden");
+        isSingleForumloading = false;
+        $.ajax({
+        type:"POST",
+        url:"/user-forum/single-forum-postlist",
+        dataType:"json",
+        timeout : 50000,
+        data: { fid:fid ,page:page},
+        success:function(data){
+        if(jsonMsgValidation(data)){
+            for(var o in data){
+            var videoid = '';
+            var s = "";
+            s += forumMain(data[o]);
+            $("#title").text(data[o].fname)
+            $("#single_forum_list").before(s);
+        }
+        page = page+1;
+        $("#refreshing").addClass("hidden");
+        $("#loadComplete").addClass("hidden");
+        isSingleForumloading = true;
+        }else{
+        isSingleForumloading = false;
+        }
+        },
+        complete: function (XMLHttpRequest, textStatus) {
+        forumTimeout();
+            if(textStatus == 'timeout') {
+                userPageAlert('',  '连接超时，请稍后再试')
+                isSingleForumloading = true;
+            }
+        },
+        error:function(jqXHR){
+        forumError();
+        isSingleForumloading = true;
+        }
+    });
+    }
+}
+function singleForumFresh(){
+    isSingleForumloading = true;
+    $("#refreshing").removeClass("hidden");
+    $("#loadComplete").addClass("hidden");
+    getSingleForum();
+}
+function followForum(fid){
+$.post("demo_ajax_gethint.asp",{suggest:txt},function(result){
+    $("span").html(result);
+  });
+ $('#followForum').attr('onclick','');
+ $('#followForum').text('已关注');
+
 }

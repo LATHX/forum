@@ -81,6 +81,43 @@ class ForumServiceImpl implements ForumService {
     }
 
     @Override
+    List<UserForumListPostVOEntity> getRecommendPostList(Integer page) {
+        page = page?.toString()?.isNumber() ? page : 1
+        PageHelper.startPage(page, Constant.PAGEROW.toInteger())
+        StringBuilder sb = new StringBuilder('')
+        StringBuilder sb1 = new StringBuilder('')
+        List<UserForumListPostVOEntity> list = userForumListPostVOMapper.userRecommendPostList()
+        List<UserPostReplyVOEntity> bestList = null
+        UserEntity userEntity = ShiroUtil.getUser()
+        list?.eachWithIndex { current_postId, Idx ->
+            sb.append('\"')
+            sb.append(current_postId?.postid)
+            sb.append('\"')
+            if (Idx != list.size() - 1)
+                sb.append(',')
+        }
+        if (CommonUtil.isNotEmpty(sb.toString())) {
+            bestList = userPostReplyVOMapper.SelectMaxFavouriteReplyByPostIdGroup(sb.toString())
+            bestList?.eachWithIndex { current, Idx ->
+                sb1.append('\"')
+                sb1.append(current?.replyid)
+                sb1.append('\"')
+                if (Idx != bestList.size() - 1) {
+                    sb1.append(',')
+                }
+                list?.find { it?.postid == current?.postid }?.setUserPostReplyVOEntity(current)
+            }
+        }
+        if (userEntity != null && CommonUtil.isNotEmpty(sb1.toString())) {
+            List<ReplyFavouriteEntity> favouriteList = replyFavouriteMapper.SelectFavouriteByReplyIdGroupAndSid(sb1.toString(), userEntity.getSid())
+            favouriteList?.each { current ->
+                bestList?.find { it?.replyid == current?.replyid }.setReplyFavouriteEntity(current)
+            }
+        }
+        return list
+    }
+
+    @Override
     MessageCodeInfo favouriteQueue(FavouriteInfo favouriteInfo, MessageCodeInfo messageCodeInfo) {
         if (ShiroUtil.getUser() == null) {
             messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
@@ -147,5 +184,20 @@ class ForumServiceImpl implements ForumService {
         userPostAndPostReplyEntity.setUserPostReplyVOEntity(replyList)
         userPostAndPostReplyEntity.setUserPostVOEntity(userPostVOEntity)
         return userPostAndPostReplyEntity
+    }
+
+    @Override
+    MessageCodeInfo followForum(FollowForumEntity followForumEntity, MessageCodeInfo messageCodeInfo) {
+        UserEntity user = ShiroUtil.getUser()
+        if (user == null) {
+            messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
+            messageCodeInfo.setMsgInfo(Constant.LOGIN_OUT_MSG)
+        } else {
+            followForumEntity.setSid(user.getSid())
+            RabbitUtil.deliveryMessageNotConfirm(Constant.MQ_USER_FOLLOW, followForumEntity)
+            messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_SUCCESS)
+            messageCodeInfo.setMsgInfo('')
+        }
+        return messageCodeInfo
     }
 }

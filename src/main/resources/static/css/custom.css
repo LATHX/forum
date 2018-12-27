@@ -137,3 +137,43 @@ word-break: break-all;
 h7{
 word-break: break-all;
 }
+.arrow-right{
+right:0;
+position:fixed;
+}
+.border-none{
+    border:none;
+}
+.width100per{
+    width: 100%;
+}
+.height100per{
+    height: 100%;
+}
+.modals {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  outline: 0;
+  background-color: white;
+  background-color: white;
+  z-index: 9999;
+}
+body {
+    width: 1px;
+    min-width: 100%;
+    *width: 100%;
+}
+.right-button{
+position:absolute;
+right:0;
+color:#3097D1;
+}
+.right-button-inherit{
+position:inherit;
+right:0;
+color:#3097D1;
+}

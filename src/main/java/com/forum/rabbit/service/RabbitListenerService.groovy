@@ -3,6 +3,7 @@ package com.forum.rabbit.service
 import com.forum.global.Constant
 import com.forum.model.dto.FavouriteInfo
 import com.forum.model.dto.MailInfo
+import com.forum.model.entity.FollowForumEntity
 import com.forum.model.entity.SessionEntity
 import com.forum.redis.util.RedisUtil
 import com.forum.service.ForumService
@@ -60,8 +61,15 @@ class RabbitListenerService {
         shiroService.addUserSession(sessionEntity)
     }
     @RabbitListener(queues = 'user.post_favourite')
-    void addPostFavourtie(byte[] msg){
+    void addPostFavourite(byte[] msg){
         FavouriteInfo favouriteInfo = (FavouriteInfo) CommonUtil.getObjectFromBytes(msg)
         forumService.favouriteWriter(favouriteInfo)
+    }
+    @RabbitListener(queues = 'user.follow')
+    void userFollow(byte[] msg){
+        Object obj = CommonUtil.getObjectFromBytes(msg)
+        if(obj instanceof FollowForumEntity){
+
+        }
     }
 }

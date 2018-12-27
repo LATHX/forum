@@ -1,34 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh_CN" xmlns:th="http://www.w3.org/1999/xhtml">
+<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
 
-<div th:replace="common/index/css_common.html"></div>
+    <title>帖子</title>
 
-<div th:replace="common/index/js_common.html"></div>
-<ul class="ca bow box afo">
-    <input readonly th:value="${postid}" id="postid" class="hidden">
-    <input readonly th:value="${fid}" id="fid" class="hidden">
+    <div th:replace="common/index/css_common.html"></div>
 
-    <li class="rv b agz fade-in-animation">
-        <div class="input-group">
-            <h7 id="title"></h7>
-            <div class="bpt">
-            </div>
+    <div th:replace="common/index/js_common.html"></div>
+
+</head>
+
+
+<body class="bob">
+<nav class="ck pt adq py tk app-navbar">
+    <a class="e" href="index.html">
+        <i class="fa fa-angle-left fa-1x"></i>
+    </a>
+    <a class="e arrow-right" id="callback">
+        <i class="fa fa-angle-right fa-1x"></i>
+    </a>
+</nav>
+<div class="by aha ahl">
+    <div class="dp">
+        <div class="fj"></div>
+        <div class="fm" id="jump">
+            <ul class="ca bow box afo">
+                <input readonly th:value="${postid}" id="postid" class="hidden">
+                <input readonly th:value="${fid}" id="fid" class="hidden">
+
+
+                <li class="rv b agz fade-in-animation">
+                    <div class="input-group">
+                        <h7 id="title"></h7>
+                        <div class="bpt">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="input-group">
+                        <a class="cg nz ok right-button" id="callback2">查看论坛</a>
+                        <div class="bpt">
+                        </div>
+                    </div>
+                </li>
+
+
+                <div th:replace="/common/index/reply.html"></div>
+
+
+                <li class="rv b agz" id="single_post_list">
+                    <div th:replace="/common/index/loading.html"></div>
+                </li>
+
+            </ul>
         </div>
-    </li>
-
-
-
-    <div th:replace="/common/index/reply.html"></div>
-
-
-
-
-    <li class="rv b agz" id="single_post_list">
-        <div th:replace="/common/index/loading.html"></div>
-    </li>
-
-</ul>
+    </div>
+</div>
+</body>
 <script>
-    var page =1;
+$(function(){while(window.BS&&window.BS.loader&&window.BS.loader.length){(window.BS.loader.pop())()}})
+var page =1;
 var isSinglePostloading = true;
+$("#callback").attr('href','index?callback=/single_forum?fid='+$("#fid").val());
+$("#callback2").attr('href','index?callback=/single_forum?fid='+$("#fid").val());
 $("#loadCompleteFinish").attr("onclick","singlePostFresh()");
 $('#single_post_list').val(50);
 var forum_post_loading = false;
@@ -38,7 +78,7 @@ $(window).scroll(function(){
       if(forum_post_loading == false){
            forum_list_loading = true;
            if(isSinglePostloading){
-            getSingleForum();
+            getSinglePost();
            }
         $('#single_post_list').val(parseInt($('#single_post_list').val())+50);
         forum_post_loading = false;
@@ -98,7 +138,6 @@ function singlePostFresh(){
         });
     }}
 
-    function jumpForum(){
-    jump('/single_forum?fid='+$("#fid").val());
-    }
+
+
 </script>

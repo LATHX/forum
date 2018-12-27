@@ -12,6 +12,7 @@ import com.forum.service.ForumService
 import com.forum.utils.CommonUtil
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
+import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.ResponseBody
 
@@ -21,7 +22,7 @@ class ForumController {
     @Autowired
     ForumService forumService
 
-    @RequestMapping('/forumlist')
+    @PostMapping('/forumlist')
     @ResponseBody
     getForumList(String type, String page, MessageCodeInfo messageCodeInfo, CommonInfo commonInfo) {
         if (!CommonUtil.isNumber(page)) {
@@ -31,7 +32,7 @@ class ForumController {
             return commonInfo
         }
         List<ForumListEntity> list = forumService.getAllForumListByEnableAndAuthority(type, page?.toInteger(), true, true)
-        if(list?.size() == 0){
+        if (list?.size() == 0) {
             messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_DATA_COMPLETE)
             messageCodeInfo.setMsgInfo(Constant.DATA_COMPLETE_MSG)
             commonInfo.setMsg(messageCodeInfo)
@@ -40,7 +41,7 @@ class ForumController {
         return list
     }
 
-    @RequestMapping('/single-forum-postlist')
+    @PostMapping('/single-forum-postlist')
     @ResponseBody
     getSingleForumPostList(String fid, String page, MessageCodeInfo messageCodeInfo, CommonInfo commonInfo) {
         if (CommonUtil.isEmpty(fid) || !CommonUtil.isNumber(page)) {
@@ -50,7 +51,7 @@ class ForumController {
             return commonInfo
         }
         List<UserForumListPostVOEntity> list = forumService.getSingleForumPostList(fid, page?.toInteger())
-        if(list?.size() == 0){
+        if (list?.size() == 0) {
             messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_DATA_COMPLETE)
             messageCodeInfo.setMsgInfo(Constant.DATA_COMPLETE_MSG)
             commonInfo.setMsg(messageCodeInfo)
@@ -59,9 +60,9 @@ class ForumController {
         return list
     }
 
-    @RequestMapping('/favourite')
+    @PostMapping('/favourite')
     @ResponseBody
-    favourite(FavouriteInfo favouriteInfo, MessageCodeInfo messageCodeInfo, CommonInfo commonInfo){
+    favourite(FavouriteInfo favouriteInfo, MessageCodeInfo messageCodeInfo, CommonInfo commonInfo) {
         messageCodeInfo = forumService.favouriteQueue(favouriteInfo, messageCodeInfo)
         commonInfo.setMsg(messageCodeInfo)
         return commonInfo
@@ -69,7 +70,7 @@ class ForumController {
 
     @RequestMapping('/single-post')
     @ResponseBody
-    getSinglePost(String fid, String postid, String page, MessageCodeInfo messageCodeInfo, CommonInfo commonInfo, UserPostAndPostReplyEntity userPostAndPostReplyEntity){
+    getSinglePost(String fid, String postid, String page, MessageCodeInfo messageCodeInfo, CommonInfo commonInfo, UserPostAndPostReplyEntity userPostAndPostReplyEntity) {
         if (!CommonUtil.isNumber(page) || CommonUtil.isEmpty(fid) || CommonUtil.isEmpty(postid)) {
             messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
             messageCodeInfo.setMsgInfo(Constant.ERROR_PARAM)
@@ -77,12 +78,31 @@ class ForumController {
             return commonInfo
         }
         userPostAndPostReplyEntity = forumService.getSinglePost(fid, postid, page, userPostAndPostReplyEntity)
-        if(userPostAndPostReplyEntity.getUserPostReplyVOEntity()?.size() == 0 && page.toInteger() > 1){
+        if (userPostAndPostReplyEntity.getUserPostReplyVOEntity()?.size() == 0 && page.toInteger() > 1) {
             messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_DATA_COMPLETE)
             messageCodeInfo.setMsgInfo(Constant.DATA_COMPLETE_MSG)
             commonInfo.setMsg(messageCodeInfo)
             return commonInfo
         }
         return userPostAndPostReplyEntity
+    }
+
+    @RequestMapping('/recommend-post')
+    @ResponseBody
+    recommandPost(String page, MessageCodeInfo messageCodeInfo, CommonInfo commonInfo) {
+        if (!CommonUtil.isNumber(page)) {
+            messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
+            messageCodeInfo.setMsgInfo(Constant.ERROR_PARAM)
+            commonInfo.setMsg(messageCodeInfo)
+            return commonInfo
+        }
+        List<UserForumListPostVOEntity> list = forumService.getRecommendPostList(page?.toInteger())
+        if (list?.size() == 0) {
+            messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_DATA_COMPLETE)
+            messageCodeInfo.setMsgInfo(Constant.DATA_COMPLETE_MSG)
+            commonInfo.setMsg(messageCodeInfo)
+            return commonInfo
+        }
+        return list
     }
 }

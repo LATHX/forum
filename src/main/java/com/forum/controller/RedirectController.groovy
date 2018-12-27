@@ -2,6 +2,7 @@ package com.forum.controller
 
 import com.forum.global.Constant
 import org.springframework.stereotype.Controller
+import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.RequestMapping
 
 import javax.servlet.http.HttpServletRequest
@@ -35,8 +36,8 @@ class RedirectController {
     }
 
     @RequestMapping('/single_forum')
-    singleForum(HttpServletRequest request, String fid) {
-        request.setAttribute('fid', fid)
+    singleForum(Model model, String fid) {
+        model.addAttribute('fid', fid)
         return '/user/single_forum.html'
     }
     @RequestMapping('/single_post')

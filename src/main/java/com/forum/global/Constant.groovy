@@ -65,6 +65,7 @@ class Constant implements InitializingBean {
     static String ERROR_PARAM
     static String DATA_COMPLETE_MSG
     static String MQ_ADD_FAVOURITE
+    static String MQ_USER_FOLLOW
     void load() {
         logger.info('Initializing Constant')
         List<DictionaryEntity> list = dictionaryMapper.selectAllInTableWithoutParamType('参数代码')
