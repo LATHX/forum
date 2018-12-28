@@ -338,3 +338,21 @@ body {
 .text-decoration-none{
     text-decoration: none;
 }
+.color-sex-blue{
+    color:#00E3E3;
+}
+.color-sex-red{
+    color:#FF79BC;
+}
+.friend-button{
+margin-right:30%;
+color:white;
+}
+.text-align-center{
+    text-align:center;
+}
+.opacity-50per{
+    filter:alpha(Opacity=40);
+    -moz-opacity:0.4;
+    opacity: 0.4;
+}

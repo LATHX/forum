@@ -35,10 +35,6 @@ class ShiroServiceImpl {
         List<AuthorityEntity> authorities = authorityMapper.selectAllFromTable()
         List<NonAuthemticateEntity> nonAuthemticateEntityList = authemticateMapper.selectAllFromTable()
         Map<String, String> filterChainDefinitionMap = new LinkedHashMap<>();
-        nonAuthemticateEntityList?.each {
-            if (it?.getEnable())
-                filterChainDefinitionMap.put(it?.getUrl(), "anon")
-        }
         if (authorities.size() > 0) {
             String uris;
             String[] uriArr;
@@ -52,6 +48,11 @@ class ShiroServiceImpl {
                     filterChainDefinitionMap.put(uri, authority.getPermission());
                 }
             }
+        }
+
+        nonAuthemticateEntityList?.each {
+            if (it?.getEnable())
+                filterChainDefinitionMap.put(it?.getUrl(), "anon")
         }
         filterChainDefinitionMap.put("/**", "user");
         return filterChainDefinitionMap;

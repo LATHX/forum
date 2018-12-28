@@ -7,6 +7,9 @@ import tk.mybatis.mapper.common.Mapper
 
 @org.apache.ibatis.annotations.Mapper
 interface ForumListMapper extends Mapper<ForumListEntity> {
+    @Select('select count(fid) from f_forumList where fid = #{fid}')
+    Integer selectCountByFId(@Param('fid') String fid)
+
     @Select('select * from f_forumList')
     List<ForumListEntity> selectAllFromTable()
 

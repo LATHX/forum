@@ -245,6 +245,11 @@ function media(data){
         return s;
     }
     function favourite(oper, replyid){
+    if($("#authority").length<=0){
+        userPageAlert('',  '请先登录')
+        return;
+    }
+
         var hasColor = $("#"+oper+replyid).hasClass('color-blue');
         var hasColorUp = $("#up"+replyid).hasClass('color-blue');
         var hasColorDown = $("#down"+replyid).hasClass('color-blue');
@@ -393,10 +398,44 @@ function singleForumFresh(){
     $("#loadComplete").addClass("hidden");
     getSingleForum();
 }
-function followForum(fid){
-//$.post("demo_ajax_gethint.asp",{suggest:txt},function(result){$("span").html(result);});
- $('#followForum').attr('onclick','');
- $('#followForum').text('已关注');
-    $('#followForum').fadeOut(3500, null);
-
+function followForum(fid, oper){
+ $.ajax({
+        type:"POST",
+        url:"/user/follow-forum",
+        dataType:"json",
+        timeout : 50000,
+        data: { fid:fid,oper:oper },
+        success:function(data){
+            if(data.msg.msgCode == '200'){
+                $('#followForum').text('已关注');
+                $('#followForum').attr('onclick','');
+                $('#followForum').fadeOut(3500, null);
+            }else{
+                $('#followForum').text('关注');
+                userPageAlert('',  '关注失败，请稍后再试')
+            }
+        },
+        complete: function (XMLHttpRequest, textStatus) {
+            if(textStatus == 'timeout') {
+                userPageAlert('',  '连接超时，请稍后再试')
+            }
+        },
+        error:function(jqXHR){
+            $('#followForum').text('关注');
+            userPageAlert('',  '服务器繁忙，请稍后再试')
+        }
+    });
+}
+function isFollowForum(){
+    if($("#followForum").length>0){
+        var fid = $("#fid").val()
+        if(isEmpty(fid)){
+            fid = getUrlParms('fid');
+        }
+        $.post("/user-forum/isfollowforum",{fid:fid},function(data){
+            if(data.msg.msgCode == '200'){
+                $('#followForum').remove();
+            }
+        });
+    }
 }

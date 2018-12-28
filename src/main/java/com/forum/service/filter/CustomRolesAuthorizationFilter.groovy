@@ -39,11 +39,6 @@ class CustomRolesAuthorizationFilter extends RolesAuthorizationFilter {
         return false
     }
 
-    @Override
-    protected boolean onAccessDenied(ServletRequest request, ServletResponse response) throws Exception {
-        println("error")
-        return super.onAccessDenied(request, response)
-    }
 
     @Override
      boolean onPreHandle(ServletRequest request, ServletResponse response, Object mappedValue) throws Exception {

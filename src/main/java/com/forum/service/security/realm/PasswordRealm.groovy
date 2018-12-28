@@ -3,24 +3,14 @@ package com.forum.service.security.realm
 import com.forum.mapper.RoleAuthorityMapper
 import com.forum.mapper.RoleMapper
 import com.forum.mapper.UserMapper
+import com.forum.model.entity.AuthorityEntity
 import com.forum.model.entity.RoleEntity
 import com.forum.model.entity.UserEntity
-import org.apache.commons.beanutils.BeanUtils
-import org.apache.shiro.SecurityUtils
-import org.apache.shiro.authc.AuthenticationException
-import org.apache.shiro.authc.AuthenticationInfo
-import org.apache.shiro.authc.AuthenticationToken
-import org.apache.shiro.authc.SimpleAuthenticationInfo
-import org.apache.shiro.authc.UsernamePasswordToken
+import org.apache.shiro.authc.*
 import org.apache.shiro.authz.AuthorizationInfo
 import org.apache.shiro.authz.SimpleAuthorizationInfo
 import org.apache.shiro.realm.AuthorizingRealm
-import org.apache.shiro.session.Session
 import org.apache.shiro.subject.PrincipalCollection
-import org.apache.shiro.subject.SimplePrincipalCollection
-import org.apache.shiro.subject.support.DefaultSubjectContext
-import org.apache.shiro.web.mgt.DefaultWebSecurityManager
-import org.apache.shiro.web.session.mgt.DefaultWebSessionManager
 import org.springframework.beans.factory.annotation.Autowired
 
 class PasswordRealm extends AuthorizingRealm{
@@ -32,20 +22,21 @@ class PasswordRealm extends AuthorizingRealm{
     private RoleAuthorityMapper roleAuthorityMapper
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
-        UserEntity user = new UserEntity()
-//        UserEntity user = (UserEntity) principalCollection?.getPrimaryPrincipal();
-//        UserEntity user = principalCollection.getPrimaryPrincipal();
-        Object obj = principalCollection?.getPrimaryPrincipal()
-        BeanUtils.copyProperties(user, obj)
+        UserEntity user = (UserEntity) principalCollection.getPrimaryPrincipal();
         System.out.println(user.getUsername() + "进行授权操作");
         SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
         Integer roleId = user.getRoleId();
         RoleEntity role = roleMapper.findRoleById(roleId);
         info.addRole(role.getRoleName());
-        List<URLPermission.Authority> authorities = roleAuthorityMapper.findAuthoritiesByRoleId(roleId);
+        List<AuthorityEntity> authorities = roleAuthorityMapper.findAuthoritiesByRoleId(roleId);
         if (authorities.size() == 0) {
             return null;
+        }else{
+            authorities?.each {
+                info.addStringPermission(it?.getUri())
+            }
         }
+
         return info;
     }
 

@@ -5,7 +5,6 @@ import org.apache.ibatis.annotations.Delete
 import org.apache.ibatis.annotations.Insert
 import org.apache.ibatis.annotations.Param
 import org.apache.ibatis.annotations.Select
-import org.apache.ibatis.annotations.Update
 import tk.mybatis.mapper.common.Mapper
 
 @org.apache.ibatis.annotations.Mapper
@@ -36,6 +35,4 @@ interface SessionMapper extends Mapper<SessionEntity> {
     @Delete('delete from f_session where username= #{username} and cookie != #{cookie}')
     Integer DeleteOtherByUsername(SessionEntity sessionEntity)
 
-    @Update('')
-    Integer updateByPrimaryKeys()
 }

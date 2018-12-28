@@ -14,5 +14,7 @@ interface ForumService {
     MessageCodeInfo favouriteQueue(FavouriteInfo favouriteInfo, MessageCodeInfo messageCodeInfo)
     void favouriteWriter(FavouriteInfo favouriteInfo)
     UserPostAndPostReplyEntity getSinglePost(String fid, String postId, String page, UserPostAndPostReplyEntity userPostAndPostReplyEntity )
-    MessageCodeInfo followForum(FollowForumEntity followForumEntity, MessageCodeInfo messageCodeInfo)
+    MessageCodeInfo followForumQueue(FollowForumEntity followForumEntity, MessageCodeInfo messageCodeInfo)
+    void followForum(FollowForumEntity followForumEntity)
+    MessageCodeInfo isFollowForum(FollowForumEntity followForumEntity, MessageCodeInfo messageCodeInfo)
 }

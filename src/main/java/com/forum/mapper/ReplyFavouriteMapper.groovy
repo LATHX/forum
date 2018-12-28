@@ -25,6 +25,7 @@ interface ReplyFavouriteMapper extends Mapper<ReplyFavouriteEntity> {
 
     @Update('update f_reply_favourite set favourite = #{favourite} where replyId = #{replyid} and sid = #{sid}')
     Integer updateFavourite(ReplyFavouriteEntity replyFavouriteEntity)
+
     @Delete('delete from f_reply_favourite where replyId = #{replyid} and sid = #{sid}')
     Integer deleteFavourite(ReplyFavouriteEntity replyFavouriteEntity)
 

@@ -9,12 +9,14 @@
             <div class="bpt">
             </div>
         </div>
+        <shiro:user>
         <br>
         <div class="input-group">
-            <a class="cg nz ok right-button" th:onclick="followForum([[${fid}]])" id="followForum"><span class="h  color-blue">关注</span></a>
+            <a class="cg nz ok right-button" th:onclick="followForum([[${fid}]],'1')" id="followForum"><span class="h  color-blue">关注</span></a>
             <div class="bpt">
             </div>
         </div>
+        </shiro:user>
     </li>
 
     <div th:replace="/common/index/reply.html"></div>
@@ -94,6 +96,7 @@ $("#loadCompleteFinish").attr("onclick","singleForumFresh()");
 $('#single_forum_list').val(50);
 var forum_list_loading = false;
 getSingleForum();
+isFollowForum();
 $(window).scroll(function(){
  if((($(window).scrollTop()+$(window).height())+250)>=$(document).height()){
       if(forum_list_loading == false){

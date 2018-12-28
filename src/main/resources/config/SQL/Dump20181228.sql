@@ -79,7 +79,7 @@ CREATE TABLE `f_authority` (
 
 LOCK TABLES `f_authority` WRITE;
 /*!40000 ALTER TABLE `f_authority` DISABLE KEYS */;
-INSERT INTO `f_authority` VALUES (1,'查询用户列表','','/user/list','roles[admin,普通用户]'),(2,'查询角色列表','','/r','roles[admin]'),(3,'用户操作','','/user/**','roles[admin,普通用户]');
+INSERT INTO `f_authority` VALUES (1,'用户操作','','/user/**','roles[admin,普通用户]');
 /*!40000 ALTER TABLE `f_authority` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -133,6 +133,7 @@ CREATE TABLE `f_follow_forum` (
 
 LOCK TABLES `f_follow_forum` WRITE;
 /*!40000 ALTER TABLE `f_follow_forum` DISABLE KEYS */;
+INSERT INTO `f_follow_forum` VALUES ('1068310406881218560',1);
 /*!40000 ALTER TABLE `f_follow_forum` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -159,6 +160,7 @@ CREATE TABLE `f_follow_friends` (
 
 LOCK TABLES `f_follow_friends` WRITE;
 /*!40000 ALTER TABLE `f_follow_friends` DISABLE KEYS */;
+INSERT INTO `f_follow_friends` VALUES ('1068310406818304000','1068310406881218560');
 /*!40000 ALTER TABLE `f_follow_friends` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -297,7 +299,7 @@ CREATE TABLE `f_post_reply` (
   PRIMARY KEY (`replyid`),
   KEY `fk_reply_postid_idx` (`postid`),
   CONSTRAINT `fk_reply_postid` FOREIGN KEY (`postid`) REFERENCES `f_post` (`postid`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -306,7 +308,7 @@ CREATE TABLE `f_post_reply` (
 
 LOCK TABLES `f_post_reply` WRITE;
 /*!40000 ALTER TABLE `f_post_reply` DISABLE KEYS */;
-INSERT INTO `f_post_reply` VALUES (1,15,'1068310406881218560','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2018-12-24 16:45:29',1,'abc','2018-12-24 16:45:29',-1,0),(2,15,'1068310406881218560','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2018-12-24 16:45:29',1,'def','2018-12-24 16:45:29',1,0),(3,1,'1068310406881218560','1','images/unsplash_1.jpg','images/unsplash_1.jpg',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2018-12-24 21:02:50',1,'qqq','2018-12-24 21:02:50',0,0),(4,1,'1068310406881218560','2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'images/video/demo.mp4','2018-12-24 21:02:50',1,'www','2018-12-24 21:02:50',-1,0);
+INSERT INTO `f_post_reply` VALUES (1,15,'1068310406881218560','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2018-12-24 16:45:29',1,'abc','2018-12-24 16:45:29',-1,0),(2,15,'1068310406881218560','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2018-12-24 16:45:29',1,'def','2018-12-24 16:45:29',1,0),(3,1,'1068310406881218560','1','images/unsplash_1.jpg','images/unsplash_1.jpg',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2018-12-24 21:02:50',1,'qqq','2018-12-24 21:02:50',0,0),(4,1,'1068310406881218560','2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'images/video/demo.mp4','2018-12-24 21:02:50',1,'www','2018-12-24 21:02:50',-1,0),(5,15,'1068310406881218560','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2018-12-27 20:24:35',1,'123','2018-12-27 20:24:35',0,0),(6,15,'1068310406881218560','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2018-12-27 22:32:58',1,'234','2018-12-27 22:32:58',0,0),(7,15,'1068310406881218560','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2018-12-27 22:33:25',1,'345','2018-12-27 22:33:25',0,0),(8,15,'1068310406881218560','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2018-12-27 22:33:42',1,'456','2018-12-27 22:33:42',0,0);
 /*!40000 ALTER TABLE `f_post_reply` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -386,7 +388,7 @@ CREATE TABLE `f_role_authority` (
 
 LOCK TABLES `f_role_authority` WRITE;
 /*!40000 ALTER TABLE `f_role_authority` DISABLE KEYS */;
-INSERT INTO `f_role_authority` VALUES (1,1),(1000,1),(1,2);
+INSERT INTO `f_role_authority` VALUES (1,1),(1000,1);
 /*!40000 ALTER TABLE `f_role_authority` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -406,7 +408,7 @@ CREATE TABLE `f_session` (
   PRIMARY KEY (`sessionid`),
   KEY `fk_session_username_idx` (`username`),
   CONSTRAINT `fk_session_username` FOREIGN KEY (`username`) REFERENCES `f_user` (`username`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -415,7 +417,7 @@ CREATE TABLE `f_session` (
 
 LOCK TABLES `f_session` WRITE;
 /*!40000 ALTER TABLE `f_session` DISABLE KEYS */;
-INSERT INTO `f_session` VALUES (1,'admin','1','2018-12-23 23:15:20',NULL),(3,'admin','8ff42f11-945c-4f34-ba59-c4afde56fb28','2018-12-24 09:42:03','电脑'),(5,'admin','5596c814-8047-4493-a883-3208c36cffed','2018-12-24 09:45:43','iPhone设备'),(6,'admin','ef6ce503-8450-4568-8c29-e6cb914d4320','2018-12-24 10:38:29','iPhone'),(7,'admin','03d182aa-5fd8-41ed-add8-d43c6ee81c66','2018-12-24 11:24:16','iPhone'),(8,'admin','222d7212-4058-4252-acc7-dda1c3a91a70','2018-12-24 12:22:33','电脑'),(9,'admin','061d0672-874d-4d2f-8b77-7a4f5e694a27','2018-12-24 14:14:29','电脑'),(10,'guest','82b5a9d8-34ec-4624-8646-3502a51b08ca','2018-12-25 11:26:45','电脑'),(11,'guest','0cca504c-bc0a-438d-8d75-b6c9f073c4ef','2018-12-25 13:38:38','电脑'),(12,'guest','e4e198fa-4b90-4ae8-b37e-356b2d6b5c33','2018-12-25 15:24:35','电脑'),(13,'guest','be04fcc8-175e-4b94-a128-1edc8f7d5c57','2018-12-25 17:09:52','电脑'),(14,'666@qq.com','dd49a345-16bd-475e-b496-c53882ab49a2','2018-12-26 23:41:55','iPhone');
+INSERT INTO `f_session` VALUES (1,'admin','1','2018-12-23 23:15:20',NULL),(3,'admin','8ff42f11-945c-4f34-ba59-c4afde56fb28','2018-12-24 09:42:03','电脑'),(5,'admin','5596c814-8047-4493-a883-3208c36cffed','2018-12-24 09:45:43','iPhone设备'),(6,'admin','ef6ce503-8450-4568-8c29-e6cb914d4320','2018-12-24 10:38:29','iPhone'),(7,'admin','03d182aa-5fd8-41ed-add8-d43c6ee81c66','2018-12-24 11:24:16','iPhone'),(8,'admin','222d7212-4058-4252-acc7-dda1c3a91a70','2018-12-24 12:22:33','电脑'),(9,'admin','061d0672-874d-4d2f-8b77-7a4f5e694a27','2018-12-24 14:14:29','电脑'),(10,'guest','82b5a9d8-34ec-4624-8646-3502a51b08ca','2018-12-25 11:26:45','电脑'),(11,'guest','0cca504c-bc0a-438d-8d75-b6c9f073c4ef','2018-12-25 13:38:38','电脑'),(12,'guest','e4e198fa-4b90-4ae8-b37e-356b2d6b5c33','2018-12-25 15:24:35','电脑'),(13,'guest','be04fcc8-175e-4b94-a128-1edc8f7d5c57','2018-12-25 17:09:52','电脑'),(14,'666@qq.com','dd49a345-16bd-475e-b496-c53882ab49a2','2018-12-26 23:41:55','iPhone'),(15,'guest','6eb317e6-cb6e-4c93-a5eb-c88e1a2d0eb1','2018-12-28 10:16:51','电脑'),(16,'guest','61e3e979-fcbf-4f8b-bfd9-ac2f8e496276','2018-12-28 10:30:43','iPhone'),(17,'guest','181d0d12-5dd9-4ca5-b7f8-a1ed015a5db8','2018-12-28 11:09:47','电脑'),(18,'guest','76ec4dc3-6ac0-4444-bf40-ae5c2617c292','2018-12-28 11:15:34','电脑'),(19,'guest','07d2a5b0-1f4c-4452-ae7a-69ab4e683887','2018-12-28 11:19:57','电脑'),(20,'guest','0d92327e-0cf4-4f5c-b1c0-f1b093b91eda','2018-12-28 11:20:36','电脑'),(21,'guest','f56181c6-4436-4c56-a22d-414cfdae5865','2018-12-28 11:23:00','电脑'),(22,'guest','eebe0f89-86d1-4e98-9110-f97efe42a5fb','2018-12-28 11:23:47','电脑'),(23,'guest','a41a6315-c527-428b-bf2f-ca0e66cee463','2018-12-28 11:24:25','电脑'),(24,'admin','2b39c83a-8c37-4f89-a061-7796577c73db','2018-12-28 11:27:36','电脑'),(25,'admin','7a69a570-a7e6-44ee-947c-a4b164f19cc6','2018-12-28 11:34:22','电脑'),(26,'guest','baf95c7a-92e1-4bc7-aa5e-b925c72c4b9d','2018-12-28 11:35:54','电脑'),(27,'guest','372a1d6f-7640-4217-8975-1f1773c1ce36','2018-12-28 13:42:49','iPhone'),(28,'guest','a1e1fdd2-54f0-4d4d-be38-d303752a8468','2018-12-28 14:08:32','iPhone'),(29,'admin','7108f6ae-90eb-48ad-aed7-0fd474d50f63','2018-12-28 15:14:55','电脑'),(30,'admin','e90ec4e5-33e2-4a94-bee5-6f60e0ae9884','2018-12-28 15:21:54','电脑');
 /*!40000 ALTER TABLE `f_session` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -460,6 +462,47 @@ LOCK TABLES `f_user` WRITE;
 INSERT INTO `f_user` VALUES ('1068310406818304000','admin','3e64129af6c5765d78dfb8e8ff6a339003509b4b',1,1,'admin','0','海外','','',NULL),('1068310406881218560','guest','3e64129af6c5765d78dfb8e8ff6a339003509b4b',1000,1,'guest','1','海外','','',NULL),('1072752696303423488','222@qq.com','c49901a10e2f0a9d1e431c9a93f2e3a8659dbd46',1000,1,'test','0','广东省','广州市','天河区',NULL),('1072754834454745088','111@qq.com','579646aad11fae4dd295812fb4526245',1000,1,'12312','1','山西省','太原市','市辖区',NULL),('1072755841133842432','333@qq.com','a76a7be415d5d144f188f33202c4ea51',1000,1,'qewq','1','澳门特别行政区','澳门半岛',NULL,NULL),('1072756068297347072','444@qq.com','a76a7be415d5d144f188f33202c4ea51',1000,1,'4444','1','海外',NULL,NULL,NULL),('1072782789897752576','11223@qq.com','b7d785afb7b606343a9d04ff7bd6e1e8',1000,1,'HI','0','山西省','太原市','市辖区',NULL),('1074943630831128576','666@qq.com','8e1baeee1109eafbe2ae7025757eeed6fdcc7db9',1000,1,'Hello','0','辽宁省','沈阳市','市辖区',NULL),('1076741554460299264','10101@qq.com','8e1baeee1109eafbe2ae7025757eeed6fdcc7db9',1000,1,'hihihih','0','山西省','太原市','市辖区',NULL),('1077056341580845056','888@qq.com','bd1836e969145e88390a58f8b5e291ba4fbf1afd',1000,1,'Hello1','0','山西省','太原市','市辖区',NULL);
 /*!40000 ALTER TABLE `f_user` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Temporary view structure for view `userinfo_follow_count`
+--
+
+DROP TABLE IF EXISTS `userinfo_follow_count`;
+/*!50001 DROP VIEW IF EXISTS `userinfo_follow_count`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `userinfo_follow_count` AS SELECT 
+ 1 AS `sid`,
+ 1 AS `friend_count`,
+ 1 AS `followed_count`,
+ 1 AS `forum_count`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping events for database 'forum'
+--
+
+--
+-- Dumping routines for database 'forum'
+--
+
+--
+-- Final view structure for view `userinfo_follow_count`
+--
+
+/*!50001 DROP VIEW IF EXISTS `userinfo_follow_count`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `userinfo_follow_count` AS select `t1`.`sid` AS `sid`,`t1`.`friend_count` AS `friend_count`,`t1`.`followed_count` AS `followed_count`,`t1`.`forum_count` AS `forum_count` from (select `a`.`sid` AS `sid`,`a`.`friend_count` AS `friend_count`,`a`.`followed_count` AS `followed_count`,`b`.`forum_count` AS `forum_count` from (((select `a`.`sid` AS `sid`,`a`.`friend_count` AS `friend_count`,`b`.`followed_count` AS `followed_count` from (((select `t1`.`sid` AS `sid`,`t1`.`friend_count` AS `friend_count` from (select `a`.`sid` AS `sid`,`b`.`friend_count` AS `friend_count` from (`forum`.`f_user` `a` left join (select `forum`.`f_follow_friends`.`sid` AS `sid`,count(`forum`.`f_follow_friends`.`sid`) AS `friend_count` from `forum`.`f_follow_friends` group by `forum`.`f_follow_friends`.`sid`) `b` on((`a`.`sid` = `b`.`sid`)))) `t1`)) `a` left join ((select `t2`.`sid` AS `sid`,`t2`.`followed_count` AS `followed_count` from (select `a`.`sid` AS `sid`,`b`.`followed_count` AS `followed_count` from (`forum`.`f_user` `a` left join (select `forum`.`f_follow_friends`.`friend_sid` AS `sid`,count(`forum`.`f_follow_friends`.`friend_sid`) AS `followed_count` from `forum`.`f_follow_friends` group by `forum`.`f_follow_friends`.`friend_sid`) `b` on((`a`.`sid` = `b`.`sid`)))) `t2`)) `b` on((`a`.`sid` = `b`.`sid`))))) `a` left join ((select `t1`.`sid` AS `sid`,`t1`.`forum_count` AS `forum_count` from (select `a`.`sid` AS `sid`,`b`.`forum_count` AS `forum_count` from (`forum`.`f_user` `a` left join (select `forum`.`f_follow_forum`.`sid` AS `sid`,count(`forum`.`f_follow_forum`.`sid`) AS `forum_count` from `forum`.`f_follow_forum` group by `forum`.`f_follow_forum`.`sid`) `b` on((`a`.`sid` = `b`.`sid`)))) `t1`)) `b` on((`a`.`sid` = `b`.`sid`)))) `t1` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -470,4 +513,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-12-27 17:17:30
+-- Dump completed on 2018-12-28 17:02:51

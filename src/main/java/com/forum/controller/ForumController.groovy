@@ -5,6 +5,7 @@ import com.forum.global.GlobalCode
 import com.forum.model.dto.CommonInfo
 import com.forum.model.dto.FavouriteInfo
 import com.forum.model.dto.MessageCodeInfo
+import com.forum.model.entity.FollowForumEntity
 import com.forum.model.entity.ForumListEntity
 import com.forum.model.entity.UserForumListPostVOEntity
 import com.forum.model.entity.UserPostAndPostReplyEntity
@@ -104,5 +105,13 @@ class ForumController {
             return commonInfo
         }
         return list
+    }
+
+    @RequestMapping('/isfollowforum')
+    @ResponseBody
+    isFollowForum(FollowForumEntity followForumEntity, MessageCodeInfo messageCodeInfo, CommonInfo commonInfo) {
+        messageCodeInfo = forumService.isFollowForum(followForumEntity, messageCodeInfo)
+        commonInfo.setMsg(messageCodeInfo)
+        return commonInfo
     }
 }

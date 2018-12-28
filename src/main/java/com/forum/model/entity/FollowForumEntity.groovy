@@ -8,6 +8,15 @@ import javax.persistence.Table
 class FollowForumEntity implements Serializable{
     String sid
     String fid
+    String oper
+
+    String getOper() {
+        return oper
+    }
+
+    void setOper(String oper) {
+        this.oper = oper
+    }
 
     String getSid() {
         return sid

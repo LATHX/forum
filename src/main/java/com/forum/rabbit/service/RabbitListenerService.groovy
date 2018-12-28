@@ -49,27 +49,31 @@ class RabbitListenerService {
     }
 
     @RabbitListener(queues = 'del.redis_user_session')
-    void delRedisUserSession(byte[] msg){
+    void delRedisUserSession(byte[] msg) {
         println('Del Redis User Session')
         String username = (String) CommonUtil.getObjectFromBytes(msg)
         shiroUtil.kickOutUser(username, true)
     }
+
     @RabbitListener(queues = 'add.user_session')
-    void addUserSession(byte[] msg){
+    void addUserSession(byte[] msg) {
         println('Add User Session')
         SessionEntity sessionEntity = (SessionEntity) CommonUtil.getObjectFromBytes(msg)
         shiroService.addUserSession(sessionEntity)
     }
+
     @RabbitListener(queues = 'user.post_favourite')
-    void addPostFavourite(byte[] msg){
+    void addPostFavourite(byte[] msg) {
         FavouriteInfo favouriteInfo = (FavouriteInfo) CommonUtil.getObjectFromBytes(msg)
         forumService.favouriteWriter(favouriteInfo)
     }
-    @RabbitListener(queues = 'user.follow')
-    void userFollow(byte[] msg){
-        Object obj = CommonUtil.getObjectFromBytes(msg)
-        if(obj instanceof FollowForumEntity){
 
+    @RabbitListener(queues = 'user.follow')
+    void userFollow(byte[] msg) {
+        Object obj = CommonUtil.getObjectFromBytes(msg)
+        if (obj instanceof FollowForumEntity) {
+            FollowForumEntity followForumEntity = (FollowForumEntity) obj
+            forumService.followForum(followForumEntity)
         }
     }
 }
