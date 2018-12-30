@@ -31,61 +31,61 @@ class ShiroServiceImpl {
      * 其他资源都需要认证  authc 表示需要认证才能进行访问 ,user表示配置记住我或认证通过可以访问的地址
      * @return
      */
-    public Map<String, String> loadFilterChainDefinitions() {
+    Map<String, String> loadFilterChainDefinitions() {
         List<AuthorityEntity> authorities = authorityMapper.selectAllFromTable()
         List<NonAuthemticateEntity> nonAuthemticateEntityList = authemticateMapper.selectAllFromTable()
         Map<String, String> filterChainDefinitionMap = new LinkedHashMap<>();
-        if (authorities.size() > 0) {
-            String uris;
-            String[] uriArr;
-            for (AuthorityEntity authority : authorities) {
-                if (CommonUtil.isEmpty(authority.getPermission())) {
-                    continue;
-                }
-                uris = authority.getUri();
-                uriArr = uris.split(",");
-                for (String uri : uriArr) {
-                    filterChainDefinitionMap.put(uri, authority.getPermission());
-                }
-            }
-        }
-
         nonAuthemticateEntityList?.each {
             if (it?.getEnable())
                 filterChainDefinitionMap.put(it?.getUrl(), "anon")
         }
-        filterChainDefinitionMap.put("/**", "user");
-        return filterChainDefinitionMap;
+        if (authorities.size() > 0) {
+            String uris
+            String[] uriArr
+            for (AuthorityEntity authority : authorities) {
+                if (CommonUtil.isEmpty(authority.getPermission())) {
+                    continue
+                }
+                uris = authority.getUri()
+                uriArr = uris.split(",")
+                for (String uri : uriArr) {
+                    filterChainDefinitionMap.put(uri, authority.getPermission())
+                }
+            }
+        }
+
+        filterChainDefinitionMap.put("/**", "user")
+        return filterChainDefinitionMap
     }
 
     /**
      * 在对角色进行增删改操作时，需要调用此方法进行动态刷新
      * @param shiroFilterFactoryBean
      */
-    public void updatePermission(ShiroFilterFactoryBean shiroFilterFactoryBean) {
+    void updatePermission(ShiroFilterFactoryBean shiroFilterFactoryBean) {
         synchronized (this) {
-            AbstractShiroFilter shiroFilter;
+            AbstractShiroFilter shiroFilter
             try {
-                shiroFilter = (AbstractShiroFilter) shiroFilterFactoryBean.getObject();
+                shiroFilter = (AbstractShiroFilter) shiroFilterFactoryBean.getObject()
             } catch (Exception e) {
-                throw new RuntimeException("get ShiroFilter from shiroFilterFactoryBean error!");
+                throw new RuntimeException("get ShiroFilter from shiroFilterFactoryBean error!")
             }
 
-            PathMatchingFilterChainResolver filterChainResolver = (PathMatchingFilterChainResolver) shiroFilter.getFilterChainResolver();
-            DefaultFilterChainManager manager = (DefaultFilterChainManager) filterChainResolver.getFilterChainManager();
+            PathMatchingFilterChainResolver filterChainResolver = (PathMatchingFilterChainResolver) shiroFilter.getFilterChainResolver()
+            DefaultFilterChainManager manager = (DefaultFilterChainManager) filterChainResolver.getFilterChainManager()
 
             // 清空老的权限控制
-            manager.getFilterChains().clear();
+            manager.getFilterChains().clear()
 
-            shiroFilterFactoryBean.getFilterChainDefinitionMap().clear();
-            shiroFilterFactoryBean.setFilterChainDefinitionMap(loadFilterChainDefinitions());
+            shiroFilterFactoryBean.getFilterChainDefinitionMap().clear()
+            shiroFilterFactoryBean.setFilterChainDefinitionMap(loadFilterChainDefinitions())
             // 重新构建生成
-            Map<String, String> chains = shiroFilterFactoryBean.getFilterChainDefinitionMap();
+            Map<String, String> chains = shiroFilterFactoryBean.getFilterChainDefinitionMap()
             for (Map.Entry<String, String> entry : chains.entrySet()) {
-                String url = entry.getKey();
+                String url = entry.getKey()
                 String chainDefinition = entry.getValue().trim()
-                        .replace(" ", "");
-                manager.createChain(url, chainDefinition);
+                        .replace(" ", "")
+                manager.createChain(url, chainDefinition)
             }
         }
     }
@@ -98,7 +98,7 @@ class ShiroServiceImpl {
             sessionMapper.updateByPrimaryKey(exitsSession)
         } else if (count == 0) {
             sessionMapper.insert(session)
-        }else{
+        } else {
             logger.warn('User Session more than 1 row')
         }
 

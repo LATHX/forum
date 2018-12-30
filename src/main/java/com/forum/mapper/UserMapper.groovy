@@ -8,6 +8,9 @@ import tk.mybatis.mapper.common.Mapper
 
 @org.apache.ibatis.annotations.Mapper
 interface UserMapper extends Mapper<UserEntity> {
+    @Select('select nickname,sex,province,city,dist,user_img from f_user where sid=#{sid}')
+    UserEntity findUserBySid(String sid)
+
     @Select('select * from f_user where username=#{username}')
     UserEntity findUserByUserName(String username)
 

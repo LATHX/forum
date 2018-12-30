@@ -351,8 +351,8 @@ color:white;
 .text-align-center{
     text-align:center;
 }
-.opacity-50per{
-    filter:alpha(Opacity=40);
-    -moz-opacity:0.4;
-    opacity: 0.4;
+.opacity-60per{
+    filter:alpha(Opacity=60);
+    -moz-opacity:0.6;
+    opacity: 0.6;
 }
