@@ -22,7 +22,7 @@
 
 <body class="bob" style="overflow: scroll;">
 <nav class="ck pt adq py tk app-navbar">
-    <a class="e" href="javascript:window.parent.closeHidePanel()" id="goback">
+    <a class="e" href="javascript:window.history.back(-1)" id="goback">
         <i class="fa fa-angle-left fa-1x"></i>
     </a>
     <!--<a class="e arrow-right" id="callback">-->
@@ -82,8 +82,10 @@ $('#single_post_list').val(70);
 var forum_post_loading = false;
 getSinglePost();
 
-if(!isInIframe()){
+if(isPC()&&!isInIframe()){
     $("#goback").attr('href','index.html');
+}else if(isPC()&&isInIframe()){
+    $("#goback").attr('href','javascript:window.parent.closeHidePanel()');
 }
 $(window).scroll(function(){
  if((($(window).scrollTop()+$(window).height())+250)>=$(document).height()){
