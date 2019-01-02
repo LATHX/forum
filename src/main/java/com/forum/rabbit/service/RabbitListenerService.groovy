@@ -4,10 +4,12 @@ import com.forum.global.Constant
 import com.forum.model.dto.FavouriteInfo
 import com.forum.model.dto.MailInfo
 import com.forum.model.entity.FollowForumEntity
+import com.forum.model.entity.FollowFriendEntity
 import com.forum.model.entity.SessionEntity
 import com.forum.redis.util.RedisUtil
 import com.forum.service.ForumService
 import com.forum.service.MailService
+import com.forum.service.UserService
 import com.forum.service.impl.ShiroServiceImpl
 import com.forum.utils.CommonUtil
 import com.forum.utils.ShiroUtil
@@ -25,6 +27,8 @@ class RabbitListenerService {
     ShiroUtil shiroUtil
     @Autowired
     ForumService forumService
+    @Autowired
+    UserService userService
 
     @RabbitListener(queues = 'secure.token_generate')
     void generateUUID() {
@@ -74,6 +78,9 @@ class RabbitListenerService {
         if (obj instanceof FollowForumEntity) {
             FollowForumEntity followForumEntity = (FollowForumEntity) obj
             forumService.followForum(followForumEntity)
+        }else if(obj instanceof FollowFriendEntity){
+            FollowFriendEntity followFriendEntity = (FollowFriendEntity)obj
+            userService.followFriend(followFriendEntity)
         }
     }
 }

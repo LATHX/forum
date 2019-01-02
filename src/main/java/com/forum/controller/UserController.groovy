@@ -5,6 +5,7 @@ import com.forum.global.GlobalCode
 import com.forum.model.dto.CommonInfo
 import com.forum.model.dto.MessageCodeInfo
 import com.forum.model.entity.FollowForumEntity
+import com.forum.model.entity.FollowFriendEntity
 import com.forum.service.ForumService
 import com.forum.service.UserService
 import com.forum.utils.CommonUtil
@@ -35,6 +36,20 @@ class UserController {
         return commonInfo
     }
 
+    @RequestMapping('/follow-friend')
+    @ResponseBody
+    followFriend(FollowFriendEntity followFriendEntity, MessageCodeInfo messageCodeInfo, CommonInfo commonInfo) {
+        if (CommonUtil.isEmpty(followFriendEntity.getFriendSid()) || CommonUtil.isEmpty(followFriendEntity.getOper()) || !(followFriendEntity.getOper() in ['1', '-1'])) {
+            messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
+            messageCodeInfo.setMsgInfo(Constant.ERROR_PARAM)
+            commonInfo.setMsg(messageCodeInfo)
+            return commonInfo
+        }
+        messageCodeInfo = userService.followFriendQueue(followFriendEntity, messageCodeInfo)
+        commonInfo.setMsg(messageCodeInfo)
+        return commonInfo
+    }
+
     @RequestMapping('/user-info')
     @ResponseBody
     findUserInfo(String sid, MessageCodeInfo messageCodeInfo, CommonInfo commonInfo) {
@@ -45,5 +60,13 @@ class UserController {
             return commonInfo
         }
         return userService.findUserBySid(sid)
+    }
+
+    @RequestMapping('/isfollowfriend')
+    @ResponseBody
+    isFollowForum(FollowFriendEntity followFriendEntity, MessageCodeInfo messageCodeInfo, CommonInfo commonInfo) {
+        messageCodeInfo = userService.isFollowFriend(followFriendEntity, messageCodeInfo)
+        commonInfo.setMsg(messageCodeInfo)
+        return commonInfo
     }
 }

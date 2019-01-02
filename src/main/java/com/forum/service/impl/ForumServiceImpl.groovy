@@ -124,7 +124,7 @@ class ForumServiceImpl implements ForumService {
         if (ShiroUtil.getUser() == null) {
             messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
             messageCodeInfo.setMsgInfo(Constant.LOGIN_OUT_MSG)
-        } else if (CommonUtil.isEmpty(favouriteInfo.getOperate()) || CommonUtil.isEmpty(favouriteInfo.getReplyId()) || !(favouriteInfo.getOperate() in ['1','0','-1'])) {
+        } else if (CommonUtil.isEmpty(favouriteInfo.getOperate()) || CommonUtil.isEmpty(favouriteInfo.getReplyId()) || !(favouriteInfo.getOperate() in ['1', '0', '-1'])) {
             messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
             messageCodeInfo.setMsgInfo(Constant.ERROR_PARAM)
         } else {
@@ -205,27 +205,26 @@ class ForumServiceImpl implements ForumService {
 
     @Override
     void followForum(FollowForumEntity followForumEntity) {
-        if(followForumEntity.getOper() == '1'){
+        if (followForumEntity.getOper() == '1') {
             Integer fidCount = forumListMapper.selectCountByFId(followForumEntity.getFid())
             Integer followCount = followForumMapper.selectCountBySIdAndFId(followForumEntity)
-            if(fidCount == 1 && followCount == 0){
+            if (fidCount == 1 && followCount == 0) {
                 followForumMapper.insert(followForumEntity)
             }
-        }else if(followForumEntity.getOper() == '-1'){
+        } else if (followForumEntity.getOper() == '-1') {
             followForumMapper.deleteBySIdAndFId(followForumEntity)
         }
-
     }
 
     @Override
     MessageCodeInfo isFollowForum(FollowForumEntity followForumEntity, MessageCodeInfo messageCodeInfo) {
         UserEntity user = ShiroUtil.getUser()
-        if(user != null && followForumEntity.getFid() != null){
+        if (user != null && CommonUtil.isNotEmpty(followForumEntity.getFid())) {
             followForumEntity.setSid(user.getSid())
             Integer followCount = followForumMapper.selectCountBySIdAndFId(followForumEntity)
-            if(followCount == 1){
+            if (followCount == 1) {
                 messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_SUCCESS)
-            }else{
+            } else {
                 messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
             }
             return messageCodeInfo

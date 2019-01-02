@@ -16,18 +16,18 @@
 
             <ul class="bpk">
                 <li class="bpl">
-                    <a href="#userModal" class="boa" data-toggle="modal">
-                        Friends
-                        <h6 class="aej">12M</h6>
+                    <a href="javascript:void(0);" class="boa" id="index_followed">
+                        关注<h7 class="aej" ><i class="fa fa-refresh fa-spin"></i></h7>
                     </a>
                 </li>
 
                 <li class="bpl">
-                    <a href="#userModal" class="boa" data-toggle="modal">
-                        Enemies
-                        <h6 class="aej">1</h6>
+                    <a href="javascript:void(0);" class="boa" id="index_friend">
+                        粉丝<h7 class="aej" ><i class="fa fa-refresh fa-spin"></i></h7>
                     </a>
                 </li>
+
+
             </ul>
         </div>
     </div>
@@ -65,4 +65,33 @@
       }else{
       $("#man").removeClass("hidden");
       }
+if(isAuthority()){
+getUserFollowedInfo();
+}
+      function getUserFollowedInfo(){
+      $.ajax({
+            type:"POST",
+            url:"/user/user-info",
+            dataType:"json",
+            timeout : 50000,
+            data: { sid:$("#userSid").text()},
+            success:function(data){
+                if(data.hasOwnProperty("msg")){
+                    userPageAlert('',  data.msg.msgInfo);
+                    return;
+                }
+                $("#index_followed").html("关注<h6 class='aej' >"+data.friendCount+"</h6>");
+                $("#index_friend").html("粉丝<h6 class='aej' >"+data.followedCount+"</h6>");
+            },
+            complete: function (XMLHttpRequest, textStatus) {
+                if(textStatus == 'timeout') {
+                    userPageAlert('',  '连接超时，请稍后再试')
+                }
+            },
+            error:function(jqXHR){
+                userPageAlert('',  '服务器繁忙，请稍后再试')
+            }
+        });
+      }
+
 </script>

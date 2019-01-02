@@ -1,12 +1,31 @@
+<Shiro:user>
 <div class="pz vp vy afo">
-    <div class="qa">
-        <h6 class="afh">About <small>· <a href="#">Edit</a></small></h6>
-        <ul class="dc axg">
-            <li><span class="axc h ban aff"></span>Went to <a href="#">Oh, Canada</a>
-            <li><span class="axc h bnc aff"></span>Became friends with <a href="#">Obama</a>
-            <li><span class="axc h bfa aff"></span>Worked at <a href="#">Github</a>
-            <li><span class="axc h bfq aff"></span>Lives in <a href="#">San Francisco, CA</a>
-            <li><span class="axc h bgz aff"></span>From <a href="#">Seattle, WA</a>
-        </ul>
+    <a class="btn btn-primary width100per" data-toggle="collapse" href="#userinfo" role="button" aria-expanded="false"
+       aria-controls="collapseExample">
+        编辑个人信息
+    </a>
+    <div class="collapse" id="userinfo">
+        <div class="card card-body">
+            <div class="qa">
+                <h6 class="afh">关于
+                    <small>· <a href="#">编辑</a></small>
+                </h6>
+                <ul class="dc axg">
+                    <li>昵称 <a href="javascript:void(0)"><shiro:principal property="nickname"/></a></li>
+                    <li>性别 <a href="javascript:void(0)" id="sex_info"></a>
+                    </li>
+                    <li>来自 <a href="javascript:void(0)"><shiro:principal property="province"/><shiro:principal property="city"/><shiro:principal property="dist"/></a>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>
+<script>
+    var sex = $("#sex").text();
+    if(sex == '0'){
+    $("#sex_info").text("男");
+    }else if(sex == '1'){
+    $("#sex_info").text("女");
+    }
+</script>
+</Shiro:user>

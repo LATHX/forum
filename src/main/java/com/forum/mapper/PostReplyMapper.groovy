@@ -10,6 +10,6 @@ interface PostReplyMapper extends Mapper<PostReplyEntity> {
     @Select('select * from f_post_reply where replyId = #{replyId}')
     PostReplyEntity SelectByReplyId(@Param('replyId') String replyId)
 
-    @Select('select * from f_post_reply where postId = #{postId}')
+    @Select('select * from f_post_reply where postId = #{postId} order by lastupdatetime desc')
     PostReplyEntity SelectByPostId(@Param('postId') String postId)
 }

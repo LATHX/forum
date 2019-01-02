@@ -39,15 +39,15 @@
         </form>
         <shiro:user>
             <ul id="#js-popoverContent" class="nav navbar-nav acx aek d-none vt">
-                <li class="pi">
-                    <a class="g pg" href="#msgModal" data-toggle="modal">
-                        <span class="h azy"></span>
-                    </a>
-                </li>
+                <!--<li class="pi">-->
+                    <!--<a class="g pg" href="#msgModal" data-toggle="modal">-->
+                        <!--<span class="h azy"></span>-->
+                    <!--</a>-->
+                <!--</li>-->
 
                 <li class="pi afb">
                     <button class="cg bpo bpp boi" data-toggle="popover">
-                        <img class="us" src="images/avatar-dhg.png">
+                        <img class="us" src="images/no_user_image.png" id="us">
                     </button>
                 </li>
             </ul>
@@ -82,6 +82,9 @@
       }
      while(window.BS&&window.BS.loader&&window.BS.loader.length){
         (window.BS.loader.pop())();
+     }
+     if(!isEmpty($("#userImghidden").text()) && $("#userImghidden").text() != 'null'){
+        $("#us").prop("src",$("#userImghidden").text());
      }
     });
     function jump(url){

@@ -18,10 +18,10 @@ class ShiroUtil {
     @Autowired
     SessionMapper sessionMapper
 /**
-     * 获取指定用户名的Session
-     * @param username
-     * @return
-     */
+ * 获取指定用户名的Session
+ * @param username
+ * @return
+ */
     private static Session getSessionByUsername(String username) {
         RedisSessionDAO redisSessionDAO = SpringUtil.getBean(RedisSessionDAO.class)
         Collection<Session> sessions = redisSessionDAO.getActiveSessions();
@@ -48,7 +48,7 @@ class ShiroUtil {
      * @param username 用户名
      * @param isRemoveSession 是否删除session，删除后用户需重新登录
      */
-     void kickOutUser(String username, boolean isRemoveSession) throws Exception {
+    void kickOutUser(String username, boolean isRemoveSession) throws Exception {
         List<SessionEntity> list = sessionMapper.SelectAllCookieByUsername(username)
         list.each {
             String key = SESSION_KEY + it.getCookie()

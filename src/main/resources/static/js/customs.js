@@ -502,3 +502,10 @@ function isInIframe() {
     }
     return false;
 }
+function isAuthority(){
+if($("#authority").length>0){
+ return true;
+}else{
+return false;
+}
+}

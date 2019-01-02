@@ -28,8 +28,17 @@ class PostReplyEntity implements Serializable{
     boolean enable
     String text
     String lastupdatetime
+    Integer top
     @Version
     Integer version
+
+    Integer getTop() {
+        return top
+    }
+
+    void setTop(Integer top) {
+        this.top = top
+    }
 
     Integer getVersion() {
         return version

@@ -23,6 +23,7 @@
 
 
 <body class="bob">
+<div th:replace="common/index/constant.html"></div>
 <div class="modals hidden" id="hidePanel">
     <!--<div>-->
         <!--<nav class="ck pt adq py tk app-navbar">-->
@@ -36,7 +37,6 @@
 
     </iframe></div>
 </div>
-<div th:replace="common/index/constant.html"></div>
 <div class="bon" id="app-growl"></div>
 
 <div th:replace="common/index/nav.html"></div>
@@ -47,7 +47,7 @@
     <div class="dp">
         <div class="fj">
             <div th:replace="common/index/person_info.html"></div>
-            <!--<div th:replace="common/index/person_info_edit.html"></div>-->
+            <div th:replace="common/index/person_info_edit.html"></div>
             <div id="slideTrendMobile">
                 <div th:replace="common/index/trend_list.html"></div>
             </div>

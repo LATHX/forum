@@ -51,7 +51,7 @@ class RequestLimitAspect extends HandlerInterceptorAdapter {
             if (url.substring(url.lastIndexOf('/')) == LIMIT_PATH || url.substring(url.lastIndexOf('/')) == '/cookie' || url.substring(url.lastIndexOf('/')) == '/setcookie.html') {
                 return true
             }
-//            String customCookie = CommonUtil.getCookies(request, 'custom.name')
+            String customCookie = CommonUtil.getCookies(request, 'custom.name')
 //            if (CommonUtil.isEmpty(customCookie)) {
 //                    renderCookie(request, response)
 //                    return false
