@@ -8,7 +8,7 @@
         <div class="card card-body">
             <div class="qa">
                 <h6 class="afh">关于
-                    <small>· <a href="#">编辑</a></small>
+                    <small>· <a href="javascript:void(0)" data-toggle="modal" data-target="#editUserInfo">编辑</a></small>
                 </h6>
                 <ul class="dc axg">
                     <li>昵称 <a href="javascript:void(0)"><shiro:principal property="nickname"/></a></li>
@@ -20,6 +20,31 @@
         </div>
     </div>
 </div>
+
+    <!-- Modal -->
+    <div class="modal" id="editUserInfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">修改个人信息</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body width100per">
+
+                    <form enctype="multipart/form-data">
+                        　　上传头像:<input id="uploadUserinfo" name="uploadUserinfo" type="file" class="file-loading width-auto" data-overwrite-initial="false" data-min-file-count="1"/>
+                    </form>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
 <script>
     var sex = $("#sex").text();
     if(sex == '0'){
@@ -27,5 +52,41 @@
     }else if(sex == '1'){
     $("#sex_info").text("女");
     }
+
+    $("#uploadUserinfo").fileinput({
+        language: 'zh', //设置语言
+        uploadUrl: '/user/edit-portrait', //上传的地址
+        allowedFileExtensions: ['jpg', 'gif', 'png'],//接收的文件后缀
+        showUpload: true, //是否显示上传按钮
+        showCaption: false,//是否显示标题
+        browseClass: "btn btn-primary", //按钮样式
+        dropZoneEnabled: true,//是否显示拖拽区域
+        //minImageWidth: 50, //图片的最小宽度
+        //minImageHeight: 50,//图片的最小高度
+        //maxImageWidth: 1000,//图片的最大宽度
+        //maxImageHeight: 1000,//图片的最大高度
+        maxFileSize: 2000,//单位为kb，如果为0表示不限制文件大小
+        minFileCount: 1,
+        fileActionSettings:{showUpload: false},
+        maxFileCount: 1, //表示允许同时上传的最大文件个数
+        enctype: 'multipart/form-data',
+        validateInitialCount:true,
+        preferIconicPreview: true,
+        previewFileIcon: "<i class=''></i>",
+        layoutTemplates:{ // 预览图片按钮控制，这里屏蔽预览按钮
+   	         actionZoom:''
+        },
+        msgFilesTooMany: "选择上传的文件数量({n}) 超过允许的最大数值{m}！",
+        });
+
+ //导入文件上传完成之后的事件
+    $("#uploadUserinfo").on("fileuploaded", function (event, data, previewId, index) {
+        var res = data.response;
+        if (data == undefined || res.msg.msgCode != '200') {
+            console.log('文件格式类型不正确');
+            return;
+        }
+    });
+
 </script>
 </Shiro:user>

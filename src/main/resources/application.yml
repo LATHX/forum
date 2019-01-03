@@ -1,5 +1,7 @@
 server:
   port: 8080
+web:
+  upload-path: D:/forums/src/main/resources/static/images/userImg
 spring:
   mail:
     host: smtp.qq.com
@@ -16,7 +18,7 @@ spring:
   main:
     allow-bean-definition-overriding: true
   resources:
-    static-locations: classpath:/testStatic/,classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
+    static-locations: classpath:/testStatic/,classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,file:${web.upload-path}
   mvc:
     view:
       suffix: .html
@@ -88,7 +90,8 @@ spring:
         default-requeue-rejected: false
 ## 该配置节点为独立的节点，有很多同学容易将这个配置放在spring的节点下，导致配置无法被识别
 mybatis:
-  mapper-locations: classpath:mapping/*.xml  #注意：一定要对应mapper映射xml文件的所在路径 type-aliases-package: com.winter.model # 注意：对应实体类的路径
+  mapper-locations: classpath:mapping/*.xml  #注意：一定要对应mapper映射xml文件的所在路径
+  type-aliases-package: com.forum.model.entity # 注意：对应实体类的路径
   configuration:
     mapUnderscoreToCamelCase: true
     map-underscore-to-camel-case: true

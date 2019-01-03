@@ -56,3 +56,9 @@ th:onclick="followForum([[${fid}]], this);"
 
 Shiro整合
 https://blog.csdn.net/haoyuyang/article/details/80036989
+
+loading gif
+http://blog.sina.com.cn/s/blog_4ad042e50102ek2v.html
+
+upload path
+https://www.cnblogs.com/Alpharun/p/9335486.html

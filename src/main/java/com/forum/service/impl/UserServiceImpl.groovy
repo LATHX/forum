@@ -13,7 +13,9 @@ import com.forum.service.UserService
 import com.forum.utils.CommonUtil
 import com.forum.utils.ShiroUtil
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Service
+import org.springframework.web.multipart.MultipartFile
 
 @Service
 class UserServiceImpl implements UserService {
@@ -21,6 +23,8 @@ class UserServiceImpl implements UserService {
     UserMapper userMapper
     @Autowired
     FollowFriendMapper followFriendMapper
+    @Value('${web.upload-path}')
+    private String path;
 
     @Override
     UserFollowCountVOEntity findUserBySid(String sid) {
@@ -70,7 +74,7 @@ class UserServiceImpl implements UserService {
     @Override
     MessageCodeInfo isFollowFriend(FollowFriendEntity followFriendEntity, MessageCodeInfo messageCodeInfo) {
         UserEntity user = ShiroUtil.getUser()
-        followFriendEntity.setSid(user.getSid())
+        followFriendEntity.setSid(user?.getSid())
         if (user != null && CommonUtil.isNotEmpty(followFriendEntity.getFriendSid()) && followFriendEntity.getSid() != followFriendEntity.getFriendSid()) {
             Integer followCount = followFriendMapper.selectCountBySIdAndFriendId(followFriendEntity)
             if (followCount == 1) {
@@ -85,5 +89,42 @@ class UserServiceImpl implements UserService {
         }
         messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
         return messageCodeInfo
+    }
+
+    @Override
+    MessageCodeInfo uploadPortrait(MultipartFile file, MessageCodeInfo messageCodeInfo) {
+        UserEntity user = ShiroUtil.getUser()
+        if(user == null){
+            messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
+            return messageCodeInfo
+        }
+        String name = ""
+        String pathname = ""
+        String fileName = file.getOriginalFilename()
+//        File path = new File(ResourceUtils.getURL("classpath:").getPath());
+//        File uploadFile = new File(path.getAbsolutePath(), "static/images/userImg/");//开发测试模式中 获取到的是/target/classes/static/images/upload/
+//        if (!uploadFile.exists()){
+//            uploadFile.mkdirs();
+//        }
+        File uploadFile = new File(path);
+        if (!uploadFile.exists()){
+            uploadFile.mkdirs();
+        }
+        //获取文件后缀名
+        String end = CommonUtil.getExtension(file.getOriginalFilename());
+        name = CommonUtil.generateUUID() + user.getSid().substring(0, 5)
+        String diskFileName = name + "." +end; //目标文件的文件名
+        pathname = path+ "/" + diskFileName;
+        UserEntity userEntity = userMapper.selectByPrimaryKey(user.getSid())
+        userEntity.setUserImg("images/userImg/" + name)
+        Integer updateRow = userMapper.updateByPrimaryKey(userEntity)
+        if(updateRow == 1){
+            file.transferTo(new File(pathname));//文件转存
+            messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_SUCCESS)
+        }else{
+            messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
+        }
+        return messageCodeInfo
+
     }
 }

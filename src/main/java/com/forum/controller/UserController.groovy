@@ -12,7 +12,9 @@ import com.forum.utils.CommonUtil
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.ResponseBody
+import org.springframework.web.multipart.MultipartFile
 
 @Controller
 @RequestMapping('/user')
@@ -66,6 +68,17 @@ class UserController {
     @ResponseBody
     isFollowForum(FollowFriendEntity followFriendEntity, MessageCodeInfo messageCodeInfo, CommonInfo commonInfo) {
         messageCodeInfo = userService.isFollowFriend(followFriendEntity, messageCodeInfo)
+        commonInfo.setMsg(messageCodeInfo)
+        return commonInfo
+    }
+
+    @RequestMapping('/edit-portrait')
+    @ResponseBody
+    uploadPortrait(@RequestParam("uploadUserinfo") MultipartFile file, MessageCodeInfo messageCodeInfo, CommonInfo commonInfo) {
+        if(file.isEmpty()){
+            messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
+        }
+        messageCodeInfo = userService.uploadPortrait(file, messageCodeInfo)
         commonInfo.setMsg(messageCodeInfo)
         return commonInfo
     }

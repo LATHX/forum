@@ -242,4 +242,8 @@ class CommonUtil {
         return number?.isNumber()
     }
 
+    static String getExtension(String s){
+        if(s.lastIndexOf(".") == -1) return s
+        return s.substring(s.lastIndexOf(".") + 1)
+    }
 }
