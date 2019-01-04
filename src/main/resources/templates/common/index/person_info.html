@@ -1,13 +1,13 @@
 <html lang="zh_CN" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
 <div shiro:user>
     <div class="pz bpi afo fade-in-animation">
-        <div class="qf" style="background-image: url(images/iceland.jpg);"></div>
+        <div class=" background-size-100per qf" id="userInfoBackgroundImg"></div>
         <div class="qa avz">
-            <a href="profile/index.html">
-                <img class="bpj" src="images/no_user_image.png" id="userImg">
+            <a href="">
+                <img class="bpj" src="images/no_user_image.png" id="userImg" width="100px" height="100px">
             </a>
             <h6 class="qb">
-                <a class="boa" href="profile/index.html"><shiro:principal property="nickname"/></a>
+                <a class="boa" href=""><shiro:principal property="nickname"/></a>
             </h6>
             <i class="fa fa-mars hidden width-auto height-auto color-sex-blue" id="man"></i>
             <i class="fa-mars fa fa-rotate-180 hidden width-auto height-auto color-sex-red"  id="woman"></i>
@@ -54,6 +54,9 @@
     </div>
 </div>
 <script>
+    if(!isEmpty($("#userBackgroundImg").text())){
+        $("#userInfoBackgroundImg").css("background-image","url("+$("#userBackgroundImg").text()+")");
+    }
     var sex = $("#sex").text();
     var userImghidden = $("#userImghidden").text();
     if(userImghidden !=null && userImghidden.trim().length>0 && userImghidden != 'null' && userImghidden.trim() != 'null'){

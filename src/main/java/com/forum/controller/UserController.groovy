@@ -6,6 +6,7 @@ import com.forum.model.dto.CommonInfo
 import com.forum.model.dto.MessageCodeInfo
 import com.forum.model.entity.FollowForumEntity
 import com.forum.model.entity.FollowFriendEntity
+import com.forum.model.entity.UserEntity
 import com.forum.service.ForumService
 import com.forum.service.UserService
 import com.forum.utils.CommonUtil
@@ -74,11 +75,33 @@ class UserController {
 
     @RequestMapping('/edit-portrait')
     @ResponseBody
-    uploadPortrait(@RequestParam("uploadUserinfo") MultipartFile file, MessageCodeInfo messageCodeInfo, CommonInfo commonInfo) {
-        if(file.isEmpty()){
+    uploadPortrait(
+            @RequestParam("uploadUserinfo") MultipartFile file, MessageCodeInfo messageCodeInfo, CommonInfo commonInfo) {
+        if (file.isEmpty()) {
             messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
         }
         messageCodeInfo = userService.uploadPortrait(file, messageCodeInfo)
+        commonInfo.setMsg(messageCodeInfo)
+        return commonInfo
+    }
+
+    @RequestMapping('/edit-background')
+    @ResponseBody
+    uploadBackground(
+            @RequestParam("uploadUserinfoBackgroung") MultipartFile file, MessageCodeInfo messageCodeInfo, CommonInfo commonInfo) {
+        if (file.isEmpty()) {
+            messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
+        }
+        messageCodeInfo = userService.uploadBackgroundImage(file, messageCodeInfo)
+        commonInfo.setMsg(messageCodeInfo)
+        return commonInfo
+    }
+
+    @RequestMapping('/edit-info')
+    @ResponseBody
+    editUserInfo(
+            UserEntity userEntity, MessageCodeInfo messageCodeInfo, CommonInfo commonInfo) {
+        messageCodeInfo = userService.editUserInfo(userEntity, messageCodeInfo)
         commonInfo.setMsg(messageCodeInfo)
         return commonInfo
     }

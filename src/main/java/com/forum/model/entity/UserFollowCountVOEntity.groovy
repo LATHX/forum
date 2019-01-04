@@ -15,6 +15,15 @@ class UserFollowCountVOEntity implements Serializable{
     private String friendCount
     private String followedCount
     private String forumCount
+    private String userBackgroundImg
+
+    String getUserBackgroundImg() {
+        return userBackgroundImg
+    }
+
+    void setUserBackgroundImg(String userBackgroundImg) {
+        this.userBackgroundImg = userBackgroundImg
+    }
 
     String getSid() {
         return sid

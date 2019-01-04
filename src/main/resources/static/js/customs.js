@@ -212,7 +212,7 @@ function media(data) {
 function forumMain(data) {
     var s = "";
     var img = isEmpty(data.userImg) == true ? 'images/no_user_image.png' : data.userImg;
-    s += "<li class='rv b agz fade-in-animation'><img class='bos vb yb aff' src='" + img + "' data-sid='" + data.sid + "'  data-oper='1' data-toggle=\"modal\" data-target=\"#friend_modal\"><div class='rw'><div class='bpb'><small class='acx axc'><i class='fa fa-share-alt width-auto height-auto fa-1x'></i>";
+    s += "<li class='rv b agz fade-in-animation'><img class='bos vb yb aff' width='62px' height='62px'  src='" + img + "' data-sid='" + data.sid + "'  data-oper='1' data-toggle=\"modal\" data-target=\"#friend_modal\"><div class='rw'><div class='bpb'><small class='acx axc'><i class='fa fa-share-alt width-auto height-auto fa-1x'></i>";
     if (isPC()) {
         s += getDateDiff(data.lastupdatetime.substring(0, data.lastupdatetime.lastIndexOf('.'))) + "</small><h6><a href=\"javascript:void(0);\" onclick=\"jump('/single_post?postid=" + data.postid + "&fid=" + $("#fid").val() + "')\">" + data.title + "</a></h6></div><p>" + data.text + "</p>";
     } else {
@@ -229,7 +229,7 @@ function forumMain(data) {
 function postMain(data) {
     var s = "";
     var img = isEmpty(data.userImg) == true ? 'images/no_user_image.png' : data.userImg;
-    s += "<li class='rv b agz fade-in-animation'><img class='bos vb yb aff' src='" + img + "' data-sid='" + data.creator + "'  data-oper='1' data-toggle=\"modal\" data-target=\"#friend_modal\"><div class='rw'><div class='bpb'><small class='acx axc'><i class='fa fa-share-alt width-auto height-auto fa-1x'></i>";
+    s += "<li class='rv b agz fade-in-animation'><img class='bos vb yb aff' width='62px' height='62px'  src='" + img + "' data-sid='" + data.creator + "'  data-oper='1' data-toggle=\"modal\" data-target=\"#friend_modal\"><div class='rw'><div class='bpb'><small class='acx axc'><i class='fa fa-share-alt width-auto height-auto fa-1x'></i>";
     s += getDateDiff(data.lastupdatetime.substring(0, data.lastupdatetime.lastIndexOf('.'))) + "</small><h6>" + data.nickname + "</h6></div><p>" + data.text + "</p>";
     s += media(data);
     if (data.hasOwnProperty("userPostReplyVOEntity")) {
@@ -244,7 +244,7 @@ function postMain(data) {
 function postReply(data) {
     var s = "";
     var img = isEmpty(true && data.userImg) == true ? 'images/no_user_image.png' : data.userImg;
-    s += "<li class='rv b agz fade-in-animation'><img class='bos vb yb aff' src='" + img + "' data-sid='" + data.creator + "' data-oper='1' data-toggle=\"modal\" data-target=\"#friend_modal\"><div class='rw'><div class='bpb'><small class='acx axc'>";
+    s += "<li class='rv b agz fade-in-animation'><img class='bos vb yb aff' width='62px' height='62px' src='" + img + "' data-sid='" + data.creator + "' data-oper='1' data-toggle=\"modal\" data-target=\"#friend_modal\"><div class='rw'><div class='bpb'><small class='acx axc'>";
     if (data.hasOwnProperty("replyFavouriteEntity") && data.replyFavouriteEntity.favourite == '1') {
         s += "<i class='fa fa-arrow-up width-auto hegiht-auto color-blue' id='up" + data.replyid + "' onclick=\"favourite('up','" + data.replyid + "')\"></i>";
     } else {

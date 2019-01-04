@@ -1,28 +1,37 @@
 <Shiro:user>
-<div class="pz vp vy afo">
-    <a class="btn btn-primary width100per" data-toggle="collapse" href="#userinfo" role="button" aria-expanded="false"
-       aria-controls="collapseExample">
-        编辑个人信息
-    </a>
-    <div class="collapse" id="userinfo">
-        <div class="card card-body">
-            <div class="qa">
-                <h6 class="afh">关于
-                    <small>· <a href="javascript:void(0)" data-toggle="modal" data-target="#editUserInfo">编辑</a></small>
-                </h6>
-                <ul class="dc axg">
-                    <li>昵称 <a href="javascript:void(0)"><shiro:principal property="nickname"/></a></li>
-                    <li>性别 <a href="javascript:void(0)" id="sex_info"></a>
-                    </li>
-                    <li>来自 <a href="javascript:void(0)"><shiro:principal property="province"/><shiro:principal property="city"/><shiro:principal property="dist"/></a>
-                </ul>
+    <div class="pz vp vy afo">
+        <a class="btn btn-primary width100per" data-toggle="collapse" href="#userinfo" role="button"
+           aria-expanded="false"
+           aria-controls="collapseExample">
+            编辑个人信息
+        </a>
+        <div class="collapse" id="userinfo">
+            <div class="card card-body">
+                <div class="qa">
+                    <h6 class="afh">关于
+                        <small>· <a href="javascript:void(0)" data-toggle="modal" data-target="#editUserInfo">编辑</a>
+                        </small>
+                    </h6>
+                    <ul class="dc axg">
+                        <li>昵称 <a href="javascript:void(0)">
+                            <shiro:principal property="nickname"/>
+                        </a></li>
+                        <li>性别 <a href="javascript:void(0)" id="sex_info"></a>
+                        </li>
+                        <li>来自 <a href="javascript:void(0)">
+                            <shiro:principal property="province"/>
+                            <shiro:principal property="city"/>
+                            <shiro:principal property="dist"/>
+                        </a>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
     <!-- Modal -->
-    <div class="modal" id="editUserInfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal" id="editUserInfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" data-backdrop="static"
+         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -32,27 +41,81 @@
                     </button>
                 </div>
                 <div class="modal-body width100per">
-
-                    <form enctype="multipart/form-data">
-                        　　上传头像:<input id="uploadUserinfo" name="uploadUserinfo" type="file" class="file-loading width-auto" data-overwrite-initial="false" data-min-file-count="1"/>
-                    </form>
-
+                    <div>
+                    <label>性别:</label>
+                    <input type="radio" value="0" name="edit_sex" id="editSexMan"> 男
+                    <input type="radio" value="1" name="edit_sex" id="editSexWoman"> 女
+                    </div>
+                        　　<label style="left:3%;position:absolute;">上传头像:</label>
+                        <div id="uplodaUserSqueare">
+                            <input id="uploadUserinfo" name="uploadUserinfo" type="file" class="file-loading width-auto"
+                                   data-overwrite-initial="false" data-min-file-count="1"/>
+                        </div>
+                        <label >上传背景图:</label>
+                        <div id="uplodaBackgroundSqueare">
+                            <input id="uploadUserinfoBackgroung" name="uploadUserinfoBackgroung" type="file"
+                                   class="file-loading width-auto"
+                                   data-overwrite-initial="false" data-min-file-count="1"/>
+                        </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
-                    <button type="button" class="btn btn-primary">保存</button>
+                    <button type="button" class="btn btn-primary" onclick="saveEdit()" id="userSaveButton">保存</button>
                 </div>
             </div>
         </div>
     </div>
-<script>
-    var sex = $("#sex").text();
+    <script>
+ var sex = $("#sex").text();
     if(sex == '0'){
     $("#sex_info").text("男");
     }else if(sex == '1'){
     $("#sex_info").text("女");
     }
+$('#editUserInfo').on('show.bs.modal', function (event) {
+if(sex == '0'){
+    $("#editSexMan").prop('checked',true);
+    }else if(sex == '1'){
+    $("#editSexWoman").prop('checked',true);
+    }
+     $("#uplodaBackgroundSqueare").empty();
+     $("#uplodaUserSqueare").empty();
+     $("#uplodaUserSqueare").append("<input id='uploadUserinfo' name='uploadUserinfo' type='file' class='file-loading width-auto' data-overwrite-initial='false' data-min-file-count='1'/>");
+     $("#uplodaBackgroundSqueare").append("<input id='uploadUserinfoBackgroung' name='uploadUserinfoBackgroung' type='file' class='file-loading width-auto' data-overwrite-initial='false' data-min-file-count='1'/>");
+initUplodaUserSqueare();
+initUplodaBackgroundSqueare();
+});
 
+function saveEdit(){
+var sexvalue = $('input[name="edit_sex"]:checked').val();
+alert(sexvalue)
+ $.ajax({
+            type:"POST",
+            url:"/user/edit-info",
+            dataType:"json",
+            timeout : 50000,
+            data: { sex:sexvalue},
+            success:function(data){
+                if(data.msg.msgCode != '200'){
+                    userPageAlert('',  data.msg.msgInfo);
+                    return;
+                }
+$("#userSaveButton").text("已保存");
+$("#userSaveButton").prop("disabled",true);
+            },
+            complete: function (XMLHttpRequest, textStatus) {
+                if(textStatus == 'timeout') {
+                    userPageAlert('',  '连接超时，请稍后再试')
+                }
+            },
+            error:function(jqXHR){
+                userPageAlert('',  '服务器繁忙，请稍后再试')
+            }
+        });
+}
+
+
+function initUplodaUserSqueare(){
     $("#uploadUserinfo").fileinput({
         language: 'zh', //设置语言
         uploadUrl: '/user/edit-portrait', //上传的地址
@@ -60,7 +123,42 @@
         showUpload: true, //是否显示上传按钮
         showCaption: false,//是否显示标题
         browseClass: "btn btn-primary", //按钮样式
-        dropZoneEnabled: true,//是否显示拖拽区域
+        dropZoneEnabled: false,//是否显示拖拽区域
+        //minImageWidth: 50, //图片的最小宽度
+        //minImageHeight: 50,//图片的最小高度
+        //maxImageWidth: 1000,//图片的最大宽度
+        //maxImageHeight: 1000,//图片的最大高度
+        maxFileSize: 2000,//单位为kb，如果为0表示不限制文件大小
+        minFileCount: 1,
+        fileActionSettings:{showUpload: true},
+        maxFileCount: 1, //表示允许同时上传的最大文件个数
+        enctype: 'multipart/form-data',
+        validateInitialCount:true,
+        preferIconicPreview: true,
+        previewFileIcon: "<i class=''></i>",
+        layoutTemplates:{ // 预览图片按钮控制，这里屏蔽预览按钮
+   	         actionZoom:''
+        },
+        msgFilesTooMany: "选择上传的文件数量({n}) 超过允许的最大数值{m}！",
+        });
+         //导入文件上传完成之后的事件
+    $("#uploadUserinfo").on("fileuploaded", function (event, data, previewId, index) {
+        var res = data.response;
+        if (data == undefined || res.msg.msgCode != '200') {
+            userPageAlert('','未能上传成功或文件格式类型不正确');
+            return;
+        }
+    });
+        }
+function initUplodaBackgroundSqueare(){
+$("#uploadUserinfoBackgroung").fileinput({
+        language: 'zh', //设置语言
+        uploadUrl: '/user/edit-background', //上传的地址
+        allowedFileExtensions: ['jpg', 'gif', 'png'],//接收的文件后缀
+        showUpload: true, //是否显示上传按钮
+        showCaption: false,//是否显示标题
+        browseClass: "btn btn-primary", //按钮样式
+        dropZoneEnabled: false,//是否显示拖拽区域
         //minImageWidth: 50, //图片的最小宽度
         //minImageHeight: 50,//图片的最小高度
         //maxImageWidth: 1000,//图片的最大宽度
@@ -79,14 +177,17 @@
         msgFilesTooMany: "选择上传的文件数量({n}) 超过允许的最大数值{m}！",
         });
 
- //导入文件上传完成之后的事件
-    $("#uploadUserinfo").on("fileuploaded", function (event, data, previewId, index) {
+    $("#uploadUserinfoBackgroung").on("fileuploaded", function (event, data, previewId, index) {
         var res = data.response;
         if (data == undefined || res.msg.msgCode != '200') {
-            console.log('文件格式类型不正确');
+            userPageAlert('','未能上传成功或文件格式类型不正确');
             return;
         }
     });
+}
 
-</script>
+
+
+
+    </script>
 </Shiro:user>

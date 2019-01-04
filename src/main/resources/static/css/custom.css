@@ -356,3 +356,13 @@ color:white;
     -moz-opacity:0.6;
     opacity: 0.6;
 }
+.opacity-30per{
+    filter:alpha(Opacity=30);
+    -moz-opacity:0.3;
+    opacity: 0.3;
+}
+.background-size-100per{
+-moz-background-size:100% 100%;
+ background-repeat:no-repeat;
+background-size:100% 100%;
+}

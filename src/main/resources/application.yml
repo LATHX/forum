@@ -1,7 +1,8 @@
 server:
   port: 8080
 web:
-  upload-path: D:/forums/src/main/resources/static/images/userImg
+  upload-userimg-path: D:/images/userImg/
+  upload-userbackgroundimg-path: D:/images/userBackgroundImg/
 spring:
   mail:
     host: smtp.qq.com
@@ -17,9 +18,10 @@ spring:
             enable: true
   main:
     allow-bean-definition-overriding: true
-  resources:
-    static-locations: classpath:/testStatic/,classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,file:${web.upload-path}
+  #resources:
+    #static-locations: classpath:/testStatic/,classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,file:${web.upload-path}
   mvc:
+    static-path-pattern: /**
     view:
       suffix: .html
   thymeleaf:

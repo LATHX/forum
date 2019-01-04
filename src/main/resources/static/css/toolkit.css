@@ -8777,7 +8777,7 @@ img.zoom-img {
   max-width: 100%; }
 
 .box .bos {
-  width: 42px;
+  /*width: 42px;*/
   margin-right: 5px; }
 
 .box .rw .bow .bos {
@@ -8886,7 +8886,7 @@ img.zoom-img {
 
 .bpi .qf {
   height: 150px;
-  background-size: cover; }
+ /*background-size: cover; */}
 
 .bpj {
   max-width: 100px;

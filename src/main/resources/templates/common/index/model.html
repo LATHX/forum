@@ -1,6 +1,6 @@
 <div class="modal fade-in-animation" id="friend_modal" data-backdrop="static" style="position: fixed;">
     <div class="modal-dialog modal-md" >
-        <div class="modal-content" style="background-image: url(images/iceland.jpg); -moz-background-size:100% 100%;background-size:100% 100%; background-repeat:no-repeat;">
+        <div class="modal-content background-size-100per " id="friendBackgroundImage">
             <div class="modal-header">
                 <h4 class="modal-title"></h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
@@ -9,11 +9,12 @@
             <div class="modal-body modal-body-scroller" >
                 <div class="boq" >
                     <div class="by">
-                        <div class="bor">
-                            <img class="us bos" id="friend_model_img" src="images/no_user_image.png">.
-                            <h3 class="bou" id="friend_model_nickname"></h3>
+                        <div class="bor" >
+                            <img class="us bos" id="friend_model_img" src="images/no_user_image.png" height="100px" width="100px">.
+                            <div class="opacity-60per" style="background-color:black;">
+                            <h3 class="bou" id="friend_model_nickname" ></h3>
                             <!--<p class="bot">-->
-                            <div class="bpk" style="color:white;">
+                            <div class="bpk " style="color:white;">
                                 <li class="bpl">
                                     <a href="javascript:void(0);" class="boa" id="friend_count">
                                         关注:<h7 class="aej" ><i class="fa fa-refresh fa-spin"></i></h7>
@@ -30,7 +31,7 @@
                                         论坛:<h7 class="aej" ><i class="fa fa-refresh fa-spin"></i></h7>
                                     </a>
                                 </li>
-
+                            </div>
                             </div>
                             <!--<div class="bov">-->
                                 <!--<ul class="nav ph xm">-->
@@ -143,6 +144,11 @@ function followFriend(oper){
                 $("#friend_count").html("关注<h6 class='aej' >"+data.friendCount+"</h6>");
                 $("#followed_count").html("粉丝<h6 class='aej' >"+data.followedCount+"</h6>");
                 $("#forum_count").html("论坛<h6 class='aej' >"+data.forumCount+"</h6>");
+                if(!isEmpty(data.userBackgroundImg)){
+                     $("#friendBackgroundImage").css("background-image","url("+data.userBackgroundImg+")");
+                }else{
+                     $("#friendBackgroundImage").css("background-image","url(images/iceland.jpg)");
+                }
             },
             complete: function (XMLHttpRequest, textStatus) {
                 if(textStatus == 'timeout') {

@@ -18,11 +18,20 @@ class UserEntity implements Serializable, AuthCachePrincipal {
     private String nickname
     private Integer roleId
     private boolean enable
-    private char sex
+    private String sex
     private String province
     private String city
     private String dist
     private String userImg
+    private String userBackgroundImg
+
+    String getUserBackgroundImg() {
+        return userBackgroundImg
+    }
+
+    void setUserBackgroundImg(String userBackgroundImg) {
+        this.userBackgroundImg = userBackgroundImg
+    }
 
     String getUserImg() {
         return userImg
@@ -32,11 +41,11 @@ class UserEntity implements Serializable, AuthCachePrincipal {
         this.userImg = userImg
     }
 
-    char getSex() {
+    String getSex() {
         return sex
     }
 
-    void setSex(@Param(value="sex") char sex) {
+    void setSex(@Param(value="sex")String sex) {
         this.sex = sex
     }
 

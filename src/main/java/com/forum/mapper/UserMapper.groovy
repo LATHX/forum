@@ -9,7 +9,7 @@ import tk.mybatis.mapper.common.Mapper
 
 @org.apache.ibatis.annotations.Mapper
 interface UserMapper extends Mapper<UserEntity> {
-    @Select('select nickname,sex,province,city,dist,user_img,userinfo_follow_count.* from f_user,userinfo_follow_count where f_user.sid=#{sid} and f_user.sid = userinfo_follow_count.sid')
+    @Select('select nickname,sex,province,city,dist,user_img,user_background_img,userinfo_follow_count.* from f_user,userinfo_follow_count where f_user.sid=#{sid} and f_user.sid = userinfo_follow_count.sid')
     UserFollowCountVOEntity findUserBySid(String sid)
 
     @Select('select * from f_user where username=#{username}')
