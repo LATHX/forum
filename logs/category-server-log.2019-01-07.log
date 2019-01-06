@@ -1,0 +1,30 @@
+2019-01-07 00:08:32.130 [Thread-17] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
+2019-01-07 00:08:32.314 [Thread-17] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2019-01-07 00:08:32.316 [Thread-17] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
+2019-01-07 00:08:33.314 [Thread-17] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2019-01-07 00:08:33.317 [Thread-17] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
+2019-01-07 00:08:34.318 [Thread-17] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2019-01-07 00:08:34.320 [Thread-17] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
+2019-01-07 00:08:35.322 [Thread-17] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2019-01-07 00:08:35.324 [Thread-17] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
+2019-01-07 00:08:36.325 [Thread-17] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2019-01-07 00:08:36.326 [Thread-17] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
+2019-01-07 00:08:37.328 [Thread-17] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2019-01-07 00:08:37.329 [Thread-17] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
+2019-01-07 00:08:38.330 [Thread-17] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2019-01-07 00:08:38.332 [Thread-17] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
+2019-01-07 00:08:39.332 [Thread-17] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2019-01-07 00:08:39.333 [Thread-17] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
+2019-01-07 00:08:39.333 [Thread-17] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2019-01-07 00:08:39.336 [Thread-17] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Shutdown ignored - container is not active already
+2019-01-07 00:08:39.336 [Thread-17] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Shutdown ignored - container is not active already
+2019-01-07 00:08:39.336 [Thread-17] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Shutdown ignored - container is not active already
+2019-01-07 00:08:39.336 [Thread-17] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Shutdown ignored - container is not active already
+2019-01-07 00:08:39.336 [Thread-17] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Shutdown ignored - container is not active already
+2019-01-07 00:08:39.336 [Thread-17] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Shutdown ignored - container is not active already
+2019-01-07 00:08:39.336 [Thread-17] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Shutdown ignored - container is not active already
+2019-01-07 00:08:39.336 [Thread-17] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Shutdown ignored - container is not active already
+2019-01-07 00:08:39.336 [Thread-17] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Shutdown ignored - container is not active already
+2019-01-07 00:08:39.337 [Thread-17] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2019-01-07 00:08:39.342 [Thread-17] INFO  o.a.s.session.mgt.AbstractValidatingSessionManager - Disabled session validation scheduler.
+2019-01-07 00:08:39.343 [Thread-17] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed

@@ -56,7 +56,7 @@ class RequestLimitAspect extends HandlerInterceptorAdapter {
 //                    renderCookie(request, response)
 //                    return false
 //            }
-            String key = "req_limit_".concat(url).concat(ip).concat(customCookie)
+            String key = "req_limit_".concat(url?.toString())?.concat(ip?.toString())?.concat(customCookie?.toString())
 
             if (!RedisUtil.hasKey(key) || CommonUtil.isEmpty(RedisUtil.get(key))) {
                 RedisUtil.set(key, String.valueOf(1))

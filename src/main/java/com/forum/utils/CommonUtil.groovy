@@ -178,7 +178,7 @@ class CommonUtil {
                 return cookies[i].getValue()
             }
         }
-        return null
+        return ''
     }
 
     static void addCookie(HttpServletResponse response, String name, String value) {
