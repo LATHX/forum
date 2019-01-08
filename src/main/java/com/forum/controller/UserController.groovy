@@ -10,14 +10,17 @@ import com.forum.model.entity.UserEntity
 import com.forum.service.ForumService
 import com.forum.service.UserService
 import com.forum.utils.CommonUtil
+import io.swagger.annotations.Api
+import io.swagger.annotations.ApiImplicitParam
+import io.swagger.annotations.ApiOperation
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
-import org.springframework.web.bind.annotation.ResponseBody
+import org.springframework.web.bind.annotation.RestController
 import org.springframework.web.multipart.MultipartFile
 
-@Controller
+@Api(value = "用户信息", tags = ['用户信息相关操作'])
+@RestController
 @RequestMapping('/user')
 class UserController {
     @Autowired
@@ -25,8 +28,9 @@ class UserController {
     @Autowired
     UserService userService
 
+    @ApiOperation('用户关注论坛')
+    @ApiImplicitParam(name = "followForumEntity", value = "用户关注论坛信息", dataType = "FollowForumEntity")
     @RequestMapping('/follow-forum')
-    @ResponseBody
     followForum(FollowForumEntity followForumEntity, MessageCodeInfo messageCodeInfo, CommonInfo commonInfo) {
         if (CommonUtil.isEmpty(followForumEntity.getFid()) || CommonUtil.isEmpty(followForumEntity.getOper()) || !(followForumEntity.getOper() in ['1', '-1'])) {
             messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
@@ -39,8 +43,9 @@ class UserController {
         return commonInfo
     }
 
+    @ApiOperation('用户关注好友')
+    @ApiImplicitParam(name = "followFriendEntity", value = "用户关注好友信息", dataType = "FollowFriendEntity")
     @RequestMapping('/follow-friend')
-    @ResponseBody
     followFriend(FollowFriendEntity followFriendEntity, MessageCodeInfo messageCodeInfo, CommonInfo commonInfo) {
         if (CommonUtil.isEmpty(followFriendEntity.getFriendSid()) || CommonUtil.isEmpty(followFriendEntity.getOper()) || !(followFriendEntity.getOper() in ['1', '-1'])) {
             messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
@@ -53,8 +58,9 @@ class UserController {
         return commonInfo
     }
 
+    @ApiOperation('获取用户信息')
+    @ApiImplicitParam(name = "sid", value = "用户id", dataType = "String")
     @RequestMapping('/user-info')
-    @ResponseBody
     findUserInfo(String sid, MessageCodeInfo messageCodeInfo, CommonInfo commonInfo) {
         if (CommonUtil.isEmpty(sid)) {
             messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
@@ -65,16 +71,17 @@ class UserController {
         return userService.findUserBySid(sid)
     }
 
+    @ApiOperation('是否已关注好友')
+    @ApiImplicitParam(name = "followFriendEntity", value = "关注好友信息", dataType = "FollowFriendEntity")
     @RequestMapping('/isfollowfriend')
-    @ResponseBody
     isFollowForum(FollowFriendEntity followFriendEntity, MessageCodeInfo messageCodeInfo, CommonInfo commonInfo) {
         messageCodeInfo = userService.isFollowFriend(followFriendEntity, messageCodeInfo)
         commonInfo.setMsg(messageCodeInfo)
         return commonInfo
     }
 
+    @ApiOperation('用户修改个人头像')
     @RequestMapping('/edit-portrait')
-    @ResponseBody
     uploadPortrait(
             @RequestParam("uploadUserinfo") MultipartFile file, MessageCodeInfo messageCodeInfo, CommonInfo commonInfo) {
         if (file.isEmpty()) {
@@ -85,8 +92,8 @@ class UserController {
         return commonInfo
     }
 
+    @ApiOperation('用户修改个人背景')
     @RequestMapping('/edit-background')
-    @ResponseBody
     uploadBackground(
             @RequestParam("uploadUserinfoBackgroung") MultipartFile file, MessageCodeInfo messageCodeInfo, CommonInfo commonInfo) {
         if (file.isEmpty()) {
@@ -97,8 +104,9 @@ class UserController {
         return commonInfo
     }
 
+    @ApiOperation('用户修改个人信息')
+    @ApiImplicitParam(name = "userEntity", value = "用户信息", dataType = "UserEntity")
     @RequestMapping('/edit-info')
-    @ResponseBody
     editUserInfo(
             UserEntity userEntity, MessageCodeInfo messageCodeInfo, CommonInfo commonInfo) {
         messageCodeInfo = userService.editUserInfo(userEntity, messageCodeInfo)

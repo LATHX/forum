@@ -1,10 +1,105 @@
+
 <li class="rv b agz fade-in-animation" id="reply">
     <div class="input-group">
-        <input type="text" class="form-control" placeholder="有什么话想对我说...">
+        <input type="text" class="form-control" placeholder="有什么话想对我说..."  data-toggle="modal" data-target="#reply_model">
         <div class="bpt">
-            <button type="button" class="cg ns yf">
+            <button type="button" class="cg ns yf"   data-toggle="modal" data-target="#reply_model">
                 <span class="h bao"></span>
             </button>
         </div>
     </div>
+    <!--<div class="input-group">-->
+        <!--<select class="selectpicker" multiple>-->
+            <!--<option>Mustard</option>-->
+            <!--<option>Ketchup</option>-->
+            <!--<option>Relish</option>-->
+        <!--</select>-->
+    <!--</div>-->
 </li>
+<!-- Modal -->
+<div class="modal" id="reply_model" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" data-backdrop="static"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">发布新内容</h5>
+                <button type="button" class="btn btn-default" data-dismiss="modal" aria-label="Close" style="float:left">
+                    <span aria-hidden="true">关闭</span>
+                </button>
+                <button type="button" class="btn btn-primary" style="float:right">
+                    <span aria-hidden="true">发布</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <select class="selectpicker  show-menu-arrow" multiple data-live-search="true"  data-max-options="10"  title="提醒谁看"  data-width="100%">
+                    <option>Mustard</option>
+                    <option>Ketchup</option>
+                    <option>Relish</option>
+                </select>
+
+            </div>
+            <div class="modal-body">
+                <div>
+                <textarea class="form-control" id="deblock_udid" name="deblock_udid"  style="resize:none;" rows="8" cols="20"></textarea><br>
+                </div>
+                <div class="btn-toolbar" role="toolbar">
+                    <div class="btn-group width100per">
+                        <button type="button" class="btn btn-primary" style="width:50%;">图片</button>
+                        <button type="button" class="btn btn-default"  style="width:50%;">视频</button>
+                    </div>
+                </div><br>
+                <div id="uplodaUserSqueare">
+                    <input id="replyImage" name="replyImage" type="file" class="file-loading width-auto"
+                           data-overwrite-initial="false" data-min-file-count="1" multiple/>
+                </div>
+                <br>
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" onclick="" id="userSaveButton">发布</button>
+            </div>
+        </div>
+    </div>
+    </div>
+
+<script>
+     $('.selectpicker').selectpicker();
+initUplodaReplyImage();
+     function initUplodaReplyImage(){
+    $("#replyImage").fileinput({
+        language: 'zh', //设置语言
+        uploadUrl: '/user/edit-portrait', //上传的地址
+        allowedFileExtensions: ['jpg', 'gif', 'png'],//接收的文件后缀
+        showUpload: true, //是否显示上传按钮
+        showCaption: false,//是否显示标题
+        browseClass: "btn btn-primary", //按钮样式
+        dropZoneEnabled: false,//是否显示拖拽区域
+        //minImageWidth: 50, //图片的最小宽度
+        //minImageHeight: 50,//图片的最小高度
+        //maxImageWidth: 1000,//图片的最大宽度
+        //maxImageHeight: 1000,//图片的最大高度
+        maxFileSize: 2000,//单位为kb，如果为0表示不限制文件大小
+        minFileCount: 1,
+        fileActionSettings:{showUpload: true},
+        maxFileCount: 9, //表示允许同时上传的最大文件个数
+        enctype: 'multipart/form-data',
+        validateInitialCount:true,
+        preferIconicPreview: true,
+        previewFileIcon: "<i class=''></i>",
+        layoutTemplates:{ // 预览图片按钮控制，这里屏蔽预览按钮
+   	         actionZoom:''
+        },
+        msgFilesTooMany: "选择上传的文件数量{n} 超过允许的最大数值{m},请先删除之前的图片！",
+        });
+         //导入文件上传完成之后的事件
+    $("#replyImage").on("fileuploaded", function (event, data, previewId, index) {
+        var res = data.response;
+        if (data == undefined || res.msg.msgCode != '200') {
+            userPageAlert('','未能上传成功或文件格式类型不正确');
+            return;
+        }
+    });
+        }
+</script>

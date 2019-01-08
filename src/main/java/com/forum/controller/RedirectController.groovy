@@ -4,10 +4,11 @@ import com.forum.global.Constant
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.RequestMapping
+import springfox.documentation.annotations.ApiIgnore
 
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
-
+@ApiIgnore
 @Controller
 class RedirectController {
     @RequestMapping('/index')

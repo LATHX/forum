@@ -7,22 +7,26 @@ import com.forum.model.dto.RegisterInfo
 import com.forum.model.validationInterface.RegisterGroup
 import com.forum.model.validationInterface.RegisterMailGroup
 import com.forum.service.RegisterService
+import io.swagger.annotations.Api
+import io.swagger.annotations.ApiImplicitParam
+import io.swagger.annotations.ApiOperation
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.stereotype.Controller
 import org.springframework.validation.BindingResult
 import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.ResponseBody
+import org.springframework.web.bind.annotation.RestController
 
 import javax.servlet.http.HttpServletRequest
 
-@Controller
+@Api(value = "用户注册", tags = ['用户注册相关操作'])
+@RestController
 class RegisterController {
     @Autowired
     RegisterService registerService
 
+    @ApiOperation('用户注册提交')
+    @ApiImplicitParam(name = "registerInfo", value = "用户注册信息", dataType = "RegisterInfo")
     @PostMapping('/register')
-    @ResponseBody
     register(HttpServletRequest request,
              @Validated(value = [RegisterGroup.class]) RegisterInfo registerInfo, BindingResult bindingResult, MessageCodeInfo messageCodeInfo, CommonInfo commonInfo) throws Exception {
         if (bindingResult?.hasErrors()) {
@@ -35,8 +39,9 @@ class RegisterController {
         return commonInfo
     }
 
+    @ApiOperation('发送用户注册邮件')
+    @ApiImplicitParam(name = "registerInfo", value = "用户注册信息", dataType = "RegisterInfo")
     @PostMapping('/send-register-mail')
-    @ResponseBody
     registerMail(HttpServletRequest request,
                  @Validated(value = [RegisterMailGroup.class]) RegisterInfo registerInfo, BindingResult bindingResult, MessageCodeInfo messageCodeInfo, CommonInfo commonInfo) throws Exception {
         if (bindingResult?.hasErrors()) {
