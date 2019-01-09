@@ -366,3 +366,15 @@ color:white;
  background-repeat:no-repeat;
 background-size:100% 100%;
 }
+.width33per{
+    width:33%;
+}
+.float-left{
+    float:left;
+}
+.float-right{
+    float:right;
+}
+.resize-none{
+    resize:none;
+}

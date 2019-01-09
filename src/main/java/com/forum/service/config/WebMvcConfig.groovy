@@ -16,8 +16,8 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 
 /**
- * @Description 处理Json中文乱码问题
- * @Version 1.0
+ * @Description 处理Json中文乱码问题, 映射上传图片路径
+ * @Version 2.0
  */
 @Configuration
 class WebMvcConfig extends WebMvcConfigurerAdapter {
@@ -28,6 +28,8 @@ class WebMvcConfig extends WebMvcConfigurerAdapter {
     private String userImgPath
     @Value('${web.upload-userbackgroundimg-path}')
     private String userBackgroundImgPath
+    @Value('${web.upload-userpostimage-path}')
+    private String userPostImgPath
 
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
@@ -52,19 +54,22 @@ class WebMvcConfig extends WebMvcConfigurerAdapter {
         registry.setOrder(Ordered.HIGHEST_PRECEDENCE)
         super.addViewControllers(registry)
     }
-
+    /**
+     * 系统默认配置 addResourceLocations
+     * 添加的配置 addResourceHandler 表示将/images/userImg/**..映射到D:目录
+     * @param registry
+     */
     @Override
     void addResourceHandlers(ResourceHandlerRegistry registry) {
-        //这是系统默认配置
         registry.addResourceHandler("/**")
                 .addResourceLocations("classpath:/META-INF/resources/")
                 .addResourceLocations("classpath:/resources/")
                 .addResourceLocations("classpath:/static/")
-                .addResourceLocations("classpath:/public/");
+                .addResourceLocations("classpath:/public/")
 
-        //这是添加的配置，表示将/picture/..映射到E:/picture/目录
-        registry.addResourceHandler("/images/userImg/**").addResourceLocations("file:" + userImgPath);
-        registry.addResourceHandler("/images/userBackgroundImg/**").addResourceLocations("file:" + userBackgroundImgPath);
+        registry.addResourceHandler("/images/userImg/**").addResourceLocations("file:" + userImgPath)
+        registry.addResourceHandler("/images/userBackgroundImg/**").addResourceLocations("file:" + userBackgroundImgPath)
+        registry.addResourceHandler("/images/userPostImg/**").addResourceLocations("file:" + userPostImgPath)
         super.addResourceHandlers(registry);
     }
 }

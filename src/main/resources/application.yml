@@ -3,6 +3,7 @@ server:
 web:
   upload-userimg-path: D:/images/userImg/
   upload-userbackgroundimg-path: D:/images/userBackgroundImg/
+  upload-userpostimage-path: D:/images/userPostImg/
 spring:
   mail:
     host: smtp.qq.com

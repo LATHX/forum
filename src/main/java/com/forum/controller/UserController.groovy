@@ -6,6 +6,7 @@ import com.forum.model.dto.CommonInfo
 import com.forum.model.dto.MessageCodeInfo
 import com.forum.model.entity.FollowForumEntity
 import com.forum.model.entity.FollowFriendEntity
+import com.forum.model.entity.PostEntity
 import com.forum.model.entity.UserEntity
 import com.forum.service.ForumService
 import com.forum.service.UserService
@@ -14,6 +15,7 @@ import io.swagger.annotations.Api
 import io.swagger.annotations.ApiImplicitParam
 import io.swagger.annotations.ApiOperation
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
@@ -112,5 +114,34 @@ class UserController {
         messageCodeInfo = userService.editUserInfo(userEntity, messageCodeInfo)
         commonInfo.setMsg(messageCodeInfo)
         return commonInfo
+    }
+
+    @ApiOperation('发布帖子带图片')
+    @PostMapping('/release-post')
+    releasePost(
+            @RequestParam("replyImage") MultipartFile[] file, String type, String text, String remind, String title, PostEntity postEntity, MessageCodeInfo messageCodeInfo, CommonInfo commonInfo) {
+        if (CommonUtil.isEmpty(type)) {
+            messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
+        }
+        messageCodeInfo = userService.releasePost(file, type?.trim(), title, text, remind?.trim(), postEntity, messageCodeInfo)
+        commonInfo.setMsg(messageCodeInfo)
+        return commonInfo
+    }
+    @ApiOperation('发布帖子仅文字')
+    @PostMapping('/release-post-text')
+    releasePostOnlyText(
+           String type, String text, String remind, String title, PostEntity postEntity, MessageCodeInfo messageCodeInfo, CommonInfo commonInfo) {
+        if (CommonUtil.isEmpty(type)) {
+            messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
+        }
+        messageCodeInfo = userService.releasePostOnlyText(type?.trim(), title, text, remind?.trim(), postEntity, messageCodeInfo)
+        commonInfo.setMsg(messageCodeInfo)
+        return commonInfo
+    }
+
+    @ApiOperation('获取关注好友列表')
+    @PostMapping('/friend-list')
+    friendList(MessageCodeInfo messageCodeInfo, CommonInfo commonInfo) {
+        return userService.FriendListBySId()
     }
 }

@@ -21,4 +21,8 @@ interface ForumListMapper extends Mapper<ForumListEntity> {
     @Select("select * from f_forumlist where fid >= (select floor( max(fid) * rand()) from f_forumlist ) and enable = #{enable} and authority = #{authority} and type = #{type} order by fid")
     List<ForumListEntity> selectAllFromTableByEnableAndAuthorityWithType(
             @Param("enable") boolean enable, @Param("authority") boolean authority, @Param("type") boolean type)
+
+
+    @Select('select fname from f_forumlist where fid = #{fid}')
+    ForumListEntity selectNameByFid(@Param('fid') String fid)
 }

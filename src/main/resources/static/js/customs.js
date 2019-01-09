@@ -116,7 +116,9 @@ function userPageAlert(strogerText, Text) {
     $('nav').after("<div id='myAlert2' class='alert alert-danger fade-in-animation opacity95' style='position: fixed;left:0;right:0;top:auto;z-index:10000;'><a href='#' class='close' data-dismiss='alert'>&times;</a><strong>" + strogerText + "</strong>" + Text + "</div>");
 }
 
-
+function userPageSuccessAlert(strogerText, Text) {
+    $('nav').after("<div id='myAlert2' class='alert alert-success fade-in-animation opacity95' style='position: fixed;left:0;right:0;top:auto;z-index:10000;'><a href='#' class='close' data-dismiss='alert'>&times;</a><strong>" + strogerText + "</strong>" + Text + "</div>");
+}
 function getDateDiff(dateTimeStamp) {
     var minute = 1000 * 60;
     var hour = minute * 60;

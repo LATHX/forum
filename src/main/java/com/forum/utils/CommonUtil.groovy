@@ -3,6 +3,8 @@ package com.forum.utils
 import com.forum.redis.util.RedisUtil
 import com.forum.service.config.GenerateToken
 import org.aspectj.lang.JoinPoint
+import org.jsoup.Jsoup
+import org.jsoup.safety.Whitelist
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 
@@ -32,7 +34,29 @@ class CommonUtil {
             return (data != null && data.toString().trim().length() > 0)
         }
     }
-
+    /**
+     * 1)： none()
+     *     该API会清除所有HTML标签，仅保留文本节点。
+     *
+     *   2)： simpleText()
+     *     该API仅会保留b, em, i, strong, u 标签，除此之外的所有HTML标签都会被清除。
+     *
+     *   3)： basic()
+     *     该API会保留 a, b, blockquote, br, cite, code, dd, dl, dt, em, i, li, ol, p, pre, q, small, span, strike, strong, sub, sup, u, ul 和其适当的属性标签，除此之外的所有HTML标签都会被清除，且该API不允许出现图片(img tag)。另外该API中允许出现的超链接中可以允许其指定http, https, ftp, mailto 且在超链接中强制追加rel=nofollow属性。
+     *
+     *   4)： basicWithImages()
+     *     该API在保留basic()中允许出现的标签的同时也允许出现图片(img tag)和img的相关适当属性，且其src允许其指定 http 或 https。
+     *
+     *   5)： relaxed()
+     *     该API仅会保留 a, b, blockquote, br, caption, cite, code, col, colgroup, dd, div, dl, dt, em, h1, h2, h3, h4, h5, h6, i, img, li, ol, p, pre, q, small, span, strike, strong, sub, sup, table, tbody, td, tfoot, th, thead, tr, u, ul 标签，除此之外的所有HTML标签都会被清除，且在超链接中不会强制追加rel=nofollow属性。
+     * @param html
+     * @return
+     */
+    static String filterXSS(String html){
+        Whitelist whitelist = Whitelist.simpleText()
+        String safeHtml = Jsoup.clean(html, whitelist)
+        return safeHtml
+    }
     static boolean isNotEmpty(Object data) {
         return notEmpty(data)
     }

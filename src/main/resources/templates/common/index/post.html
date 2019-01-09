@@ -8,16 +8,10 @@
             </button>
         </div>
     </div>
-    <!--<div class="input-group">-->
-        <!--<select class="selectpicker" multiple>-->
-            <!--<option>Mustard</option>-->
-            <!--<option>Ketchup</option>-->
-            <!--<option>Relish</option>-->
-        <!--</select>-->
-    <!--</div>-->
 </li>
+
 <!-- Modal -->
-<div class="modal" id="reply_model" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" data-backdrop="static"
+<div class="modal  fade-in" id="reply_model" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" data-backdrop="static"
      aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -31,12 +25,9 @@
                 </button>
             </div>
             <div class="modal-body">
-                <div id="before_post_remind">
-                <select class="selectpicker  show-menu-arrow" multiple data-live-search="true"  data-max-options="10"  title="提醒谁看"  data-width="100%" name="remind" id="post_remind">
-                    <option>Mustard</option>
-                    <option>Ketchup</option>
-                    <option>Relish</option>
-                </select></div>
+                <select class="selectpicker  show-menu-arrow" multiple data-live-search="true"  data-max-options="10"  title="提醒好友查看"  data-width="100%" name="remind" id="post_remind">
+
+                </select>
 <input type="hidden" id="posttype" value="0">
             </div>
             <div class="modal-body">
@@ -91,8 +82,6 @@
             }
         });
          $('#post_remind').selectpicker();
-        //$('#before_post_remind').empty();
-        //var s = "<select class='selectpicker  show-menu-arrow' multiple data-live-search='true'  data-max-options='10'  title='提醒谁看'  data-width='100%' name='remind' id='post_remind'>";
          var s ="";
          $.ajax({
             type: "POST",
@@ -105,7 +94,7 @@
                 s +="<option value="+data[o].sid+">"+data[o].username+"</option>";
              }
              $('#post_remind').html(s);
-$('#post_remind').selectpicker('refresh');
+             $('#post_remind').selectpicker('refresh');
             },
             complete: function (XMLHttpRequest, textStatus) {
                 if (textStatus == 'timeout') {

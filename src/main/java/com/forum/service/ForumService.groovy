@@ -9,12 +9,22 @@ import com.forum.model.entity.UserPostAndPostReplyEntity
 
 interface ForumService {
     List<ForumListEntity> getAllForumListByEnableAndAuthority(String type, Integer page, boolean enable, boolean authority)
+
     List<UserForumListPostVOEntity> getSingleForumPostList(String fid, Integer page)
+
     List<UserForumListPostVOEntity> getRecommendPostList(Integer page)
+
     MessageCodeInfo favouriteQueue(FavouriteInfo favouriteInfo, MessageCodeInfo messageCodeInfo)
+
     void favouriteWriter(FavouriteInfo favouriteInfo)
-    UserPostAndPostReplyEntity getSinglePost(String fid, String postId, String page, UserPostAndPostReplyEntity userPostAndPostReplyEntity )
+
+    UserPostAndPostReplyEntity getSinglePost(String fid, String postId, String page, UserPostAndPostReplyEntity userPostAndPostReplyEntity)
+
     MessageCodeInfo followForumQueue(FollowForumEntity followForumEntity, MessageCodeInfo messageCodeInfo)
+
     void followForum(FollowForumEntity followForumEntity)
+
     MessageCodeInfo isFollowForum(FollowForumEntity followForumEntity, MessageCodeInfo messageCodeInfo)
+
+    ForumListEntity findForumNameByFid(String fid, MessageCodeInfo messageCodeInfo)
 }

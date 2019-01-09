@@ -1,6 +1,8 @@
 package com.forum.model.entity
 
 import javax.persistence.Entity
+import javax.persistence.GeneratedValue
+import javax.persistence.GenerationType
 import javax.persistence.Id
 import javax.persistence.Table
 
@@ -8,10 +10,11 @@ import javax.persistence.Table
 @Table(name = 'f_post')
 class PostEntity implements Serializable{
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer postid
     Integer fid
     String creator
-    char type
+    String type
     String img0
     String img1
     String img2
@@ -27,7 +30,27 @@ class PostEntity implements Serializable{
     String text
     String lastupdatetime
     String title
-
+    void setImg(int index,String value){
+        if(index == 0){
+            img0 = value
+        }else if(index == 1){
+            img1 = value
+        }else if(index == 2){
+            img2 = value
+        }else if(index == 3){
+            img3 = value
+        }else if(index == 4){
+            img4 = value
+        }else if(index == 5){
+            img5 = value
+        }else if(index == 6){
+            img6 = value
+        }else if(index == 7){
+            img7 = value
+        }else if(index == 8){
+            img8 = value
+        }
+    }
     String getTitle() {
         return title
     }
@@ -77,11 +100,11 @@ class PostEntity implements Serializable{
         this.creator = creator
     }
 
-    char getType() {
+    String getType() {
         return type
     }
 
-    void setType(char type) {
+    void setType(String type) {
         this.type = type
     }
 

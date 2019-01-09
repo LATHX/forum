@@ -1,19 +1,17 @@
 package com.forum.model.entity
 
-import javax.persistence.Entity
-import javax.persistence.Id
-import javax.persistence.Table
-import javax.persistence.Version
+import javax.persistence.*
 
 @Entity
 @Table(name = 'f_post_reply')
 class PostReplyEntity implements Serializable{
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer replyid
     Integer postid
     Integer favourite
     String creator
-    char type
+    String type
     String img0
     String img1
     String img2
@@ -31,7 +29,27 @@ class PostReplyEntity implements Serializable{
     Integer top
     @Version
     Integer version
-
+    void setImg(int index,String value){
+        if(index == 0){
+            img0 = value
+        }else if(index == 1){
+            img1 = value
+        }else if(index == 2){
+            img2 = value
+        }else if(index == 3){
+            img3 = value
+        }else if(index == 4){
+            img4 = value
+        }else if(index == 5){
+            img5 = value
+        }else if(index == 6){
+            img6 = value
+        }else if(index == 7){
+            img7 = value
+        }else if(index == 8){
+            img8 = value
+        }
+    }
     Integer getTop() {
         return top
     }
@@ -80,11 +98,11 @@ class PostReplyEntity implements Serializable{
         this.creator = creator
     }
 
-    char getType() {
+    String getType() {
         return type
     }
 
-    void setType(char type) {
+    void setType(String type) {
         this.type = type
     }
 

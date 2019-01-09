@@ -134,4 +134,17 @@ class ForumController {
         commonInfo.setMsg(messageCodeInfo)
         return commonInfo
     }
+
+    @ApiOperation('获取论坛名称')
+    @ApiImplicitParam(name = "fid", value = "论坛Id", dataType = "String")
+    @PostMapping('/forum-name')
+    forumName(String fid, MessageCodeInfo messageCodeInfo, CommonInfo commonInfo) {
+        if(CommonUtil.isEmpty(fid)){
+            messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
+            messageCodeInfo.setMsgInfo(Constant.ERROR_PARAM)
+            commonInfo.setMsg(messageCodeInfo)
+            return commonInfo
+        }
+        return forumService.findForumNameByFid(fid, messageCodeInfo)
+    }
 }

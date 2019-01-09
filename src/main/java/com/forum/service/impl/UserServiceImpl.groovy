@@ -3,9 +3,11 @@ package com.forum.service.impl
 import com.forum.global.Constant
 import com.forum.global.GlobalCode
 import com.forum.mapper.FollowFriendMapper
+import com.forum.mapper.PostMapper
 import com.forum.mapper.UserMapper
 import com.forum.model.dto.MessageCodeInfo
 import com.forum.model.entity.FollowFriendEntity
+import com.forum.model.entity.PostEntity
 import com.forum.model.entity.UserEntity
 import com.forum.model.entity.UserFollowCountVOEntity
 import com.forum.rabbit.util.RabbitUtil
@@ -22,11 +24,15 @@ class UserServiceImpl implements UserService {
     @Autowired
     UserMapper userMapper
     @Autowired
+    PostMapper postMapper
+    @Autowired
     FollowFriendMapper followFriendMapper
     @Value('${web.upload-userimg-path}')
     private String userImgPath
     @Value('${web.upload-userbackgroundimg-path}')
     private String userBackgroundImgPath
+    @Value('${web.upload-userpostimage-path}')
+    private String userPostImgPath
 
     @Override
     UserFollowCountVOEntity findUserBySid(String sid) {
@@ -40,10 +46,10 @@ class UserServiceImpl implements UserService {
         if (CommonUtil.isEmpty(userFollowCountVOEntity.getForumCount())) {
             userFollowCountVOEntity.setForumCount("0")
         }
-        if(CommonUtil.isEmpty(userFollowCountVOEntity.getUserImg())){
+        if (CommonUtil.isEmpty(userFollowCountVOEntity.getUserImg())) {
             userFollowCountVOEntity.setUserImg('')
         }
-        if(CommonUtil.isEmpty(userFollowCountVOEntity.getUserBackgroundImg())){
+        if (CommonUtil.isEmpty(userFollowCountVOEntity.getUserBackgroundImg())) {
             userFollowCountVOEntity.setUserBackgroundImg('')
         }
         return userFollowCountVOEntity
@@ -91,7 +97,7 @@ class UserServiceImpl implements UserService {
                 messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
             }
             return messageCodeInfo
-        }else if(followFriendEntity.getSid() == followFriendEntity.getFriendSid()){
+        } else if (followFriendEntity.getSid() == followFriendEntity.getFriendSid()) {
             messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_SUCCESS)
             return messageCodeInfo
         }
@@ -102,44 +108,40 @@ class UserServiceImpl implements UserService {
     @Override
     MessageCodeInfo uploadPortrait(MultipartFile file, MessageCodeInfo messageCodeInfo) {
         UserEntity user = ShiroUtil.getUser()
-        if(user == null){
+        if (user == null) {
             messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
             return messageCodeInfo
         }
         String name = ""
         String pathname = ""
         String fileName = file.getOriginalFilename()
-//        File path = new File(ResourceUtils.getURL("classpath:").getPath());
-//        File uploadFile = new File(path.getAbsolutePath(), "static/images/userImg/");//开发测试模式中 获取到的是/target/classes/static/images/upload/
-//        if (!uploadFile.exists()){
-//            uploadFile.mkdirs();
-//        }
-        File uploadFile = new File(userImgPath);
-        if (!uploadFile.exists()){
+        File uploadFile = new File(userImgPath)
+        if (!uploadFile.exists()) {
             uploadFile.mkdirs();
         }
         //获取文件后缀名
         String end = CommonUtil.getExtension(file.getOriginalFilename());
         name = CommonUtil.generateUUID() + user.getSid().substring(0, 5)
-        String diskFileName = name + "." +end; //目标文件的文件名
+        String diskFileName = name + "." + end //目标文件的文件名
         pathname = userImgPath + diskFileName;
         UserEntity userEntity = userMapper.selectByPrimaryKey(user.getSid())
         userEntity.setUserImg("/images/userImg/" + diskFileName)
         Integer updateRow = userMapper.updateByPrimaryKey(userEntity)
-        if(updateRow == 1){
-            file.transferTo(new File(pathname));//文件转存
+        if (updateRow == 1) {
+            file.transferTo(new File(pathname))//文件转存
             user.setUserImg(userEntity.getUserImg())
             messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_SUCCESS)
-        }else{
+        } else {
             messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
         }
         return messageCodeInfo
 
     }
+
     @Override
     MessageCodeInfo uploadBackgroundImage(MultipartFile file, MessageCodeInfo messageCodeInfo) {
         UserEntity user = ShiroUtil.getUser()
-        if(user == null){
+        if (user == null) {
             messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
             return messageCodeInfo
         }
@@ -147,22 +149,22 @@ class UserServiceImpl implements UserService {
         String pathname = ""
         String fileName = file.getOriginalFilename()
         File uploadFile = new File(userBackgroundImgPath);
-        if (!uploadFile.exists()){
-            uploadFile.mkdirs();
+        if (!uploadFile.exists()) {
+            uploadFile.mkdirs()
         }
         //获取文件后缀名
-        String end = CommonUtil.getExtension(file.getOriginalFilename());
+        String end = CommonUtil.getExtension(file.getOriginalFilename())
         name = CommonUtil.generateUUID() + user.getSid().substring(0, 5)
-        String diskFileName = name + "." +end; //目标文件的文件名
-        pathname = userBackgroundImgPath + diskFileName;
+        String diskFileName = name + "." + end; //目标文件的文件名
+        pathname = userBackgroundImgPath + diskFileName
         UserEntity userEntity = userMapper.selectByPrimaryKey(user.getSid())
         userEntity.setUserBackgroundImg("/images/userBackgroundImg/" + diskFileName)
         Integer updateRow = userMapper.updateByPrimaryKey(userEntity)
-        if(updateRow == 1){
-            file.transferTo(new File(pathname));//文件转存
+        if (updateRow == 1) {
+            file.transferTo(new File(pathname))//文件转存
             user.setUserBackgroundImg(userEntity.getUserImg())
             messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_SUCCESS)
-        }else{
+        } else {
             messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
         }
         return messageCodeInfo
@@ -172,20 +174,86 @@ class UserServiceImpl implements UserService {
     @Override
     MessageCodeInfo editUserInfo(UserEntity userEntity, MessageCodeInfo messageCodeInfo) {
         UserEntity user = ShiroUtil.getUser()
-        if(!userEntity.getSex() in ['0','1']){
+        if (!userEntity.getSex() in ['0', '1']) {
             messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
             messageCodeInfo.setMsgInfo(Constant.ERROR_PARAM)
-        }else{
+        } else {
             UserEntity userEntity1 = userMapper.selectByPrimaryKey(user.getSid())
             userEntity1.setSex(userEntity.getSex())
             Integer updateRow = userMapper.updateByPrimaryKey(userEntity1)
-            if(updateRow == 1){
+            if (updateRow == 1) {
                 messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_SUCCESS)
-            }else{
+            } else {
                 messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
                 messageCodeInfo.setMsgInfo(Constant.ERROR_PARAM)
             }
         }
         return messageCodeInfo
+    }
+
+    @Override
+    MessageCodeInfo releasePost(MultipartFile[] file, String type, String title, String text, String remind, PostEntity postEntity, MessageCodeInfo messageCodeInfo) {
+        UserEntity user = ShiroUtil.getUser()
+        if (user == null) {
+            messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
+            return messageCodeInfo
+        }
+
+        if (type == '1') {
+            file?.eachWithIndex { current_file, idx ->
+                String name = ""
+                String pathname = ""
+                String fileName = current_file.getOriginalFilename()
+                File uploadFile = new File(userPostImgPath)
+                if (!uploadFile.exists()) {
+                    uploadFile.mkdirs()
+                }
+                String end = CommonUtil.getExtension(current_file.getOriginalFilename())
+                name = CommonUtil.generateUUID() + user.getSid().substring(0, 5)
+                String diskFileName = name + "." + end; //目标文件的文件名
+                pathname = userPostImgPath + diskFileName;
+                postEntity.setImg(idx, '/images/userPostImg/' + diskFileName)
+                current_file.transferTo(new File(pathname))
+            }
+        } else if (type == '2') {
+            file?.eachWithIndex { current_file, idx ->
+                String name = ""
+                String pathname = ""
+                String fileName = current_file.getOriginalFilename()
+                File uploadFile = new File(userPostImgPath)
+                if (!uploadFile.exists()) {
+                    uploadFile.mkdirs()
+                }
+                String end = CommonUtil.getExtension(current_file.getOriginalFilename())
+                name = CommonUtil.generateUUID() + user.getSid().substring(0, 5)
+                String diskFileName = name + "." + end
+                pathname = userPostImgPath + diskFileName
+                postEntity.setVideo('/images/userPostImg/' + diskFileName)
+                current_file.transferTo(new File(pathname))
+            }
+        }
+        postEntity.setText(CommonUtil.filterXSS(text))
+        postEntity.setTitle(CommonUtil.filterXSS(title))
+        postEntity.setType(type)
+        postEntity.setCreator(user.getSid())
+        Integer updateRow = postMapper.insertSelective(postEntity)
+        if (updateRow == 1) {
+            messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_SUCCESS)
+        } else {
+            messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
+        }
+        return messageCodeInfo
+    }
+
+    @Override
+    MessageCodeInfo releasePostOnlyText(String type, String title, String text, String remind, PostEntity postEntity, MessageCodeInfo messageCodeInfo) {
+        return releasePost(null, type, title, text, remind, postEntity, messageCodeInfo)
+    }
+
+    @Override
+    List<UserEntity> FriendListBySId() {
+        UserEntity user = ShiroUtil.getUser()
+        List<UserEntity> friendList = followFriendMapper.selectFriendListBySId(user.getSid())
+        return friendList
     }
 }

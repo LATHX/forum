@@ -232,4 +232,10 @@ class ForumServiceImpl implements ForumService {
         messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
         return messageCodeInfo
     }
+
+    @Override
+    ForumListEntity findForumNameByFid(String fid, MessageCodeInfo messageCodeInfo) {
+        ForumListEntity forumListEntity = forumListMapper.selectNameByFid(fid)
+        return forumListEntity
+    }
 }
