@@ -5,6 +5,7 @@ import com.forum.model.dto.FavouriteInfo
 import com.forum.model.dto.MailInfo
 import com.forum.model.entity.FollowForumEntity
 import com.forum.model.entity.FollowFriendEntity
+import com.forum.model.entity.NotificationEntity
 import com.forum.model.entity.SessionEntity
 import com.forum.redis.util.RedisUtil
 import com.forum.service.ForumService
@@ -70,17 +71,35 @@ class RabbitListenerService {
     void addPostFavourite(byte[] msg) {
         FavouriteInfo favouriteInfo = (FavouriteInfo) CommonUtil.getObjectFromBytes(msg)
         forumService.favouriteWriter(favouriteInfo)
+        userService.userNotification(favouriteInfo)
     }
 
     @RabbitListener(queues = 'user.follow')
     void userFollow(byte[] msg) {
+        println('Follow Friend')
         Object obj = CommonUtil.getObjectFromBytes(msg)
         if (obj instanceof FollowForumEntity) {
             FollowForumEntity followForumEntity = (FollowForumEntity) obj
             forumService.followForum(followForumEntity)
-        }else if(obj instanceof FollowFriendEntity){
-            FollowFriendEntity followFriendEntity = (FollowFriendEntity)obj
+        } else if (obj instanceof FollowFriendEntity) {
+            FollowFriendEntity followFriendEntity = (FollowFriendEntity) obj
             userService.followFriend(followFriendEntity)
+            userService.userNotification(obj)
+        }else if(obj instanceof NotificationEntity){
+            userService.userNotification(obj)
         }
     }
+
+//    @RabbitListener(queues = 'user.follow')
+//    void noticicationFollow(byte[] msg) {
+//        Object obj = CommonUtil.getObjectFromBytes(msg)
+//        userService.userNotification(obj)
+//    }
+//
+//    @RabbitListener(queues = 'user.post_favourite')
+//    void notificationPostFavourite(byte[] msg) {
+//        println('Follow notification Friend')
+//        Object obj = CommonUtil.getObjectFromBytes(msg)
+//        userService.userNotification(obj)
+//    }
 }

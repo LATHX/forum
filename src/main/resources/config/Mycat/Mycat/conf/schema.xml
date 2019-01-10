@@ -18,6 +18,7 @@
 		<table name="f_reply_favourite" dataNode="dn1"/>
 		<table name="f_follow_friends" dataNode="dn1"/>
 		<table name="f_follow_forum" dataNode="dn1"/>
+		<table name="f_notification" dataNode="dn1"/>
 		<table name="userinfo_follow_count" dataNode="dn1"/>
 
 </schema>

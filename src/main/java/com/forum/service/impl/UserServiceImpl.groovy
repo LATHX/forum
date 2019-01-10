@@ -3,13 +3,11 @@ package com.forum.service.impl
 import com.forum.global.Constant
 import com.forum.global.GlobalCode
 import com.forum.mapper.FollowFriendMapper
+import com.forum.mapper.NotificationMapper
 import com.forum.mapper.PostMapper
 import com.forum.mapper.UserMapper
 import com.forum.model.dto.MessageCodeInfo
-import com.forum.model.entity.FollowFriendEntity
-import com.forum.model.entity.PostEntity
-import com.forum.model.entity.UserEntity
-import com.forum.model.entity.UserFollowCountVOEntity
+import com.forum.model.entity.*
 import com.forum.rabbit.util.RabbitUtil
 import com.forum.service.UserService
 import com.forum.utils.CommonUtil
@@ -25,6 +23,8 @@ class UserServiceImpl implements UserService {
     UserMapper userMapper
     @Autowired
     PostMapper postMapper
+    @Autowired
+    NotificationMapper notificationMapper
     @Autowired
     FollowFriendMapper followFriendMapper
     @Value('${web.upload-userimg-path}')
@@ -112,23 +112,11 @@ class UserServiceImpl implements UserService {
             messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
             return messageCodeInfo
         }
-        String name = ""
-        String pathname = ""
-        String fileName = file.getOriginalFilename()
-        File uploadFile = new File(userImgPath)
-        if (!uploadFile.exists()) {
-            uploadFile.mkdirs();
-        }
-        //获取文件后缀名
-        String end = CommonUtil.getExtension(file.getOriginalFilename());
-        name = CommonUtil.generateUUID() + user.getSid().substring(0, 5)
-        String diskFileName = name + "." + end //目标文件的文件名
-        pathname = userImgPath + diskFileName;
+        String diskFileName = CommonUtil.fileStore(userImgPath, file)
         UserEntity userEntity = userMapper.selectByPrimaryKey(user.getSid())
         userEntity.setUserImg("/images/userImg/" + diskFileName)
         Integer updateRow = userMapper.updateByPrimaryKey(userEntity)
         if (updateRow == 1) {
-            file.transferTo(new File(pathname))//文件转存
             user.setUserImg(userEntity.getUserImg())
             messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_SUCCESS)
         } else {
@@ -145,23 +133,11 @@ class UserServiceImpl implements UserService {
             messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
             return messageCodeInfo
         }
-        String name = ""
-        String pathname = ""
-        String fileName = file.getOriginalFilename()
-        File uploadFile = new File(userBackgroundImgPath);
-        if (!uploadFile.exists()) {
-            uploadFile.mkdirs()
-        }
-        //获取文件后缀名
-        String end = CommonUtil.getExtension(file.getOriginalFilename())
-        name = CommonUtil.generateUUID() + user.getSid().substring(0, 5)
-        String diskFileName = name + "." + end; //目标文件的文件名
-        pathname = userBackgroundImgPath + diskFileName
+        String diskFileName = CommonUtil.fileStore(userBackgroundImgPath, file)
         UserEntity userEntity = userMapper.selectByPrimaryKey(user.getSid())
         userEntity.setUserBackgroundImg("/images/userBackgroundImg/" + diskFileName)
         Integer updateRow = userMapper.updateByPrimaryKey(userEntity)
         if (updateRow == 1) {
-            file.transferTo(new File(pathname))//文件转存
             user.setUserBackgroundImg(userEntity.getUserImg())
             messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_SUCCESS)
         } else {
@@ -192,44 +168,21 @@ class UserServiceImpl implements UserService {
     }
 
     @Override
-    MessageCodeInfo releasePost(MultipartFile[] file, String type, String title, String text, String remind, PostEntity postEntity, MessageCodeInfo messageCodeInfo) {
+    MessageCodeInfo releasePost(MultipartFile[] file, String type, String title, String text, String[] remind, PostEntity postEntity, MessageCodeInfo messageCodeInfo) {
         UserEntity user = ShiroUtil.getUser()
         if (user == null) {
             messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
             return messageCodeInfo
         }
-
         if (type == '1') {
             file?.eachWithIndex { current_file, idx ->
-                String name = ""
-                String pathname = ""
-                String fileName = current_file.getOriginalFilename()
-                File uploadFile = new File(userPostImgPath)
-                if (!uploadFile.exists()) {
-                    uploadFile.mkdirs()
-                }
-                String end = CommonUtil.getExtension(current_file.getOriginalFilename())
-                name = CommonUtil.generateUUID() + user.getSid().substring(0, 5)
-                String diskFileName = name + "." + end; //目标文件的文件名
-                pathname = userPostImgPath + diskFileName;
+                String diskFileName = CommonUtil.fileStore(userPostImgPath, current_file)
                 postEntity.setImg(idx, '/images/userPostImg/' + diskFileName)
-                current_file.transferTo(new File(pathname))
             }
         } else if (type == '2') {
             file?.eachWithIndex { current_file, idx ->
-                String name = ""
-                String pathname = ""
-                String fileName = current_file.getOriginalFilename()
-                File uploadFile = new File(userPostImgPath)
-                if (!uploadFile.exists()) {
-                    uploadFile.mkdirs()
-                }
-                String end = CommonUtil.getExtension(current_file.getOriginalFilename())
-                name = CommonUtil.generateUUID() + user.getSid().substring(0, 5)
-                String diskFileName = name + "." + end
-                pathname = userPostImgPath + diskFileName
+                String diskFileName = CommonUtil.fileStore(userPostImgPath, current_file)
                 postEntity.setVideo('/images/userPostImg/' + diskFileName)
-                current_file.transferTo(new File(pathname))
             }
         }
         postEntity.setText(CommonUtil.filterXSS(text))
@@ -237,7 +190,21 @@ class UserServiceImpl implements UserService {
         postEntity.setType(type)
         postEntity.setCreator(user.getSid())
         Integer updateRow = postMapper.insertSelective(postEntity)
+        StringBuilder sb = new StringBuilder('')
         if (updateRow == 1) {
+            remind?.each {
+                NotificationEntity notificationEntity = new NotificationEntity()
+                notificationEntity.setCreator(user.getSid())
+                notificationEntity.setCreatorName(user.getUsername())
+                notificationEntity.setReceiver(it)
+                sb.append(String.format("<a href='javascript:void(0)' data-sid='%s' data-oper='1' data-toggle='modal' data-target='#friend_modal'>", user.getSid()))
+                sb.append(user.getUsername()).append("</a>&nbsp;在帖子&nbsp;")
+                sb.append(String.format('<a href=\'/single_post?postid=%s&fid=%s\'>', postEntity.getPostid(), postEntity.getFid()))
+                sb.append(title)
+                sb.append('</a>&nbsp;提到了你')
+                notificationEntity.setNoun(sb.toString())
+                RabbitUtil.deliveryMessageNotConfirm(Constant.MQ_USER_FOLLOW, notificationEntity)
+            }
             messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_SUCCESS)
         } else {
             messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
@@ -246,7 +213,7 @@ class UserServiceImpl implements UserService {
     }
 
     @Override
-    MessageCodeInfo releasePostOnlyText(String type, String title, String text, String remind, PostEntity postEntity, MessageCodeInfo messageCodeInfo) {
+    MessageCodeInfo releasePostOnlyText(String type, String title, String text, String[] remind, PostEntity postEntity, MessageCodeInfo messageCodeInfo) {
         return releasePost(null, type, title, text, remind, postEntity, messageCodeInfo)
     }
 
@@ -255,5 +222,26 @@ class UserServiceImpl implements UserService {
         UserEntity user = ShiroUtil.getUser()
         List<UserEntity> friendList = followFriendMapper.selectFriendListBySId(user.getSid())
         return friendList
+    }
+
+    @Override
+    void userNotification(Object obj) {
+        if (obj instanceof NotificationEntity) {
+            notificationMapper.insertSelective(obj)
+        } else if (obj instanceof FollowFriendEntity) {
+            NotificationEntity notificationEntity = new NotificationEntity()
+            FollowFriendEntity followFriendEntity1 = (FollowFriendEntity) obj
+            UserEntity userEntity1 = userMapper.selectUsernameBySId(followFriendEntity1?.getSid())
+            if (CommonUtil.isNotEmpty(userEntity1?.getUsername())) {
+                notificationEntity.setCreator(followFriendEntity1?.getSid())
+                notificationEntity.setCreatorName(userEntity1?.getUsername())
+                notificationEntity.setReceiver(followFriendEntity1?.friendSid)
+                StringBuilder sb = new StringBuilder('')
+                sb.append(String.format("<a href='javascript:void(0)' data-sid='%s' data-oper='1' data-toggle='modal' data-target='#friend_modal'>", followFriendEntity1.getSid()))
+                sb.append(userEntity1.getUsername()).append("</a>&nbsp;关注了你&nbsp;")
+                notificationEntity.setNoun(sb.toString())
+                notificationMapper.insertSelective(notificationEntity)
+            }
+        }
     }
 }

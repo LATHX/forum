@@ -120,7 +120,7 @@
             url: "/user/release-post-text",
             dataType: "json",
             timeout: 50000,
-            data: { title:$("#post_title").val(),text: $("#deblock_udid").val(),remind:$("#post_remind").val(),type:$("#posttype").val(),fid:$("#fid").val()},
+            data: { title:$("#post_title").val(),text: $("#deblock_udid").val(),remind:$("#post_remind").selectpicker('val').toString(),type:$("#posttype").val(),fid:$("#fid").val()},
             success: function (data) {
                 if (data.msg.msgCode == '200') {
                     $("#post_title").val('');
@@ -187,7 +187,7 @@
             language: 'zh', //设置语言
             uploadUrl: '/user/release-post', //上传的地址
             uploadAsync: false,
-            allowedFileExtensions: ['jpg', 'gif', 'png'],//接收的文件后缀
+            allowedFileExtensions: ['jpg', 'gif', 'png','jpeg'],//接收的文件后缀
             showUpload : false,//是否显示上传后的按钮
             showBrowse : true,//是否显示上传前的上传按钮
             showCaption: false,//是否显示标题
@@ -214,7 +214,7 @@
             var data = {
             title:$("#post_title").val(),
             text: $("#deblock_udid").val(),
-            remind:$("#post_remind").val(),
+            remind:$("#post_remind").selectpicker('val'),
             type:$("#posttype").val(),
             fid:$("#fid").val()
             };
@@ -270,7 +270,7 @@
             var data = {
             title:$("#post_title").val(),
             text: $("#deblock_udid").val(),
-            remind:$("#post_remind").val(),
+            remind:$("#post_remind").selectpicker('val'),
             type:$("#posttype").val(),
             fid:$("#fid").val()
             };

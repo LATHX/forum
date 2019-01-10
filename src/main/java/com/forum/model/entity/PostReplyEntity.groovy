@@ -6,7 +6,7 @@ import javax.persistence.*
 @Table(name = 'f_post_reply')
 class PostReplyEntity implements Serializable{
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(generator = "JDBC")
     Integer replyid
     Integer postid
     Integer favourite

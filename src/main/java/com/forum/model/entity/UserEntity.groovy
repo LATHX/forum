@@ -1,5 +1,6 @@
 package com.forum.model.entity
 
+import com.alibaba.fastjson.annotation.JSONField
 import org.apache.ibatis.annotations.Param
 import org.crazycake.shiro.AuthCachePrincipal
 
@@ -14,9 +15,12 @@ class UserEntity implements Serializable, AuthCachePrincipal {
     @Id
     private String sid
     private String username
+    @JSONField(serialize= false)
     private String password
     private String nickname
+    @JSONField(serialize= false)
     private Integer roleId
+    @JSONField(serialize= false)
     private boolean enable
     private String sex
     private String province

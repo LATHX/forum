@@ -1,12 +1,11 @@
 package com.forum.utils
 
 import com.forum.redis.util.RedisUtil
-import com.forum.service.config.GenerateToken
 import org.aspectj.lang.JoinPoint
 import org.jsoup.Jsoup
 import org.jsoup.safety.Whitelist
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
+import org.springframework.web.multipart.MultipartFile
 
 import javax.servlet.http.Cookie
 import javax.servlet.http.HttpServletRequest
@@ -17,8 +16,6 @@ import java.text.SimpleDateFormat
 
 @Component
 class CommonUtil {
-    @Autowired
-    GenerateToken generateToken
 
     static String generateUUID() {
         return UUID.randomUUID()?.toString()?.replaceAll('-', '')
@@ -26,7 +23,7 @@ class CommonUtil {
 
     static boolean notEmpty(Object data) {
         if (data == null)
-            return false;
+            return false
 
         if (data instanceof String) {
             return data.trim().length() > 0
@@ -52,11 +49,20 @@ class CommonUtil {
      * @param html
      * @return
      */
-    static String filterXSS(String html){
-        Whitelist whitelist = Whitelist.simpleText()
+    static String filterXSS(String html) {
+        html = html.replaceAll('<', '&lt;').replaceAll('>', '&gt;')
+        html = html.replaceAll('\\(', '&#40;').replaceAll('\\)', '&#41;')
+        html = html.replaceAll('\'', '&#39;').replaceAll('\"', '“')
+        html = html.replaceAll("eval\\((.*)\\)", "")
+        //转义 javascript的
+        html = html.replaceAll("[\\\"\\\'][\\s]*javascript:(.*)[\\\"\\\']", "\"\"")
+        html = html.replaceAll("script", "")
+        Whitelist whitelist = Whitelist.none()
         String safeHtml = Jsoup.clean(html, whitelist)
         return safeHtml
     }
+
+
     static boolean isNotEmpty(Object data) {
         return notEmpty(data)
     }
@@ -196,7 +202,7 @@ class CommonUtil {
     }
 
     static String getCookies(HttpServletRequest request, String name) {
-        Cookie[] cookies = request?.getCookies();
+        Cookie[] cookies = request?.getCookies()
         for (int i = 0; i < cookies?.length; i++) {
             if (cookies[i].getName() == name) {
                 return cookies[i].getValue()
@@ -206,10 +212,10 @@ class CommonUtil {
     }
 
     static void addCookie(HttpServletResponse response, String name, String value) {
-        Cookie cookie = new Cookie(name, value);
-        cookie.setPath("/");
+        Cookie cookie = new Cookie(name, value)
+        cookie.setPath("/")
         cookie.setMaxAge(7 * 24 * 60 * 60 * 1000)
-        response.addCookie(cookie);
+        response.addCookie(cookie)
     }
     /**
      * 将java.sql.Timestamp对象转化为String字符串
@@ -220,9 +226,9 @@ class CommonUtil {
      * @return 表示日期的字符串
      */
     static String dateToStr(Timestamp time) {
-        DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String str = df.format(time);
-        return str;
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+        String str = df.format(time)
+        return str
     }
     /**
      * 将String字符串转换为java.sql.Timestamp格式日期,用于数据库保存
@@ -233,11 +239,11 @@ class CommonUtil {
      * @return java.sql.Timestamp类型日期对象（如果转换失败则返回null）
      */
     static Timestamp strToSqlDate(String strDate) {
-        SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
         Date date = null
         date = sf.parse(strDate)
-        Timestamp dateSQL = new Timestamp(date.getTime());
-        return dateSQL;
+        Timestamp dateSQL = new Timestamp(date.getTime())
+        return dateSQL
     }
 
     static Timestamp getCurrentTimestamp() {
@@ -261,13 +267,29 @@ class CommonUtil {
         }
     }
 
-    static boolean isNumber(String number){
-        if(isEmpty(number)) return false
+    static boolean isNumber(String number) {
+        if (isEmpty(number)) return false
         return number?.isNumber()
     }
 
-    static String getExtension(String s){
-        if(s.lastIndexOf(".") == -1) return s
+    static String getExtension(String s) {
+        if (s.lastIndexOf(".") == -1) return s
         return s.substring(s.lastIndexOf(".") + 1)
+    }
+
+    static String fileStore(String path, MultipartFile file){
+        String name = ""
+        String pathname = ""
+        String fileName = file.getOriginalFilename()
+        File uploadFile = new File(path)
+        if (!uploadFile.exists()) {
+            uploadFile.mkdirs()
+        }
+        String end = getExtension(file.getOriginalFilename())
+        name = generateUUID()
+        String diskFileName = name + "." + end; //目标文件的文件名
+        pathname = path + diskFileName;
+        file.transferTo(new File(pathname))
+        return diskFileName
     }
 }

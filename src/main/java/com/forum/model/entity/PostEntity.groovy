@@ -2,7 +2,6 @@ package com.forum.model.entity
 
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
-import javax.persistence.GenerationType
 import javax.persistence.Id
 import javax.persistence.Table
 
@@ -10,7 +9,7 @@ import javax.persistence.Table
 @Table(name = 'f_post')
 class PostEntity implements Serializable{
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(generator = "JDBC")
     Integer postid
     Integer fid
     String creator

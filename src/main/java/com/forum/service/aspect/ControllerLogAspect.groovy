@@ -18,11 +18,10 @@ import org.springframework.web.context.request.ServletRequestAttributes
 
 import javax.servlet.http.HttpServletRequest
 import java.text.SimpleDateFormat
-
 /**
  * @describe: 实现controller的日志切面
  * @author: LJL
- * @date: 2018/5/29 17:40
+ * @date: 2018/11/29 17:40
  * @version: 1.0
  */
 @Aspect
