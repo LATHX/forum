@@ -7,6 +7,7 @@ import com.forum.model.dto.MessageCodeInfo
 import com.forum.model.entity.FollowForumEntity
 import com.forum.model.entity.FollowFriendEntity
 import com.forum.model.entity.PostEntity
+import com.forum.model.entity.PostReplyEntity
 import com.forum.model.entity.UserEntity
 import com.forum.service.ForumService
 import com.forum.service.UserService
@@ -76,7 +77,7 @@ class UserController {
     @ApiOperation('是否已关注好友')
     @ApiImplicitParam(name = "followFriendEntity", value = "关注好友信息", dataType = "FollowFriendEntity")
     @RequestMapping('/isfollowfriend')
-    isFollowForum(FollowFriendEntity followFriendEntity, MessageCodeInfo messageCodeInfo, CommonInfo commonInfo) {
+    isFollowFriend(FollowFriendEntity followFriendEntity, MessageCodeInfo messageCodeInfo, CommonInfo commonInfo) {
         messageCodeInfo = userService.isFollowFriend(followFriendEntity, messageCodeInfo)
         commonInfo.setMsg(messageCodeInfo)
         return commonInfo
@@ -120,7 +121,7 @@ class UserController {
     @PostMapping('/release-post')
     releasePost(
             @RequestParam("replyImage") MultipartFile[] file, String type, String text, String[] remind, String title, PostEntity postEntity, MessageCodeInfo messageCodeInfo, CommonInfo commonInfo) {
-        if (CommonUtil.isEmpty(type)) {
+        if (CommonUtil.isEmpty(type) || CommonUtil.isEmpty(text) || CommonUtil.isEmpty(title)) {
             messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
         }
         messageCodeInfo = userService.releasePost(file, type?.trim(), title, text, remind, postEntity, messageCodeInfo)
@@ -132,7 +133,7 @@ class UserController {
     @PostMapping('/release-post-text')
     releasePostOnlyText(
             String type, String text, String[] remind, String title, PostEntity postEntity, MessageCodeInfo messageCodeInfo, CommonInfo commonInfo) {
-        if (CommonUtil.isEmpty(type)) {
+        if (CommonUtil.isEmpty(type) || CommonUtil.isEmpty(text) || CommonUtil.isEmpty(title)) {
             messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
         }
         messageCodeInfo = userService.releasePostOnlyText(type?.trim(), title, text, remind, postEntity, messageCodeInfo)
@@ -145,4 +146,29 @@ class UserController {
     friendList(MessageCodeInfo messageCodeInfo, CommonInfo commonInfo) {
         return userService.FriendListBySId()
     }
+
+    @ApiOperation('回复帖子带图片')
+    @PostMapping('/reply-post')
+    replyPost(
+            @RequestParam("replyImage") MultipartFile[] file, String type, String text, String[] remind, PostReplyEntity postReplyEntity, MessageCodeInfo messageCodeInfo, CommonInfo commonInfo) {
+        if (CommonUtil.isEmpty(type) || CommonUtil.isEmpty(text) || CommonUtil.isEmpty(postReplyEntity?.getPostid())) {
+            messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
+        }
+        messageCodeInfo = userService.replyPost(file, type?.trim(), text, remind, postReplyEntity, messageCodeInfo)
+        commonInfo.setMsg(messageCodeInfo)
+        return commonInfo
+    }
+
+    @ApiOperation('回复帖子仅文字')
+    @PostMapping('/reply-post-text')
+    replyPostOnlyText(
+            String type, String text, String[] remind, PostReplyEntity postReplyEntity, MessageCodeInfo messageCodeInfo, CommonInfo commonInfo) {
+        if (CommonUtil.isEmpty(type) || CommonUtil.isEmpty(text) || CommonUtil.isEmpty(postReplyEntity?.getPostid())) {
+            messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
+        }
+        messageCodeInfo = userService.replyPostOnlyText(type?.trim(), text, remind, postReplyEntity, messageCodeInfo)
+        commonInfo.setMsg(messageCodeInfo)
+        return commonInfo
+    }
+
 }

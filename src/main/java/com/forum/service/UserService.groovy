@@ -23,6 +23,13 @@ interface UserService {
 
     MessageCodeInfo releasePostOnlyText(String type, String title, String text, String[] remind, PostEntity postEntity, MessageCodeInfo messageCodeInfo)
 
+
+    MessageCodeInfo replyPost(MultipartFile[] file, String type, String text, String[] remind, PostReplyEntity postReplyEntity, MessageCodeInfo messageCodeInfo)
+
+    MessageCodeInfo replyPostOnlyText(String type, String text, String[] remind, PostReplyEntity postReplyEntity, MessageCodeInfo messageCodeInfo)
+
+    List<UserEntity> getAllFollowedFriends()
+
     List<UserEntity> FriendListBySId()
 
     void userNotification(Object obj)

@@ -19,6 +19,6 @@ interface FollowFriendMapper {
     @Delete('delete from f_follow_friends where sid = #{sid} and friend_sid = #{friendSid}')
     Integer deleteBySIdAndFriendId(FollowFriendEntity followFriendEntity)
 
-    @Select('select f_user.sid,nickname from f_user where f_user.sid in (select friend_sid from f_follow_friends where f_follow_friends.sid = #{sid})')
+    @Select('select f_user.sid,nickname,sex from f_user where f_user.sid in (select friend_sid from f_follow_friends where f_follow_friends.sid = #{sid})')
     List<UserEntity> selectFriendListBySId(@Param('sid') String sid)
 }

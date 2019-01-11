@@ -1,4 +1,4 @@
-
+<Shiro:user>
 <li class="rv b agz fade-in-animation" id="reply">
     <div class="input-group">
         <input type="text" class="form-control" placeholder="有什么话想对我说..."  data-toggle="modal" data-target="#reply_model">
@@ -58,7 +58,15 @@
         </div>
     </div>
     </div>
+</Shiro:user>
+<Shiro:guest>
+    <li class="rv b agz fade-in-animation" id="reply">
+        <div class="input-group">
+            <input type="text" class="form-control" value="登陆后才能发帖~"  data-toggle="modal" data-target="#reply_model">
 
+        </div>
+    </li>
+</Shiro:guest>
 <script>
     $('#reply_model').on('show.bs.modal', function (e) {
         $.ajax({

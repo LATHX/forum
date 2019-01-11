@@ -75,9 +75,8 @@
 </div>
 
 <script>
-function followFriend(oper){
-        var button = $("#follow_friend");
-        var sid = button.data('sid');
+function followFriend(sid,oper,type){
+
         $.ajax({
             type:"POST",
             url:"/user/follow-friend",
@@ -86,11 +85,14 @@ function followFriend(oper){
             data: { friendSid:sid,oper:oper},
             success:function(data){
                 if(data.msg.msgCode == '200'){
-                $("#follow_friend_ref").removeClass("fa-circle-o");
-                $("#follow_friend_ref").addClass("fa-check");
-                button.attr("disabled","disabled");
-                button.removeClass("btn-primary");
-                button.addClass("btn-success");
+                    if(type == 'button' && $("#follow_friend").length>0){
+                    var button = $("#follow_friend");
+                    $("#follow_friend_ref").removeClass("fa-circle-o");
+                    $("#follow_friend_ref").addClass("fa-check");
+                    button.attr("disabled","disabled");
+                    button.removeClass("btn-primary");
+                    button.addClass("btn-success");
+                    }
                 }else{
                 userPageAlert('',  data.msg.msgInfo);
                 }
@@ -124,6 +126,7 @@ function followFriend(oper){
         var button = $(event.relatedTarget)
         var sid = button.data('sid')
         $("#follow_friend").attr("data-sid",sid);
+        $("#follow_friend").attr("onclick","followFriend('"+sid+"','1','button')");
         $.ajax({
             type:"POST",
             url:"/user/user-info",

@@ -15,6 +15,9 @@ interface UserMapper extends Mapper<UserEntity> {
     @Select('select * from f_user where username=#{username}')
     UserEntity findUserByUserName(String username)
 
+    @Select('select * from f_user where nickname=#{nickname}')
+    UserEntity findUserByNickName(String nickname)
+
     @Insert('insert into f_user(username,password,nickname,sex,province,city,dist) values (#{username},#{password},#{nickname},#{sex},#{province},#{city},#{dist}) ')
     int insertIntoTable(UserEntity userEntity)
 

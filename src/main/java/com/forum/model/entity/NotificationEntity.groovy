@@ -13,6 +13,15 @@ class NotificationEntity implements Serializable{
     String noun
     String updatetime
     String receiver
+    String id
+
+    String getId() {
+        return id
+    }
+
+    void setId(String id) {
+        this.id = id
+    }
 
     String getCreator() {
         return creator

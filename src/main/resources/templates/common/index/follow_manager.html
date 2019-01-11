@@ -1,0 +1,80 @@
+<Shiro:user>
+    <!-- Modal -->
+    <div class="modal  fade-in" id="follow_model" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" data-backdrop="static"
+         aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">关注管理</h5>
+                    <button type="button" class="btn btn-default float-left" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">关闭</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="btn-toolbar" role="toolbar">
+                        <div class="btn-group width100per">
+                            <button type="button" class="btn btn-primary width50per"  onclick="followSwitch('0')" name="post-type-select">好友</button>
+                            <button type="button" class="btn btn-default width50per"  onclick="followSwitch('1')"  name="post-type-select">论坛</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body">
+
+                    <div>
+                        <table class="table  table-hover width100per text-align-center" id="followedTable" align="middle">
+
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    $('#follow_model').on('show.bs.modal', function (event) {
+        getAllFollowedFriend();
+    });
+
+        function getAllFollowedFriend(){
+        var table = $("#followedTable")
+        table.empty();
+         $.ajax({
+            type:"POST",
+            url:"/user/friend-list",
+            dataType:"json",
+            timeout : 50000,
+            data: {},
+            success:function(data){
+                if(data.hasOwnProperty("msg")){
+                    userPageAlert('',  data.msg.msgInfo);
+                    return;
+                }else{
+                for(var o in data){
+                        var s = "<tr>";
+                        s += "<td scope='row'>" + data[o].nickname + "</td>";
+                        if(data[o].sex == '0'){
+                            s += "<td scope='col'><i class='fa fa-mars width-auto height-auto color-sex-blue'></i></td>"
+                        }else if(data[o].sex == '1'){
+                            s += "<td scope='col'><i class='fa-mars fa fa-rotate-180 width-auto height-auto color-sex-red'></td>"
+                        }
+                        s += "<td scope='col'><button class='btn btn-secondary'>删除</button></td>";
+                        table.append(s);
+                    }
+                }
+            },
+            complete: function (XMLHttpRequest, textStatus) {
+                if(textStatus == 'timeout') {
+                    userPageAlert('',  '连接超时，请稍后再试')
+                }
+            },
+            error:function(jqXHR){
+                userPageAlert('',  '服务器繁忙，请稍后再试')
+            }
+        });
+        }
+    </script>
+</Shiro:user>

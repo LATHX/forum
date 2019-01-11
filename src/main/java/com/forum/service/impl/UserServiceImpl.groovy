@@ -5,6 +5,7 @@ import com.forum.global.GlobalCode
 import com.forum.mapper.FollowFriendMapper
 import com.forum.mapper.NotificationMapper
 import com.forum.mapper.PostMapper
+import com.forum.mapper.PostReplyMapper
 import com.forum.mapper.UserMapper
 import com.forum.model.dto.MessageCodeInfo
 import com.forum.model.entity.*
@@ -24,6 +25,8 @@ class UserServiceImpl implements UserService {
     UserMapper userMapper
     @Autowired
     PostMapper postMapper
+    @Autowired
+    PostReplyMapper postReplyMapper
     @Autowired
     NotificationMapper notificationMapper
     @Autowired
@@ -221,6 +224,74 @@ class UserServiceImpl implements UserService {
     }
 
     @Override
+    MessageCodeInfo replyPost(MultipartFile[] file, String type, String text, String[] remind, PostReplyEntity postReplyEntity, MessageCodeInfo messageCodeInfo) {
+        UserEntity user = ShiroUtil.getUser()
+        if (user == null) {
+            messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
+            return messageCodeInfo
+        }
+        if (type == '1') {
+            file?.eachWithIndex { current_file, idx ->
+                String diskFileName = fileService.save(userPostImgPath, current_file)
+                postReplyEntity.setImg(idx, '/images/userPostImg/' + diskFileName)
+            }
+        } else if (type == '2') {
+            file?.eachWithIndex { current_file, idx ->
+                String diskFileName = fileService.save(userPostImgPath, current_file)
+                postReplyEntity.setVideo('/images/userPostImg/' + diskFileName)
+            }
+        }
+        postReplyEntity.setText(CommonUtil.filterXSS(text))
+        postReplyEntity.setType(type)
+        postReplyEntity.setCreator(user.getSid())
+        Integer updateRow = postReplyMapper.insertSelective(postReplyEntity)
+        PostEntity postEntity1 = postMapper.selectByPostId(postReplyEntity.getPostid()?.toString())
+        StringBuilder sb = new StringBuilder('')
+
+        if (CommonUtil.isNotEmpty(postEntity1?.getFid()) && updateRow == 1) {
+            List<String> remindSId = new ArrayList<String>()
+            if (text?.startsWith("@") && text?.indexOf(':') != -1) {
+                String replySID = text?.substring(text?.indexOf('@') + 1, text?.indexOf(':'))
+                if (replySID?.length() <= 45) {
+                    UserEntity userEntity1 = userMapper.findUserByNickName(replySID)
+                    remindSId.add(userEntity1?.getSid())
+                }
+            }
+            remindSId.add(postEntity1?.getCreator())
+            remind?.each {
+                remindSId.add(it)
+            }
+            remindSId?.each {
+                NotificationEntity notificationEntity = new NotificationEntity()
+                notificationEntity.setCreator(user.getSid())
+                notificationEntity.setCreatorName(user.getUsername())
+                notificationEntity.setReceiver(it)
+                sb.append(String.format("<a href='javascript:void(0)' data-sid='%s' data-oper='1' data-toggle='modal' data-target='#friend_modal'>", user.getSid()))
+                sb.append(user.getUsername()).append("</a>&nbsp;在帖子&nbsp;")
+                sb.append(String.format('<a href=\'/single_post?postid=%s\'>', postReplyEntity.getPostid(), postEntity1?.getFid()))
+                sb.append(postEntity1?.getTitle())
+                sb.append('</a>&nbsp;提到了你')
+                notificationEntity.setNoun(sb.toString())
+                RabbitUtil.deliveryMessageNotConfirm(Constant.MQ_USER_FOLLOW, notificationEntity)
+            }
+            messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_SUCCESS)
+        } else {
+            messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
+        }
+        return messageCodeInfo
+    }
+
+    @Override
+    MessageCodeInfo replyPostOnlyText(String type, String text, String[] remind, PostReplyEntity postReplyEntity, MessageCodeInfo messageCodeInfo) {
+        return replyPost(null, type, text, remind, postReplyEntity, messageCodeInfo)
+    }
+
+    @Override
+    List<UserEntity> getAllFollowedFriends() {
+        return null
+    }
+
+    @Override
     List<UserEntity> FriendListBySId() {
         UserEntity user = ShiroUtil.getUser()
         List<UserEntity> friendList = followFriendMapper.selectFriendListBySId(user.getSid())
@@ -230,9 +301,12 @@ class UserServiceImpl implements UserService {
     @Override
     void userNotification(Object obj) {
         if (obj instanceof NotificationEntity) {
+            NotificationEntity notificationEntity = (NotificationEntity) obj
+            notificationEntity.setId(CommonUtil.generateUUID())
             notificationMapper.insertSelective(obj)
         } else if (obj instanceof FollowFriendEntity) {
             NotificationEntity notificationEntity = new NotificationEntity()
+            notificationEntity.setId(CommonUtil.generateUUID())
             FollowFriendEntity followFriendEntity1 = (FollowFriendEntity) obj
             UserEntity userEntity1 = userMapper.selectNicknameBySId(followFriendEntity1?.getSid())
             if (CommonUtil.isNotEmpty(userEntity1?.getUsername())) {
