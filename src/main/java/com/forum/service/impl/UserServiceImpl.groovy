@@ -9,6 +9,7 @@ import com.forum.mapper.UserMapper
 import com.forum.model.dto.MessageCodeInfo
 import com.forum.model.entity.*
 import com.forum.rabbit.util.RabbitUtil
+import com.forum.service.FileService
 import com.forum.service.UserService
 import com.forum.utils.CommonUtil
 import com.forum.utils.ShiroUtil
@@ -27,6 +28,8 @@ class UserServiceImpl implements UserService {
     NotificationMapper notificationMapper
     @Autowired
     FollowFriendMapper followFriendMapper
+    @Autowired
+    FileService fileService
     @Value('${web.upload-userimg-path}')
     private String userImgPath
     @Value('${web.upload-userbackgroundimg-path}')
@@ -112,7 +115,7 @@ class UserServiceImpl implements UserService {
             messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
             return messageCodeInfo
         }
-        String diskFileName = CommonUtil.fileStore(userImgPath, file)
+        String diskFileName = fileService.save(userImgPath, file)
         UserEntity userEntity = userMapper.selectByPrimaryKey(user.getSid())
         userEntity.setUserImg("/images/userImg/" + diskFileName)
         Integer updateRow = userMapper.updateByPrimaryKey(userEntity)
@@ -133,7 +136,7 @@ class UserServiceImpl implements UserService {
             messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
             return messageCodeInfo
         }
-        String diskFileName = CommonUtil.fileStore(userBackgroundImgPath, file)
+        String diskFileName = fileService.save(userBackgroundImgPath, file)
         UserEntity userEntity = userMapper.selectByPrimaryKey(user.getSid())
         userEntity.setUserBackgroundImg("/images/userBackgroundImg/" + diskFileName)
         Integer updateRow = userMapper.updateByPrimaryKey(userEntity)
@@ -176,12 +179,12 @@ class UserServiceImpl implements UserService {
         }
         if (type == '1') {
             file?.eachWithIndex { current_file, idx ->
-                String diskFileName = CommonUtil.fileStore(userPostImgPath, current_file)
+                String diskFileName = fileService.save(userPostImgPath, current_file)
                 postEntity.setImg(idx, '/images/userPostImg/' + diskFileName)
             }
         } else if (type == '2') {
             file?.eachWithIndex { current_file, idx ->
-                String diskFileName = CommonUtil.fileStore(userPostImgPath, current_file)
+                String diskFileName = fileService.save(userPostImgPath, current_file)
                 postEntity.setVideo('/images/userPostImg/' + diskFileName)
             }
         }
@@ -231,7 +234,7 @@ class UserServiceImpl implements UserService {
         } else if (obj instanceof FollowFriendEntity) {
             NotificationEntity notificationEntity = new NotificationEntity()
             FollowFriendEntity followFriendEntity1 = (FollowFriendEntity) obj
-            UserEntity userEntity1 = userMapper.selectUsernameBySId(followFriendEntity1?.getSid())
+            UserEntity userEntity1 = userMapper.selectNicknameBySId(followFriendEntity1?.getSid())
             if (CommonUtil.isNotEmpty(userEntity1?.getUsername())) {
                 notificationEntity.setCreator(followFriendEntity1?.getSid())
                 notificationEntity.setCreatorName(userEntity1?.getUsername())

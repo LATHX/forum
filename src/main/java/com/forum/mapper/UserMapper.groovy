@@ -24,10 +24,9 @@ interface UserMapper extends Mapper<UserEntity> {
     @Select('select count(username) from f_user where sid = #{sid}')
     int selectCountBySId(@Param('sid') String sid)
 
-    @Select('select username from f_user where sid = #{sid}')
-    UserEntity selectUsernameBySId(@Param('sid') String sid)
+    @Select('select nickname from f_user where sid = #{sid}')
+    UserEntity selectNicknameBySId(@Param('sid') String sid)
 
     @Select('select enable from f_user where username = #{username}')
     boolean isAccountBlock(String username)
-
 }

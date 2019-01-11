@@ -5,7 +5,6 @@ import org.aspectj.lang.JoinPoint
 import org.jsoup.Jsoup
 import org.jsoup.safety.Whitelist
 import org.springframework.stereotype.Component
-import org.springframework.web.multipart.MultipartFile
 
 import javax.servlet.http.Cookie
 import javax.servlet.http.HttpServletRequest
@@ -275,21 +274,5 @@ class CommonUtil {
     static String getExtension(String s) {
         if (s.lastIndexOf(".") == -1) return s
         return s.substring(s.lastIndexOf(".") + 1)
-    }
-
-    static String fileStore(String path, MultipartFile file){
-        String name = ""
-        String pathname = ""
-        String fileName = file.getOriginalFilename()
-        File uploadFile = new File(path)
-        if (!uploadFile.exists()) {
-            uploadFile.mkdirs()
-        }
-        String end = getExtension(file.getOriginalFilename())
-        name = generateUUID()
-        String diskFileName = name + "." + end; //目标文件的文件名
-        pathname = path + diskFileName;
-        file.transferTo(new File(pathname))
-        return diskFileName
     }
 }
