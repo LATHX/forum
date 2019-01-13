@@ -46,7 +46,7 @@ class RegisterServiceImpl implements RegisterService {
             user.setUsername(registerInfo.getUsername())
             user.setPassword(DigestUtils.sha1Hex(registerInfo.getPassword()))
             user.setNickname(CommonUtil.filterXSS(registerInfo.getNickname()))
-            user.setSex(registerInfo.getSex()?.toString()?.charAt(0))
+            user.setSex(registerInfo.getSex()?.toString())
             String[] cityArr = registerInfo?.getCity()?.trim()?.split(' ')
             String mergerName = ''
             cityArr?.eachWithIndex { String entry, int i ->

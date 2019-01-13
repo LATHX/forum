@@ -63,7 +63,7 @@ function isPC() {
     var userAgentInfo = navigator.userAgent;
     var Agents = ["Android", "iPhone",
         "SymbianOS", "Windows Phone",
-        "iPad", "iPod","MicroMessenger"];
+        "iPad", "iPod", "MicroMessenger"];
     var flag = true;
     for (var v = 0; v < Agents.length; v++) {
         if (userAgentInfo.indexOf(Agents[v]) > 0) {
@@ -119,6 +119,7 @@ function userPageAlert(strogerText, Text) {
 function userPageSuccessAlert(strogerText, Text) {
     $('nav').after("<div id='myAlert2' class='alert alert-success fade-in-animation opacity95' style='position: fixed;left:0;right:0;top:auto;z-index:10000;'><a href='#' class='close' data-dismiss='alert'>&times;</a><strong>" + strogerText + "</strong>" + Text + "</div>");
 }
+
 function getDateDiff(dateTimeStamp) {
     var minute = 1000 * 60;
     var hour = minute * 60;
@@ -215,9 +216,9 @@ function forumMain(data) {
     var s = "";
     var img = isEmpty(data.userImg) == true ? 'images/no_user_image.png' : data.userImg;
     s += "<li class='rv b agz fade-in-animation'><img class='bos vb yb aff' width='62px' height='62px'  src='" + img + "' data-sid='" + data.sid + "'  data-oper='1' data-toggle=\"modal\" data-target=\"#friend_modal\"><div class='rw'><div class='bpb'><small class='acx axc'><i class='fa fa-share-alt width-auto height-auto fa-1x'></i>";
-    if (isPC()) {
+    if (isPC() && !isEmpty(data.lastupdatetime)) {
         s += getDateDiff(data.lastupdatetime.substring(0, data.lastupdatetime.lastIndexOf('.'))) + "</small><h6><a href=\"javascript:void(0);\" onclick=\"jump('/single_post?postid=" + data.postid + "&fid=" + $("#fid").val() + "')\">" + data.title + "</a></h6></div><p>" + data.text + "</p>";
-    } else {
+    } else if(!isEmpty(data.lastupdatetime)){
         s += getDateDiff(data.lastupdatetime.substring(0, data.lastupdatetime.lastIndexOf('.'))) + "</small><h6><a href=\"single_post?postid=" + data.postid + "&fid=" + $("#fid").val() + "\">" + data.title + "</a></h6></div><p>" + data.text + "</p>";
     }
     s += media(data);
@@ -421,9 +422,12 @@ function getSingleForum() {
                     for (var o in data) {
                         var videoid = '';
                         var s = "";
-                        s += forumMain(data[o]);
-                        $("#title").text(data[o].fname)
-                        $("#single_forum_list").before(s);
+                        $("#title").text(data[o].fname);
+                        if(!isEmpty(data[o].sid)){
+                            s += forumMain(data[o]);
+                            $("#single_forum_list").before(s);
+                        }
+
                     }
                     page = page + 1;
                     $("#refreshing").addClass("hidden");
@@ -455,7 +459,7 @@ function singleForumFresh() {
     getSingleForum();
 }
 
-function followForum(fid, oper) {
+function followForum(fid, oper,type) {
     $.ajax({
         type: "POST",
         url: "/user/follow-forum",
@@ -464,11 +468,13 @@ function followForum(fid, oper) {
         data: {fid: fid, oper: oper},
         success: function (data) {
             if (data.msg.msgCode == '200') {
-                $('#followForum').text('已关注');
-                $('#followForum').attr('onclick', '');
-                $('#followForum').fadeOut(3500, null);
+                if(type == 'forum'){
+                    $('#followForum').text('已关注');
+                    $('#followForum').attr('onclick', '');
+                    $('#followForum').fadeOut(3500, null);
+                }
+
             } else {
-                $('#followForum').text('关注');
                 userPageAlert('', '关注失败，请稍后再试')
             }
         },
@@ -478,7 +484,6 @@ function followForum(fid, oper) {
             }
         },
         error: function (jqXHR) {
-            $('#followForum').text('关注');
             userPageAlert('', '服务器繁忙，请稍后再试')
         }
     });
@@ -504,10 +509,50 @@ function isInIframe() {
     }
     return false;
 }
-function isAuthority(){
-if($("#authority").length>0){
- return true;
-}else{
-return false;
+
+function isAuthority() {
+    if ($("#authority").length > 0) {
+        return true;
+    } else {
+        return false;
+    }
 }
+
+function followFriend(sid, oper, type) {
+
+    $.ajax({
+        type: "POST",
+        url: "/user/follow-friend",
+        dataType: "json",
+        timeout: 50000,
+        data: {friendSid: sid, oper: oper},
+        success: function (data) {
+            if (data.msg.msgCode == '200') {
+                if (type == 'button' && $("#follow_friend").length > 0) {
+                    var button = $("#follow_friend");
+                    $("#follow_friend_ref").removeClass("fa-circle-o");
+                    $("#follow_friend_ref").addClass("fa-check");
+                    button.attr("disabled", "disabled");
+                    button.removeClass("btn-primary");
+                    button.addClass("btn-success");
+                }else if(type.indexOf('ftd') != -1){
+                    $('#'+type).text('已删除');
+                    $('#TD'+type).fadeOut(3000, null);
+                }
+            } else {
+                userPageAlert('', data.msg.msgInfo);
+            }
+        },
+        complete: function (XMLHttpRequest, textStatus) {
+            if(type.indexOf('ftd') != -1){
+                $('#'+type).prop('disabled','true');
+            }
+            if (textStatus == 'timeout') {
+                userPageAlert('', '连接超时，请稍后再试')
+            }
+        },
+        error: function (jqXHR) {
+            userPageAlert('', '服务器繁忙，请稍后再试')
+        }
+    });
 }

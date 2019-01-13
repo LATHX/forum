@@ -75,38 +75,7 @@
 </div>
 
 <script>
-function followFriend(sid,oper,type){
 
-        $.ajax({
-            type:"POST",
-            url:"/user/follow-friend",
-            dataType:"json",
-            timeout : 50000,
-            data: { friendSid:sid,oper:oper},
-            success:function(data){
-                if(data.msg.msgCode == '200'){
-                    if(type == 'button' && $("#follow_friend").length>0){
-                    var button = $("#follow_friend");
-                    $("#follow_friend_ref").removeClass("fa-circle-o");
-                    $("#follow_friend_ref").addClass("fa-check");
-                    button.attr("disabled","disabled");
-                    button.removeClass("btn-primary");
-                    button.addClass("btn-success");
-                    }
-                }else{
-                userPageAlert('',  data.msg.msgInfo);
-                }
-            },
-            complete: function (XMLHttpRequest, textStatus) {
-                if(textStatus == 'timeout') {
-                    userPageAlert('',  '连接超时，请稍后再试')
-                }
-            },
-            error:function(jqXHR){
-                userPageAlert('',  '服务器繁忙，请稍后再试')
-            }
-        });
-}
     $('#friend_modal').on('show.bs.modal', function (event) {
                 $("#follow_friend_ref").addClass("fa-refresh");
                 $("#follow_friend").attr("disabled","disabled");

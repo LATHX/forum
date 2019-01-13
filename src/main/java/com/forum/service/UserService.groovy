@@ -28,7 +28,6 @@ interface UserService {
 
     MessageCodeInfo replyPostOnlyText(String type, String text, String[] remind, PostReplyEntity postReplyEntity, MessageCodeInfo messageCodeInfo)
 
-    List<UserEntity> getAllFollowedFriends()
 
     List<UserEntity> FriendListBySId()
 

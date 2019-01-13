@@ -20,7 +20,7 @@
                 </div>
                 <div class="modal-body">
 
-                    <div>
+                    <div style="overflow:auto;" class="height-auto">
                         <table class="table  table-hover width100per text-align-center" id="followedTable" align="middle">
 
                         </table>
@@ -54,14 +54,14 @@
                     return;
                 }else{
                 for(var o in data){
-                        var s = "<tr>";
+                        var s = "<tr id='TDftd"+data[o].sid+"'>";
                         s += "<td scope='row'>" + data[o].nickname + "</td>";
                         if(data[o].sex == '0'){
                             s += "<td scope='col'><i class='fa fa-mars width-auto height-auto color-sex-blue'></i></td>"
                         }else if(data[o].sex == '1'){
                             s += "<td scope='col'><i class='fa-mars fa fa-rotate-180 width-auto height-auto color-sex-red'></td>"
                         }
-                        s += "<td scope='col'><button class='btn btn-secondary'>删除</button></td>";
+                        s += "<td scope='col'><button id='ftd"+data[o].sid+"' class='btn btn-secondary' onclick=\"followFriend('"+data[o].sid+"','-1','ftd"+data[o].sid+"')\">删除</button></td>";
                         table.append(s);
                     }
                 }

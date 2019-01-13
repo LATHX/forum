@@ -287,11 +287,6 @@ class UserServiceImpl implements UserService {
     }
 
     @Override
-    List<UserEntity> getAllFollowedFriends() {
-        return null
-    }
-
-    @Override
     List<UserEntity> FriendListBySId() {
         UserEntity user = ShiroUtil.getUser()
         List<UserEntity> friendList = followFriendMapper.selectFriendListBySId(user.getSid())

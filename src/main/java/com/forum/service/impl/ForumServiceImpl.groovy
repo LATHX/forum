@@ -61,6 +61,12 @@ class ForumServiceImpl implements ForumService {
             if (Idx != list.size() - 1)
                 sb.append(',')
         }
+        if(list?.size() == 0){
+            ForumListEntity forumList = forumListMapper.selectNameByFid(fid)
+            UserForumListPostVOEntity userForumListPostVOEntity = new UserForumListPostVOEntity()
+            userForumListPostVOEntity.setFname(forumList.getFname())
+            list.add(userForumListPostVOEntity)
+        }
         if (CommonUtil.isNotEmpty(sb.toString())) {
             bestList = userPostReplyVOMapper.SelectMaxFavouriteReplyByPostIdGroup(sb.toString())
             bestList?.eachWithIndex { current, Idx ->
