@@ -1,0 +1,78 @@
+<div style="overflow-y:auto">
+<ul class="ca bow box afo">
+
+    <li class="rv b agz" id="noneNotification"><div class="rw"><div class="bpb" ><h6>暂无消息</h6></div></div> </li>
+
+
+
+    <li class="rv b agz" id="index-single-post">
+        <!--<div th:replace="/common/index/loading.html"></div>-->
+    </li>
+
+
+</ul>
+</div>
+<script>
+ $(document).ready(function (){
+    getNotification();
+    });
+$("#loadCompleteFinish").attr("onclick","singleForumFresh()");
+$('#index-single-post').val(50);
+var index_single_post_loading = false;
+
+
+
+$(window).scroll(function(){
+ if((($(window).scrollTop()+$(window).height())+250)>=$(document).height()){
+      if(index_single_post_loading == false){
+           index_single_post_loading = true;
+           if(isNotificationloading){
+            getNotification();
+           }
+        $('#index-single-post').val(parseInt($('#index-single-post').val())+50);
+        index_single_post_loading = false;
+      }
+ }
+});
+function getNotification(){
+    if(isNotificationloading){
+        $("#refreshing").removeClass("hidden");
+        $("#loadComplete").addClass("hidden");
+        isNotificationloading = false;
+        $.ajax({
+        type:"POST",
+        url:"/user/notification-query",
+        dataType:"json",
+        timeout : 50000,
+        data: {page:page},
+        success:function(data){
+        if(jsonMsgValidation(data)){
+
+            for(var o in data){
+              $("#noneNotification").addClass('hidden');
+               var s = "<li class='rv b agz'><div class='rw'><div class='bpb' ><h6>"+data[o].noun+"</h6></div></div> </li>"
+               $("#index-single-post").before(s);
+        }
+        page = page+1;
+        $("#refreshing").addClass("hidden");
+        $("#loadComplete").addClass("hidden");
+        isNotificationloading = true;
+        }else{
+        isNotificationloading = false;
+        }
+        },
+        complete: function (XMLHttpRequest, textStatus) {
+        forumTimeout();
+            if(textStatus == 'timeout') {
+                userPageAlert('',  '连接超时，请稍后再试')
+                isNotificationloading = true;
+            }
+        },
+        error:function(jqXHR){
+        forumError();
+        isNotificationloading = true;
+        }
+    });
+    }
+}
+</script>

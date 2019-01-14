@@ -19,4 +19,6 @@ interface FollowForumMapper {
     @Delete('delete from f_follow_forum where sid = #{sid} and fid = #{fid}')
     Integer deleteBySIdAndFId(FollowForumEntity followForumEntity)
 
+    @Select('select fname,fid from f_forumlist where f_forumlist.fid in (select fid from f_follow_forum where sid = #{sid})')
+    List<ForumListEntity> selectAllFollowedForumBySId(@Param('sid') String sid)
 }

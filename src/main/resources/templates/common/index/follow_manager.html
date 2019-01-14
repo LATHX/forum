@@ -13,8 +13,8 @@
                 <div class="modal-body">
                     <div class="btn-toolbar" role="toolbar">
                         <div class="btn-group width100per">
-                            <button type="button" class="btn btn-primary width50per"  onclick="followSwitch('0')" name="post-type-select">好友</button>
-                            <button type="button" class="btn btn-default width50per"  onclick="followSwitch('1')"  name="post-type-select">论坛</button>
+                            <button type="button" class="btn btn-primary width50per"  onclick="followSwitch('0')" name="manager-type-select">好友</button>
+                            <button type="button" class="btn btn-default width50per"  onclick="followSwitch('1')"  name="manager-type-select">论坛</button>
                         </div>
                     </div>
                 </div>
@@ -36,7 +36,11 @@
 
     <script>
     $('#follow_model').on('show.bs.modal', function (event) {
-        getAllFollowedFriend();
+            $("button[name='manager-type-select']:eq(0)").addClass('btn-primary');
+            $("button[name='manager-type-select']:eq(0)").removeClass('btn-default');
+            $("button[name='manager-type-select']:eq(1)").addClass('btn-default');
+            $("button[name='manager-type-select']:eq(1)").removeClass('btn-primary');
+            getAllFollowedFriend();
     });
 
         function getAllFollowedFriend(){
@@ -75,6 +79,59 @@
                 userPageAlert('',  '服务器繁忙，请稍后再试')
             }
         });
+        }
+
+            function getAllFollowedForum(){
+        var table = $("#followedTable")
+        table.empty();
+         $.ajax({
+            type:"POST",
+            url:"/user/get-followed-forum",
+            dataType:"json",
+            timeout : 50000,
+            data: {},
+            success:function(data){
+                if(data.hasOwnProperty("msg")){
+                    userPageAlert('',  data.msg.msgInfo);
+                    return;
+                }else{
+                for(var o in data){
+                        var s = "<tr id='TDftd"+data[o].fid+"'>";
+                        s += "<td scope='row'><a href=\"javascript:void(0);\" onclick=\"jump('single_forum?fid="+data[o].fid+"')\"  data-dismiss='modal'>" + data[o].fname + "</td>";
+                        s += "<td scope='col'><button id='ftd"+data[o].fid+"' class='btn btn-secondary' onclick=\"followForum('"+data[o].fid+"','-1','ftd"+data[o].fid+"')\">删除</button></td>";
+                        s += "</tr>";
+                        table.append(s);
+                    }
+                }
+            },
+            complete: function (XMLHttpRequest, textStatus) {
+                if(textStatus == 'timeout') {
+                    userPageAlert('',  '连接超时，请稍后再试')
+                }
+            },
+            error:function(jqXHR){
+                userPageAlert('',  '服务器繁忙，请稍后再试')
+            }
+        });
+        }
+
+        function followSwitch(s){
+            $("button[name='manager-type-select']:eq(0)").addClass('btn-default');
+            $("button[name='manager-type-select']:eq(0)").removeClass('btn-primary');
+            $("button[name='manager-type-select']:eq(1)").addClass('btn-default');
+            $("button[name='manager-type-select']:eq(1)").removeClass('btn-primary');
+            if(s == '0'){
+                $("button[name='manager-type-select']:eq(0)").addClass('btn-primary');
+                $("button[name='manager-type-select']:eq(0)").removeClass('btn-default');
+                $("#followedTable").empty();
+                getAllFollowedFriend();
+            }else if(s == '1'){
+                $("button[name='manager-type-select']:eq(1)").addClass('btn-primary');
+                $("button[name='manager-type-select']:eq(1)").removeClass('btn-default');
+                $("#followedTable").empty();
+                getAllFollowedForum();
+            }
+
         }
     </script>
 </Shiro:user>

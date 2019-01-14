@@ -1,0 +1,123 @@
+<Shiro:user>
+<!-- Modal -->
+<div class="modal  fade-in" id="new_forum" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" data-backdrop="static"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">创建论坛</h5>
+                <button type="button" class="btn btn-default float-left" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">关闭</span>
+                </button>
+            </div>
+            <div class="modal-body" id="new-forum-body">
+                <input type="text" class="width100per form-control" id="forum_name" placeholder="论坛名"><br>
+                <div>
+                <textarea class="form-control resize-none" id="forum_description" name="text" rows="8" cols="20" placeholder="描述"></textarea><br>
+                </div>
+                <br>
+                <label>上传论坛图片</label><br>
+                    <input id="forumImage" name="newForumImage" type="file" class="file-loading width-auto"
+                           data-overwrite-initial="false" data-min-file-count="1" multiple/>
+                <br>
+
+            </div>
+            <div class="modal-body hidden" id="new-forum-body-query">
+                <label>申请已提交</label><br>
+            </div>
+
+            <div class="modal-footer">
+
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" onclick="saveNewForum()" id="releaseNewForum">申请</button>
+            </div>
+        </div>
+    </div>
+    </div>
+</Shiro:user>
+
+<script>
+    $('#new_forum').on('show.bs.modal', function (e) {
+        $.ajax({
+            type: "POST",
+            url: "/user/new-forum-query",
+            dataType: "json",
+            timeout: 50000,
+            data: {},
+            success: function (data) {
+                if(data.msg.msgCode == '200'){
+                    $("#new-forum-body").addClass("hidden");
+                    $("#new-forum-body-query").removeClass("hidden");
+                }
+            },
+            complete: function (XMLHttpRequest, textStatus) {
+                if (textStatus == 'timeout') {
+                    userPageAlert('', '连接超时，请稍后再试')
+                }
+            },
+            error: function (jqXHR) {
+                userPageAlert('', '服务器繁忙，请稍后再试')
+            }
+        });
+        initUplodaForumImage();
+    })
+
+    function saveNewForum(){
+    $("#releaseNewForum").prop("disabled",true);
+    $("#releaseNewForum").text("已申请");
+     $('#forumImage').fileinput('upload').fileinput('disable');
+    }
+
+
+    function initUplodaForumImage(){
+        $("#forumImage").fileinput({
+            language: 'zh', //设置语言
+            uploadUrl: '/user/new-forum', //上传的地址
+            uploadAsync: true,
+            allowedFileExtensions: ['jpg', 'gif', 'png','jpeg'],//接收的文件后缀
+            showUpload : false,//是否显示上传后的按钮
+            showBrowse : true,//是否显示上传前的上传按钮
+            showCaption: false,//是否显示标题
+            browseClass: "btn btn-primary", //按钮样式
+            dropZoneEnabled: false,//是否显示拖拽区域
+            //minImageWidth: 50, //图片的最小宽度
+            //minImageHeight: 50,//图片的最小高度
+            //maxImageWidth: 1000,//图片的最大宽度
+            //maxImageHeight: 1000,//图片的最大高度
+            maxFileSize: 20000,//单位为kb，如果为0表示不限制文件大小
+            minFileCount: 1,
+            fileActionSettings:{showUpload: true},
+            maxFileCount: 1, //表示允许同时上传的最大文件个数
+            enctype: 'multipart/form-data',
+            validateInitialCount:true,
+            preferIconicPreview: true,
+            previewFileIcon: "<i class=''></i>",
+            layoutTemplates:{ // 预览图片按钮控制，这里屏蔽预览按钮
+                 actionZoom:'',
+                 actionUpload:''
+            },
+            msgFilesTooMany: "选择上传的文件数量{n} 超过允许的最大数值{m},请先删除之前的图片！",
+             uploadExtraData: function (previewId, index) {
+            var data = {
+            fname:$("#forum_name").val(),
+            description: $("#forum_description").val()
+            };
+                return data;
+            },
+            });
+             //导入文件上传完成之后的事件
+        $("#forumImage").on("filebatchuploadsuccess", function (event, data) {
+            var res = data.response;
+            if (data == undefined || res.msg.msgCode != '200') {
+                userPageAlert('','申请失败');
+                 $("#releaseNewForum").prop("disabled",false);
+                 $("#releaseNewForum").text("申请");
+                return;
+            }else{
+                 $("#releaseNewForum").text("申请成功");
+            }
+
+        });
+        }
+
+</script>

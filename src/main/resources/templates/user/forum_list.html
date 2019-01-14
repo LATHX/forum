@@ -65,51 +65,51 @@ function forumListFresh(){
 }
 
     function refreshForumList(){
-    if(isForumListloading){
-    $("#refreshing").removeClass("hidden");
-    $("#loadComplete").addClass("hidden");
-    isForumListloading = false;
-     $.ajax({
-        type:"POST",
-        url:"/user-forum/forumlist",
-        dataType:"json",
-        timeout : 50000,
-        data: { page:page },
-        success:function(data){
-        if(jsonMsgValidation(data)){
-            for(var o in data){
-                var s ="<div class='fm'><div class='pz bpi afa'>";
-                var img = isEmpty(data[o].img) == true ?'images/instagram_4.jpg':data[o].img;
-                s += "<div class='qf' style='background-image: url("+img+");'></div><div class='qa avz'><!--<img class='bpj' src='../assets/img/avatar-fat.jpg'>-->";
-                s += "<h5 class='qb'>"+data[o].fname+"</h5>";
-                s += "<p class='afo'>"+data[o].description+"</p>";
-                s += "<a class='cg nz ok'  onclick=\"jump(";
-                s += "\'\/single_forum?fid="+data[o].fid+"\')\">";
-                s += "<span class='h color-blue'>进入</span> </a></div></div></div>";
-                $("#newlyforum").append(s);
-            }
+        if(isForumListloading){
+            $("#refreshing").removeClass("hidden");
+            $("#loadComplete").addClass("hidden");
+            isForumListloading = false;
+             $.ajax({
+                type:"POST",
+                url:"/user-forum/forumlist",
+                dataType:"json",
+                timeout : 50000,
+                data: { page:page },
+                success:function(data){
+                if(jsonMsgValidation(data)){
+                    for(var o in data){
+                        var s ="<div class='fm'><div class='pz bpi afa'>";
+                        var img = isEmpty(data[o].img) == true ?'images/instagram_4.jpg':data[o].img;
+                        s += "<div class='qf' style='background-image: url("+img+");'></div><div class='qa avz'><!--<img class='bpj' src='../assets/img/avatar-fat.jpg'>-->";
+                        s += "<h5 class='qb'>"+data[o].fname+"</h5>";
+                        s += "<p class='afo'>"+data[o].description+"</p>";
+                        s += "<a class='cg nz ok'  onclick=\"jump(";
+                        s += "\'\/single_forum?fid="+data[o].fid+"\')\">";
+                        s += "<span class='h color-blue'>进入</span> </a></div></div></div>";
+                        $("#newlyforum").append(s);
+                    }
 
-        $("#refreshing").addClass("hidden");
-        $("#loadComplete").addClass("hidden");
-        page = page+1;
-        isForumListloading = true;
-        }else{
-        isForumListloading = false;
-        }
-        },
-        complete: function (XMLHttpRequest, textStatus) {
-            forumTimeout();
-            if(textStatus == 'timeout') {
-                userPageAlert('',  '连接超时，请稍后再试')
+                $("#refreshing").addClass("hidden");
+                $("#loadComplete").addClass("hidden");
+                page = page+1;
                 isForumListloading = true;
-            }
-        },
-        error:function(jqXHR){
-            forumError();
-            isForumListloading = true;
+                }else{
+                isForumListloading = false;
+                }
+                },
+                complete: function (XMLHttpRequest, textStatus) {
+                    forumTimeout();
+                    if(textStatus == 'timeout') {
+                        userPageAlert('',  '连接超时，请稍后再试')
+                        isForumListloading = true;
+                    }
+                },
+                error:function(jqXHR){
+                    forumError();
+                    isForumListloading = true;
+                }
+            });
         }
-    });
-    }
 }
 
 </script>

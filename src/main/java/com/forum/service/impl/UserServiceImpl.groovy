@@ -2,7 +2,9 @@ package com.forum.service.impl
 
 import com.forum.global.Constant
 import com.forum.global.GlobalCode
+import com.forum.mapper.FollowForumMapper
 import com.forum.mapper.FollowFriendMapper
+import com.forum.mapper.ForumListMapper
 import com.forum.mapper.NotificationMapper
 import com.forum.mapper.PostMapper
 import com.forum.mapper.PostReplyMapper
@@ -19,8 +21,14 @@ import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Service
 import org.springframework.web.multipart.MultipartFile
 
+import javax.servlet.http.HttpServletRequest
+
 @Service
 class UserServiceImpl implements UserService {
+    @Autowired
+    ForumListMapper forumListMapper
+    @Autowired
+    FollowForumMapper followForumMapper
     @Autowired
     UserMapper userMapper
     @Autowired
@@ -249,15 +257,17 @@ class UserServiceImpl implements UserService {
         StringBuilder sb = new StringBuilder('')
 
         if (CommonUtil.isNotEmpty(postEntity1?.getFid()) && updateRow == 1) {
-            List<String> remindSId = new ArrayList<String>()
+            Set<String> remindSId = new HashSet<String>()
             if (text?.startsWith("@") && text?.indexOf(':') != -1) {
                 String replySID = text?.substring(text?.indexOf('@') + 1, text?.indexOf(':'))
-                if (replySID?.length() <= 45) {
+                if (replySID?.length() <= 45 && user?.getNickname() != replySID) {
                     UserEntity userEntity1 = userMapper.findUserByNickName(replySID)
                     remindSId.add(userEntity1?.getSid())
                 }
             }
-            remindSId.add(postEntity1?.getCreator())
+            if(postEntity1?.getCreator() != user?.getSid()){
+                remindSId.add(postEntity1?.getCreator())
+            }
             remind?.each {
                 remindSId.add(it)
             }
@@ -304,16 +314,74 @@ class UserServiceImpl implements UserService {
             notificationEntity.setId(CommonUtil.generateUUID())
             FollowFriendEntity followFriendEntity1 = (FollowFriendEntity) obj
             UserEntity userEntity1 = userMapper.selectNicknameBySId(followFriendEntity1?.getSid())
-            if (CommonUtil.isNotEmpty(userEntity1?.getUsername())) {
+            if (CommonUtil.isNotEmpty(userEntity1?.getNickname()) && followFriendEntity1?.getOper() == '1') {
                 notificationEntity.setCreator(followFriendEntity1?.getSid())
-                notificationEntity.setCreatorName(userEntity1?.getUsername())
+                notificationEntity.setCreatorName(userEntity1?.getNickname())
                 notificationEntity.setReceiver(followFriendEntity1?.friendSid)
                 StringBuilder sb = new StringBuilder('')
                 sb.append(String.format("<a href='javascript:void(0)' data-sid='%s' data-oper='1' data-toggle='modal' data-target='#friend_modal'>", followFriendEntity1.getSid()))
-                sb.append(userEntity1.getUsername()).append("</a>&nbsp;关注了你&nbsp;")
+                sb.append(userEntity1.getNickname()).append("</a>&nbsp;关注了你&nbsp;")
                 notificationEntity.setNoun(sb.toString())
                 notificationMapper.insertSelective(notificationEntity)
             }
         }
+    }
+
+    @Override
+    List<ForumListEntity> getAllFollowedForum() {
+        UserEntity user = ShiroUtil.getUser()
+        List<ForumListEntity> list = followForumMapper.selectAllFollowedForumBySId(user.getSid())
+        return list
+    }
+
+    @Override
+    MessageCodeInfo deletePost(String postId, MessageCodeInfo messageCodeInfo) {
+        UserEntity user = ShiroUtil.getUser()
+        Integer fid = forumListMapper.selectFIdBySId(user.getSid())
+        Integer count = postMapper.deletePost(fid?.toString(), postId)
+        if (count == 1) {
+            messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_SUCCESS)
+        } else {
+            messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
+            messageCodeInfo.setMsgInfo(Constant.LOGIN_PERMISSION_MSG)
+        }
+        return messageCodeInfo
+    }
+
+    @Override
+    MessageCodeInfo newForum(MultipartFile file, ForumListEntity forumListEntity, HttpServletRequest request, MessageCodeInfo messageCodeInfo) {
+        UserEntity user = ShiroUtil.getUser()
+        String diskFileName = fileService.save(userPostImgPath, file)
+        forumListEntity.setImg('/images/userPostImg/' + diskFileName)
+        forumListEntity.setAuthority(false)
+        forumListEntity.setEnable(false)
+        forumListEntity.setCreator(user?.getSid())
+        forumListEntity.setCreatorIp(CommonUtil.getRealIP(request))
+        Integer count = forumListMapper.insertSelective(forumListEntity)
+        if (count == 1) {
+            messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_SUCCESS)
+        } else {
+            messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
+        }
+        return messageCodeInfo
+    }
+
+    @Override
+    MessageCodeInfo newForumQuery(MessageCodeInfo messageCodeInfo) {
+        UserEntity user = ShiroUtil.getUser()
+        Integer count = forumListMapper.selectCountBySId(user.getSid())
+        if (count == 1) {
+            messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_SUCCESS)
+        } else {
+            messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
+        }
+        return messageCodeInfo
+    }
+
+    @Override
+    List<NotificationEntity> queryNotification() {
+        UserEntity user = ShiroUtil.getUser()
+        List<NotificationEntity> list = notificationMapper.selectByReceiver(user.getSid())
+        return list
     }
 }

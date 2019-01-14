@@ -113,10 +113,12 @@ function isEmpty(str) {
 }
 
 function userPageAlert(strogerText, Text) {
+$("#myAlert2").remove();
     $('nav').after("<div id='myAlert2' class='alert alert-danger fade-in-animation opacity95' style='position: fixed;left:0;right:0;top:auto;z-index:10000;'><a href='#' class='close' data-dismiss='alert'>&times;</a><strong>" + strogerText + "</strong>" + Text + "</div>");
 }
 
 function userPageSuccessAlert(strogerText, Text) {
+$("#myAlert2").remove();
     $('nav').after("<div id='myAlert2' class='alert alert-success fade-in-animation opacity95' style='position: fixed;left:0;right:0;top:auto;z-index:10000;'><a href='#' class='close' data-dismiss='alert'>&times;</a><strong>" + strogerText + "</strong>" + Text + "</div>");
 }
 
@@ -215,7 +217,7 @@ function media(data) {
 function forumMain(data) {
     var s = "";
     var img = isEmpty(data.userImg) == true ? 'images/no_user_image.png' : data.userImg;
-    s += "<li class='rv b agz fade-in-animation'><img class='bos vb yb aff' width='62px' height='62px'  src='" + img + "' data-sid='" + data.sid + "'  data-oper='1' data-toggle=\"modal\" data-target=\"#friend_modal\"><div class='rw'><div class='bpb'><small class='acx axc'><i class='fa fa-share-alt width-auto height-auto fa-1x'></i>";
+    s += "<li class='rv b agz fade-in-animation' id='post"+data.postid+"'><img class='bos vb yb aff' width='62px' height='62px'  src='" + img + "' data-sid='" + data.sid + "'  data-oper='1' data-toggle=\"modal\" data-target=\"#friend_modal\"><div class='rw'><div class='bpb'><small class='acx axc'><i class='fa fa-times width-auto height-auto fa-1x hidden' name='deletePost' onclick=\"deletePost('"+data.postid+"')\"></i><i class='fa fa-share-alt width-auto height-auto fa-1x'></i>";
     if (isPC() && !isEmpty(data.lastupdatetime)) {
         s += getDateDiff(data.lastupdatetime.substring(0, data.lastupdatetime.lastIndexOf('.'))) + "</small><h6><a href=\"javascript:void(0);\" onclick=\"jump('/single_post?postid=" + data.postid + "&fid=" + $("#fid").val() + "')\">" + data.title + "</a></h6></div><p>" + data.text + "</p>";
     } else if(!isEmpty(data.lastupdatetime)){
@@ -247,7 +249,7 @@ function postMain(data) {
 function postReply(data) {
     var s = "";
     var img = isEmpty(true && data.userImg) == true ? 'images/no_user_image.png' : data.userImg;
-    s += "<li class='rv b agz fade-in-animation'><img class='bos vb yb aff' width='62px' height='62px' src='" + img + "' data-sid='" + data.creator + "' data-oper='1' data-toggle=\"modal\" data-target=\"#friend_modal\"><div class='rw'><div class='bpb'><small class='acx axc'>";
+    s += "<li class='rv b agz fade-in-animation'><img class='bos vb yb aff' width='62px' height='62px' src='" + img + "' data-sid='" + data.creator + "' data-oper='1' data-toggle=\"modal\" data-target=\"#friend_modal\"><div class='rw'><div class='bpb'><small class='acx axc'><small onclick=replyUser('"+data.nickname+"')>回复</small>&nbsp;";
     if (data.hasOwnProperty("replyFavouriteEntity") && data.replyFavouriteEntity.favourite == '1') {
         s += "<i class='fa fa-arrow-up width-auto hegiht-auto color-blue' id='up" + data.replyid + "' onclick=\"favourite('up','" + data.replyid + "')\"></i>";
     } else {
@@ -472,6 +474,9 @@ function followForum(fid, oper,type) {
                     $('#followForum').text('已关注');
                     $('#followForum').attr('onclick', '');
                     $('#followForum').fadeOut(3500, null);
+                }else if(type.indexOf('ftd') != -1){
+                    $('#'+type).text('已删除');
+                    $('#TD'+type).fadeOut(3000, null);
                 }
 
             } else {
@@ -555,4 +560,43 @@ function followFriend(sid, oper, type) {
             userPageAlert('', '服务器繁忙，请稍后再试')
         }
     });
+}
+
+function removeDeletePostClass(){
+$("i[name='deletePost']").removeClass('hidden');
+}
+
+function deletePost(postid){
+ $.ajax({
+        type: "POST",
+        url: "/user/delete-post",
+        dataType: "json",
+        timeout: 50000,
+        data: {postId:postid},
+        success: function (data) {
+            if (data.msg.msgCode == '200') {
+                $("#post"+postid).fadeOut(1500, null);
+            } else {
+                userPageAlert('', data.msg.msgInfo);
+            }
+        },
+        complete: function (XMLHttpRequest, textStatus) {
+            if (textStatus == 'timeout') {
+                userPageAlert('', '连接超时，请稍后再试')
+            }
+        },
+        error: function (jqXHR) {
+            userPageAlert('', '服务器繁忙，请稍后再试')
+        }
+    });
+}
+
+function replyUser(nickname){
+if(isAuthority()){
+$("#deblock_udid").val("@"+nickname+":");
+$("#reply_model").modal('show');
+}else{
+userPageAlert('', '登录后才能发帖')
+}
+
 }

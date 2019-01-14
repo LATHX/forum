@@ -231,7 +231,12 @@ class ForumServiceImpl implements ForumService {
             if (followCount == 1) {
                 messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_SUCCESS)
             } else {
-                messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
+                followCount = forumListMapper.selectCountBySIdAndFId(user.getSid(), followForumEntity.getFid())
+                if (followCount == 1) {
+                    messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_SUCCESS)
+                }else{
+                    messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
+                }
             }
             return messageCodeInfo
         }
@@ -244,4 +249,5 @@ class ForumServiceImpl implements ForumService {
         ForumListEntity forumListEntity = forumListMapper.selectNameByFid(fid)
         return forumListEntity
     }
+
 }

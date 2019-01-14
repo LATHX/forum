@@ -90,7 +90,7 @@ class ForumController {
     ])
     @PostMapping('/single-post')
     getSinglePost(String fid, String postid, String page, MessageCodeInfo messageCodeInfo, CommonInfo commonInfo, UserPostAndPostReplyEntity userPostAndPostReplyEntity) {
-        if (!CommonUtil.isNumber(page) || CommonUtil.isEmpty(fid) || CommonUtil.isEmpty(postid)) {
+        if (!CommonUtil.isNumber(page) || CommonUtil.isEmpty(postid)) {
             messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
             messageCodeInfo.setMsgInfo(Constant.ERROR_PARAM)
             commonInfo.setMsg(messageCodeInfo)
@@ -147,4 +147,5 @@ class ForumController {
         }
         return forumService.findForumNameByFid(fid, messageCodeInfo)
     }
+
 }

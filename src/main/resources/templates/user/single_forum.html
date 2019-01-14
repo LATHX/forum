@@ -4,6 +4,7 @@
 
     <li class="rv b agz fade-in-animation">
         <div class="input-group">
+            <!--<button class="btn btn-primary btn-sm " type="button" onclick="removeDeletePostClass()">编辑</button>&nbsp;-->
             <h7 id="title"></h7>
             <input readonly th:value="${fid}" id="fid" class="hidden">
             <div class="bpt">
@@ -12,7 +13,7 @@
         <shiro:user>
         <br>
         <div class="input-group">
-            <a class="cg nz ok right-button" th:onclick="followForum([[${fid}]],'1'，'forum')" id="followForum"><span class="h  color-blue">关注</span></a>
+            <a class="cg nz ok right-button" th:onclick="followForum([[${fid}]],'1','forum')" id="followForum"><span class="h  color-blue">关注</span></a>
             <div class="bpt">
             </div>
         </div>

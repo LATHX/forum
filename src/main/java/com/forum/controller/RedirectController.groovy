@@ -41,6 +41,10 @@ class RedirectController {
         model.addAttribute('fid', fid)
         return '/user/single_forum.html'
     }
+    @RequestMapping('/notification')
+    notificationQuery() {
+        return '/user/notification.html'
+    }
     @RequestMapping('/single_post')
     singlePost(HttpServletRequest request, String postid, String fid) {
         request.setAttribute('postid', postid)

@@ -27,4 +27,5 @@ interface ForumService {
     MessageCodeInfo isFollowForum(FollowForumEntity followForumEntity, MessageCodeInfo messageCodeInfo)
 
     ForumListEntity findForumNameByFid(String fid, MessageCodeInfo messageCodeInfo)
+
 }

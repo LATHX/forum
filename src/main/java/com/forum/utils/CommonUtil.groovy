@@ -275,4 +275,19 @@ class CommonUtil {
         if (s.lastIndexOf(".") == -1) return s
         return s.substring(s.lastIndexOf(".") + 1)
     }
+
+    static String subString(String oriStr, int beginIndex, int len) {
+        String str = "";
+        if (oriStr != null) {
+            int strlen = oriStr.length();
+            beginIndex = beginIndex - 1;
+            if (strlen <= beginIndex) {
+            } else if (strlen <= beginIndex + len) {
+                str = oriStr.substring(beginIndex);
+            } else {
+                str = oriStr.substring(beginIndex, beginIndex + len);
+            }
+        }
+        return str;
+    }
 }

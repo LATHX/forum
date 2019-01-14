@@ -13,7 +13,7 @@ class ForumListEntity implements Serializable{
     String img
     String creator
     String description
-    String creatorIP
+    String creatorIp
     boolean enable
     boolean authority
     String date
@@ -59,12 +59,12 @@ class ForumListEntity implements Serializable{
         this.description = description
     }
 
-    String getCreatorIP() {
-        return creatorIP
+    String getCreatorIp() {
+        return creatorIp
     }
 
-    void setCreatorIP(String creatorIP) {
-        this.creatorIP = creatorIP
+    void setCreatorIp(String creatorIp) {
+        this.creatorIp = creatorIp
     }
 
     boolean getEnable() {

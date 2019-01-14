@@ -10,6 +10,15 @@ interface ForumListMapper extends Mapper<ForumListEntity> {
     @Select('select count(fid) from f_forumList where fid = #{fid}')
     Integer selectCountByFId(@Param('fid') String fid)
 
+    @Select('select count(fid) from f_forumList where creator = #{sid}')
+    Integer selectCountBySId(@Param('sid') String sid)
+
+    @Select('select count(fid) from f_forumList where creator = #{sid} and fid = #{fid}')
+    Integer selectCountBySIdAndFId(@Param('sid') String sid, @Param('fid') String fid)
+
+    @Select('select fid from f_forumList where creator = #{sid}')
+    Integer selectFIdBySId(@Param('sid') String sid)
+
     @Select('select * from f_forumList')
     List<ForumListEntity> selectAllFromTable()
 

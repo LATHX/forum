@@ -26,7 +26,6 @@
                 </div>
                 <div class="modal-body">
                     <select class="selectpicker  show-menu-arrow" multiple data-live-search="true"  data-max-options="10"  title="提醒好友查看"  data-width="100%" name="remind" id="post_remind">
-
                     </select>
                     <input type="hidden" id="posttype" value="0">
                 </div>
@@ -99,10 +98,11 @@
             data: {},
             success: function (data) {
              for(var o in data){
-                s +="<option value="+data[o].sid+">"+data[o].username+"</option>";
+                s +="<option value="+data[o].sid+">"+data[o].nickname+"</option>";
              }
+             if(!isEmpty(s)){
              $('#post_remind').html(s);
-             $('#post_remind').selectpicker('refresh');
+             $('#post_remind').selectpicker('refresh');}
             },
             complete: function (XMLHttpRequest, textStatus) {
                 if (textStatus == 'timeout') {
@@ -134,10 +134,20 @@
                     $("#post_title").val('');
                     $("#deblock_udid").val('');
                     $('#replyImage').fileinput('clear');
-                    $("#reply_model").modal('hide');('发布');
+                    $("#reply_model").modal('hide');
+                    $("button[name='releasePost']").text('发布');
                     $("button[name='releasePost']").prop('disabled',false);
                     $('#replyImage').fileinput('enable');
                     userPageSuccessAlert('','发布成功');
+                }else{
+                    userPageAlert('','发布失败，内容填写不完整');
+                      $("#post_title").val('');
+                    $("#deblock_udid").val('');
+                    $('#replyImage').fileinput('clear');
+                    $("#reply_model").modal('hide');
+                    $("button[name='releasePost']").text('发布');
+                    $("button[name='releasePost']").prop('disabled',false);
+                    $('#replyImage').fileinput('enable');
                 }
             },
             complete: function (XMLHttpRequest, textStatus) {
