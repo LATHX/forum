@@ -265,11 +265,13 @@ class UserServiceImpl implements UserService {
                     remindSId.add(userEntity1?.getSid())
                 }
             }
-            if(postEntity1?.getCreator() != user?.getSid()){
+            if (postEntity1?.getCreator() != user?.getSid()) {
                 remindSId.add(postEntity1?.getCreator())
             }
-            remind?.each {
-                remindSId.add(it)
+            remind?.eachWithIndex { current_remind, idx ->
+                if (idx < 10) {
+                    remindSId.add(current_remind)
+                }
             }
             remindSId?.each {
                 NotificationEntity notificationEntity = new NotificationEntity()
@@ -337,13 +339,18 @@ class UserServiceImpl implements UserService {
     @Override
     MessageCodeInfo deletePost(String postId, MessageCodeInfo messageCodeInfo) {
         UserEntity user = ShiroUtil.getUser()
-        Integer fid = forumListMapper.selectFIdBySId(user.getSid())
-        Integer count = postMapper.deletePost(fid?.toString(), postId)
+        String fid = forumListMapper.selectFIdBySId(user.getSid())
+        Integer count = postMapper.deletePost(fid, postId)
         if (count == 1) {
             messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_SUCCESS)
         } else {
-            messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
-            messageCodeInfo.setMsgInfo(Constant.LOGIN_PERMISSION_MSG)
+            count = postMapper.deletePostBySIdAndPostId(user.getSid(), postId)
+            if(count == 1){
+                messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_SUCCESS)
+            }else{
+                messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
+                messageCodeInfo.setMsgInfo(Constant.LOGIN_PERMISSION_MSG)
+            }
         }
         return messageCodeInfo
     }
@@ -382,6 +389,13 @@ class UserServiceImpl implements UserService {
     List<NotificationEntity> queryNotification() {
         UserEntity user = ShiroUtil.getUser()
         List<NotificationEntity> list = notificationMapper.selectByReceiver(user.getSid())
+        return list
+    }
+
+    @Override
+    List<PostEntity> queryUserPost() {
+        UserEntity user = ShiroUtil.getUser()
+        List<PostEntity> list = postMapper.selectBySId(user.getSid())
         return list
     }
 }

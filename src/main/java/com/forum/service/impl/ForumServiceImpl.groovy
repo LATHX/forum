@@ -5,6 +5,7 @@ import com.forum.global.GlobalCode
 import com.forum.mapper.*
 import com.forum.model.dto.FavouriteInfo
 import com.forum.model.dto.MessageCodeInfo
+import com.forum.model.dto.SearchInfo
 import com.forum.model.entity.*
 import com.forum.rabbit.util.RabbitUtil
 import com.forum.service.ForumService
@@ -31,6 +32,8 @@ class ForumServiceImpl implements ForumService {
     UserPostVOMapper userPostVOMapper
     @Autowired
     FollowForumMapper followForumMapper
+    @Autowired
+    PostMapper postMapper
 
     @Override
     List<ForumListEntity> getAllForumListByEnableAndAuthority(String type, Integer page, boolean enable, boolean authority) {
@@ -250,4 +253,21 @@ class ForumServiceImpl implements ForumService {
         return forumListEntity
     }
 
+    @Override
+    List<SearchInfo> searchForum(String content) {
+        StringBuilder sb = new StringBuilder('%')
+        content?.toCharArray()?.each {
+            sb.append(it).append('%')
+        }
+        PageHelper.startPage(0, 20)
+        List<PostEntity> list = postMapper.selectByLikeText(sb.toString())
+        List<SearchInfo> searchList = new ArrayList<SearchInfo>()
+        list?.each {
+            SearchInfo searchInfo = new SearchInfo()
+            searchInfo.setLink('single_post?postid=' + it?.getPostid())
+            searchInfo.setContent(it?.getTitle())
+            searchList.add(searchInfo)
+        }
+        return searchList
+    }
 }

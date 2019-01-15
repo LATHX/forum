@@ -17,7 +17,7 @@ interface ForumListMapper extends Mapper<ForumListEntity> {
     Integer selectCountBySIdAndFId(@Param('sid') String sid, @Param('fid') String fid)
 
     @Select('select fid from f_forumList where creator = #{sid}')
-    Integer selectFIdBySId(@Param('sid') String sid)
+    String selectFIdBySId(@Param('sid') String sid)
 
     @Select('select * from f_forumList')
     List<ForumListEntity> selectAllFromTable()
@@ -34,4 +34,5 @@ interface ForumListMapper extends Mapper<ForumListEntity> {
 
     @Select('select fname from f_forumlist where fid = #{fid}')
     ForumListEntity selectNameByFid(@Param('fid') String fid)
+
 }

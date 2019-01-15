@@ -234,4 +234,10 @@ class UserController {
         return list
     }
 
+    @ApiOperation('获取用户所有帖子')
+    @PostMapping('/post-query')
+    queryUserPost() {
+        List<PostEntity> list = userService.queryUserPost()
+        return list
+    }
 }

@@ -2,6 +2,7 @@ package com.forum.service
 
 import com.forum.model.dto.FavouriteInfo
 import com.forum.model.dto.MessageCodeInfo
+import com.forum.model.dto.SearchInfo
 import com.forum.model.entity.FollowForumEntity
 import com.forum.model.entity.ForumListEntity
 import com.forum.model.entity.UserForumListPostVOEntity
@@ -28,4 +29,5 @@ interface ForumService {
 
     ForumListEntity findForumNameByFid(String fid, MessageCodeInfo messageCodeInfo)
 
+    List<SearchInfo> searchForum(String content)
 }

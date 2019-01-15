@@ -20,11 +20,9 @@
                 </div>
                 <div class="modal-body">
 
-                    <div style="overflow:auto;" class="height-auto">
                         <table class="table  table-hover width100per text-align-center" id="followedTable" align="middle">
 
                         </table>
-                    </div>
                 </div>
                 <div class="modal-footer">
 
@@ -58,14 +56,14 @@
                     return;
                 }else{
                 for(var o in data){
-                        var s = "<tr id='TDftd"+data[o].sid+"'>";
-                        s += "<td scope='row'>" + data[o].nickname + "</td>";
+                        var s = "<tbody><tr id='TDftd"+data[o].sid+"'>";
+                        s += "<td scope=''>" + data[o].nickname + "</td>";
                         if(data[o].sex == '0'){
                             s += "<td scope='col'><i class='fa fa-mars width-auto height-auto color-sex-blue'></i></td>"
                         }else if(data[o].sex == '1'){
                             s += "<td scope='col'><i class='fa-mars fa fa-rotate-180 width-auto height-auto color-sex-red'></td>"
                         }
-                        s += "<td scope='col'><button id='ftd"+data[o].sid+"' class='btn btn-secondary' onclick=\"followFriend('"+data[o].sid+"','-1','ftd"+data[o].sid+"')\">删除</button></td>";
+                        s += "<td scope='row'><button id='ftd"+data[o].sid+"' class='btn btn-secondary' onclick=\"followFriend('"+data[o].sid+"','-1','ftd"+data[o].sid+"')\">删除</button></td></tr></tbody>";
                         table.append(s);
                     }
                 }
@@ -96,9 +94,9 @@
                     return;
                 }else{
                 for(var o in data){
-                        var s = "<tr id='TDftd"+data[o].fid+"'>";
+                        var s = "<tbody><tr id='TDftd"+data[o].fid+"'>";
                         s += "<td scope='row'><a href=\"javascript:void(0);\" onclick=\"jump('single_forum?fid="+data[o].fid+"')\"  data-dismiss='modal'>" + data[o].fname + "</td>";
-                        s += "<td scope='col'><button id='ftd"+data[o].fid+"' class='btn btn-secondary' onclick=\"followForum('"+data[o].fid+"','-1','ftd"+data[o].fid+"')\">删除</button></td>";
+                        s += "<td scope='col'><button id='ftd"+data[o].fid+"' class='btn btn-secondary' onclick=\"followForum('"+data[o].fid+"','-1','ftd"+data[o].fid+"')\">删除</button></td></tr></tbody>";
                         s += "</tr>";
                         table.append(s);
                     }

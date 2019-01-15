@@ -8,7 +8,7 @@ import tk.mybatis.mapper.common.Mapper
 
 @org.apache.ibatis.annotations.Mapper
 interface NotificationMapper extends Mapper<NotificationEntity> {
-    @Select('select creator,creator_name,noun,updatetime,receiver from f_notification where receiver = #{receiver}')
+    @Select('select creator,creator_name,noun,updatetime,receiver from f_notification where receiver = #{receiver} order by updatetime desc')
     List<NotificationEntity> selectByReceiver(@Param('receiver') String receiver)
 
     @Select('select count(*) from f_notification where receiver = #{receiver}')

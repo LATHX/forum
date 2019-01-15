@@ -141,13 +141,17 @@
             data: { friendSid:sid},
             success:function(data){
                 if(data.msg.msgCode == '200'){
-                $("#follow_friend_ref").removeClass("fa-circle-o");
-                $("#follow_friend_ref").addClass("fa-check");
-                $("#follow_friend").attr("disabled","disabled");
+                    $("#follow_friend_ref").removeClass("fa-circle-o");
+                    $("#follow_friend_ref").addClass("fa-check");
+                    $("#follow_friend").attr("disabled","disabled");
+                    $("#follow_friend").removeClass("btn-primary");
+                    $("#follow_friend").addClass("btn-success");
                 }else{
-                $("#follow_friend_ref").addClass("fa-circle-o");
-                $("#follow_friend_ref").removeClass("fa-check");
-                $("#follow_friend").prop("disabled",false);
+                    $("#follow_friend_ref").addClass("fa-circle-o");
+                    $("#follow_friend_ref").removeClass("fa-check");
+                    $("#follow_friend").prop("disabled",false);
+                    $("#follow_friend").addClass("btn-primary");
+                    $("#follow_friend").removeClass("btn-success");
                 }
             },
             complete: function (XMLHttpRequest, textStatus) {

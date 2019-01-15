@@ -42,4 +42,6 @@ interface UserService {
     MessageCodeInfo newForumQuery(MessageCodeInfo messageCodeInfo)
 
     List<NotificationEntity> queryNotification()
+
+    List<PostEntity> queryUserPost()
 }

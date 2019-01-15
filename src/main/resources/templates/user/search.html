@@ -1,0 +1,56 @@
+<div style="overflow-y:auto">
+    <ul class="ca bow box afo">
+
+        <li class="rv b agz fade-in-animation" id="inputResult">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="输入要搜索的内容" id="searchContent">
+                <div class="bpt">
+                    <button type="button" class="cg ns yf" onclick="getSearchResult()">
+                        <span class="fa fa-arrow-right"></span>
+                    </button>
+                </div>
+            </div>
+        </li>
+
+
+
+    </ul>
+</div>
+<script>
+ $(document).ready(function (){
+    });
+function getSearchResult(){
+var s = $("#searchContent").val();
+$("li[name='searchResult']").remove();
+if(!isEmpty(s)){
+
+        $.ajax({
+        type:"POST",
+        url:"/user-forum/search-forum",
+        dataType:"json",
+        timeout : 50000,
+        data: {content:s},
+        success:function(data){
+        if (data.hasOwnProperty("msg")) {
+            userPageAlert('',  '参数错误')
+            return;
+        }
+            for(var o in data){
+              $("#noneNotification").addClass('hidden');
+               var s = "<li class='rv b agz' name='searchResult'><div class='rw'><div class='bpb' ><h6><a href=\""+data[o].link+"\">"+data[o].content+"</a></h6></div></div> </li>"
+               $("#inputResult").after(s);
+       }
+        },
+        complete: function (XMLHttpRequest, textStatus) {
+        forumTimeout();
+            if(textStatus == 'timeout') {
+                userPageAlert('',  '连接超时，请稍后再试')
+            }
+        },
+        error:function(jqXHR){
+        forumError();
+        }
+    });
+    }
+}
+</script>

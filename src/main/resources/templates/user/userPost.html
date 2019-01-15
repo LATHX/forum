@@ -1,0 +1,40 @@
+<div style="overflow-y:auto">
+    <ul class="ca bow box afo" id="postul">
+
+
+    </ul>
+</div>
+<script>
+ $(document).ready(function (){
+     getUserPost();
+    });
+function getUserPost(){
+        $.ajax({
+        type:"POST",
+        url:"/user/post-query",
+        dataType:"json",
+        timeout : 50000,
+        data: {},
+        success:function(data){
+        if (data.hasOwnProperty("msg")) {
+            userPageAlert('',  '参数错误')
+            return;
+        }
+            for(var o in data){
+               var s = "<li class='rv b agz' name='searchResult' id='post"+data[o].postid+"'><div class='rw'><div class='bpb' ><h6><a href=\"single_post?postid="+data[o].postid+"\">"+data[o].title+"</a></h6><small class='acx axc'><i class='fa fa-times width-auto height-auto fa-1x' name='deletePost' onclick=\"deletePost('"+data[o].postid+"')\"></i></small></div></div> </li>"
+               $("#postul").append(s);
+       }
+        },
+        complete: function (XMLHttpRequest, textStatus) {
+        forumTimeout();
+            if(textStatus == 'timeout') {
+                userPageAlert('',  '连接超时，请稍后再试')
+            }
+        },
+        error:function(jqXHR){
+        forumError();
+        }
+    });
+
+}
+</script>

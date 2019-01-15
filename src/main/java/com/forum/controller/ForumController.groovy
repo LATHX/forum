@@ -147,5 +147,16 @@ class ForumController {
         }
         return forumService.findForumNameByFid(fid, messageCodeInfo)
     }
-
+    @ApiOperation('搜素帖子')
+    @ApiImplicitParam(name = "content", value = "搜索内容", dataType = "String")
+    @PostMapping('/search-forum')
+    search(String content, MessageCodeInfo messageCodeInfo, CommonInfo commonInfo) {
+        if(CommonUtil.isEmpty(content)){
+            messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
+            messageCodeInfo.setMsgInfo(Constant.ERROR_PARAM)
+            commonInfo.setMsg(messageCodeInfo)
+            return commonInfo
+        }
+        return forumService.searchForum(content)
+    }
 }

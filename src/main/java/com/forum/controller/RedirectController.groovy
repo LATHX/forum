@@ -51,4 +51,12 @@ class RedirectController {
         request.setAttribute('fid', fid)
         return '/user/single_post.html'
     }
+    @RequestMapping('/search_page')
+    search() {
+        return '/user/search.html'
+    }
+    @RequestMapping('/user-post')
+    userPost() {
+        return '/user/userPost.html'
+    }
 }

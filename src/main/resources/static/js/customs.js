@@ -217,7 +217,7 @@ function media(data) {
 function forumMain(data) {
     var s = "";
     var img = isEmpty(data.userImg) == true ? 'images/no_user_image.png' : data.userImg;
-    s += "<li class='rv b agz fade-in-animation' id='post"+data.postid+"'><img class='bos vb yb aff' width='62px' height='62px'  src='" + img + "' data-sid='" + data.sid + "'  data-oper='1' data-toggle=\"modal\" data-target=\"#friend_modal\"><div class='rw'><div class='bpb'><small class='acx axc'><i class='fa fa-times width-auto height-auto fa-1x hidden' name='deletePost' onclick=\"deletePost('"+data.postid+"')\"></i><i class='fa fa-share-alt width-auto height-auto fa-1x'></i>";
+    s += "<li class='rv b agz fade-in-animation' id='post"+data.postid+"'><img class='bos vb yb aff' width='62px' height='62px'  src='" + img + "' data-sid='" + data.sid + "'  data-oper='1' data-toggle=\"modal\" data-target=\"#friend_modal\"><div class='rw'><div class='bpb'><small class='acx axc'><i class='fa fa-times width-auto height-auto fa-1x hidden' name='deletePost' onclick=\"deletePost('"+data.postid+"')\"></i><i class='fa fa-share-alt width-auto height-auto fa-1x' onclick=\"share('"+data.postid+"')\"></i>";
     if (isPC() && !isEmpty(data.lastupdatetime)) {
         s += getDateDiff(data.lastupdatetime.substring(0, data.lastupdatetime.lastIndexOf('.'))) + "</small><h6><a href=\"javascript:void(0);\" onclick=\"jump('/single_post?postid=" + data.postid + "&fid=" + $("#fid").val() + "')\">" + data.title + "</a></h6></div><p>" + data.text + "</p>";
     } else if(!isEmpty(data.lastupdatetime)){
@@ -234,7 +234,7 @@ function forumMain(data) {
 function postMain(data) {
     var s = "";
     var img = isEmpty(data.userImg) == true ? 'images/no_user_image.png' : data.userImg;
-    s += "<li class='rv b agz fade-in-animation'><img class='bos vb yb aff' width='62px' height='62px'  src='" + img + "' data-sid='" + data.creator + "'  data-oper='1' data-toggle=\"modal\" data-target=\"#friend_modal\"><div class='rw'><div class='bpb'><small class='acx axc'><i class='fa fa-share-alt width-auto height-auto fa-1x'></i>";
+    s += "<li class='rv b agz fade-in-animation'><img class='bos vb yb aff' width='62px' height='62px'  src='" + img + "' data-sid='" + data.creator + "'  data-oper='1' data-toggle=\"modal\" data-target=\"#friend_modal\"><div class='rw'><div class='bpb'><small class='acx axc'><i class='fa fa-share-alt width-auto height-auto fa-1x' onclick=\"share('"+data.postid+"')\"></i>";
     s += getDateDiff(data.lastupdatetime.substring(0, data.lastupdatetime.lastIndexOf('.'))) + "</small><h6>" + data.nickname + "</h6></div><p>" + data.text + "</p>";
     s += media(data);
     if (data.hasOwnProperty("userPostReplyVOEntity")) {
@@ -599,4 +599,13 @@ $("#reply_model").modal('show');
 userPageAlert('', '登录后才能发帖')
 }
 
+}
+
+function share(postid){
+var domain = window.location.host;
+var url = "http://" + domain + "/single_post?postid="+postid
+var s = "<div class='modal show' tabindex='-1' role='dialog' id='messageShare'><div class='modal-dialog' role='document'><div class='modal-content'><div class='modal-header'><h5 class='modal-title'>分享</h5>";
+s += "<button type='button' class='close' data-dismiss='modal' aria-label='Close'  onclick=\"javascript:$('#messageShare').remove();\"><span aria-hidden='true'>&times;</span></button></div><div class='modal-body'><p>";
+s += "复制此链接分享该贴：<br>" + url + "</p></div><div class='modal-footer'><button type='button' class='btn btn-secondary' data-dismiss='modal' onclick=\"javascript:$('#messageShare').remove();\">关闭</button></div></div></div></div>"
+$("nav").append(s)
 }
