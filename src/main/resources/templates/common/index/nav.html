@@ -57,6 +57,11 @@
                     <a class="pg" href="javascript:void(0);"  onclick="jump('/user-post')">&nbsp;&nbsp;我的帖子</a>
                 </li>
             </Shiro:user>
+            <shiro:hasRole name="admin">
+                <li class="pi">
+                    <a class="pg" href="admin_index.html">&nbsp;&nbsp;后台管理</a>
+                </li>
+            </shiro:hasRole>
             <li class="pi vm">
                 <a class="pg" href="logout">&nbsp;&nbsp;退出</a>
             </li>

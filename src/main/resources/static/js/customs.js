@@ -602,8 +602,10 @@ userPageAlert('', '登录后才能发帖')
 }
 
 function share(postid){
-var domain = window.location.host;
-var url = "http://" + domain + "/single_post?postid="+postid
+var domain = window.location.href;
+domain = domain.substring(domain.indexOf("//")+2);
+    domain = domain.substring(0,domain.indexOf('/'));
+var url = 'http://'+domain + "/single_post?postid="+postid
 var s = "<div class='modal show' tabindex='-1' role='dialog' id='messageShare'><div class='modal-dialog' role='document'><div class='modal-content'><div class='modal-header'><h5 class='modal-title'>分享</h5>";
 s += "<button type='button' class='close' data-dismiss='modal' aria-label='Close'  onclick=\"javascript:$('#messageShare').remove();\"><span aria-hidden='true'>&times;</span></button></div><div class='modal-body'><p>";
 s += "复制此链接分享该贴：<br>" + url + "</p></div><div class='modal-footer'><button type='button' class='btn btn-secondary' data-dismiss='modal' onclick=\"javascript:$('#messageShare').remove();\">关闭</button></div></div></div></div>"
