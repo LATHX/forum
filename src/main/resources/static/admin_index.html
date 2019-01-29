@@ -2,7 +2,7 @@
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
   <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
 <head>
     <meta charset="utf-8">
@@ -36,6 +36,7 @@
   <div class="bw">
     <div class="dh">
       <div class="en bpz">
+
         <nav class="bqg">
           <div class="bqa">
             <button class="bow boy bqb" type="button" data-toggle="collapse" data-target="#nav-toggleable-md">
@@ -54,7 +55,7 @@
               <!--</button>-->
             <!--</form>-->
             <ul class="nav pb nav-stacked wz">
-              <li class="axq">菜单栏</li>
+              <li class="axq">管理模块</li>
               <li class="pa">
                 <a class="oy active" href="admin_index.html">主页</a>
               </li>
@@ -62,21 +63,21 @@
                 <a class="oy " href="javascript:void(0)" id="rabbit">RabbitMQ管理</a>
               </li>
               <li class="pa">
-                <a class="oy "href="fluid/index.html">Fluid layout</a>
+                <a class="oy "href="javascript:void(0)" id="druid">Druid管理</a>
               </li>
               <li class="pa">
-                <a class="oy " href="icon-nav/index.html">Icon nav</a>
+                <a class="oy " href="javascript:void(0)" id="api">API管理</a>
               </li>
 
-              <li class="axq">More</li>
+              <li class="axq">业务模块</li>
               <li class="pa">
                 <a class="oy "href="docs/index.html">
-                  Toolkit docs
+                  论坛审核
                 </a>
               </li>
               <li class="pa">
                 <a class="oy" href="http://getbootstrap.com/" target="blank">
-                  Bootstrap docs
+                  用户封号
                 </a>
               </li>
               <li class="pa">
@@ -84,7 +85,7 @@
               </li>
               <li class="pa">
                 <a class="oy" href="#docsModal" data-toggle="modal">
-                  Example modal
+                  参数设定
                 </a>
               </li>
             </ul>
@@ -101,7 +102,7 @@
 
   <div class="on bqr">
     <div class="axm bpy">
-      <input type="text" value="01/01/15 - 01/08/15" class="form-control" data-provide="datepicker">
+      <input type="text" value="当前日期" class="form-control" data-provide="datepicker">
       <span class="bv bbc"></span>
     </div>
   </div>
@@ -116,13 +117,13 @@
         class="bps"
         width="200" height="200"
         data-chart="doughnut"
-        data-dataset="[230, 130]"
-        data-dataset-options="{ borderColor: '#252830', backgroundColor: ['#1ca8dd', '#1bc98e'] }"
-        data-labels="['Returning', 'New']">
+        data-dataset="[230, 130,144]"
+        data-dataset-options="{ borderColor: '#535353',backgroundColor: ['#1ca8dd', '#1bc98e','red'] }"
+        data-labels="['今日访问量', '昨日访问量']">
       </canvas>
     </div>
-    <strong class="awy">Traffic</strong>
-    <h4>New vs Returning</h4>
+    <strong class="awy"></strong>
+    <h4>访问量对比</h4>
   </div>
   <div class="eo afk amd">
     <div class="ayq ahn">
@@ -131,12 +132,12 @@
         width="200" height="200"
         data-chart="doughnut"
         data-dataset="[330,30]"
-        data-dataset-options="{ borderColor: '#252830', backgroundColor: ['#1ca8dd', '#1bc98e'] }"
+        data-dataset-options="{ borderColor: '#535353', backgroundColor: ['#1ca8dd', '#1bc98e'] }"
         data-labels="['Returning', 'New']">
       </canvas>
     </div>
-    <strong class="awy">Revenue</strong>
-    <h4>New vs Recurring</h4>
+    <strong class="awy"></strong>
+    <h4>访问设备</h4>
   </div>
   <div class="eo afk amd">
     <div class="ayq ahn">
@@ -145,90 +146,17 @@
         width="200" height="200"
         data-chart="doughnut"
         data-dataset="[100,260]"
-        data-dataset-options="{ borderColor: '#252830', backgroundColor: ['#1ca8dd', '#1bc98e'] }"
+        data-dataset-options="{ borderColor: '#535353', backgroundColor: ['#1ca8dd', '#1bc98e'] }"
         data-labels="['Referrals', 'Direct']">
       </canvas>
     </div>
-    <strong class="awy">Traffic</strong>
-    <h4>Direct vs Referrals</h4>
+    <strong class="awy"></strong>
+    <h4>登录人数</h4>
   </div>
 </div>
 
-<div class="bpu afn afd">
-  <h3 class="bpv bpw">Quick stats</h3>
-</div>
 
-<div class="dh brg">
-  <div class="eq fp afd amk asi">
-    <div class="brh bpn">
-      <div class="ago">
-        <span class="bpi">Page views</span>
-        <h2 class="bph">
-          1,293
-          <small class="bpj bpk">5%</small>
-        </h2>
-        <hr class="bpr aei">
-      </div>
-      <canvas id="sparkline1" width="378" height="94" class="bri"
-        data-chart="spark-line"
-        data-dataset="[[28,68,41,43,96,45,100]]"
-        data-labels="['a','b','c','d','e','f','g']"
-        style="width: 189px; height: 47px;">
-      </canvas>
-    </div>
-  </div>
-  <div class="eq fp afd amk asi">
-    <div class="brh bpq">
-      <div class="ago">
-        <span class="bpi">Downloads</span>
-        <h2 class="bph">
-          758
-          <small class="bpj bpl">1.3%</small>
-        </h2>
-        <hr class="bpr aei">
-      </div>
-      <canvas id="sparkline1" width="378" height="94" class="bri"
-        data-chart="spark-line"
-        data-dataset="[[4,34,64,27,96,50,80]]"
-        data-labels="['a', 'b','c','d','e','f','g']"
-        style="width: 189px; height: 47px;"></canvas>
-    </div>
-  </div>
-  <div class="eq fp afd amk asi">
-    <div class="brh bpo">
-      <div class="ago">
-        <span class="bpi">Sign-ups</span>
-        <h2 class="bph">
-          1,293
-          <small class="bpj bpk">6.75%</small>
-        </h2>
-        <hr class="bpr aei">
-      </div>
-      <canvas id="sparkline1" width="378" height="94" class="bri"
-        data-chart="spark-line"
-        data-dataset="[[12,38,32,60,36,54,68]]"
-        data-labels="['a', 'b','c','d','e','f','g']"
-        style="width: 189px; height: 47px;"></canvas>
-    </div>
-  </div>
-  <div class="eq fp afd amk asi">
-    <div class="brh bpp">
-      <div class="ago">
-        <span class="bpi">Downloads</span>
-        <h2 class="bph">
-          758
-          <small class="bpj bpl">1.3%</small>
-        </h2>
-        <hr class="bpr aei">
-      </div>
-      <canvas id="sparkline1" width="378" height="94" class="bri"
-        data-chart="spark-line"
-        data-dataset="[[43,48,52,58,50,95,100]]"
-        data-labels="['a', 'b','c','d','e','f','g']"
-        style="width: 189px; height: 47px;"></canvas>
-    </div>
-  </div>
-</div>
+
 
 <hr class="afn">
 
@@ -236,7 +164,7 @@
   <div class="eq afr">
     <div class="by afd">
       <h6 class="aya">
-        Countries
+        点赞最多的帖子
       </h6>
       
         <a class="pu rs xj ux" href="#">
@@ -305,7 +233,7 @@
   <div class="eq afr">
     <div class="by afd">
       <h6 class="aya">
-        Most visited pages
+        浏览最多的帖子
       </h6>
       
         <a class="pu rs xj ux" href="#">
@@ -426,14 +354,14 @@
   </div>
 
   <div id="docsModal" class="cb fade" tabindex="-1" role="dialog" aria-labelledby="brl" style="">
-  <div class="modal-dialog"   style="width: 250%; height: 95%; left: 10%; top:3%;position: fixed">
+  <div class="modal-dialog modal-md"   style="width: 250%; height: 95%; left: 10%; top:3%;position: fixed">
     <div class="modal-content"  style="width: 250%; height: 95%;">
 
       <div class="sd">
         <h4 class="modal-title" id="myModalLabel">控制面板</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       </div>
-      <div class="modal-body" style="height: 90%;">
+      <div class="modal-body modal-body-scroller" style="height: 90%;">
         <div style="width: 100%; height: 100%;">
           <iframe src="" id="model_frame"  style="width: 100%; height: 100%; border:0px;">
 
@@ -458,13 +386,16 @@
       // execute/clear BS loaders for docs
       $(function(){while(window.BS&&window.BS.loader&&window.BS.loader.length){(window.BS.loader.pop())()}})
       var host = window.location.host;
+      var hostWithPort= host;
       if(host.indexOf(':') != -1){
           host = host.substring(0, host.indexOf(':'))
       }
-      $("#rabbit").prop('href',"javascript:openModel('"+host+":15672')")
+      $("#rabbit").prop('href',"javascript:openModel('http://"+host+":15672')")
+      $("#druid").prop('href',"javascript:openModel('http://"+hostWithPort+"/druid/login.html')")
+      $("#api").prop('href',"javascript:openModel('http://"+hostWithPort+"/swagger-ui.html')")
       var cssFlag = 0;
       function openModel(url){
-          $("#model_frame").attr('src','http://'+url)
+          $("#model_frame").attr('src',url)
           $('#docsModal').modal('show');
       }
       function switchCss() {
