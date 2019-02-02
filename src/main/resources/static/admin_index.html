@@ -28,6 +28,9 @@
         min-width: 100%;
         *width: 100%;
       }
+      .hidden{
+            display: none;
+        }
     </style>
   </head>
 
@@ -42,7 +45,7 @@
             <button class="bow boy bqb" type="button" data-toggle="collapse" data-target="#nav-toggleable-md">
               <span class="adp">Toggle nav</span>
             </button>
-            <a class="bqc brd" href="admin_index.html">
+            <a class="bqc brd" href="index.html">
               <span class="bv bhc bqd"></span>
             </a>
           </div>
@@ -57,306 +60,153 @@
             <ul class="nav pb nav-stacked wz">
               <li class="axq">管理模块</li>
               <li class="pa">
-                <a class="oy active" href="admin_index.html">主页</a>
+                <a class="oy active" href="admin_index.html" name="menuItem">主页</a>
               </li>
               <li class="pa">
-                <a class="oy " href="javascript:void(0)" id="rabbit">RabbitMQ管理</a>
+                <a class="oy " href="javascript:void(0)" id="rabbit" name="menuItem">RabbitMQ管理</a>
               </li>
               <li class="pa">
-                <a class="oy "href="javascript:void(0)" id="druid">Druid管理</a>
+                <a class="oy "href="javascript:void(0)" id="druid" name="menuItem">Druid管理</a>
               </li>
               <li class="pa">
-                <a class="oy " href="javascript:void(0)" id="api">API管理</a>
+                <a class="oy " href="javascript:void(0)" id="api" name="menuItem">API管理</a>
               </li>
 
               <li class="axq">业务模块</li>
               <li class="pa">
-                <a class="oy "href="docs/index.html">
-                  论坛审核
-                </a>
+                <a class="oy "href="javascript:void(0)" id="forumManager" onclick="callBackFunction('forumList')" name="menuItem">论坛管理</a>
               </li>
               <li class="pa">
-                <a class="oy" href="http://getbootstrap.com/" target="blank">
-                  用户封号
-                </a>
+                <a class="oy" href="http://getbootstrap.com/" target="blank" name="menuItem">用户权限</a>
               </li>
               <li class="pa">
-                <a class="oy " href="javascript:void(0)" onclick="switchCss()" id="UI">日间模式</a>
+                <a class="oy " href="javascript:void(0)" onclick="switchCss()" id="UI" name="menuItem">日间模式</a>
               </li>
               <li class="pa">
-                <a class="oy" href="#docsModal" data-toggle="modal">
-                  参数设定
-                </a>
+                <a class="oy" href="#docsModal" data-toggle="modal" name="menuItem">参数设定</a>
               </li>
             </ul>
             <hr class="bre aez">
           </div>
         </nav>
       </div>
-      <div class="et brf">
-        <div class="bqn">
-  <div class="bqo">
-    <h6 class="bqq">控制台</h6>
-    <h2 class="bqp">总览</h2>
+
+
+        <div class="et brf" id="overView">
+            <div class="bqn">
+                <div class="bqo">
+                    <h6 class="bqq">控制台</h6>
+                    <h2 class="bqp">总览</h2>
+                </div>
+
+                <div class="on bqr">
+                    <div class="axm bpy">
+                        <input type="text" value="当前日期" class="form-control" data-provide="datepicker">
+                        <span class="bv bbc"></span>
+                    </div>
+                </div>
+            </div>
+            <hr class="aez">
+            <div class="dh avv afn">
+                <div class="eo afk amd">
+                    <div class="brh ago">
+                        <h3 class="bph">
+                            12,938
+                            <small class="bpj bpk">5%</small>
+                        </h3>
+                        <span class="bpi">今日访问量</span>
+                    </div>
+                </div>
+                <div class="eo afk amd">
+                    <div class="brh ago">
+                        <h3 class="bph">
+                            12,938
+                            <small class="bpj bpl">5%</small>
+                        </h3>
+                        <span class="bpi">今日登录</span>
+                    </div>
+                </div>
+                <div class="eo afk amd">
+                    <div class="brh ago">
+                        <h3 class="bph">
+                            12,938
+                            <small class="bpj bpl">5%</small>
+                        </h3>
+                        <span class="bpi">今日发帖数</span>
+                    </div>
+                </div>
+            </div>
+            <hr class="afn">
+            <div class="dh">
+                <div class="eq afr">
+                    <div class="by afd">
+                        <h6 class="aya">
+                            点赞最多的帖子
+                        </h6>
+                        <a class="pu rs xj ux" href="#">
+                            <span class="ayb" style="width: 62.4%;"></span>
+                            United States
+                            <span class="brj awy">62.4%</span>
+                        </a>
+                    </div>
+                    <!--<a href="#" class="ce nr ags">All countries</a>-->
+                </div>
+                <div class="eq afr">
+                    <div class="by afd">
+                        <h6 class="aya">
+                            浏览最多的帖子
+                        </h6>
+                        <a class="pu rs xj ux" href="#">
+                            <span>/ (Logged out)</span>
+                            <span class="brk awy">3,929,481</span>
+                        </a>
+                    </div>
+                    <!--<a href="#" class="ce nr ags">View all pages</a>-->
+                </div>
+            </div>
+        </div>
+
+
+        <div class="et brf hidden" id="infoView">
+            <div class="bqn">
+                <div class="bqo">
+                    <h6 class="bqq">详细信息</h6>
+                    <!--<h2 class="bqp">总览</h2>-->
+                </div>
+
+
+            </div>
+            <div class="ly">
+                <table class="ck" data-sort="table" id="table">
+                    <thead>
+                    <tr>
+                        <th>Order</th>
+                        <th>Customer name</th>
+                        <th>Description</th>
+                        <th>Date</th>
+                        <th>Total</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><a href="#">#10001</a></td>
+                        <td>First Last</td>
+                        <td>Admin theme, marketing theme</td>
+                        <td>01/01/2015</td>
+                        <td>$200.00</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+  </div>
   </div>
 
-  <div class="on bqr">
-    <div class="axm bpy">
-      <input type="text" value="当前日期" class="form-control" data-provide="datepicker">
-      <span class="bv bbc"></span>
-    </div>
-  </div>
-</div>
-
-<hr class="aez">
-
-<div class="dh avv afn">
-  <div class="eo afk amd">
-    <div class="ayq ahn">
-      <canvas
-        class="bps"
-        width="200" height="200"
-        data-chart="doughnut"
-        data-dataset="[230, 130,144]"
-        data-dataset-options="{ borderColor: '#535353',backgroundColor: ['#1ca8dd', '#1bc98e','red'] }"
-        data-labels="['今日访问量', '昨日访问量']">
-      </canvas>
-    </div>
-    <strong class="awy"></strong>
-    <h4>访问量对比</h4>
-  </div>
-  <div class="eo afk amd">
-    <div class="ayq ahn">
-      <canvas
-        class="bps"
-        width="200" height="200"
-        data-chart="doughnut"
-        data-dataset="[330,30]"
-        data-dataset-options="{ borderColor: '#535353', backgroundColor: ['#1ca8dd', '#1bc98e'] }"
-        data-labels="['Returning', 'New']">
-      </canvas>
-    </div>
-    <strong class="awy"></strong>
-    <h4>访问设备</h4>
-  </div>
-  <div class="eo afk amd">
-    <div class="ayq ahn">
-      <canvas
-        class="bps"
-        width="200" height="200"
-        data-chart="doughnut"
-        data-dataset="[100,260]"
-        data-dataset-options="{ borderColor: '#535353', backgroundColor: ['#1ca8dd', '#1bc98e'] }"
-        data-labels="['Referrals', 'Direct']">
-      </canvas>
-    </div>
-    <strong class="awy"></strong>
-    <h4>登录人数</h4>
-  </div>
-</div>
-
-
-
-
-<hr class="afn">
-
-<div class="dh">
-  <div class="eq afr">
-    <div class="by afd">
-      <h6 class="aya">
-        点赞最多的帖子
-      </h6>
-      
-        <a class="pu rs xj ux" href="#">
-          <span class="ayb" style="width: 62.4%;"></span>
-          United States
-          <span class="brj awy">62.4%</span>
-        </a>
-      
-        <a class="pu rs xj ux" href="#">
-          <span class="ayb" style="width: 15.0%;"></span>
-          India
-          <span class="brj awy">15.0%</span>
-        </a>
-      
-        <a class="pu rs xj ux" href="#">
-          <span class="ayb" style="width: 5.0%;"></span>
-          United Kingdom
-          <span class="brj awy">5.0%</span>
-        </a>
-      
-        <a class="pu rs xj ux" href="#">
-          <span class="ayb" style="width: 5.0%;"></span>
-          Canada
-          <span class="brj awy">5.0%</span>
-        </a>
-      
-        <a class="pu rs xj ux" href="#">
-          <span class="ayb" style="width: 4.5%;"></span>
-          Russia
-          <span class="brj awy">4.5%</span>
-        </a>
-      
-        <a class="pu rs xj ux" href="#">
-          <span class="ayb" style="width: 2.3%;"></span>
-          Mexico
-          <span class="brj awy">2.3%</span>
-        </a>
-      
-        <a class="pu rs xj ux" href="#">
-          <span class="ayb" style="width: 1.7%;"></span>
-          Spain
-          <span class="brj awy">1.7%</span>
-        </a>
-      
-        <a class="pu rs xj ux" href="#">
-          <span class="ayb" style="width: 1.5%;"></span>
-          France
-          <span class="brj awy">1.5%</span>
-        </a>
-      
-        <a class="pu rs xj ux" href="#">
-          <span class="ayb" style="width: 1.4%;"></span>
-          South Africa
-          <span class="brj awy">1.4%</span>
-        </a>
-      
-        <a class="pu rs xj ux" href="#">
-          <span class="ayb" style="width: 1.2%;"></span>
-          Japan
-          <span class="brj awy">1.2%</span>
-        </a>
-      
-    </div>
-    <a href="#" class="ce nr ags">All countries</a>
-  </div>
-  <div class="eq afr">
-    <div class="by afd">
-      <h6 class="aya">
-        浏览最多的帖子
-      </h6>
-      
-        <a class="pu rs xj ux" href="#">
-          <span>/ (Logged out)</span>
-          <span class="brk awy">3,929,481</span>
-        </a>
-      
-        <a class="pu rs xj ux" href="#">
-          <span>/ (Logged in)</span>
-          <span class="brk awy">1,143,393</span>
-        </a>
-      
-        <a class="pu rs xj ux" href="#">
-          <span>/tour</span>
-          <span class="brk awy">938,287</span>
-        </a>
-      
-        <a class="pu rs xj ux" href="#">
-          <span>/features/something</span>
-          <span class="brk awy">749,393</span>
-        </a>
-      
-        <a class="pu rs xj ux" href="#">
-          <span>/features/another-thing</span>
-          <span class="brk awy">695,912</span>
-        </a>
-      
-        <a class="pu rs xj ux" href="#">
-          <span>/users/username</span>
-          <span class="brk awy">501,938</span>
-        </a>
-      
-        <a class="pu rs xj ux" href="#">
-          <span>/page-title</span>
-          <span class="brk awy">392,842</span>
-        </a>
-      
-        <a class="pu rs xj ux" href="#">
-          <span>/some/page-slug</span>
-          <span class="brk awy">298,183</span>
-        </a>
-      
-        <a class="pu rs xj ux" href="#">
-          <span>/another/directory/and/page-title</span>
-          <span class="brk awy">193,129</span>
-        </a>
-      
-        <a class="pu rs xj ux" href="#">
-          <span>/one-more/page/directory/file-name</span>
-          <span class="brk awy">93,382</span>
-        </a>
-      
-    </div>
-    <a href="#" class="ce nr ags">View all pages</a>
-  </div>
-</div>
-
-<div class="by afd">
-  <h6 class="aya">
-    Devices and resolutions
-  </h6>
-  
-    <a class="pu rs xj ux" href="#">
-      <span>Desktop (1920x1080)</span>
-      <span class="awy">3,929,481</span>
-    </a>
-  
-    <a class="pu rs xj ux" href="#">
-      <span>Desktop (1366x768)</span>
-      <span class="awy">1,143,393</span>
-    </a>
-  
-    <a class="pu rs xj ux" href="#">
-      <span>Desktop (1440x900)</span>
-      <span class="awy">938,287</span>
-    </a>
-  
-    <a class="pu rs xj ux" href="#">
-      <span>Desktop (1280x800)</span>
-      <span class="awy">749,393</span>
-    </a>
-  
-    <a class="pu rs xj ux" href="#">
-      <span>Tablet (1024x768)</span>
-      <span class="awy">695,912</span>
-    </a>
-  
-    <a class="pu rs xj ux" href="#">
-      <span>Tablet (768x1024)</span>
-      <span class="awy">501,938</span>
-    </a>
-  
-    <a class="pu rs xj ux" href="#">
-      <span>Phone (320x480)</span>
-      <span class="awy">392,842</span>
-    </a>
-  
-    <a class="pu rs xj ux" href="#">
-      <span>Phone (720x450)</span>
-      <span class="awy">298,183</span>
-    </a>
-  
-    <a class="pu rs xj ux" href="#">
-      <span>Desktop (2560x1080)</span>
-      <span class="awy">193,129</span>
-    </a>
-  
-    <a class="pu rs xj ux" href="#">
-      <span>Desktop (2560x1600)</span>
-      <span class="awy">93,382</span>
-    </a>
-  
-</div>
-<a href="#" class="ce nr ags">View all devices</a>
-
-      </div>
-    </div>
-  </div>
 
   <div id="docsModal" class="cb fade" tabindex="-1" role="dialog" aria-labelledby="brl" style="">
   <div class="modal-dialog modal-md"   style="width: 250%; height: 95%; left: 10%; top:3%;position: fixed">
     <div class="modal-content"  style="width: 250%; height: 95%;">
-
       <div class="sd">
         <h4 class="modal-title" id="myModalLabel">控制面板</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -364,7 +214,6 @@
       <div class="modal-body modal-body-scroller" style="height: 90%;">
         <div style="width: 100%; height: 100%;">
           <iframe src="" id="model_frame"  style="width: 100%; height: 100%; border:0px;">
-
           </iframe>
         </div>
       </div>
@@ -377,23 +226,22 @@
 
 
     <script src="js/admin/jquery.min.js"></script>
-    <script src="js/admin/popper.min.js"></script>
-    <script src="js/admin/chart.js"></script>
-    <script src="js/admin/tablesorter.min.js"></script>
-    <script src="js/admin/toolkit.js"></script>
-    <script src="js/admin/application.js"></script>
     <script>
       // execute/clear BS loaders for docs
-      $(function(){while(window.BS&&window.BS.loader&&window.BS.loader.length){(window.BS.loader.pop())()}})
-      var host = window.location.host;
-      var hostWithPort= host;
-      if(host.indexOf(':') != -1){
-          host = host.substring(0, host.indexOf(':'))
-      }
-      $("#rabbit").prop('href',"javascript:openModel('http://"+host+":15672')")
-      $("#druid").prop('href',"javascript:openModel('http://"+hostWithPort+"/druid/login.html')")
-      $("#api").prop('href',"javascript:openModel('http://"+hostWithPort+"/swagger-ui.html')")
       var cssFlag = 0;
+      $(function(){while(window.BS&&window.BS.loader&&window.BS.loader.length){(window.BS.loader.pop())()}})
+      $(document).ready(function(){
+          var host = window.location.host;
+          var hostWithPort= host;
+          if(host.indexOf(':') != -1){
+              host = host.substring(0, host.indexOf(':'))
+          }
+          $("#rabbit").prop('href',"javascript:openModel('http://"+host+":15672')")
+          $("#druid").prop('href',"javascript:openModel('http://"+hostWithPort+"/druid/login.html')")
+          $("#api").prop('href',"javascript:openModel('http://"+hostWithPort+"/swagger-ui.html')")
+      });
+
+
       function openModel(url){
           $("#model_frame").attr('src',url)
           $('#docsModal').modal('show');
@@ -409,7 +257,77 @@
               cssFlag = 0;
           }
       }
+      function forumList(res){
+          var str = '';
+          $('#overView').addClass('hidden')
+          $('#infoView').removeClass('hidden')
+          $('#table').html('')
+          res = eval ("(" + res + ")");
+          str = '<thead><tr><th>论坛名</th><th>状态</th></tr></thead><tbody>';
+          for(var i in res){
+              str += '<tr>';
+              str += '<td>'+res[i].fname+'</td>'
+              if(res[i].enable == 'false'){
+                  str += "<td class=\"bpl\" data-fid='"+res[i].fid+"' onclick='editforum(this)'>停用</td>"
+              }else{
+                  str += "<td class=\"bpk\" data-fid='"+res[i].fid+"' onclick='editforum(this)'>启用</td>"
+              }
+              str += '</tr>';
+          }
+          str += '</tbody>'
+          $('#table').html(str)
+      }
+      function editforum(obj){
+          var fid = obj.dataset.fid;
+          var $this = $("td[data-fid="+fid+"]")
+          if(obj.innerText == '启用'){
+              obj.innerText = '停用';
+              $this.removeClass('bpk');
+              $this.addClass('bpl');
+          }else{
+              obj.innerText = '启用'
+              $this.removeClass('bpl')
+              $this.addClass('bpk')
+          }
+      }
+      function callBackFunction(functionName){
+          clearActive();
+          if(functionName == 'forumList'){
+              ajaxRequest('admin/getForumList', '', functionName)
+              $("a[name = 'menuItem']:eq(4)").addClass('active')
+          }
+
+      }
+      function clearActive(){
+          $("a[name = 'menuItem']").removeClass('active')
+      }
+      function ajaxRequest(url, param, callBack) {
+          $.ajax({
+              type: "POST",
+              url: url,
+              dataType: "json",
+              timeout: 50000,
+              data: param,
+              success: function (data) {
+                  eval(callBack+"('"+JSON.stringify(data)+"')");
+              },
+              complete: function (XMLHttpRequest, textStatus) {
+                  if (textStatus == 'timeout') {
+                      res = '';
+                  }
+              },
+              error: function (jqXHR) {
+                  res = '';
+              }
+          });
+      }
     </script>
+
+  <script src="js/admin/popper.min.js"></script>
+  <script src="js/admin/chart.js"></script>
+  <script src="js/admin/tablesorter.min.js"></script>
+  <script src="js/admin/toolkit.js"></script>
+  <script src="js/admin/application.js"></script>
   </body>
 </html>
 

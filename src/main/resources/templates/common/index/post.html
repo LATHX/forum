@@ -1,68 +1,79 @@
 <Shiro:user>
-<li class="rv b agz fade-in-animation" id="reply">
-    <div class="input-group">
-        <input type="text" class="form-control" placeholder="有什么话想对我说..."  data-toggle="modal" data-target="#reply_model">
-        <div class="bpt">
-            <button type="button" class="cg ns yf"   data-toggle="modal" data-target="#reply_model">
-                <span class="h bao"></span>
-            </button>
+    <li class="rv b agz fade-in-animation" id="reply">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="有什么话想对我说..." data-toggle="modal"
+                   data-target="#reply_model">
+            <div class="bpt">
+                <button type="button" class="cg ns yf" data-toggle="modal" data-target="#reply_model">
+                    <span class="h bao"></span>
+                </button>
+            </div>
         </div>
-    </div>
-</li>
+    </li>
 
-<!-- Modal -->
-<div class="modal  fade-in" id="reply_model" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" data-backdrop="static"
-     aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle">发布新内容</h5>
-                <button type="button" class="btn btn-default float-left" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">关闭</span>
-                </button>
-                <button type="button" class="btn btn-primary float-right" onclick="savePost()" name="releasePost">
-                    <span aria-hidden="true">发布</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <select class="selectpicker  show-menu-arrow" multiple data-live-search="true"  data-max-options="10"  title="提醒好友查看"  data-width="100%" name="remind" id="post_remind">
-
-                </select>
-<input type="hidden" id="posttype" value="0">
-            </div>
-            <div class="modal-body">
-                <input type="text" class="width100per form-control" id="post_title" placeholder="输入标题"><br>
-                <div>
-                <textarea class="form-control resize-none" id="deblock_udid" name="text" rows="8" cols="20" placeholder="输入内容"></textarea><br>
+    <!-- Modal -->
+    <div class="modal  fade-in" id="reply_model" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+         data-backdrop="static"
+         aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">发布新内容</h5>
+                    <button type="button" class="btn btn-default float-left" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">关闭</span>
+                    </button>
+                    <button type="button" class="btn btn-primary float-right" onclick="savePost()" name="releasePost">
+                        <span aria-hidden="true">发布</span>
+                    </button>
                 </div>
-                <div class="btn-toolbar" role="toolbar">
-                    <div class="btn-group width100per">
-                        <button type="button" class="btn btn-primary width33per"  onclick="typeSwitch('0')" name="post-type-select">仅文字</button>
-                        <button type="button" class="btn btn-default width33per"  onclick="typeSwitch('1')"  name="post-type-select">图片</button>
-                        <button type="button" class="btn btn-default width33per"  onclick="typeSwitch('2')"  name="post-type-select">视频</button>
+                <div class="modal-body">
+                    <select class="selectpicker  show-menu-arrow" multiple data-live-search="true" data-max-options="10"
+                            title="提醒好友查看" data-width="100%" name="remind" id="post_remind">
+
+                    </select>
+                    <input type="hidden" id="posttype" value="0">
+                </div>
+                <div class="modal-body">
+                    <input type="text" class="width100per form-control" id="post_title" placeholder="输入标题"><br>
+                    <div>
+                        <textarea class="form-control resize-none" id="deblock_udid" name="text" rows="8" cols="20"
+                                  placeholder="输入内容"></textarea><br>
                     </div>
-                </div><br>
-                <div id="uploadpost" class="hidden">
-                    <input id="replyImage" name="replyImage" type="file" class="file-loading width-auto"
-                           data-overwrite-initial="false" data-min-file-count="1" multiple/>
+                    <div class="btn-toolbar" role="toolbar">
+                        <div class="btn-group width100per">
+                            <button type="button" class="btn btn-primary width33per" onclick="typeSwitch('0')"
+                                    name="post-type-select">仅文字
+                            </button>
+                            <button type="button" class="btn btn-default width33per" onclick="typeSwitch('1')"
+                                    name="post-type-select">图片
+                            </button>
+                            <button type="button" class="btn btn-default width33per" onclick="typeSwitch('2')"
+                                    name="post-type-select">视频
+                            </button>
+                        </div>
+                    </div>
+                    <br>
+                    <div id="uploadpost" class="hidden">
+                        <input id="replyImage" name="replyImage" type="file" class="file-loading width-auto"
+                               data-overwrite-initial="false" data-min-file-count="1" multiple/>
+                    </div>
+                    <br>
+                    <label id="post-forum-name"></label>
                 </div>
-                <br>
-                <label id="post-forum-name"></label>
-            </div>
 
-            <div class="modal-footer">
+                <div class="modal-footer">
 
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
-                <button type="button" class="btn btn-primary" onclick="savePost()" name="releasePost">发布</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" onclick="savePost()" name="releasePost">发布</button>
+                </div>
             </div>
         </div>
-    </div>
     </div>
 </Shiro:user>
 <Shiro:guest>
     <li class="rv b agz fade-in-animation" id="reply">
         <div class="input-group">
-            <input type="text" class="form-control" value="登陆后才能发帖~"  data-toggle="modal" data-target="#reply_model">
+            <input type="text" class="form-control" value="登陆后才能发帖~" data-toggle="modal" data-target="#reply_model">
 
         </div>
     </li>
@@ -74,9 +85,9 @@
             url: "/user-forum/forum-name",
             dataType: "json",
             timeout: 50000,
-            data: { fid:$("#fid").val()},
+            data: {fid: $("#fid").val()},
             success: function (data) {
-                $("#post-forum-name").text("发布至："+data.fname);
+                $("#post-forum-name").text("发布至：" + data.fname);
             },
             complete: function (XMLHttpRequest, textStatus) {
                 if (textStatus == 'timeout') {
@@ -89,22 +100,23 @@
                 isSingleForumloading = true;
             }
         });
-         $('#post_remind').selectpicker();
-         var s ="";
-         $.ajax({
+        $('#post_remind').selectpicker();
+        var s = "";
+        $.ajax({
             type: "POST",
             url: "/user/friend-list",
             dataType: "json",
             timeout: 50000,
             data: {},
             success: function (data) {
-             for(var o in data){
+                for (var o in data) {
 
-                s +="<option value="+data[o].sid+">"+data[o].nickname+"</option>";
-             }
-              if(!isEmpty(s)){
-             $('#post_remind').html(s);
-             $('#post_remind').selectpicker('refresh');}
+                    s += "<option value=" + data[o].sid + ">" + data[o].nickname + "</option>";
+                }
+                if (!isEmpty(s)) {
+                    $('#post_remind').html(s);
+                    $('#post_remind').selectpicker('refresh');
+                }
             },
             complete: function (XMLHttpRequest, textStatus) {
                 if (textStatus == 'timeout') {
@@ -120,96 +132,100 @@
 
     })
 
-    function savePost(){
+    function savePost() {
         $("button[name='releasePost']").text('正在发布');
-        $("button[name='releasePost']").prop('disabled',true);
+        $("button[name='releasePost']").prop('disabled', true);
         var type = $("#posttype").val();
-        if(type == '0'){
+        if (type == '0') {
             $.ajax({
-            type: "POST",
-            url: "/user/release-post-text",
-            dataType: "json",
-            timeout: 50000,
-            data: { title:$("#post_title").val(),text: $("#deblock_udid").val(),remind:$("#post_remind").selectpicker('val').toString(),type:$("#posttype").val(),fid:$("#fid").val()},
-            success: function (data) {
-                if (data.msg.msgCode == '200') {
-                    $("#post_title").val('');
-                    $("#deblock_udid").val('');
-                    $('#replyImage').fileinput('clear');
-                    $("#reply_model").modal('hide');
-                    $("button[name='releasePost']").text('发布');
-                    $("button[name='releasePost']").prop('disabled',false);
-                    $('#replyImage').fileinput('enable');
-                    userPageSuccessAlert('','发布成功');
-                }else{
-                    userPageAlert('','发布失败，内容填写不完整');
-                      $("#post_title").val('');
-                    $("#deblock_udid").val('');
-                    $('#replyImage').fileinput('clear');
-                    $("#reply_model").modal('hide');
-                    $("button[name='releasePost']").text('发布');
-                    $("button[name='releasePost']").prop('disabled',false);
-                    $('#replyImage').fileinput('enable');
-                }
-            },
-            complete: function (XMLHttpRequest, textStatus) {
-                if (textStatus == 'timeout') {
-                    userPageAlert('', '连接超时，请稍后再试')
+                type: "POST",
+                url: "/user/release-post-text",
+                dataType: "json",
+                timeout: 50000,
+                data: {
+                    title: $("#post_title").val(),
+                    text: $("#deblock_udid").val(),
+                    remind: $("#post_remind").selectpicker('val').toString(),
+                    type: $("#posttype").val(),
+                    fid: $("#fid").val()
+                },
+                success: function (data) {
+                    if (data.msg.msgCode == '200') {
+                        $("#post_title").val('');
+                        $("#deblock_udid").val('');
+                        $('#replyImage').fileinput('clear');
+                        $("#reply_model").modal('hide');
+                        $("button[name='releasePost']").text('发布');
+                        $("button[name='releasePost']").prop('disabled', false);
+                        $('#replyImage').fileinput('enable');
+                        userPageSuccessAlert('', '发布成功');
+                    } else {
+                        userPageAlert('', '发布失败，内容填写不完整');
+                        $("#post_title").val('');
+                        $("#deblock_udid").val('');
+                        $('#replyImage').fileinput('clear');
+                        $("#reply_model").modal('hide');
+                        $("button[name='releasePost']").text('发布');
+                        $("button[name='releasePost']").prop('disabled', false);
+                        $('#replyImage').fileinput('enable');
+                    }
+                },
+                complete: function (XMLHttpRequest, textStatus) {
+                    if (textStatus == 'timeout') {
+                        userPageAlert('', '连接超时，请稍后再试')
+                        isSingleForumloading = true;
+                    }
+                },
+                error: function (jqXHR) {
+                    userPageAlert('', '服务器繁忙，请稍后再试')
                     isSingleForumloading = true;
                 }
-            },
-            error: function (jqXHR) {
-                userPageAlert('', '服务器繁忙，请稍后再试')
-                isSingleForumloading = true;
-            }
-        });
-        }else if(type == '1' || type == '2'){
-             $('#replyImage').fileinput('upload').fileinput('disable');
+            });
+        } else if (type == '1' || type == '2') {
+            $('#replyImage').fileinput('upload').fileinput('disable');
         }
 
     }
 
 
-    function typeSwitch(s){
+    function typeSwitch(s) {
         var button = $("button[name='post-type-select']");
         button.removeClass('btn-primary');
         button.addClass('btn-default');
         $("#uploadpost").empty();
         $("#uploadpost").append("<input id='replyImage' name='replyImage' type='file' class='file-loading width-auto' data-overwrite-initial='false' data-min-file-count='1' multiple/>");
-        var j=0;
-        if(s == '0'){
+        var j = 0;
+        if (s == '0') {
             $("button[name='post-type-select']:eq(0)").addClass('btn-primary');
             $("button[name='post-type-select']:eq(0)").removeClass('btn-default');
             $("#uploadpost").addClass("hidden");
             $("#posttype").val('0');
         }
-        if(s == '1'){
-          $("button[name='post-type-select']:eq(1)").addClass('btn-primary');
-          $("button[name='post-type-select']:eq(1)").removeClass('btn-default');
-          $("#uploadpost").removeClass("hidden");
-          $("#posttype").val('1');
-        initUplodaReplyImage();
+        if (s == '1') {
+            $("button[name='post-type-select']:eq(1)").addClass('btn-primary');
+            $("button[name='post-type-select']:eq(1)").removeClass('btn-default');
+            $("#uploadpost").removeClass("hidden");
+            $("#posttype").val('1');
+            initUplodaReplyImage();
         }
-        if(s == '2'){
+        if (s == '2') {
             $("button[name='post-type-select']:eq(2)").addClass('btn-primary');
             $("button[name='post-type-select']:eq(2)").removeClass('btn-default');
             $("#uploadpost").removeClass("hidden");
             $("#posttype").val('2');
             initUplodaReplyVideo();
         }
-}
+    }
 
 
-
-
-    function initUplodaReplyImage(){
+    function initUplodaReplyImage() {
         $("#replyImage").fileinput({
             language: 'zh', //设置语言
             uploadUrl: '/user/release-post', //上传的地址
             uploadAsync: false,
-            allowedFileExtensions: ['jpg', 'gif', 'png','jpeg'],//接收的文件后缀
-            showUpload : false,//是否显示上传后的按钮
-            showBrowse : true,//是否显示上传前的上传按钮
+            allowedFileExtensions: ['jpg', 'gif', 'png', 'jpeg'],//接收的文件后缀
+            showUpload: false,//是否显示上传后的按钮
+            showBrowse: true,//是否显示上传前的上传按钮
             showCaption: false,//是否显示标题
             browseClass: "btn btn-primary", //按钮样式
             dropZoneEnabled: false,//是否显示拖拽区域
@@ -219,53 +235,55 @@
             //maxImageHeight: 1000,//图片的最大高度
             maxFileSize: 20000,//单位为kb，如果为0表示不限制文件大小
             minFileCount: 1,
-            fileActionSettings:{showUpload: true},
+            fileActionSettings: {showUpload: true},
             maxFileCount: 9, //表示允许同时上传的最大文件个数
             enctype: 'multipart/form-data',
-            validateInitialCount:true,
+            validateInitialCount: true,
             preferIconicPreview: true,
             previewFileIcon: "<i class=''></i>",
-            layoutTemplates:{ // 预览图片按钮控制，这里屏蔽预览按钮
-                 actionZoom:'',
-                 actionUpload:''
+            layoutTemplates: { // 预览图片按钮控制，这里屏蔽预览按钮
+                actionZoom: '',
+                actionUpload: ''
             },
             msgFilesTooMany: "选择上传的文件数量{n} 超过允许的最大数值{m},请先删除之前的图片！",
-             uploadExtraData: function (previewId, index) {
-            var data = {
-            title:$("#post_title").val(),
-            text: $("#deblock_udid").val(),
-            remind:$("#post_remind").selectpicker('val'),
-            type:$("#posttype").val(),
-            fid:$("#fid").val()
-            };
+            uploadExtraData: function (previewId, index) {
+                var data = {
+                    title: $("#post_title").val(),
+                    text: $("#deblock_udid").val(),
+                    remind: $("#post_remind").selectpicker('val'),
+                    type: $("#posttype").val(),
+                    fid: $("#fid").val()
+                };
                 return data;
             },
-            });
-             //导入文件上传完成之后的事件
+        });
+        //导入文件上传完成之后的事件
         $("#replyImage").on("filebatchuploadsuccess", function (event, data) {
             var res = data.response;
             if (data == undefined || res.msg.msgCode != '200') {
-                userPageAlert('','未能上传成功或文件格式类型不正确');
+                userPageAlert('', '未能上传成功或文件格式类型不正确');
                 return;
             }
             $('#replyImage').fileinput('clear');
             $("#post_title").val('');
             $("#deblock_udid").val('');
             $("#reply_model").modal('hide');
-            $("#reply_model").modal('hide');('发布');
-            $("button[name='releasePost']").prop('disabled',false);
+            $("#reply_model").modal('hide');
+            ('发布');
+            $("button[name='releasePost']").prop('disabled', false);
             $('#replyImage').fileinput('enable');
-            userPageSuccessAlert('','发布成功');
+            userPageSuccessAlert('', '发布成功');
         });
-        }
-    function initUplodaReplyVideo(){
+    }
+
+    function initUplodaReplyVideo() {
         $("#replyImage").fileinput({
             language: 'zh', //设置语言
             uploadUrl: '/user/release-post', //上传的地址
             uploadAsync: false,
             allowedFileExtensions: ['mp4', 'mov', '3gp'],//接收的文件后缀
-            showUpload : false,//是否显示上传后的按钮
-            showBrowse : true,//是否显示上传前的上传按钮
+            showUpload: false,//是否显示上传后的按钮
+            showBrowse: true,//是否显示上传前的上传按钮
             showCaption: false,//是否显示标题
             browseClass: "btn btn-primary", //按钮样式
             dropZoneEnabled: false,//是否显示拖拽区域
@@ -275,42 +293,43 @@
             //maxImageHeight: 1000,//图片的最大高度
             maxFileSize: 30000,//单位为kb，如果为0表示不限制文件大小
             minFileCount: 1,
-            fileActionSettings:{showUpload: true},
+            fileActionSettings: {showUpload: true},
             maxFileCount: 1, //表示允许同时上传的最大文件个数
             enctype: 'multipart/form-data',
-            validateInitialCount:true,
+            validateInitialCount: true,
             preferIconicPreview: true,
             previewFileIcon: "<i class=''></i>",
-            layoutTemplates:{ // 预览图片按钮控制，这里屏蔽预览按钮
-                 actionZoom:'',
-                 actionUpload:''
+            layoutTemplates: { // 预览图片按钮控制，这里屏蔽预览按钮
+                actionZoom: '',
+                actionUpload: ''
             },
             msgFilesTooMany: "选择上传的文件数量{n} 超过允许的最大数值{m},请先删除之前的视频！",
-             uploadExtraData: function (previewId, index) {
-            var data = {
-            title:$("#post_title").val(),
-            text: $("#deblock_udid").val(),
-            remind:$("#post_remind").selectpicker('val'),
-            type:$("#posttype").val(),
-            fid:$("#fid").val()
-            };
+            uploadExtraData: function (previewId, index) {
+                var data = {
+                    title: $("#post_title").val(),
+                    text: $("#deblock_udid").val(),
+                    remind: $("#post_remind").selectpicker('val'),
+                    type: $("#posttype").val(),
+                    fid: $("#fid").val()
+                };
                 return data;
             },
-            });
-             //导入文件上传完成之后的事件
+        });
+        //导入文件上传完成之后的事件
         $("#replyImage").on("filebatchuploadsuccess", function (event, data) {
             var res = data.response;
             if (data == undefined || res.msg.msgCode != '200') {
-                userPageAlert('','未能上传成功或文件格式类型不正确');
+                userPageAlert('', '未能上传成功或文件格式类型不正确');
                 return;
             }
             $("#post_title").val('');
             $("#deblock_udid").val('');
             $('#replyImage').fileinput('clear');
-            $("#reply_model").modal('hide');('发布');
-            $("button[name='releasePost']").prop('disabled',false);
+            $("#reply_model").modal('hide');
+            ('发布');
+            $("button[name='releasePost']").prop('disabled', false);
             $('#replyImage').fileinput('enable');
-            userPageSuccessAlert('','发布成功');
+            userPageSuccessAlert('', '发布成功');
         });
-        }
+    }
 </script>

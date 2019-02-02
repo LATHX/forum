@@ -7,23 +7,27 @@
                 <img class="bpj" src="images/no_user_image.png" id="userImg" width="100px" height="100px">
             </a>
             <h6 class="qb">
-                <a class="boa" href=""><shiro:principal property="nickname"/></a>
+                <a class="boa" href="">
+                    <shiro:principal property="nickname"/>
+                </a>
             </h6>
             <i class="fa fa-mars hidden width-auto height-auto color-sex-blue" id="man"></i>
-            <i class="fa-mars fa fa-rotate-180 hidden width-auto height-auto color-sex-red"  id="woman"></i>
+            <i class="fa-mars fa fa-rotate-180 hidden width-auto height-auto color-sex-red" id="woman"></i>
 
             <!--<p class="afo"></p>-->
 
             <ul class="bpk">
                 <li class="bpl">
                     <a href="javascript:void(0);" class="boa" id="index_followed">
-                        关注<h7 class="aej" ><i class="fa fa-refresh fa-spin"></i></h7>
+                        关注
+                        <h7 class="aej"><i class="fa fa-refresh fa-spin"></i></h7>
                     </a>
                 </li>
 
                 <li class="bpl">
                     <a href="javascript:void(0);" class="boa" id="index_friend">
-                        粉丝<h7 class="aej" ><i class="fa fa-refresh fa-spin"></i></h7>
+                        粉丝
+                        <h7 class="aej"><i class="fa fa-refresh fa-spin"></i></h7>
                     </a>
                 </li>
 
@@ -34,7 +38,7 @@
 </div>
 
 <div shiro:guest>
-    <div class="pz bpi afo fade-in-animation" >
+    <div class="pz bpi afo fade-in-animation">
         <div class="qf" style=""></div>
         <div class="qa avz">
             <a href="profile/index.html">
@@ -43,9 +47,9 @@
                         src="images/no_user_image.png">
             </a>
             <div class="form-group">
-            <h6 class="qb">
-                <a class="" href="login.html">登录</a>
-            </h6>
+                <h6 class="qb">
+                    <a class="" href="login.html">登录</a>
+                </h6>
             </div>
             <!--<p class="afo"></p>-->
 
@@ -54,47 +58,48 @@
     </div>
 </div>
 <script>
-    if(!isEmpty($("#userBackgroundImg").text())){
-        $("#userInfoBackgroundImg").css("background-image","url("+$("#userBackgroundImg").text()+")");
+    if (!isEmpty($("#userBackgroundImg").text())) {
+        $("#userInfoBackgroundImg").css("background-image", "url(" + $("#userBackgroundImg").text() + ")");
     }
     var sex = $("#sex").text();
     var userImghidden = $("#userImghidden").text();
-    if(userImghidden !=null && userImghidden.trim().length>0 && userImghidden != 'null' && userImghidden.trim() != 'null'){
-    $("#userImg").prop("src", userImghidden);
+    if (userImghidden != null && userImghidden.trim().length > 0 && userImghidden != 'null' && userImghidden.trim() != 'null') {
+        $("#userImg").prop("src", userImghidden);
     }
 
-    if(sex == '1'){
-      $("#woman").removeClass("hidden");
-      }else{
-      $("#man").removeClass("hidden");
-      }
-if(isAuthority()){
-getUserFollowedInfo();
-}
-      function getUserFollowedInfo(){
-      $.ajax({
-            type:"POST",
-            url:"/user/user-info",
-            dataType:"json",
-            timeout : 50000,
-            data: { sid:$("#userSid").text()},
-            success:function(data){
-                if(data.hasOwnProperty("msg")){
-                    userPageAlert('',  data.msg.msgInfo);
+    if (sex == '1') {
+        $("#woman").removeClass("hidden");
+    } else {
+        $("#man").removeClass("hidden");
+    }
+    if (isAuthority()) {
+        getUserFollowedInfo();
+    }
+
+    function getUserFollowedInfo() {
+        $.ajax({
+            type: "POST",
+            url: "/user/user-info",
+            dataType: "json",
+            timeout: 50000,
+            data: {sid: $("#userSid").text()},
+            success: function (data) {
+                if (data.hasOwnProperty("msg")) {
+                    userPageAlert('', data.msg.msgInfo);
                     return;
                 }
-                $("#index_followed").html("关注<h6 class='aej' >"+data.friendCount+"</h6>");
-                $("#index_friend").html("粉丝<h6 class='aej' >"+data.followedCount+"</h6>");
+                $("#index_followed").html("关注<h6 class='aej' >" + data.friendCount + "</h6>");
+                $("#index_friend").html("粉丝<h6 class='aej' >" + data.followedCount + "</h6>");
             },
             complete: function (XMLHttpRequest, textStatus) {
-                if(textStatus == 'timeout') {
-                    userPageAlert('',  '连接超时，请稍后再试')
+                if (textStatus == 'timeout') {
+                    userPageAlert('', '连接超时，请稍后再试')
                 }
             },
-            error:function(jqXHR){
-                userPageAlert('',  '服务器繁忙，请稍后再试')
+            error: function (jqXHR) {
+                userPageAlert('', '服务器繁忙，请稍后再试')
             }
         });
-      }
+    }
 
 </script>

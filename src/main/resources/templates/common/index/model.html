@@ -1,50 +1,54 @@
 <div class="modal fade-in-animation" id="friend_modal" data-backdrop="static" style="position: fixed;">
-    <div class="modal-dialog modal-md" >
+    <div class="modal-dialog modal-md">
         <div class="modal-content background-size-100per " id="friendBackgroundImage">
             <div class="modal-header">
                 <h4 class="modal-title"></h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body modal-body-scroller" >
-                <div class="boq" >
+            <div class="modal-body modal-body-scroller">
+                <div class="boq">
                     <div class="by">
-                        <div class="bor" >
-                            <img class="us bos" id="friend_model_img" src="images/no_user_image.png" height="100px" width="100px">.
+                        <div class="bor">
+                            <img class="us bos" id="friend_model_img" src="images/no_user_image.png" height="100px"
+                                 width="100px">.
                             <div class="opacity-60per" style="background-color:black;">
-                            <h3 class="bou" id="friend_model_nickname" ></h3>
-                            <!--<p class="bot">-->
-                            <div class="bpk " style="color:white;">
-                                <li class="bpl">
-                                    <a href="javascript:void(0);" class="boa" id="friend_count">
-                                        关注:<h7 class="aej" ><i class="fa fa-refresh fa-spin"></i></h7>
-                                    </a>
-                                </li>
+                                <h3 class="bou" id="friend_model_nickname"></h3>
+                                <!--<p class="bot">-->
+                                <div class="bpk " style="color:white;">
+                                    <li class="bpl">
+                                        <a href="javascript:void(0);" class="boa" id="friend_count">
+                                            关注:
+                                            <h7 class="aej"><i class="fa fa-refresh fa-spin"></i></h7>
+                                        </a>
+                                    </li>
 
-                                <li class="bpl">
-                                    <a href="javascript:void(0);" class="boa" id="followed_count">
-                                        粉丝:<h7 class="aej" ><i class="fa fa-refresh fa-spin"></i></h7>
-                                    </a>
-                                </li>
-                                <li class="bpl">
-                                    <a href="javascript:void(0);" class="boa" id="forum_count">
-                                        论坛:<h7 class="aej" ><i class="fa fa-refresh fa-spin"></i></h7>
-                                    </a>
-                                </li>
-                            </div>
+                                    <li class="bpl">
+                                        <a href="javascript:void(0);" class="boa" id="followed_count">
+                                            粉丝:
+                                            <h7 class="aej"><i class="fa fa-refresh fa-spin"></i></h7>
+                                        </a>
+                                    </li>
+                                    <li class="bpl">
+                                        <a href="javascript:void(0);" class="boa" id="forum_count">
+                                            论坛:
+                                            <h7 class="aej"><i class="fa fa-refresh fa-spin"></i></h7>
+                                        </a>
+                                    </li>
+                                </div>
                             </div>
                             <!--<div class="bov">-->
-                                <!--<ul class="nav ph xm">-->
-                                    <!--<li class="pi">-->
-                                        <!--<a class="pg" href="javascript:void(0)" id="friend_count">关注:</a>-->
-                                    <!--</li>-->
-                                    <!--<li class="pi">-->
-                                        <!--<a class="pg" href="javascript:void(0)" id="followed_count">粉丝数:</a>-->
-                                    <!--</li>-->
-                                    <!--<li class="pi">-->
-                                        <!--<a class="pg" href="javascript:void(0)" id="forum_count">关注论坛:</a>-->
-                                    <!--</li>-->
-                                <!--</ul>-->
+                            <!--<ul class="nav ph xm">-->
+                            <!--<li class="pi">-->
+                            <!--<a class="pg" href="javascript:void(0)" id="friend_count">关注:</a>-->
+                            <!--</li>-->
+                            <!--<li class="pi">-->
+                            <!--<a class="pg" href="javascript:void(0)" id="followed_count">粉丝数:</a>-->
+                            <!--</li>-->
+                            <!--<li class="pi">-->
+                            <!--<a class="pg" href="javascript:void(0)" id="forum_count">关注论坛:</a>-->
+                            <!--</li>-->
+                            <!--</ul>-->
                             <!--</div>-->
                             <!--</p>-->
                         </div>
@@ -52,19 +56,22 @@
 
                 </div>
             </div>
-            <div class="modal-body modal-body-scroller opacity-60per" style="background-color:white;" id="friend_model_info">
+            <div class="modal-body modal-body-scroller opacity-60per" style="background-color:white;"
+                 id="friend_model_info">
 
             </div>
-            <div class="modal-footer text-align-center opacity-60per" >
+            <div class="modal-footer text-align-center opacity-60per">
                 <Shiro:user>
-                <button type="button" class="btn btn-primary" id="follow_friend"  onclick="followFriend('1')"><span
-                        class="fa fa-circle-o width-auto height-auto fa-1x friend-button" id="follow_friend_ref"></span>
-                </button>
+                    <button type="button" class="btn btn-primary" id="follow_friend" onclick="followFriend('1')"><span
+                            class="fa fa-circle-o width-auto height-auto fa-1x friend-button"
+                            id="follow_friend_ref"></span>
+                    </button>
                 </Shiro:user>
                 <Shiro:guest>
-                <button type="button" class="btn btn-primary" data-toggle="popover" data-content="请先登录后再添加好友" data-placement="top"  data-container="body"><span
-                        class="fa fa-circle-o width-auto height-auto fa-1x friend-button"></span>
-                </button>
+                    <button type="button" class="btn btn-primary" data-toggle="popover" data-content="请先登录后再添加好友"
+                            data-placement="top" data-container="body"><span
+                            class="fa fa-circle-o width-auto height-auto fa-1x friend-button"></span>
+                    </button>
                 </Shiro:guest>
                 <button type="button" class="btn btn-secondary btn-danger" data-dismiss="modal"><span
                         class="fa fa-close width-auto height-auto fa-1x friend-button"></span>
@@ -77,8 +84,8 @@
 <script>
 
     $('#friend_modal').on('show.bs.modal', function (event) {
-                $("#follow_friend_ref").addClass("fa-refresh");
-                $("#follow_friend").attr("disabled","disabled");
+        $("#follow_friend_ref").addClass("fa-refresh");
+        $("#follow_friend").attr("disabled", "disabled");
 
         var dom = $("friend_modal");
         var width = dom.outerWidth(),
@@ -94,76 +101,76 @@
         });
         var button = $(event.relatedTarget)
         var sid = button.data('sid')
-        $("#follow_friend").attr("data-sid",sid);
-        $("#follow_friend").attr("onclick","followFriend('"+sid+"','1','button')");
+        $("#follow_friend").attr("data-sid", sid);
+        $("#follow_friend").attr("onclick", "followFriend('" + sid + "','1','button')");
         $.ajax({
-            type:"POST",
-            url:"/user/user-info",
-            dataType:"json",
-            timeout : 50000,
-            data: { sid:sid},
-            success:function(data){
-                if(data.hasOwnProperty("msg")){
-                    userPageAlert('',  data.msg.msgInfo);
+            type: "POST",
+            url: "/user/user-info",
+            dataType: "json",
+            timeout: 50000,
+            data: {sid: sid},
+            success: function (data) {
+                if (data.hasOwnProperty("msg")) {
+                    userPageAlert('', data.msg.msgInfo);
                     return;
                 }
-                var img = isEmpty(data.userImg) == true ?'images/no_user_image.png':data.userImg;
-                var text = "性别："+(data.sex == '1'?'男':'女')+"<br>"
-                text += "城市："+data.province+data.city+data.dist+"<br>"
-                $("#friend_model_img").attr('src',img);
+                var img = isEmpty(data.userImg) == true ? 'images/no_user_image.png' : data.userImg;
+                var text = "性别：" + (data.sex == '1' ? '男' : '女') + "<br>"
+                text += "城市：" + data.province + data.city + data.dist + "<br>"
+                $("#friend_model_img").attr('src', img);
                 $("#friend_model_info").html(text);
                 $("#friend_model_nickname").text(data.nickname);
-                $("#friend_count").html("关注<h6 class='aej' >"+data.friendCount+"</h6>");
-                $("#followed_count").html("粉丝<h6 class='aej' >"+data.followedCount+"</h6>");
-                $("#forum_count").html("论坛<h6 class='aej' >"+data.forumCount+"</h6>");
-                if(!isEmpty(data.userBackgroundImg)){
-                     $("#friendBackgroundImage").css("background-image","url("+data.userBackgroundImg+")");
-                }else{
-                     $("#friendBackgroundImage").css("background-image","url(images/iceland.jpg)");
+                $("#friend_count").html("关注<h6 class='aej' >" + data.friendCount + "</h6>");
+                $("#followed_count").html("粉丝<h6 class='aej' >" + data.followedCount + "</h6>");
+                $("#forum_count").html("论坛<h6 class='aej' >" + data.forumCount + "</h6>");
+                if (!isEmpty(data.userBackgroundImg)) {
+                    $("#friendBackgroundImage").css("background-image", "url(" + data.userBackgroundImg + ")");
+                } else {
+                    $("#friendBackgroundImage").css("background-image", "url(images/iceland.jpg)");
                 }
             },
             complete: function (XMLHttpRequest, textStatus) {
-                if(textStatus == 'timeout') {
-                    userPageAlert('',  '连接超时，请稍后再试')
+                if (textStatus == 'timeout') {
+                    userPageAlert('', '连接超时，请稍后再试')
                 }
             },
-            error:function(jqXHR){
-                userPageAlert('',  '服务器繁忙，请稍后再试')
+            error: function (jqXHR) {
+                userPageAlert('', '服务器繁忙，请稍后再试')
             }
         });
 
 
         $.ajax({
-            type:"POST",
-            url:"/user/isfollowfriend",
-            dataType:"json",
-            timeout : 50000,
-            data: { friendSid:sid},
-            success:function(data){
-                if(data.msg.msgCode == '200'){
+            type: "POST",
+            url: "/user/isfollowfriend",
+            dataType: "json",
+            timeout: 50000,
+            data: {friendSid: sid},
+            success: function (data) {
+                if (data.msg.msgCode == '200') {
                     $("#follow_friend_ref").removeClass("fa-circle-o");
                     $("#follow_friend_ref").addClass("fa-check");
-                    $("#follow_friend").attr("disabled","disabled");
+                    $("#follow_friend").attr("disabled", "disabled");
                     $("#follow_friend").removeClass("btn-primary");
                     $("#follow_friend").addClass("btn-success");
-                }else{
+                } else {
                     $("#follow_friend_ref").addClass("fa-circle-o");
                     $("#follow_friend_ref").removeClass("fa-check");
-                    $("#follow_friend").prop("disabled",false);
+                    $("#follow_friend").prop("disabled", false);
                     $("#follow_friend").addClass("btn-primary");
                     $("#follow_friend").removeClass("btn-success");
                 }
             },
             complete: function (XMLHttpRequest, textStatus) {
-                if(textStatus == 'timeout') {
-                    userPageAlert('',  '连接超时，请稍后再试')
+                if (textStatus == 'timeout') {
+                    userPageAlert('', '连接超时，请稍后再试')
                 }
             },
-            error:function(jqXHR){
-                userPageAlert('',  '服务器繁忙，请稍后再试')
+            error: function (jqXHR) {
+                userPageAlert('', '服务器繁忙，请稍后再试')
             }
         });
 
-                $("#follow_friend_ref").removeClass("fa-refresh");
+        $("#follow_friend_ref").removeClass("fa-refresh");
     });
 </script>
