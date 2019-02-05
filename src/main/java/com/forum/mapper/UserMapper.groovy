@@ -32,4 +32,7 @@ interface UserMapper extends Mapper<UserEntity> {
 
     @Select('select enable from f_user where username = #{username}')
     boolean isAccountBlock(String username)
+
+    @Select('select * from f_user')
+    List<UserEntity> selectAllFromTable()
 }

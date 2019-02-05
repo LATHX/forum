@@ -18,9 +18,7 @@ class UserEntity implements Serializable, AuthCachePrincipal {
     @JSONField(serialize= false)
     private String password
     private String nickname
-    @JSONField(serialize= false)
     private Integer roleId
-    @JSONField(serialize= false)
     private boolean enable
     private String sex
     private String province

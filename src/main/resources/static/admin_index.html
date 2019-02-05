@@ -1,9 +1,7 @@
-
-
-
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=utf-8"/><!-- /Added by HTTrack -->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,82 +12,85 @@
 
     <title>后台管理系统</title>
 
-    
-      <link href="css/admin/toolkit-inverse.css" rel="stylesheet" id="cssStyle">
-    
-    
+    <link href="css/admin/toolkit-inverse.css" rel="stylesheet" id="cssStyle">
+
+
     <link href="css/admin/application.css" rel="stylesheet">
 
     <style>
-      /* note: this is a hack for ios iframe for bootstrap themes shopify page */
-      /* this chunk of css is not part of the toolkit :) */
-      body {
-        width: 1px;
-        min-width: 100%;
-        *width: 100%;
-      }
-      .hidden{
+        /* note: this is a hack for ios iframe for bootstrap themes shopify page */
+        /* this chunk of css is not part of the toolkit :) */
+        body {
+            width: 1px;
+            min-width: 100%;
+            *width: 100%;
+        }
+
+        .hidden {
             display: none;
         }
     </style>
-  </head>
+</head>
 
 
 <body>
-  <div class="bw">
+<div class="bw">
     <div class="dh">
-      <div class="en bpz">
+        <div class="en bpz">
 
-        <nav class="bqg">
-          <div class="bqa">
-            <button class="bow boy bqb" type="button" data-toggle="collapse" data-target="#nav-toggleable-md">
-              <span class="adp">Toggle nav</span>
-            </button>
-            <a class="bqc brd" href="index.html">
-              <span class="bv bhc bqd"></span>
-            </a>
-          </div>
+            <nav class="bqg">
+                <div class="bqa">
+                    <button class="bow boy bqb" type="button" data-toggle="collapse" data-target="#nav-toggleable-md">
+                        <span class="adp">Toggle nav</span>
+                    </button>
+                    <a class="bqc brd" href="index.html">
+                        <span class="bv bhc bqd"></span>
+                    </a>
+                </div>
 
-          <div class="collapse bpd" id="nav-toggleable-md">
-            <!--<form class="bqe">-->
-              <!--<input class="form-control" type="text" placeholder="Search...">-->
-              <!--<button type="submit" class="nz">-->
-                <!--<span class="bv bhw"></span>-->
-              <!--</button>-->
-            <!--</form>-->
-            <ul class="nav pb nav-stacked wz">
-              <li class="axq">管理模块</li>
-              <li class="pa">
-                <a class="oy active" href="admin_index.html" name="menuItem">主页</a>
-              </li>
-              <li class="pa">
-                <a class="oy " href="javascript:void(0)" id="rabbit" name="menuItem">RabbitMQ管理</a>
-              </li>
-              <li class="pa">
-                <a class="oy "href="javascript:void(0)" id="druid" name="menuItem">Druid管理</a>
-              </li>
-              <li class="pa">
-                <a class="oy " href="javascript:void(0)" id="api" name="menuItem">API管理</a>
-              </li>
+                <div class="collapse bpd" id="nav-toggleable-md">
+                    <!--<form class="bqe">-->
+                    <!--<input class="form-control" type="text" placeholder="Search...">-->
+                    <!--<button type="submit" class="nz">-->
+                    <!--<span class="bv bhw"></span>-->
+                    <!--</button>-->
+                    <!--</form>-->
+                    <ul class="nav pb nav-stacked wz">
+                        <li class="axq">管理模块</li>
+                        <li class="pa">
+                            <a class="oy active" href="admin_index.html" name="menuItem">主页</a>
+                        </li>
+                        <li class="pa">
+                            <a class="oy " href="javascript:void(0)" id="rabbit" name="menuItem">RabbitMQ管理</a>
+                        </li>
+                        <li class="pa">
+                            <a class="oy " href="javascript:void(0)" id="druid" name="menuItem">Druid管理</a>
+                        </li>
+                        <li class="pa">
+                            <a class="oy " href="javascript:void(0)" id="api" name="menuItem">API管理</a>
+                        </li>
 
-              <li class="axq">业务模块</li>
-              <li class="pa">
-                <a class="oy "href="javascript:void(0)" id="forumManager" onclick="callBackFunction('forumList')" name="menuItem">论坛管理</a>
-              </li>
-              <li class="pa">
-                <a class="oy" href="http://getbootstrap.com/" target="blank" name="menuItem">用户权限</a>
-              </li>
-              <li class="pa">
-                <a class="oy " href="javascript:void(0)" onclick="switchCss()" id="UI" name="menuItem">日间模式</a>
-              </li>
-              <li class="pa">
-                <a class="oy" href="#docsModal" data-toggle="modal" name="menuItem">参数设定</a>
-              </li>
-            </ul>
-            <hr class="bre aez">
-          </div>
-        </nav>
-      </div>
+                        <li class="axq">业务模块</li>
+                        <li class="pa">
+                            <a class="oy " href="javascript:void(0)" id="forumManager"
+                               onclick="callBackFunction('forumList')" name="menuItem">论坛管理</a>
+                        </li>
+                        <li class="pa">
+                            <a class="oy" href="javascript:void(0)" target="blank" name="menuItem"
+                               onclick="callBackFunction('userManager')">用户管理</a>
+                        </li>
+                        <li class="pa">
+                            <a class="oy " href="javascript:void(0)" onclick="switchCss()" id="UI"
+                               name="menuItem">日间模式</a>
+                        </li>
+                        <li class="pa">
+                            <a class="oy" href="#docsModal" data-toggle="modal" name="menuItem">参数设定</a>
+                        </li>
+                    </ul>
+                    <hr class="bre aez">
+                </div>
+            </nav>
+        </div>
 
 
         <div class="et brf" id="overView">
@@ -179,155 +180,245 @@
             <div class="ly">
                 <table class="ck" data-sort="table" id="table">
                     <thead>
-                    <tr>
-                        <th>Order</th>
-                        <th>Customer name</th>
-                        <th>Description</th>
-                        <th>Date</th>
-                        <th>Total</th>
-                    </tr>
+
                     </thead>
                     <tbody>
-                    <tr>
-                        <td><a href="#">#10001</a></td>
-                        <td>First Last</td>
-                        <td>Admin theme, marketing theme</td>
-                        <td>01/01/2015</td>
-                        <td>$200.00</td>
-                    </tr>
+
                     </tbody>
                 </table>
             </div>
         </div>
 
-  </div>
-  </div>
-
-
-  <div id="docsModal" class="cb fade" tabindex="-1" role="dialog" aria-labelledby="brl" style="">
-  <div class="modal-dialog modal-md"   style="width: 250%; height: 95%; left: 10%; top:3%;position: fixed">
-    <div class="modal-content"  style="width: 250%; height: 95%;">
-      <div class="sd">
-        <h4 class="modal-title" id="myModalLabel">控制面板</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      </div>
-      <div class="modal-body modal-body-scroller" style="height: 90%;">
-        <div style="width: 100%; height: 100%;">
-          <iframe src="" id="model_frame"  style="width: 100%; height: 100%; border:0px;">
-          </iframe>
-        </div>
-      </div>
-      <!--<div class="se">-->
-        <!--<button type="button" class="ce ni" data-dismiss="modal">Cool, got it!</button>-->
-      <!--</div>-->
     </div>
-  </div>
 </div>
 
 
-    <script src="js/admin/jquery.min.js"></script>
-    <script>
-      // execute/clear BS loaders for docs
-      var cssFlag = 0;
-      $(function(){while(window.BS&&window.BS.loader&&window.BS.loader.length){(window.BS.loader.pop())()}})
-      $(document).ready(function(){
-          var host = window.location.host;
-          var hostWithPort= host;
-          if(host.indexOf(':') != -1){
-              host = host.substring(0, host.indexOf(':'))
-          }
-          $("#rabbit").prop('href',"javascript:openModel('http://"+host+":15672')")
-          $("#druid").prop('href',"javascript:openModel('http://"+hostWithPort+"/druid/login.html')")
-          $("#api").prop('href',"javascript:openModel('http://"+hostWithPort+"/swagger-ui.html')")
-      });
+<div id="docsModal" class="cb fade" tabindex="-1" role="dialog" aria-labelledby="brl" style="">
+    <div class="modal-dialog modal-md" style="width: 250%; height: 95%; left: 10%; top:3%;position: fixed">
+        <div class="modal-content" style="width: 250%; height: 95%;">
+            <div class="sd">
+                <h4 class="modal-title" id="myModalLabel">控制面板</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body modal-body-scroller" style="height: 90%;">
+                <div style="width: 100%; height: 100%;">
+                    <iframe src="" id="model_frame" style="width: 100%; height: 100%; border:0px;">
+                    </iframe>
+                </div>
+            </div>
+            <!--<div class="se">-->
+            <!--<button type="button" class="ce ni" data-dismiss="modal">Cool, got it!</button>-->
+            <!--</div>-->
+        </div>
+    </div>
+</div>
 
 
-      function openModel(url){
-          $("#model_frame").attr('src',url)
-          $('#docsModal').modal('show');
-      }
-      function switchCss() {
-          if(cssFlag == 0){
-              $("#UI").html('夜间模式');
-              $("#cssStyle").prop('href','css/admin/toolkit-light.css')
-              cssFlag = 1;
-          }else{
-              $("#UI").html('日间模式');
-              $("#cssStyle").prop('href','css/admin/toolkit-inverse.css')
-              cssFlag = 0;
-          }
-      }
-      function forumList(res){
-          var str = '';
-          $('#overView').addClass('hidden')
-          $('#infoView').removeClass('hidden')
-          $('#table').html('')
-          res = eval ("(" + res + ")");
-          str = '<thead><tr><th>论坛名</th><th>状态</th></tr></thead><tbody>';
-          for(var i in res){
-              str += '<tr>';
-              str += '<td>'+res[i].fname+'</td>'
-              if(res[i].enable == 'false'){
-                  str += "<td class=\"bpl\" data-fid='"+res[i].fid+"' onclick='editforum(this)'>停用</td>"
-              }else{
-                  str += "<td class=\"bpk\" data-fid='"+res[i].fid+"' onclick='editforum(this)'>启用</td>"
-              }
-              str += '</tr>';
-          }
-          str += '</tbody>'
-          $('#table').html(str)
-      }
-      function editforum(obj){
-          var fid = obj.dataset.fid;
-          var $this = $("td[data-fid="+fid+"]")
-          if(obj.innerText == '启用'){
-              obj.innerText = '停用';
-              $this.removeClass('bpk');
-              $this.addClass('bpl');
-          }else{
-              obj.innerText = '启用'
-              $this.removeClass('bpl')
-              $this.addClass('bpk')
-          }
-      }
-      function callBackFunction(functionName){
-          clearActive();
-          if(functionName == 'forumList'){
-              ajaxRequest('admin/getForumList', '', functionName)
-              $("a[name = 'menuItem']:eq(4)").addClass('active')
-          }
+<script src="js/admin/jquery.min.js"></script>
+<script>
+    // execute/clear BS loaders for docs
+    var cssFlag = 0;
+    var forumTypeMap = null;
+    var userRoleMap = null;
+    callBackFunction('forumType');
+    callBackFunction('userRole');
+    $(function () {
+        while (window.BS && window.BS.loader && window.BS.loader.length) {
+            (window.BS.loader.pop())()
+        }
+    })
+    $(document).ready(function () {
+        var host = window.location.host;
+        var hostWithPort = host;
+        if (host.indexOf(':') != -1) {
+            host = host.substring(0, host.indexOf(':'))
+        }
+        $("#rabbit").prop('href', "javascript:openModel('http://" + host + ":15672')")
+        $("#druid").prop('href', "javascript:openModel('http://" + hostWithPort + "/druid/login.html')")
+        $("#api").prop('href', "javascript:openModel('http://" + hostWithPort + "/swagger-ui.html')")
+    });
 
-      }
-      function clearActive(){
-          $("a[name = 'menuItem']").removeClass('active')
-      }
-      function ajaxRequest(url, param, callBack) {
-          $.ajax({
-              type: "POST",
-              url: url,
-              dataType: "json",
-              timeout: 50000,
-              data: param,
-              success: function (data) {
-                  eval(callBack+"('"+JSON.stringify(data)+"')");
-              },
-              complete: function (XMLHttpRequest, textStatus) {
-                  if (textStatus == 'timeout') {
-                      res = '';
-                  }
-              },
-              error: function (jqXHR) {
-                  res = '';
-              }
-          });
-      }
-    </script>
 
-  <script src="js/admin/popper.min.js"></script>
-  <script src="js/admin/chart.js"></script>
-  <script src="js/admin/tablesorter.min.js"></script>
-  <script src="js/admin/toolkit.js"></script>
-  <script src="js/admin/application.js"></script>
-  </body>
+    function openModel(url) {
+        $("#model_frame").attr('src', url)
+        $('#docsModal').modal('show');
+    }
+
+    function switchCss() {
+        if (cssFlag == 0) {
+            $("#UI").html('夜间模式');
+            $("#cssStyle").prop('href', 'css/admin/toolkit-light.css')
+            cssFlag = 1;
+        } else {
+            $("#UI").html('日间模式');
+            $("#cssStyle").prop('href', 'css/admin/toolkit-inverse.css')
+            cssFlag = 0;
+        }
+    }
+
+    function userManager(res) {
+        var str = '';
+        $('#overView').addClass('hidden')
+        $('#infoView').removeClass('hidden')
+        $('#table').html('')
+        res = eval("(" + res + ")");
+        str = '<thead><tr><th>SID</th><th>用户名</th><th>昵称</th><th>角色</th><th>状态</th><th>用户头像</th><th>用户背景图</th></tr></thead><tbody>';
+        for (var i in res) {
+            str += '<tr>';
+            str += '<td>' + res[i].sid + '</td>'
+            str += '<td>' + res[i].username + '</td>'
+            str += '<td>' + res[i].nickname + '</td>'
+            str += '<td><select onchange=\'changeUserRole(this)\'>';
+            for (var j in userRoleMap) {
+                if (res[i].roleId == userRoleMap[j].roleId) {
+                    str += "<option data-sid='" + res[i].sid + "' data-roleid='" + userRoleMap[j].roleId + "' selected = \"selected\">" + userRoleMap[j].roleName + "</option>"
+                    continue;
+                }
+                str += "<option data-sid='" + res[i].sid + "' data-roleid='" + userRoleMap[j].roleId + "'>" + userRoleMap[j].roleName + "</option>"
+            }
+            str += '</select></td>'
+            if (res[i].enable == false) {
+                str += "<td class=\"bpl\" data-fid='" + res[i].sid + "' onclick='editforum(this)'>停用</td>"
+            } else {
+                str += "<td class=\"bpk\" data-fid='" + res[i].sid + "' onclick='editforum(this)'>启用</td>"
+            }
+            if (res[i].userImg == null) {
+                str += '<td>无</td>'
+            } else {
+                str += '<td>' + "<img src='" + res[i].userImg + "'></img>" + '</td>'
+            }
+            if (res[i].userBackgroundImg == null) {
+                str += '<td>无</td>'
+            } else {
+                str += '<td>' + "<img src='" + res[i].userBackgroundImg + "'></img>" + '</td>'
+            }
+            str += '</tr>';
+        }
+        str += '</tbody>'
+        $('#table').html(str)
+    }
+
+    function forumList(res) {
+        var str = '';
+        $('#overView').addClass('hidden')
+        $('#infoView').removeClass('hidden')
+        $('#table').html('')
+        res = eval("(" + res + ")");
+        str = '<thead><tr><th>论坛名</th><th>类型</th><th>状态</th></tr></thead><tbody>';
+        for (var i in res) {
+            str += '<tr>';
+            str += '<td>' + res[i].fname + '</td>'
+            str += "<td><select onchange='changeForumType(this)'>"
+            for (var j in forumTypeMap) {
+                if (res[i].type == forumTypeMap[j].type) {
+                    str += "<option data-fid='" + res[i].fid + "' data-type='" + forumTypeMap[j].type + "' selected = \"selected\">" + forumTypeMap[j].type + "</option>"
+                    continue;
+                }
+                str += "<option data-fid='" + res[i].fid + "' data-type='" + forumTypeMap[j].type + "'>" + forumTypeMap[j].type + "</option>"
+            }
+            str += "</select></td>"
+            // str += '<td>'+res[i].type+'</td>'
+            if (res[i].enable == false) {
+                str += "<td class=\"bpl\" data-fid='" + res[i].fid + "' onclick='editforum(this)'>停用</td>"
+            } else {
+                str += "<td class=\"bpk\" data-fid='" + res[i].fid + "' onclick='editforum(this)'>启用</td>"
+            }
+            str += '</tr>';
+        }
+        str += '</tbody>'
+        $('#table').html(str)
+    }
+
+    function changeForumType(obj) {
+        var fid = $(obj).find("option:selected").attr('data-fid');
+        var type = $(obj).find("option:selected").attr('data-roleid');
+        var data = {'fid': fid, 'type': type}
+
+    }
+
+    function changeUserRole(obj) {
+        var sid = $(obj).find("option:selected").attr('data-sid');
+        var roleid = $(obj).find("option:selected").attr('data-roleid');
+        var data = {'sid': sid, 'roleId': roleid}
+        ajaxRequest('admin/editUserRole', data, null)
+    }
+
+    function forumType(data) {
+        forumTypeMap = data;
+        forumTypeMap = eval("(" + forumTypeMap + ")");
+    }
+
+    function userRole(data) {
+        userRoleMap = data;
+        userRoleMap = eval("(" + userRoleMap + ")");
+    }
+
+    function editforum(obj) {
+        var fid = obj.dataset.fid;
+        var $this = $("td[data-fid=" + fid + "]")
+        if (obj.innerText == '启用') {
+            obj.innerText = '停用';
+            $this.removeClass('bpk');
+            $this.addClass('bpl');
+        } else {
+            obj.innerText = '启用'
+            $this.removeClass('bpl')
+            $this.addClass('bpk')
+        }
+        var data = {fid: fid};
+        ajaxRequest('admin/editForum', data, null)
+    }
+
+    function callBackFunction(functionName) {
+        clearActive();
+        if (functionName == 'forumList') {
+            ajaxRequest('admin/getForumList', '', functionName)
+            $("a[name = 'menuItem']:eq(4)").addClass('active')
+        } else if (functionName == 'forumType') {
+            ajaxRequest('admin/getForumType', '', functionName)
+        } else if (functionName == 'userManager') {
+            ajaxRequest('admin/getUserList', '', functionName)
+            $("a[name = 'menuItem']:eq(5)").addClass('active')
+        } else if (functionName == 'userRole') {
+            ajaxRequest('admin/getRole', '', functionName)
+        }
+
+
+    }
+
+    function clearActive() {
+        $("a[name = 'menuItem']").removeClass('active')
+    }
+
+    function ajaxRequest(url, param, callBack) {
+        $.ajax({
+            type: "POST",
+            url: url,
+            dataType: "json",
+            timeout: 50000,
+            data: param,
+            success: function (data) {
+                if (callBack != null)
+                    eval(callBack + "('" + JSON.stringify(data) + "')");
+            },
+            complete: function (XMLHttpRequest, textStatus) {
+                if (textStatus == 'timeout') {
+                    res = '';
+                }
+            },
+            error: function (jqXHR) {
+                res = '';
+            }
+        });
+    }
+</script>
+
+<script src="js/admin/popper.min.js"></script>
+<script src="js/admin/chart.js"></script>
+<script src="js/admin/tablesorter.min.js"></script>
+<script src="js/admin/toolkit.js"></script>
+<script src="js/admin/application.js"></script>
+</body>
 </html>
 

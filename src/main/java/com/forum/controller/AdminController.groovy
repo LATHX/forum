@@ -20,4 +20,40 @@ class AdminController {
     getForumList() {
         return adminService.getForumList()
     }
+
+    @ApiOperation('论坛状态修改')
+    @PostMapping('/editForum')
+    editForum(String fid) {
+        return adminService.editForum(fid)
+    }
+
+    @ApiOperation('获取论坛类型')
+    @PostMapping('/getForumType')
+    getForumType() {
+        return adminService.getForumType()
+    }
+
+    @ApiOperation('修改论坛类型')
+    @PostMapping('/editForumType')
+    editForumType(String fid, String type) {
+        return adminService.editForumType(fid, type)
+    }
+
+    @ApiOperation('获取所有用户信息')
+    @PostMapping('/getUserList')
+    editUserList() {
+        return adminService.getUserList()
+    }
+
+    @ApiOperation('获取所有权限信息')
+    @PostMapping('/getRole')
+    getRole() {
+        return adminService.getRole()
+    }
+
+    @ApiOperation('更改用户权限')
+    @PostMapping('/editUserRole')
+    editUserRole(String sid, String roleId) {
+        return adminService.editUserRole(sid, roleId)
+    }
 }
