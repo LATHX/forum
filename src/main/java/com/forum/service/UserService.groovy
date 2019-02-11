@@ -44,4 +44,6 @@ interface UserService {
     List<NotificationEntity> queryNotification()
 
     List<PostEntity> queryUserPost()
+
+    List<ForumTypeEntity> queryForumType()
 }

@@ -5,6 +5,7 @@ import com.forum.model.entity.UserFollowCountVOEntity
 import org.apache.ibatis.annotations.Insert
 import org.apache.ibatis.annotations.Param
 import org.apache.ibatis.annotations.Select
+import org.apache.ibatis.annotations.Update
 import tk.mybatis.mapper.common.Mapper
 
 @org.apache.ibatis.annotations.Mapper
@@ -35,4 +36,10 @@ interface UserMapper extends Mapper<UserEntity> {
 
     @Select('select * from f_user')
     List<UserEntity> selectAllFromTable()
+
+    @Select('select * from f_user where sid = #{sid}')
+    UserEntity selectEnableBySid(@Param('sid') String sid)
+
+    @Update('update f_user set enable = #{enable} where sid = #{sid}')
+    boolean updateEnableBySid(@Param('enable') boolean enable, @Param('sid') String sid)
 }

@@ -16,6 +16,11 @@
                 <textarea class="form-control resize-none" id="forum_description" name="text" rows="8" cols="20" placeholder="描述"></textarea><br>
                 </div>
                 <br>
+                <label>论坛类型</label>
+                <div id="newForumType">
+
+                </div>
+                <br>
                 <label>上传论坛图片</label><br>
                     <input id="forumImage" name="newForumImage" type="file" class="file-loading width-auto"
                            data-overwrite-initial="false" data-min-file-count="1" multiple/>
@@ -49,6 +54,32 @@
                     $("#new-forum-body").addClass("hidden");
                     $("#new-forum-body-query").removeClass("hidden");
                 }
+            },
+            complete: function (XMLHttpRequest, textStatus) {
+                if (textStatus == 'timeout') {
+                    userPageAlert('', '连接超时，请稍后再试')
+                }
+            },
+            error: function (jqXHR) {
+                userPageAlert('', '服务器繁忙，请稍后再试')
+            }
+        });
+
+        $.ajax({
+            type: "POST",
+            url: "/user/forum-type-query",
+            dataType: "json",
+            timeout: 50000,
+            data: {},
+            success: function (data) {
+                $("#newForumType").html('')
+                var str = '';
+                str += '<select id=\'newForumtype\'>'
+                for (var j in data) {
+                    str += "<option value='"+data[j].type+"'>"+data[j].type+"</option>"
+                }
+                str += '</select>'
+               $("#newForumType").append(str)
             },
             complete: function (XMLHttpRequest, textStatus) {
                 if (textStatus == 'timeout') {
@@ -100,7 +131,8 @@
              uploadExtraData: function (previewId, index) {
             var data = {
             fname:$("#forum_name").val(),
-            description: $("#forum_description").val()
+            description: $("#forum_description").val(),
+                type:$('#newForumtype').val()
             };
                 return data;
             },

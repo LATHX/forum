@@ -84,7 +84,12 @@
                                name="menuItem">日间模式</a>
                         </li>
                         <li class="pa">
-                            <a class="oy" href="#docsModal" data-toggle="modal" name="menuItem">参数设定</a>
+                            <a class="oy" href="javascript:void(0)" target="blank" name="menuItem"
+                               onclick="callBackFunction('getForumType')">论坛类型</a>
+                        </li>
+                        <li class="pa">
+                            <a class="oy" href="javascript:void(0)" id="constant" name="menuItem"
+                               onclick="callBackFunction('getConstant')">参数设定</a>
                         </li>
                     </ul>
                     <hr class="bre aez">
@@ -279,9 +284,9 @@
             }
             str += '</select></td>'
             if (res[i].enable == false) {
-                str += "<td class=\"bpl\" data-fid='" + res[i].sid + "' onclick='editforum(this)'>停用</td>"
+                str += "<td class=\"bpl\" data-sid='" + res[i].sid + "' onclick='editUser(this)'>停用</td>"
             } else {
-                str += "<td class=\"bpk\" data-fid='" + res[i].sid + "' onclick='editforum(this)'>启用</td>"
+                str += "<td class=\"bpk\" data-sid='" + res[i].sid + "' onclick='editUser(this)'>启用</td>"
             }
             if (res[i].userImg == null) {
                 str += '<td>无</td>'
@@ -297,6 +302,22 @@
         }
         str += '</tbody>'
         $('#table').html(str)
+    }
+
+    function editUser(obj) {
+        var sid = obj.dataset.sid;
+        var $this = $("td[data-sid=" + sid + "]")
+        if (obj.innerText == '启用') {
+            obj.innerText = '停用';
+            $this.removeClass('bpk');
+            $this.addClass('bpl');
+        } else {
+            obj.innerText = '启用'
+            $this.removeClass('bpl')
+            $this.addClass('bpk')
+        }
+        var data = {sid: sid};
+        ajaxRequest('admin/editUserStatus', data, null)
     }
 
     function forumList(res) {
@@ -382,9 +403,73 @@
             $("a[name = 'menuItem']:eq(5)").addClass('active')
         } else if (functionName == 'userRole') {
             ajaxRequest('admin/getRole', '', functionName)
+        } else if (functionName == 'getConstant') {
+            $("#constant").addClass('active')
+            ajaxRequest('admin/getConstant', '', functionName)
+        } else if (functionName == 'getForumType') {
+            ajaxRequest('admin/getForumType', '', functionName)
+            $("a[name = 'menuItem']:eq(7)").addClass('active')
         }
 
 
+    }
+
+    function getForumType(res) {
+        var str = '';
+        $('#overView').addClass('hidden')
+        $('#infoView').removeClass('hidden')
+        $('#table').html('')
+        res = eval("(" + res + ")");
+        str = '<thead><tr><th>类型名</th><th>操作</th></tr></thead><tbody>';
+        str += '<tr>';
+        str += "<td><input type=\"text\" value=\"\" class=\"form-control\" placeholder='新增类型' id='forumTypeName'></td>"
+        str += '<td class=\"bpk\" onclick=\"handlerForumTypeInput()\">增加</td>'
+        str += '</tr>';
+
+        for (var i in res) {
+            str += '<tr>';
+            str += '<td>' + res[i].type + '</td>'
+            str += '<td class=\"bpl\" onclick=\"handlerForumType(\'' + res[i].type + '\')\">删除</td>'
+            str += '</tr>';
+        }
+        str += '</tbody>'
+        $('#table').html(str)
+    }
+
+    function handlerForumType(datas) {
+        var data = {type: datas};
+        ajaxRequest('admin/editForumTypeList', data, 'handlerForumTypeSuccess')
+    }
+
+    function handlerForumTypeSuccess(res) {
+        callBackFunction('forumType');
+        callBackFunction('getForumType');
+    }
+
+    function handlerForumTypeInput() {
+        var data = $("#forumTypeName").val()
+        if (data != null && data.trim().length != 0 && data.trim() != '') {
+            handlerForumType(data)
+        }
+    }
+
+    function getConstant(res) {
+        var str = '';
+        $('#overView').addClass('hidden')
+        $('#infoView').removeClass('hidden')
+        $('#table').html('')
+        res = eval("(" + res + ")");
+        str = '<thead><tr><th>参数名</th><th>描述</th><th>参数</th><th>参数类型</th></tr></thead><tbody>';
+        for (var i in res) {
+            str += '<tr>';
+            str += '<td>' + res[i].paramName + '</td>'
+            str += '<td>' + res[i].description + '</td>'
+            str += '<td>' + res[i].value + '</td>'
+            str += '<td>' + res[i].paramType + '</td>'
+            str += '</tr>';
+        }
+        str += '</tbody>'
+        $('#table').html(str)
     }
 
     function clearActive() {
@@ -399,8 +484,14 @@
             timeout: 50000,
             data: param,
             success: function (data) {
-                if (callBack != null)
-                    eval(callBack + "('" + JSON.stringify(data) + "')");
+                if (callBack != null) {
+                    if (data != null) {
+                        eval(callBack + "('" + JSON.stringify(data) + "')");
+                    } else {
+                        eval(callBack + "()");
+                    }
+                }
+
             },
             complete: function (XMLHttpRequest, textStatus) {
                 if (textStatus == 'timeout') {

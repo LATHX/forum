@@ -56,4 +56,21 @@ class AdminController {
     editUserRole(String sid, String roleId) {
         return adminService.editUserRole(sid, roleId)
     }
+
+    @ApiOperation('更改用户状态')
+    @PostMapping('/editUserStatus')
+    editUserStatus(String sid) {
+        return adminService.editUserStatus(sid)
+    }
+
+    @ApiOperation('获取配置参数')
+    @PostMapping('/getConstant')
+    editUserStatus() {
+        return adminService.getDictionary()
+    }
+    @ApiOperation('修改论坛类型列表')
+    @PostMapping('/editForumTypeList')
+    editForumType(String type) {
+        return adminService.editForumType(type)
+    }
 }

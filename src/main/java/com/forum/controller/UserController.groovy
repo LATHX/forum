@@ -240,4 +240,10 @@ class UserController {
         List<PostEntity> list = userService.queryUserPost()
         return list
     }
+
+    @ApiOperation('获取论坛类型')
+    @PostMapping('/forum-type-query')
+    queryForumType() {
+        return userService.queryForumType()
+    }
 }

@@ -1,5 +1,6 @@
 package com.forum.service
 
+import com.forum.model.entity.DictionaryEntity
 import com.forum.model.entity.ForumListEntity
 import com.forum.model.entity.ForumTypeEntity
 import com.forum.model.entity.RoleEntity
@@ -13,4 +14,7 @@ interface AdminService {
     List<UserEntity> getUserList()
     List<RoleEntity> getRole()
     void editUserRole(String sid, String roleId)
+    void editUserStatus(String sid)
+    List<DictionaryEntity> getDictionary()
+    Integer editForumType(String type)
 }

@@ -5,6 +5,7 @@ import com.forum.global.GlobalCode
 import com.forum.mapper.FollowForumMapper
 import com.forum.mapper.FollowFriendMapper
 import com.forum.mapper.ForumListMapper
+import com.forum.mapper.ForumTypeMapper
 import com.forum.mapper.NotificationMapper
 import com.forum.mapper.PostMapper
 import com.forum.mapper.PostReplyMapper
@@ -41,6 +42,8 @@ class UserServiceImpl implements UserService {
     FollowFriendMapper followFriendMapper
     @Autowired
     FileService fileService
+    @Autowired
+    ForumTypeMapper forumTypeMapper
     @Value('${web.upload-userimg-path}')
     private String userImgPath
     @Value('${web.upload-userbackgroundimg-path}')
@@ -345,9 +348,9 @@ class UserServiceImpl implements UserService {
             messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_SUCCESS)
         } else {
             count = postMapper.deletePostBySIdAndPostId(user.getSid(), postId)
-            if(count == 1){
+            if (count == 1) {
                 messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_SUCCESS)
-            }else{
+            } else {
                 messageCodeInfo.setMsgCode(GlobalCode.REFERENCE_FAIL)
                 messageCodeInfo.setMsgInfo(Constant.LOGIN_PERMISSION_MSG)
             }
@@ -397,5 +400,10 @@ class UserServiceImpl implements UserService {
         UserEntity user = ShiroUtil.getUser()
         List<PostEntity> list = postMapper.selectBySId(user.getSid())
         return list
+    }
+
+    @Override
+    List<ForumTypeEntity> queryForumType() {
+        return forumTypeMapper.selectAll()
     }
 }

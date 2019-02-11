@@ -1,9 +1,12 @@
 server:
   port: 8080
 web:
-  upload-userimg-path: D:/images/userImg/
-  upload-userbackgroundimg-path: D:/images/userBackgroundImg/
-  upload-userpostimage-path: D:/images/userPostImg/
+#  upload-userimg-path: D:/images/userImg/
+#  upload-userbackgroundimg-path: D:/images/userBackgroundImg/
+#  upload-userpostimage-path: D:/images/userPostImg/
+  upload-userimg-path: /Users/ljl/Downloads/dev/image/userImg/
+  upload-userbackgroundimg-path: /Users/ljl/Downloads/dev/image/userBackgroundImg/
+  upload-userpostimage-path: /Users/ljl/Downloads/dev/image/userPostImg/
 spring:
   mail:
     host: smtp.qq.com

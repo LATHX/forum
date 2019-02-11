@@ -1,20 +1,14 @@
 package com.forum.service.impl
 
-import com.forum.mapper.ForumListMapper
-import com.forum.mapper.ForumTypeMapper
-import com.forum.mapper.RoleMapper
-import com.forum.mapper.UserMapper
-import com.forum.model.entity.ForumListEntity
-import com.forum.model.entity.ForumTypeEntity
-import com.forum.model.entity.RoleEntity
-import com.forum.model.entity.UserEntity
+import com.forum.mapper.*
+import com.forum.model.entity.*
 import com.forum.service.AdminService
 import com.forum.utils.CommonUtil
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
 @Service
-class AdminServiceImpl implements AdminService{
+class AdminServiceImpl implements AdminService {
     @Autowired
     ForumListMapper forumListMapper
     @Autowired
@@ -23,6 +17,8 @@ class AdminServiceImpl implements AdminService{
     UserMapper userMapper
     @Autowired
     RoleMapper roleMapper
+    @Autowired
+    DictionaryMapper dictionaryMapper
 
     @Override
     List<ForumListEntity> getForumList() {
@@ -77,5 +73,33 @@ class AdminServiceImpl implements AdminService{
         userEntity.setSid(sid)
         userEntity.setRoleId(roleId?.toInteger())
         userMapper.updateByPrimaryKeySelective(userEntity)
+    }
+
+    @Override
+    void editUserStatus(String sid) {
+        UserEntity userEntity = userMapper.selectEnableBySid(sid)
+        if (userEntity?.getEnable() == false) {
+            userEntity.setEnable(true)
+        } else if (userEntity?.getEnable() == true) {
+            userEntity.setEnable(false)
+        }
+        userMapper.updateEnableBySid(userEntity.getEnable(), sid)
+    }
+
+    @Override
+    List<DictionaryEntity> getDictionary() {
+        return dictionaryMapper.selectAll()
+    }
+
+    @Override
+    Integer editForumType(String type) {
+        ForumTypeEntity forumTypeEntity = forumTypeMapper.selectByPrimaryKey(type)
+        if (CommonUtil.isEmpty(forumTypeEntity)) {
+            ForumTypeEntity ForumTypeEntity1 = new ForumTypeEntity()
+            ForumTypeEntity1.setType(type)
+            return forumTypeMapper.insert(ForumTypeEntity1)
+        } else {
+            return forumTypeMapper.deleteByPrimaryKey(type)
+        }
     }
 }
