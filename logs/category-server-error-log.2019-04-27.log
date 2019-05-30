@@ -1,0 +1,4 @@
+2019-04-27 00:06:44.542 [AMQP Connection 127.0.0.1:5672] ERROR o.s.a.rabbit.connection.CachingConnectionFactory - Channel shutdown: connection error
+2019-04-27 00:06:44.543 [AMQP Connection 127.0.0.1:5672] ERROR o.s.a.rabbit.connection.CachingConnectionFactory - Channel shutdown: connection error
+2019-04-27 00:06:44.544 [AMQP Connection 127.0.0.1:5672] ERROR o.s.a.rabbit.connection.CachingConnectionFactory - Channel shutdown: connection error
+2019-04-27 00:06:44.544 [AMQP Connection 127.0.0.1:5672] ERROR o.s.a.rabbit.connection.CachingConnectionFactory - Channel shutdown: connection error

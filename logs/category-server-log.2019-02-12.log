@@ -1,0 +1,90 @@
+2019-02-12 00:15:18.893 [SimpleAsyncTaskExecutor-1] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Restarting Consumer@5a07ae2f: tags=[[amq.ctag-k7eaWFqrkX0Ddr710qrATQ]], channel=Cached Rabbit Channel: PublisherCallbackChannelImpl: AMQChannel(amqp://admin@127.0.0.1:5672/,1), conn: Proxy@27d6467 Shared Rabbit Connection: SimpleConnection@68de8522 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 60833], acknowledgeMode=AUTO local queue size=0
+2019-02-12 00:15:18.893 [SimpleAsyncTaskExecutor-1] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Restarting Consumer@770cbe5d: tags=[[amq.ctag-CszV12tXrYFVd9z44FL6dA]], channel=Cached Rabbit Channel: PublisherCallbackChannelImpl: AMQChannel(amqp://admin@127.0.0.1:5672/,9), conn: Proxy@27d6467 Shared Rabbit Connection: SimpleConnection@68de8522 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 60833], acknowledgeMode=AUTO local queue size=0
+2019-02-12 00:15:18.893 [SimpleAsyncTaskExecutor-1] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Restarting Consumer@293ecff6: tags=[[amq.ctag-aqRMKpbZgwjbg_InwoTxJQ]], channel=Cached Rabbit Channel: PublisherCallbackChannelImpl: AMQChannel(amqp://admin@127.0.0.1:5672/,2), conn: Proxy@27d6467 Shared Rabbit Connection: SimpleConnection@68de8522 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 60833], acknowledgeMode=AUTO local queue size=0
+2019-02-12 00:15:18.893 [SimpleAsyncTaskExecutor-1] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Restarting Consumer@34d72f06: tags=[[amq.ctag-KVwSjhZkPnAHcXlpxwZV9A]], channel=Cached Rabbit Channel: PublisherCallbackChannelImpl: AMQChannel(amqp://admin@127.0.0.1:5672/,3), conn: Proxy@27d6467 Shared Rabbit Connection: SimpleConnection@68de8522 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 60833], acknowledgeMode=AUTO local queue size=0
+2019-02-12 00:15:18.893 [SimpleAsyncTaskExecutor-1] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Restarting Consumer@2ea4e762: tags=[[amq.ctag-pMufpnh6xuF8kdWaJp5Xtg]], channel=Cached Rabbit Channel: PublisherCallbackChannelImpl: AMQChannel(amqp://admin@127.0.0.1:5672/,6), conn: Proxy@27d6467 Shared Rabbit Connection: SimpleConnection@68de8522 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 60833], acknowledgeMode=AUTO local queue size=0
+2019-02-12 00:15:18.893 [SimpleAsyncTaskExecutor-1] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Restarting Consumer@7d07e04e: tags=[[amq.ctag-d1WD1cyAX29gVolx0GyABg]], channel=Cached Rabbit Channel: PublisherCallbackChannelImpl: AMQChannel(amqp://admin@127.0.0.1:5672/,8), conn: Proxy@27d6467 Shared Rabbit Connection: SimpleConnection@68de8522 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 60833], acknowledgeMode=AUTO local queue size=0
+2019-02-12 00:15:18.893 [SimpleAsyncTaskExecutor-1] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Restarting Consumer@1e466d: tags=[[amq.ctag-uKMcV2BYHrvOnqb4mHHd7A]], channel=Cached Rabbit Channel: PublisherCallbackChannelImpl: AMQChannel(amqp://admin@127.0.0.1:5672/,5), conn: Proxy@27d6467 Shared Rabbit Connection: SimpleConnection@68de8522 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 60833], acknowledgeMode=AUTO local queue size=0
+2019-02-12 00:15:18.893 [SimpleAsyncTaskExecutor-1] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Restarting Consumer@36931450: tags=[[amq.ctag-sOLcjxmxfYGyYMEqlTya7A]], channel=Cached Rabbit Channel: PublisherCallbackChannelImpl: AMQChannel(amqp://admin@127.0.0.1:5672/,7), conn: Proxy@27d6467 Shared Rabbit Connection: SimpleConnection@68de8522 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 60833], acknowledgeMode=AUTO local queue size=0
+2019-02-12 00:15:18.933 [SimpleAsyncTaskExecutor-2] INFO  o.s.a.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [127.0.0.1:5672]
+2019-02-12 00:15:18.935 [SimpleAsyncTaskExecutor-2] INFO  o.s.a.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [127.0.0.1:5672]
+2019-02-12 00:15:18.935 [SimpleAsyncTaskExecutor-2] INFO  o.s.a.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [127.0.0.1:5672]
+2019-02-12 00:15:18.936 [SimpleAsyncTaskExecutor-2] INFO  o.s.a.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [127.0.0.1:5672]
+2019-02-12 00:15:18.937 [SimpleAsyncTaskExecutor-2] INFO  o.s.a.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [127.0.0.1:5672]
+2019-02-12 00:15:18.937 [SimpleAsyncTaskExecutor-2] INFO  o.s.a.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [127.0.0.1:5672]
+2019-02-12 00:15:18.938 [SimpleAsyncTaskExecutor-2] INFO  o.s.a.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [127.0.0.1:5672]
+2019-02-12 00:15:18.938 [SimpleAsyncTaskExecutor-2] INFO  o.s.a.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [127.0.0.1:5672]
+2019-02-12 00:15:18.939 [SimpleAsyncTaskExecutor-2] INFO  o.s.a.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [127.0.0.1:5672]
+2019-02-12 00:15:18.940 [SimpleAsyncTaskExecutor-2] INFO  o.s.a.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [127.0.0.1:5672]
+2019-02-12 00:15:19.115 [SimpleAsyncTaskExecutor-1] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Restarting Consumer@21dd9203: tags=[[amq.ctag-Zc5FqNOfq7fjpveu3a5w1g]], channel=Cached Rabbit Channel: PublisherCallbackChannelImpl: AMQChannel(amqp://admin@127.0.0.1:5672/,4), conn: Proxy@27d6467 Shared Rabbit Connection: null, acknowledgeMode=AUTO local queue size=0
+2019-02-12 00:15:19.115 [SimpleAsyncTaskExecutor-2] INFO  o.s.a.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [127.0.0.1:5672]
+2019-02-12 00:15:24.019 [SimpleAsyncTaskExecutor-2] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Restarting Consumer@bdd7a0e: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2019-02-12 00:15:24.019 [SimpleAsyncTaskExecutor-2] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Restarting Consumer@7d7ceae2: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2019-02-12 00:15:24.019 [SimpleAsyncTaskExecutor-2] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Restarting Consumer@107c1aab: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2019-02-12 00:15:24.019 [SimpleAsyncTaskExecutor-2] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Restarting Consumer@711fed8c: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2019-02-12 00:15:24.019 [SimpleAsyncTaskExecutor-2] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Restarting Consumer@64190fe6: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2019-02-12 00:15:24.019 [SimpleAsyncTaskExecutor-2] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Restarting Consumer@31c1c7b8: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2019-02-12 00:15:24.019 [SimpleAsyncTaskExecutor-2] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Restarting Consumer@70d6d017: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2019-02-12 00:15:24.019 [SimpleAsyncTaskExecutor-2] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Restarting Consumer@126c4115: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2019-02-12 00:15:24.019 [SimpleAsyncTaskExecutor-3] INFO  o.s.a.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [127.0.0.1:5672]
+2019-02-12 00:15:24.021 [SimpleAsyncTaskExecutor-3] INFO  o.s.a.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [127.0.0.1:5672]
+2019-02-12 00:15:24.021 [SimpleAsyncTaskExecutor-3] INFO  o.s.a.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [127.0.0.1:5672]
+2019-02-12 00:15:24.022 [SimpleAsyncTaskExecutor-3] INFO  o.s.a.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [127.0.0.1:5672]
+2019-02-12 00:15:24.022 [SimpleAsyncTaskExecutor-3] INFO  o.s.a.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [127.0.0.1:5672]
+2019-02-12 00:15:24.023 [SimpleAsyncTaskExecutor-3] INFO  o.s.a.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [127.0.0.1:5672]
+2019-02-12 00:15:24.023 [SimpleAsyncTaskExecutor-3] INFO  o.s.a.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [127.0.0.1:5672]
+2019-02-12 00:15:24.024 [SimpleAsyncTaskExecutor-3] INFO  o.s.a.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [127.0.0.1:5672]
+2019-02-12 00:15:24.024 [SimpleAsyncTaskExecutor-3] INFO  o.s.a.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [127.0.0.1:5672]
+2019-02-12 00:15:24.025 [SimpleAsyncTaskExecutor-3] INFO  o.s.a.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [127.0.0.1:5672]
+2019-02-12 00:15:24.186 [SimpleAsyncTaskExecutor-2] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Restarting Consumer@5f5d18da: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2019-02-12 00:15:24.186 [SimpleAsyncTaskExecutor-3] INFO  o.s.a.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [127.0.0.1:5672]
+2019-02-12 00:15:29.094 [SimpleAsyncTaskExecutor-3] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Restarting Consumer@d97c833: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2019-02-12 00:15:29.094 [SimpleAsyncTaskExecutor-3] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Restarting Consumer@1c4d28b4: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2019-02-12 00:15:29.094 [SimpleAsyncTaskExecutor-3] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Restarting Consumer@80a4e18: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2019-02-12 00:15:29.094 [SimpleAsyncTaskExecutor-3] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Restarting Consumer@cf2c86e: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2019-02-12 00:15:29.094 [SimpleAsyncTaskExecutor-3] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Restarting Consumer@1916ba06: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2019-02-12 00:15:29.094 [SimpleAsyncTaskExecutor-4] INFO  o.s.a.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [127.0.0.1:5672]
+2019-02-12 00:15:29.096 [SimpleAsyncTaskExecutor-4] INFO  o.s.a.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [127.0.0.1:5672]
+2019-02-12 00:15:29.096 [SimpleAsyncTaskExecutor-4] INFO  o.s.a.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [127.0.0.1:5672]
+2019-02-12 00:15:29.097 [SimpleAsyncTaskExecutor-4] INFO  o.s.a.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [127.0.0.1:5672]
+2019-02-12 00:15:29.097 [SimpleAsyncTaskExecutor-4] INFO  o.s.a.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [127.0.0.1:5672]
+2019-02-12 00:15:29.100 [SimpleAsyncTaskExecutor-3] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Restarting Consumer@388ee274: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2019-02-12 00:15:29.100 [SimpleAsyncTaskExecutor-3] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Restarting Consumer@7a494eff: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2019-02-12 00:15:29.100 [SimpleAsyncTaskExecutor-3] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Restarting Consumer@99f41a1: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2019-02-12 00:15:29.101 [SimpleAsyncTaskExecutor-4] INFO  o.s.a.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [127.0.0.1:5672]
+2019-02-12 00:15:29.101 [SimpleAsyncTaskExecutor-4] INFO  o.s.a.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [127.0.0.1:5672]
+2019-02-12 00:15:29.102 [SimpleAsyncTaskExecutor-4] INFO  o.s.a.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [127.0.0.1:5672]
+2019-02-12 00:15:29.102 [SimpleAsyncTaskExecutor-4] INFO  o.s.a.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [127.0.0.1:5672]
+2019-02-12 00:15:29.102 [SimpleAsyncTaskExecutor-4] INFO  o.s.a.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [127.0.0.1:5672]
+2019-02-12 00:15:29.263 [SimpleAsyncTaskExecutor-3] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Restarting Consumer@16e7f53f: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2019-02-12 00:15:29.264 [SimpleAsyncTaskExecutor-4] INFO  o.s.a.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [127.0.0.1:5672]
+2019-02-12 00:15:29.474 [Thread-18] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
+2019-02-12 00:15:29.475 [Thread-18] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2019-02-12 00:15:29.475 [Thread-18] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
+2019-02-12 00:15:29.475 [Thread-18] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2019-02-12 00:15:29.475 [Thread-18] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
+2019-02-12 00:15:29.475 [Thread-18] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2019-02-12 00:15:29.475 [Thread-18] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
+2019-02-12 00:15:29.475 [Thread-18] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2019-02-12 00:15:29.475 [Thread-18] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
+2019-02-12 00:15:29.475 [Thread-18] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2019-02-12 00:15:29.475 [Thread-18] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
+2019-02-12 00:15:29.475 [Thread-18] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2019-02-12 00:15:29.475 [Thread-18] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
+2019-02-12 00:15:29.475 [Thread-18] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2019-02-12 00:15:29.475 [Thread-18] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
+2019-02-12 00:15:29.475 [Thread-18] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2019-02-12 00:15:29.475 [Thread-18] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
+2019-02-12 00:15:29.475 [Thread-18] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2019-02-12 00:15:29.478 [Thread-18] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Shutdown ignored - container is not active already
+2019-02-12 00:15:29.478 [Thread-18] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Shutdown ignored - container is not active already
+2019-02-12 00:15:29.479 [Thread-18] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Shutdown ignored - container is not active already
+2019-02-12 00:15:29.479 [Thread-18] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Shutdown ignored - container is not active already
+2019-02-12 00:15:29.479 [Thread-18] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Shutdown ignored - container is not active already
+2019-02-12 00:15:29.479 [Thread-18] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Shutdown ignored - container is not active already
+2019-02-12 00:15:29.479 [Thread-18] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Shutdown ignored - container is not active already
+2019-02-12 00:15:29.479 [Thread-18] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Shutdown ignored - container is not active already
+2019-02-12 00:15:29.479 [Thread-18] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Shutdown ignored - container is not active already
+2019-02-12 00:15:29.480 [Thread-18] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2019-02-12 00:15:29.483 [Thread-18] INFO  o.a.s.session.mgt.AbstractValidatingSessionManager - Disabled session validation scheduler.
+2019-02-12 00:15:29.493 [Thread-18] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed

@@ -353,9 +353,9 @@
 
     function changeForumType(obj) {
         var fid = $(obj).find("option:selected").attr('data-fid');
-        var type = $(obj).find("option:selected").attr('data-roleid');
+        var type = $(obj).find("option:selected").attr('data-type');
         var data = {'fid': fid, 'type': type}
-
+        ajaxRequest('admin/editForumType', data, null)
     }
 
     function changeUserRole(obj) {
